@@ -5,43 +5,423 @@
   "door": "both",
   "completeness": "częściowe",
   "difficulty": 2,
-  "time": [30, 90],
-  "summary": "Klamka wewnętrzna E53 to znana słabość: pęka, luzuje się albo ściera się z niej powłoka. Sam uchwyt siedzi w boczku, więc najpewniej zdejmujesz boczek i odkręcasz go od środka. Procedura fabryczna jest opisana dla drzwi tylnych, dla przednich przyjmujemy analogię (oznaczone niżej).",
+  "time": [
+    75,
+    150
+  ],
+  "summary": "Klamka wewnętrzna E53 (czarny uchwyt z miękką powłoką) to znana słabość: lepi się, łuszczy lub pęka. Wymiana polega na zdjęciu boczka (osobna, szczegółowa karta) i wymianie uchwytu od tyłu: nakrętka, śruba w prowadnicy, obrót uchwytu do wewnątrz i ku górze. Opis czynności z uchwytem pochodzi z instrukcji fabrycznej i forum; nie znaleźliśmy filmu ani zdjęć samego uchwytu dla E53 (znalezione filmy dotyczą E70).",
   "extras": [
-    { "t": "Tylko starta powłoka?", "b": "Jeśli klamka jest tylko porysowana (miękka powłoka ściera się od pierścieni i paznokci), zamiast wymiany można ją okleić nakładką ze skóry. Tańsze i szybsze.", "src": ["xo-interior-handle"] }
+    {
+      "t": "Tylko starta powłoka?",
+      "b": "Jeśli klamka jest tylko porysowana (miękka powłoka ściera się od pierścieni i paznokci), zamiast wymiany można ją okleić nakładką ze skóry. Tańsze i szybsze.",
+      "src": [
+        "xo-interior-handle"
+      ]
+    }
   ],
   "tools": [
-    { "name": "Torx T20", "note": "śruby boczka", "need": "must" },
-    { "name": "Plastikowe łopatki do tapicerki", "note": "boczek i zaślepki", "need": "must" },
-    { "name": "Mały klucz nasadowy lub płaski", "note": "nakrętka uchwytu; rozmiar niepotwierdzony", "need": "must" },
-    { "name": "Zapasowe spinki boczka", "note": "część pęknie", "need": "should" }
+    {
+      "name": "Torx T20",
+      "note": "śruby boczka",
+      "need": "must"
+    },
+    {
+      "name": "Plastikowe łopatki do tapicerki",
+      "note": "boczek i zaślepki",
+      "need": "must"
+    },
+    {
+      "name": "Mały klucz nasadowy lub płaski",
+      "note": "nakrętka uchwytu; rozmiar niepotwierdzony",
+      "need": "must"
+    },
+    {
+      "name": "Zapasowe spinki boczka",
+      "note": "część pęknie",
+      "need": "should"
+    }
   ],
   "parts": [
-    { "name": "Klamka wewnętrzna, przód lewy (czarne wnętrze)", "oe": "51418265077", "conf": "med", "note": "Numer z forum, wyłącznie dla czarnego wnętrza. Dla innych kolorów będzie inny: sprawdź w katalogu po VIN.", "src": ["xo-interior-handle"] },
-    { "name": "Klamka wewnętrzna, przód prawy (czarne wnętrze)", "oe": "51418265078", "conf": "med", "note": "Jak wyżej.", "src": ["xo-interior-handle"] },
-    { "name": "Klamka wewnętrzna, tył lewy (czarne wnętrze)", "oe": "51428265173", "conf": "med", "note": "Jak wyżej.", "src": ["xo-interior-handle"] },
-    { "name": "Klamka wewnętrzna, tył prawy (czarne wnętrze)", "oe": "51428265174", "conf": "med", "note": "Jak wyżej.", "src": ["xo-interior-handle"] },
-    { "name": "Zamiennik URO, przód lewy", "oe": "51418408565", "conf": "med",
+    {
+      "name": "Klamka wewnętrzna, przód lewy (czarne wnętrze)",
+      "oe": "51418265077",
+      "conf": "med",
+      "note": "Numer z forum, wyłącznie dla czarnego wnętrza. Dla innych kolorów będzie inny: sprawdź w katalogu po VIN.",
+      "src": [
+        "xo-interior-handle"
+      ]
+    },
+    {
+      "name": "Klamka wewnętrzna, przód prawy (czarne wnętrze)",
+      "oe": "51418265078",
+      "conf": "med",
+      "note": "Jak wyżej.",
+      "src": [
+        "xo-interior-handle"
+      ]
+    },
+    {
+      "name": "Klamka wewnętrzna, tył lewy (czarne wnętrze)",
+      "oe": "51428265173",
+      "conf": "med",
+      "note": "Jak wyżej.",
+      "src": [
+        "xo-interior-handle"
+      ]
+    },
+    {
+      "name": "Klamka wewnętrzna, tył prawy (czarne wnętrze)",
+      "oe": "51428265174",
+      "conf": "med",
+      "note": "Jak wyżej.",
+      "src": [
+        "xo-interior-handle"
+      ]
+    },
+    {
+      "name": "Zamiennik URO, przód lewy",
+      "oe": "51418408565",
+      "conf": "med",
       "note": "Sklep podaje ten numer BMW jako zastępowany przez zamiennik URO z 2-letnią gwarancją; dla prawej strony 51418408566. Numery różnią się od powyższych (wersja/kolor wnętrza), więc dobierz po VIN.",
-      "price": "ok. 15 USD u sprzedawcy z USA", "src": ["bw-interior"] }
+      "price": "ok. 15 USD u sprzedawcy z USA",
+      "src": [
+        "bw-interior"
+      ]
+    }
   ],
   "warnings": [
-    { "lvl": "warn", "t": "Wersja z podświetleniem", "b": "Jeśli klamka ma podświetlenie, uważaj na światłowód (nie uszkodź go przy wyjmowaniu).", "src": ["tis-rear-inner"] },
-    { "lvl": "info", "t": "Oparte na instrukcji dla drzwi tylnych", "b": "Opis fabryczny dotyczy tylnych drzwi (3.0d). Dla przednich zakładamy podobną konstrukcję, ale nie potwierdzono tego w źródłach.", "src": ["tis-rear-inner", "xo-interior-handle"] }
+    {
+      "lvl": "warn",
+      "t": "Wersja z podświetleniem",
+      "b": "Jeśli klamka ma podświetlenie, uważaj na światłowód (nie uszkodź go przy wyjmowaniu).",
+      "src": [
+        "tis-rear-inner"
+      ]
+    },
+    {
+      "lvl": "info",
+      "t": "Oparte na instrukcji dla drzwi tylnych",
+      "b": "Opis fabryczny dotyczy tylnych drzwi (3.0d). Dla przednich zakładamy podobną konstrukcję, ale nie potwierdzono tego w źródłach.",
+      "src": [
+        "tis-rear-inner",
+        "xo-interior-handle"
+      ]
+    }
   ],
   "steps": [
-    { "t": "Zdejmij boczek", "view": "card", "focus": ["card.pull"], "min": 40, "conf": "high", "src": ["xo-actuator", "tis-rear-inner"],
-      "b": "Dla przednich drzwi wykonaj kartę „Tapicerka drzwi przednich”. Dla tylnych kartę „Tapicerka drzwi tylnych”. Instrukcja fabryczna zaczyna ten zabieg od zdjęcia boczka.", "link": "tapicerka-przod" },
-    { "t": "Znajdź mocowanie uchwytu", "view": "card", "focus": ["card.screw_handle", "card.handle"], "min": 5, "conf": "low", "src": ["xo-interior-handle"],
-      "b": "Na forum opisano, że jedna ze śrub jest ukryta pod małą zaślepką pod klamką, a druga pod zaślepką w listwie. Odpowiedzi nie są jednoznaczne co do tego, czy przy samym uchwycie wystarczy część rozbiórki. Po zdjęciu boczka zobaczysz mocowanie od środka." },
-    { "t": "Poluzuj nakrętkę uchwytu", "view": "card", "focus": ["card.handle"], "min": 5, "conf": "med", "src": ["tis-rear-inner"],
-      "b": "Poluzuj nakrętkę trzymającą uchwyt. W wersji z podświetleniem uważaj na światłowód." },
-    { "t": "Wyjmij uchwyt z boczka", "view": "card", "focus": ["card.handle"], "min": 5, "conf": "med", "src": ["tis-rear-inner"],
-      "b": "Obróć uchwyt do wewnątrz i ku górze, aby wyszedł z boczka. Nie uszkodź prowadnic na uchwycie. Śruba ma przy wyjmowaniu leżeć lekko wsunięta w prowadnicę uchwytu." },
-    { "t": "Zamontuj nowy uchwyt", "view": "card", "focus": ["card.handle"], "min": 10, "conf": "med", "src": ["tis-rear-inner"],
-      "b": "Wsuń nowy uchwyt prowadnicami w boczek, zwracając uwagę, by śruba nie została uszkodzona w prowadnicy. Dokręć nakrętkę (momentu nie podajemy: brak w źródłach)." },
-    { "t": "Złóż boczek", "view": "card", "focus": ["card.top_clips"], "min": 15, "conf": "high", "src": ["xo-actuator"],
-      "b": "Zamontuj boczek według odpowiedniej karty i sprawdź otwieranie drzwi od środka." }
+    {
+      "phase": "1. Decyzja i część",
+      "t": "Zdecyduj: czyszczenie, nakładka czy wymiana",
+      "view": "card",
+      "focus": [
+        "card.handle"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-handle-wear",
+        "xo-interior-handle",
+        "ls-cover"
+      ],
+      "b": "Klamka wewnętrzna w E53 (czarny uchwyt z miękką powłoką) z czasem klei się, łuszczy lub pęka. Nie zawsze trzeba ją wymieniać.",
+      "see": "Uchwyt wewnętrzny to czarna rączka w boczku, za którą pociągasz, żeby otworzyć drzwi. Lepka lub starta powłoka to problem wyglądu, a pęknięty plastik to już usterka mechaniczna.",
+      "how": [
+        "Obejrzyj uchwyt: czy jest tylko lepki lub starty (kosmetyka), czy pęknięty lub luzuje się (mechanika).",
+        "Kosmetyka: forumowicz zdjął miękką powłokę mocnym środkiem czyszczącym i tarciem (nazwy środka nie podał). Inna droga to nakładka ze skóry zakładana i zszywana na miejscu, bez zdejmowania boczka.",
+        "Mechanika lub chęć fabrycznego wyglądu: wymiana uchwytu, opisana w tej karcie."
+      ],
+      "mistakes": [
+        "Wymiana uchwytu, gdy wystarczyłaby nakładka: boczek zdejmujesz niepotrzebnie.",
+        "Zakup nakładki w złym rozmiarze: przednie i tylne uchwyty mają nieco inny kształt."
+      ],
+      "check": "Wiesz, czy czyścisz, zakładasz nakładkę, czy wymieniasz uchwyt.",
+      "media": [
+        {
+          "type": "film",
+          "id": "ge7-HJ0DUz0",
+          "len": "9:38",
+          "cap": "Najpopularniejszy film o klamkach E53 (pokazuje zdjęcie boczka; po angielsku).",
+          "credit": "BIMMER ZEIT (YouTube)"
+        },
+        {
+          "type": "link",
+          "url": "https://www.leathersteering.com/en/content/18-bmw-x5-e53-interior-door-handle-replacement",
+          "label": "Nakładka ze skóry: instrukcja szycia (wideo)",
+          "credit": "leatherSteering"
+        }
+      ]
+    },
+    {
+      "phase": "1. Decyzja i część",
+      "t": "Dobierz właściwą część",
+      "view": "card",
+      "focus": [
+        "card.handle"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-interior-handle",
+        "bw-interior",
+        "febi-tip"
+      ],
+      "b": "Numer części zależy od strony auta, od drzwi (przód lub tył) i od koloru wnętrza.",
+      "how": [
+        "Ustal, który uchwyt wymieniasz: przód lewy, przód prawy, tył lewy czy tył prawy.",
+        "Dla czarnego wnętrza forum podaje: przód lewy 51 41 8 265 077, przód prawy 51 41 8 265 078, tył lewy 51 42 8 265 173, tył prawy 51 42 8 265 174.",
+        "Dla innych kolorów numer będzie inny. Dobierz część po VIN u sprzedawcy.",
+        "Zamiennik URO (51 41 8 408 565 dla przodu lewego) kosztuje ok. 15 USD u sprzedawcy z USA: numery BMW w sklepie różnią się od forumowych, więc koniecznie sprawdź zgodność."
+      ],
+      "mistakes": [
+        "Zamówienie uchwytu bez sprawdzenia koloru wnętrza.",
+        "Zamówienie złej strony (lewy zamiast prawego)."
+      ],
+      "check": "Masz uchwyt dla właściwych drzwi i koloru wnętrza, porównany ze starym wzorem.",
+      "tip": "Jeden z forumowiczów przypomina, że przy zamawianiu bywały oferty do innego modelu: sprawdź dopasowanie do E53 z lat 1999-2006."
+    },
+    {
+      "phase": "2. Zdejmowanie boczka",
+      "t": "Zdejmij boczek według karty „Tapicerka drzwi przednich”",
+      "view": "card",
+      "focus": [
+        "card.pull",
+        "card.top_clips"
+      ],
+      "min": 40,
+      "conf": "high",
+      "src": [
+        "pelican-panel",
+        "xo-interior-handle",
+        "yt-bond",
+        "bz-video"
+      ],
+      "b": "Do uchwytu wewnętrznego dostaniesz się tylko po zdjęciu boczka. To najdłuższa część pracy. Wykonaj ją według osobnej, szczegółowej karty.",
+      "see": "Boczek trzyma się na czterech śrubach T20 i kilkunastu spinkach, a u klamki wewnętrznej wisi na cięgnie. Forum potwierdza: czarny uchwyt wymaga zdjęcia boczka. Srebrne górne osłony przy uchwycie zdejmują się osobno.",
+      "how": [
+        "Otwórz kartę „Tapicerka drzwi przednich” i wykonaj kroki od początku do zdjęcia boczka (przygotowanie, listwa, lampka, przełączniki, śruby T20, spinki, cięgno klamki).",
+        "Nie ruszaj poduszki bocznej. Boczek połóż na kocu, stroną ozdobną w dół."
+      ],
+      "mistakes": [
+        "Podważanie boczka przed odpięciem cięgna klamki wewnętrznej.",
+        "Rozdarcie folii w drzwiach (nie jest potrzebna do tej naprawy)."
+      ],
+      "check": "Boczek leży na kocu, a w drzwiach nic nie wisi na przewodach poza tym, co zostało odpięte.",
+      "link": "tapicerka-przod",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic09.jpg",
+          "cap": "Spinki dookoła boczka.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic10.jpg",
+          "cap": "Górne zaczepy i cięgno blokady.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic11.jpg",
+          "cap": "Cięgno klamki wewnętrznej odpinasz, odginając zaczep.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        }
+      ]
+    },
+    {
+      "phase": "3. Wymiana uchwytu",
+      "t": "Znajdź uchwyt od tyłu boczka",
+      "view": "card",
+      "focus": [
+        "card.handle"
+      ],
+      "min": 5,
+      "conf": "med",
+      "src": [
+        "tis-front-inner",
+        "pelican-panel"
+      ],
+      "b": "Uchwyt jest zamocowany do boczka od tyłu. Poświęć chwilę na oglądanie.",
+      "see": "Od tyłu boczka, tam gdzie wcześniej odpiąłeś cięgno klamki, widać nakrętkę mocującą uchwyt i śrubę biegnącą w prowadnicy uchwytu. W wersji z podświetleniem klamki jest tam także światłowód.",
+      "how": [
+        "Obejrzyj tył boczka w okolicy uchwytu.",
+        "Zrób zdjęcie telefonem: pomoże przy składaniu.",
+        "Jeśli widzisz cienki przezroczysty światłowód przy uchwycie, zaznacz go: nie wolno go uszkodzić."
+      ],
+      "mistakes": [
+        "Szukanie śrub od przodu boczka: uchwyt jest zamocowany od tyłu."
+      ],
+      "check": "Widzisz nakrętkę mocującą uchwyt oraz prowadnicę ze śrubą.",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic11.jpg",
+          "cap": "Okolica uchwytu od tyłu: cięgno, które odpiąłeś (zielona strzałka).",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "film",
+          "id": "nYtyyRkn0yo",
+          "len": "19:34",
+          "cap": "Dłuższy film o klamkach, z widokiem na wnętrze boczka (po angielsku).",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
+    },
+    {
+      "phase": "3. Wymiana uchwytu",
+      "t": "Odkręć nakrętkę uchwytu",
+      "view": "card",
+      "focus": [
+        "card.handle"
+      ],
+      "min": 5,
+      "conf": "med",
+      "src": [
+        "tis-front-inner"
+      ],
+      "b": "Nakrętka trzyma uchwyt na boczku. Instrukcja fabryczna każe ją zwolnić jako pierwszy krok.",
+      "how": [
+        "Nałóż pasujący klucz lub nasadkę na nakrętkę. Rozmiaru nie podaje żadne ze źródeł: dobierz na miejscu.",
+        "Zwolnij i zdejmij nakrętkę. Odłóż do pudełka."
+      ],
+      "mistakes": [
+        "Użycie zbyt dużego klucza: obciągasz nakrętkę."
+      ],
+      "check": "Nakrętka jest zdjęta, a uchwyt wciąż siedzi w boczku."
+    },
+    {
+      "phase": "3. Wymiana uchwytu",
+      "t": "Przesuń śrubę w prowadnicę i wykręć uchwyt",
+      "view": "card",
+      "focus": [
+        "card.handle"
+      ],
+      "min": 8,
+      "conf": "med",
+      "src": [
+        "tis-front-inner",
+        "xo-interior-handle"
+      ],
+      "b": "To jedyny nietypowy ruch w całej naprawie. Instrukcja fabryczna opisuje go dokładnie.",
+      "see": "Śruba przy uchwycie ma zostać lekko wsunięta w prowadnicę uchwytu, zanim uchwyt zdejmiesz. Prowadnice nie wolno uszkodzić.",
+      "how": [
+        "Przed wyjęciem przesuń śrubę delikatnie w prowadnicę uchwytu.",
+        "Obróć uchwyt do wewnątrz i ku górze, aby wyszedł z boczka.",
+        "Jeśli uchwyt ma światłowód, nie uszkodź go przy wyjmowaniu."
+      ],
+      "mistakes": [
+        "Wyrywanie uchwytu bez przesunięcia śruby: łamiesz prowadnice.",
+        "Uszkodzenie światłowodu."
+      ],
+      "check": "Stary uchwyt leży w ręku, a otwór w boczku jest cały.",
+      "warn": true
+    },
+    {
+      "phase": "3. Wymiana uchwytu",
+      "t": "Porównaj stary i nowy uchwyt",
+      "view": "card",
+      "focus": [
+        "card.handle"
+      ],
+      "min": 3,
+      "conf": "high",
+      "src": [
+        "xo-interior-handle",
+        "bw-interior"
+      ],
+      "b": "Zanim wsuniesz nowy, sprawdź, czy jest identyczny.",
+      "how": [
+        "Przyłóż stary i nowy uchwyt obok siebie.",
+        "Sprawdź prowadnice, miejsce na nakrętkę i kolor.",
+        "Sprawdź, czy nowa część nie jest uszkodzona."
+      ],
+      "check": "Nowy uchwyt jest tej samej strony i kształtu co stary."
+    },
+    {
+      "phase": "3. Wymiana uchwytu",
+      "t": "Wsuń nowy uchwyt i dokręć nakrętkę",
+      "view": "card",
+      "focus": [
+        "card.handle"
+      ],
+      "min": 8,
+      "conf": "med",
+      "src": [
+        "tis-front-inner"
+      ],
+      "b": "Montaż to odwrotność demontażu.",
+      "how": [
+        "Wsuń nowy uchwyt prowadnicami w boczek, pamiętając o prawidłowym ułożeniu śruby w prowadnicy.",
+        "Obróć uchwyt na miejsce (do dołu i na zewnątrz).",
+        "Załóż i dokręć nakrętkę. Momentu nie podajemy: brak go w źródłach, dokręć pewnie, bez użycia siły."
+      ],
+      "mistakes": [
+        "Zbyt mocne dokręcenie: łamiesz plastik."
+      ],
+      "check": "Uchwyt siedzi w boczku bez luzu i wraca sprężyście."
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Załóż boczek",
+      "view": "card",
+      "focus": [
+        "card.top_clips"
+      ],
+      "min": 25,
+      "conf": "high",
+      "src": [
+        "pelican-panel",
+        "yt-bond",
+        "bz-video"
+      ],
+      "b": "Montaż boczka opisuje karta „Tapicerka drzwi przednich” (etap „Montaż i test”).",
+      "how": [
+        "Zawieś boczek u góry, zapnij cięgno klamki wewnętrznej, dobij spinki, wkręć cztery śruby T20.",
+        "Podłącz przełączniki szyb i lampkę, zatrzaśnij listwę."
+      ],
+      "check": "Boczek przylega równo, a klamka wewnętrzna jest zapięta.",
+      "link": "tapicerka-przod",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic12.jpg",
+          "cap": "Montaż: zatrzaśnij cięgno klamki wewnętrznej (zielona strzałka).",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        }
+      ]
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Test: otwieranie, zamek, światło klamki",
+      "view": "card",
+      "focus": [
+        "card.handle",
+        "card.led"
+      ],
+      "min": 5,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "pelican-panel"
+      ],
+      "b": "Sprawdź, czy wszystko działa, zanim zamkniesz drzwi na dobre.",
+      "how": [
+        "Pociągnij klamkę wewnętrzną: drzwi mają się otworzyć, a uchwyt wrócić na miejsce.",
+        "Zablokuj i odblokuj zamek centralny.",
+        "Sprawdź podświetlenie klamki (jeśli jest).",
+        "Sprawdź szybę i lusterko."
+      ],
+      "mistakes": [
+        "Zatrzaskiwanie drzwi bez testu klamki wewnętrznej."
+      ],
+      "check": "Drzwi otwierają się klamką od środka, uchwyt wraca, zamek i światło działają."
+    }
   ],
   "after": [
     "Klamka wewnętrzna otwiera drzwi bez luzu",
@@ -49,9 +429,13 @@
     "Cięgno klamki wpięte w karetkę: boczek nie odstaje"
   ],
   "unknown": [
-    "Rozmiar nakrętki i moment dokręcenia: brak w źródłach.",
-    "Dokładna procedura dla drzwi przednich 3.0d: opis fabryczny widziany tylko dla tylnych.",
-    "Numery OE dla innych kolorów wnętrza niż czarne."
+    "Rozmiar nakrętki uchwytu i moment dokręcenia: brak w źródłach.",
+    "Dokładne położenie nakrętki i śruby na boczku: brak zdjęć dla E53.",
+    "Czy kroki są identyczne dla drzwi przednich i tylnych: instrukcja fabryczna opisuje drzwi przednie i tylne w tej samej konstrukcji, ale tylnych nie sprawdzono osobno w tej karcie.",
+    "Numery OE dla innych kolorów wnętrza."
   ],
-  "related": ["tapicerka-przod", "tapicerka-tyl"]
+  "related": [
+    "tapicerka-przod",
+    "tapicerka-tyl"
+  ]
 }

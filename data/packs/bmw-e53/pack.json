@@ -120,6 +120,21 @@
       "title": "Pelican Parts: BMW X5 Door Panel Replacement (12 zdjęć)",
       "url": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm",
       "kind": "artykuł"
+    },
+    "tis-front-inner": {
+      "title": "Instrukcja fabryczna BMW (E53 X5, drzwi przednie): wymiana klamki wewnętrznej (via workshop-manuals.com, wersja z podświetleniem klamki)",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_4.4i_m62_offrd/2_repair_instructions/51__body_equipment_(offrd)/21__front_door_locks_handles_fittings/11_ra__removing_and_installing_replacing_inside_door_handle_in_left_or_right_front_door/",
+      "kind": "instrukcja fabryczna"
+    },
+    "xo-handle-wear": {
+      "title": "Xoutpost: Interior Door Handle Wear & Tear (wątek, 2023)",
+      "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/115543-interior-door-handle-wear-tear.html",
+      "kind": "forum"
+    },
+    "ls-cover": {
+      "title": "leatherSteering: nakładka ze skóry na klamkę wewnętrzną X5 E53 (instrukcja szycia, wideo)",
+      "url": "https://www.leathersteering.com/en/content/18-bmw-x5-e53-interior-door-handle-replacement",
+      "kind": "sklep / wideo"
     }
   },
   "systems": [
@@ -363,11 +378,11 @@
       "door": "both",
       "difficulty": 2,
       "time": [
-        30,
-        90
+        75,
+        150
       ],
       "completeness": "częściowe",
-      "steps": 6,
+      "steps": 10,
       "icon": "wrench"
     },
     {
