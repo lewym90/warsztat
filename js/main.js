@@ -2,6 +2,7 @@ import { icon } from './icons.js';
 import * as S from './store.js';
 import { getPack, getRepair, matchPack } from './data.js';
 import { carSVG, ZONES, PHOTOS } from './art-car.js';
+import { SPINS, spinHtml, mountSpin } from './spin.js';
 import { doorSVG, ANCHORS, VIEW_LABELS, viewOf } from './art-door.js';
 import { CATALOG, FUELS } from './catalog.js';
 
@@ -151,6 +152,7 @@ async function garage() {
 }
 
 /* ---------- AUTO ---------- */
+const zoneLabels = Object.fromEntries(Object.entries(ZONES).map(([k, z]) => [k, z.label]));
 async function carScreen(id) {
   const car = S.car(id);
   if (!car) { location.hash = '#/'; return { html: '' }; }
@@ -172,9 +174,10 @@ async function carScreen(id) {
       ${topbar({ back: '#/', title: carName(car), sub: carSub(car), right: `<button class="iconbtn ${car.fav ? 'on' : ''}" id="fav" aria-label="Ulubione">${icon(car.fav ? 'starFill' : 'star', 20)}</button><button class="iconbtn" id="edit" aria-label="Edytuj">${icon('more', 20)}</button>` })}
       <div class="wrap car-wrap">
         <div class="card hero-card glow">
-          ${carSVG({ pins: pack ? ['door_front', 'door_rear'] : [], photo: PHOTOS[pack && pack.id] || '' })}
-          <div class="caption" id="cap">${pack ? `${icon('spark', 16)} Dotknij drzwi, aby zobaczyć poradniki` : `${icon('clock', 16)} Dla tego auta nie ma jeszcze opracowania`}</div>
+          ${SPINS[pack && pack.id] ? spinHtml(SPINS[pack.id], zoneLabels) : carSVG({ pins: pack ? ['door_front', 'door_rear'] : [], photo: PHOTOS[pack && pack.id] || '' })}
+          <div class="caption" id="cap">${pack ? `${icon('spark', 16)} ${SPINS[pack.id] ? 'Obracaj auto palcem, dotknij kropki' : 'Dotknij drzwi, aby zobaczyć poradniki'}` : `${icon('clock', 16)} Dla tego auta nie ma jeszcze opracowania`}</div>
         </div>
+        <div class="zonepanel" id="zonepanel" hidden></div>
         <div class="car-side">
         ${pack ? `<div class="chips" style="padding:0 4px"><span class="chip ok">${icon('check', 13)} ${esc(pack.title)} · ${esc(pack.status)}</span><span class="chip">${ready.length} z ${pack.systems.length} układów</span></div>` : `
         <div class="matchbox no">
@@ -199,7 +202,28 @@ async function carScreen(id) {
       $('#edit', el).onclick = () => editCar(car);
       const reqBtn = $('#req', el); if (reqBtn) reqBtn.onclick = () => openRequest(car);
       const cap = $('#cap', el);
-      $$('[data-zone]', el).forEach(z => {
+      const spinEl = $('.spin', el);
+      if (spinEl && pack && SPINS[pack.id]) {
+        const zp = $('#zonepanel', el);
+        const sp = mountSpin(spinEl, SPINS[pack.id], { labels: zoneLabels, onZone: (zid) => {
+          const Z = ZONES[zid];
+          if (Z.system === 'doors') {
+            const reps = pack.repairs.filter(r => r.door === Z.door || r.door === 'both');
+            zp.innerHTML = `<div class="zp-h"><b>${esc(Z.label)}</b><button class="iconbtn" data-zx aria-label="Zamknij">${icon('x', 18)}</button></div>
+              <div class="zp-l">${reps.map(r => `<a class="zp-i" href="#/car/${id}/r/${r.id}"><span class="zi">${icon(r.icon || 'wrench', 18)}</span><span><b>${esc(r.title)}</b><small>${esc(r.subtitle || '')}</small></span>${icon('chevron', 16)}</a>`).join('')}</div>
+              <a class="btn small" href="#/car/${id}/sys/doors?door=${Z.door}">${icon('door', 16)} Schemat i zdjęcia drzwi</a>`;
+          } else {
+            zp.innerHTML = `<div class="zp-h"><b>${esc(Z.label)}</b><button class="iconbtn" data-zx aria-label="Zamknij">${icon('x', 18)}</button></div>
+              <p class="zp-n">Ten układ nie jest jeszcze opracowany. Opracowania powstają po jednym, w pełnej jakości.</p>
+              <button class="btn small primary" data-zreq>${icon('wrench', 16)} Zamów opracowanie</button>`;
+            const rq = $('[data-zreq]', zp); if (rq) rq.onclick = () => openRequest(car, Z.label);
+          }
+          zp.hidden = false;
+          $('[data-zx]', zp).onclick = () => { zp.hidden = true; sp.clear(); };
+          zp.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        } });
+      }
+      $$('svg [data-zone]', el).forEach(z => {
         z.addEventListener('mouseenter', () => { cap.innerHTML = `<b>${z.dataset.label}</b>`; });
         z.addEventListener('click', () => {
           const Z = ZONES[z.dataset.zone];

@@ -90,7 +90,7 @@ files = []
 for p in sorted(ROOT.rglob('*')):
     if p.is_dir(): continue
     rel = p.relative_to(ROOT).as_posix()
-    if rel.split('/')[0] in skip_dirs or rel.startswith('.') or rel in ('README.md', 'sw.js') or rel.endswith('.py'): continue
+    if rel.split('/')[0] in skip_dirs or rel.startswith('.') or rel in ('README.md', 'sw.js') or rel.startswith('img/spin/') or rel.startswith('docs/') or rel.endswith('.py'): continue
     files.append(rel)
 digest = hashlib.sha1()
 for rel in files: digest.update(rel.encode()); digest.update((ROOT / rel).read_bytes())
