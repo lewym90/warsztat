@@ -3,13 +3,13 @@
   "title": "Tapicerka drzwi przednich",
   "subtitle": "Zdejmowanie i zakładanie boczka: dostęp do wnętrza drzwi",
   "door": "front",
-  "completeness": "częściowe",
+  "completeness": "pełne",
   "difficulty": 2,
   "time": [
-    30,
-    60
+    40,
+    90
   ],
-  "summary": "Czynność podstawowa przed wymianą klamki, siłownika zamka czy podnośnika szyby. Boczek trzyma się na czterech śrubach Torx T20 i plastikowych spinkach, a u góry siedzi na metalowych zaczepach. Opis powstał na podstawie drzwi pasażera.",
+  "summary": "Zdejmowanie i zakładanie boczka drzwi przednich: bez tego nie wymienisz klamki, siłownika zamka ani podnośnika szyby. Boczek trzyma się na czterech śrubach Torx T20 i kilkunastu spinkach, a z przodu zwisa na przewodach (przełączniki, lampka, dioda) i cięgnie klamki. Nie dotykasz poduszki bocznej. Poradnik zebrano z dwóch filmów i artykułu ze zdjęciami; opisano drzwi pasażera i kierowcy.",
   "tools": [
     {
       "name": "Torx T20",
@@ -89,48 +89,244 @@
   ],
   "steps": [
     {
-      "t": "Wyjmij blok przełączników szyb",
-      "view": "card",
+      "phase": "1. Przygotowanie",
+      "t": "Przygotuj narzędzia, spinki i miejsce pracy",
+      "view": "outer",
       "focus": [
-        "card.switch"
+        "outer.handle"
+      ],
+      "min": 10,
+      "conf": "high",
+      "src": [
+        "pelican-panel",
+        "yt-bond",
+        "bz-video",
+        "xo-handle-fix"
+      ],
+      "b": "Boczek zdejmuje się bez specjalnych narzędzi, ale łatwo go uszkodzić. Przygotuj wszystko, zanim zaczniesz.",
+      "see": "Boczek to duży plastikowo-materiałowy panel po wewnętrznej stronie drzwi. Trzyma się na czterech śrubach T20 i kilkunastu plastikowych spinkach.",
+      "how": [
+        "Zaparkuj na równym podłożu i otwórz drzwi szeroko.",
+        "Opuść szybę do końca, zanim rozłączysz przełączniki: po ich wypięciu nie ruszysz już szybą.",
+        "Rozłóż narzędzia na macie lub kocu. Przygotuj małe pudełko na śruby i zapasowe spinki.",
+        "Zrób telefonem zdjęcie okolicy klamki wewnętrznej i bloku przełączników: pomoże przy składaniu."
+      ],
+      "mistakes": [
+        "Zaczynanie bez zapasowych spinek: przy zdejmowaniu część na pewno pęknie.",
+        "Zdejmowanie boczka przy zamkniętej szybie w górze: po rozłączeniu przełączników nie opuścisz jej bez zasilania."
+      ],
+      "check": "Masz: Torx T20, plastikowe łopatki (najlepiej do spinek), płaski wkrętak, zapasowe spinki i pudełko na śruby.",
+      "tools": [
+        "Torx T20",
+        "Łopatki plastikowe",
+        "Płaski wkrętak",
+        "Zapasowe spinki"
+      ],
+      "media": [
+        {
+          "type": "film",
+          "id": "ge7-HJ0DUz0",
+          "len": "9:38",
+          "cap": "Najpopularniejszy film o wymianie klamki: boczek zdejmowany w pierwszej połowie (po angielsku).",
+          "credit": "BIMMER ZEIT (YouTube)"
+        },
+        {
+          "type": "film",
+          "id": "nYtyyRkn0yo",
+          "len": "19:34",
+          "cap": "Dłuższy, dokładniejszy film (boczek: ok. 2:00–5:00; po angielsku).",
+          "credit": "BOND Garage (YouTube)"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic09.jpg",
+          "cap": "Spinki dookoła boczka: tu będziesz podważać.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        }
+      ]
+    },
+    {
+      "phase": "1. Przygotowanie",
+      "t": "Zdecyduj o poduszce powietrznej i akumulatorze",
+      "view": "inner",
+      "focus": [
+        "inner.airbag"
       ],
       "min": 5,
       "conf": "high",
       "src": [
         "xo-handle-fix",
-        "xo-actuator"
+        "xo-actuator",
+        "bz-video",
+        "pelican-panel"
       ],
-      "b": "Podważ plastikową łopatką od strony wnętrza przełącznika, tam gdzie styka się z boczkiem. Obudowa lekko się uniesie. Potem podważ drugą stronę i wyjmij całość. Odłącz trzy wtyczki: biała i mała czarna zwalniają się po odchyleniu „kabłąka”, a duża czarna ma wysuwaną blokadę.",
-      "tip": "Zrób zdjęcie wtyczek przed rozłączeniem."
+      "b": "Za boczkiem jest boczna poduszka powietrzna. Do samego zdjęcia boczka nie musisz jej ruszać. Decyzja dotyczy tylko sytuacji, gdy będziesz ją odkręcać.",
+      "see": "Poduszka to płaski moduł z żółtą naklejką, przykręcony do ramy drzwi trzema śrubami 10 mm. Ma wtyczkę z cienkim przewodem.",
+      "how": [
+        "Samo zdjęcie boczka: poduszki nie ruszaj i nie odłączaj niczego od niej.",
+        "Jeśli później odkręcasz poduszkę (np. do wymiany klamki zewnętrznej): odkręć ją i zawieś na opasce, nie odpinając wtyczki.",
+        "Jeśli koniecznie musisz odpiąć wtyczkę: najpierw odłącz minus akumulatora (w bagażniku, pod kołem zapasowym) i odczekaj co najmniej 30 minut."
+      ],
+      "mistakes": [
+        "Odłączanie wtyczki poduszki przy podłączonym akumulatorze.",
+        "Trzymanie poduszki na przewodzie: zawsze wieś ją na opasce, żeby przewód nie był naciągnięty."
+      ],
+      "check": "Wiesz, którą drogą idziesz. Jeśli odłączyłeś akumulator: zapisz, że po podłączeniu trzeba ustawić zegar, a szyby mogą wymagać inicjalizacji.",
+      "media": [
+        {
+          "type": "video",
+          "id": "ge7-HJ0DUz0",
+          "t": 8,
+          "e": 30,
+          "cap": "Gdzie jest akumulator w X5 (bagażnik, pod kołem zapasowym)",
+          "credit": "BIMMER ZEIT (YouTube)"
+        }
+      ],
+      "danger": true
     },
     {
+      "phase": "2. Zdejmowanie boczka",
+      "t": "Wypchnij ozdobną listwę przy klamce wewnętrznej",
+      "view": "card",
+      "focus": [
+        "card.trim"
+      ],
+      "min": 5,
+      "conf": "high",
+      "src": [
+        "pelican-panel",
+        "xo-actuator"
+      ],
+      "b": "Listwa zakrywa jedną ze śrub i okolicę klamki wewnętrznej.",
+      "see": "Długa ozdobna listwa (drewnopodobna lub aluminiowa) biegnie wzdłuż górnej części boczka, od klamki wewnętrznej ku tyłowi.",
+      "how": [
+        "Wsuń plastikową łopatkę pod tylny koniec listwy (od strony tylnych drzwi).",
+        "Podważaj stopniowo wzdłuż listwy w stronę klamki wewnętrznej, czując kolejne zaczepy.",
+        "Gdy się zwolni, pociągnij listwę do tyłu auta, żeby wysunąć jej przód z okolicy klamki."
+      ],
+      "mistakes": [
+        "Użycie metalowego wkrętaka bez ochrony: zostają rysy na boczku."
+      ],
+      "check": "Listwa leży w ręku, a pod nią widać otwory i śruby.",
+      "tools": [
+        "Łopatka plastikowa"
+      ],
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic01.jpg",
+          "cap": "Podważ listwę (zielona strzałka) od tyłu, w stronę klamki, potem wysuń ją do tyłu.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "video",
+          "id": "ge7-HJ0DUz0",
+          "t": 96,
+          "e": 126,
+          "cap": "Zdejmowanie listwy i śrub T20 na filmie",
+          "credit": "BIMMER ZEIT (YouTube)"
+        }
+      ]
+    },
+    {
+      "phase": "2. Zdejmowanie boczka",
       "t": "Wyjmij lampkę podłogową",
       "view": "card",
       "focus": [
         "card.puddle"
       ],
-      "min": 2,
+      "min": 3,
       "conf": "high",
       "src": [
+        "pelican-panel",
         "xo-handle-fix",
         "xo-actuator"
       ],
-      "b": "Na dole boczka jest lampka oświetlająca próg. Podważ ją od strony tylnej (bliżej tyłu auta) i odłącz wtyczkę."
+      "b": "Na dole boczka jest lampka oświetlająca próg. Ma przewód, więc boczek nie zejdzie, dopóki jej nie odepniesz.",
+      "see": "Mały prostokątny kloszyk na dolnej krawędzi boczka.",
+      "how": [
+        "Podważ lampkę plastikową łopatką od strony tylnej.",
+        "Wyciągnij wtyczkę z tyłu lampki prosto, bez kręcenia (zielona strzałka na zdjęciu).",
+        "Odłóż lampkę, a wtyczkę przypnij taśmą do boczka, żeby nie zniknęła w drzwiach."
+      ],
+      "check": "Lampka jest wypięta i leży osobno.",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic02.jpg",
+          "cap": "Podważ lampkę dolną i wyciągnij jej wtyczkę prosto (zielona strzałka).",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        }
+      ]
     },
     {
-      "t": "Zdejmij górną listwę poziomą",
+      "phase": "2. Zdejmowanie boczka",
+      "t": "Wyjmij blok przełączników szyb i odłącz wtyczki",
       "view": "card",
       "focus": [
-        "card.trim"
+        "card.switch"
       ],
-      "min": 3,
-      "conf": "med",
+      "min": 8,
+      "conf": "high",
       "src": [
+        "pelican-panel",
+        "xo-handle-fix",
         "xo-actuator"
       ],
-      "b": "Podważ listwę, zaczynając od jej tylnego końca. Ma cztery punkty mocowania. Przy montażu najpierw zahacz przód listwy, a potem dociskaj ją w kierunku tyłu."
+      "b": "Przełączniki szyb są połączone przewodami z autem. Trzeba je wyjąć i rozłączyć, zanim boczek da się odsunąć.",
+      "see": "Czarny blok z przyciskami szyb w podłokietniku. Z tyłu ma trzy wtyczki: białą, małą czarną i dużą czarną.",
+      "how": [
+        "Zrób telefonem zdjęcie bloku od tyłu przed rozłączeniem wtyczek.",
+        "Podważ blok łopatką z jednej strony, potem z drugiej, unieś go i obróć ku tyłowi.",
+        "Biała i mała czarna wtyczka: odchyl „kabłąk” (zatrzask) i wtyczka sama się zwolni.",
+        "Duża czarna wtyczka: wysuń jej blokadę płaskim wkrętakiem (z podłożoną szmatką), aż wtyczka się zwolni.",
+        "Odłóż blok na bok. Nie wieś boczka na tych przewodach."
+      ],
+      "mistakes": [
+        "Szarpanie wtyczek bez otwarcia zatrzasku: łamią się zaczepy.",
+        "Brak zdjęcia: przy składaniu trudno pamiętać, gdzie co wchodziło."
+      ],
+      "check": "Wszystkie trzy wtyczki są wypięte, a blok leży wolny.",
+      "tools": [
+        "Łopatka plastikowa",
+        "Płaski wkrętak"
+      ],
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic03.jpg",
+          "cap": "Podważ blok przełączników i wyjmij go, obracając do tyłu.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic04.jpg",
+          "cap": "Dwie mniejsze wtyczki: naciśnij zatrzask i odchyl go (zielona strzałka).",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic05.jpg",
+          "cap": "Trzecia wtyczka: wysuń blokadę wkrętakiem. Zwróć uwagę na otwarte zatrzaski (żółte strzałki).",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://xoutpost.com/attachments/x5-e53-forum/27315d1222571998-broken-outside-door-handle-fix-door-carrier04.jpg",
+          "cap": "Blok przełączników po wypięciu: widać trzy wtyczki i wiązkę.",
+          "credit": "Xoutpost (autor wątku o wymianie klamki)",
+          "page": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/52359-broken-outside-door-handle-fix.html"
+        }
+      ]
     },
     {
+      "phase": "2. Zdejmowanie boczka",
       "t": "Odkręć cztery śruby T20",
       "view": "card",
       "focus": [
@@ -139,16 +335,65 @@
         "card.screw_trim",
         "card.screw_grommet"
       ],
-      "min": 8,
+      "min": 6,
       "conf": "high",
       "src": [
+        "pelican-panel",
         "xo-actuator",
-        "xo-handle-fix"
+        "xo-handle-fix",
+        "yt-bond"
       ],
-      "b": "Śruby są w czterech miejscach: nad kieszenią na mapy, w otworze tuż za klamką wewnętrzną, pod tylnym końcem zdjętej listwy oraz za osłoną (zaślepką) w okolicy poduszki. Tę osłonę podważ od tyłu."
+      "b": "Cztery śruby T20 trzymają boczek. Jedna jest ukryta pod naklejką lub zaślepką „AIRBAG”.",
+      "see": "Trzy śruby są widoczne w boczku. Czwarta jest w górnej tylnej części, pod plastikową naklejką z napisem o poduszce.",
+      "how": [
+        "Podważ łopatką naklejkę lub zaślepkę przy górnym tylnym końcu boczka (zielona strzałka na zdjęciu 1).",
+        "Wykręć śrubę T20, która pod nią jest.",
+        "Wykręć trzy pozostałe śruby T20. Według zdjęć i opisów to: nad kieszenią na mapy, w otworze za klamką wewnętrzną i pod tylnym końcem zdjętej listwy.",
+        "Wrzuć wszystkie do pudełka. Nie wkładaj ich z powrotem „na chwilę”."
+      ],
+      "mistakes": [
+        "Pominięcie śruby pod naklejką: boczek nie puszcza i łamiesz spinki.",
+        "Przy filmie BOND Garage śruby opisano jako T20 lub T25: jeśli T20 się ślizga, spróbuj T25."
+      ],
+      "check": "Wszystkie cztery śruby leżą w pudełku, a w boczku nie widać już żadnej śruby.",
+      "tools": [
+        "Torx T20"
+      ],
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic06.jpg",
+          "cap": "Zdejmij naklejkę „air bag” (zielona strzałka).",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic07.jpg",
+          "cap": "Pod naklejką jest śruba T20.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic08.jpg",
+          "cap": "Trzy pozostałe śruby T20 (zielone strzałki).",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 114,
+          "e": 160,
+          "cap": "Boczek: śruby i spinki na filmie",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
     },
     {
-      "t": "Odepnij spinki dookoła",
+      "phase": "2. Zdejmowanie boczka",
+      "t": "Odepnij spinki dookoła i zdejmij boczek z górnej krawędzi",
       "view": "card",
       "focus": [
         "card.clip_a",
@@ -157,16 +402,59 @@
         "card.top_clips"
       ],
       "min": 10,
-      "conf": "med",
+      "conf": "high",
       "src": [
+        "pelican-panel",
         "xo-actuator",
-        "xo-handle-fix"
+        "xo-handle-fix",
+        "yt-bond",
+        "bz-video"
       ],
-      "b": "Złap za otwór po lampce i otwór po przełącznikach i szarpnij zdecydowanie. Zwolnią się dolne przednie spinki. Resztę zwalniaj łopatką dookoła. Górna krawędź trzyma się na niewidocznych metalowych zaczepach: ściągnij ją prosto od drzwi, nie do góry.",
-      "tip": "Połamane plastiki to norma. Zapas spinek oszczędzi ci nerwów."
+      "b": "Boczek jest na kilkunastu plastikowych spinkach i zawieszony na górnej krawędzi. Zdejmuje się go stopniowo, nie jednym szarpnięciem.",
+      "see": "Dookoła są 11 spinek, a u góry pięć zaczepów i jeden środkowy zaczep, który zwalnia się tylko ruchem w górę.",
+      "how": [
+        "Zacznij od zewnętrznego dolnego rogu. Wsuń łopatkę do spinek (najlepiej specjalną łopatkę do spinek) i podważaj każdą kolejno, idąc dookoła.",
+        "Gdy dolne i boczne spinki puszczą, odciągnij dolną część boczka od drzwi.",
+        "U góry odepnij pięć zaczepów łopatką i odsuń boczek od drzwi, żeby zwolnić środkowy zaczep. Jeśli opiera się, pociągnij go do góry (to zaczep, który puszcza tylko w górę).",
+        "Unieś boczek i przeprowadź przez otwór cięgno blokady (metalowy pręt)."
+      ],
+      "mistakes": [
+        "Szarpanie boczka, zanim odepniesz wszystkie spinki: wyrywa się plastik z boczka.",
+        "Ciągnięcie w złym kierunku środkowego zaczepu: pęka."
+      ],
+      "check": "Boczek wisi swobodnie, trzyma go już tylko cięgno klamki i przewód diody (następny krok).",
+      "tip": "Pęknięte spinki to norma. Wymień je na nowe, kiedy boczek wraca na miejsce.",
+      "tools": [
+        "Łopatka do spinek"
+      ],
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic09.jpg",
+          "cap": "Spinki dookoła boczka (jest ich 11): zacznij od zewnętrznego rogu.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic10.jpg",
+          "cap": "Górna krawędź: pięć zaczepów oraz środkowy zaczep. Boczek unieś i wysuń cięgno blokady.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "video",
+          "id": "ge7-HJ0DUz0",
+          "t": 200,
+          "e": 224,
+          "cap": "Odpinanie spinek i zdejmowanie boczka na filmie",
+          "credit": "BIMMER ZEIT (YouTube)"
+        }
+      ]
     },
     {
-      "t": "Odepnij diodę i cięgno klamki wewnętrznej",
+      "phase": "2. Zdejmowanie boczka",
+      "t": "Odepnij cięgno klamki wewnętrznej i przewód diody",
       "view": "card",
       "focus": [
         "card.led",
@@ -175,13 +463,90 @@
       "min": 5,
       "conf": "high",
       "src": [
+        "pelican-panel",
+        "xo-handle-fix",
         "xo-actuator",
-        "xo-handle-fix"
+        "yt-bond"
       ],
-      "b": "Boczek jeszcze nie jest wolny: trzyma go dioda klamki i cięgno z karetką klamki wewnętrznej, a luzu jest niewiele. Diodę wysuń, ściskając dwa boczne zaczepy. Karetkę zwolnisz, odciągając zaczep z jej tylnej strony: wychyli się z gniazda."
+      "b": "Boczek wciąż jest przypięty do klamki wewnętrznej. Dopóki jej nie odepniesz, nie zdejmiesz go.",
+      "see": "Przy klamce wewnętrznej: sztywne cięgno (owinięte pianką), które klika w klamkę, oraz przezroczysty przewód z małą diodą (podświetlenie klamki).",
+      "how": [
+        "Przytrzymaj boczek blisko drzwi, żeby nie naciągnąć cięgna.",
+        "Naciśnij mały zaczep przy klamce wewnętrznej (zielona strzałka) i wyjmij końcówkę cięgna z klamki. Cięgno zwolni się bez wysiłku.",
+        "Diodę (przezroczysty przewód) wyjmij, ściskając dwa boczne zaczepy.",
+        "Zdejmij boczek całkiem i oprzyj go o ścianę tak, żeby się nie wyginał."
+      ],
+      "mistakes": [
+        "Szarpnięcie boczka bez odpięcia cięgna: urwana końcówka lub połamana klamka wewnętrzna."
+      ],
+      "check": "Boczek leży osobno. W drzwiach widzisz pianę (folię) i metalową ramę.",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic11.jpg",
+          "cap": "Odepnij cięgno od klamki wewnętrznej, odginając zaczep (zielona strzałka).",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 309,
+          "e": 334,
+          "cap": "Wyjmowanie diody i wypinanie klamki wewnętrznej",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
     },
     {
-      "t": "Zdejmij boczek i odłóż",
+      "phase": "3. Przed założeniem boczka",
+      "t": "Folia (pianka) wewnątrz drzwi: nie rwij jej",
+      "view": "inner",
+      "focus": [
+        "inner.foam"
+      ],
+      "min": 5,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "xo-actuator",
+        "yt-bond",
+        "bz-video"
+      ],
+      "b": "Po zdjęciu boczka widzisz czarną folię na wnętrzu drzwi. Chroni przed wodą. Jeśli tylko oglądasz lub sięgasz do góry, zostaw ją całą.",
+      "see": "Czarna pianka lub folia na całej powierzchni drzwi, przyklejona czarnym, lepkim klejem.",
+      "how": [
+        "Obejrzyj folię: powinna być cała i przyklejona dookoła.",
+        "Jeśli potrzebujesz dostępu do mechanizmów (klamka, siłownik), odklejaj tylko tyle, ile trzeba, od górnej krawędzi.",
+        "Jeśli folia jest przyklejona ledwo, dociśnij ją z powrotem przed założeniem boczka."
+      ],
+      "mistakes": [
+        "Rozerwanie folii: potem do drzwi dostaje się woda i trzeba kupić nową."
+      ],
+      "check": "Folia jest cała. Woda ścieka do odpływów w dolnej krawędzi drzwi, a nie do kabiny.",
+      "tip": "Z forum: odsłoń na tyle, by widzieć większy dolny otwór w drzwiach. Dzięki temu łatwiej wsunąć rękę i odpiąć linkę.",
+      "media": [
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 399,
+          "e": 486,
+          "cap": "Odklejanie folii bez rozerwania",
+          "credit": "BOND Garage (YouTube)"
+        },
+        {
+          "type": "video",
+          "id": "ge7-HJ0DUz0",
+          "t": 214,
+          "e": 236,
+          "cap": "Folia: odklejanie dookoła drzwi",
+          "credit": "BIMMER ZEIT (YouTube)"
+        }
+      ]
+    },
+    {
+      "phase": "3. Przed założeniem boczka",
+      "t": "Sprawdź, czy nic nie zostało w drzwiach",
       "view": "inner",
       "focus": [
         "inner.foam"
@@ -189,26 +554,286 @@
       "min": 3,
       "conf": "high",
       "src": [
-        "xo-actuator",
+        "pelican-panel",
         "xo-handle-fix"
       ],
-      "b": "Odłóż boczek tak, by się nie wyginał. Folia (pianka) na drzwiach jest przyklejona lepkim klejem. Odklejaj ją ostrożnie, od góry przy cięgnie, tylko tyle, ile potrzeba, żeby potem dało się ją przykleić z powrotem."
+      "b": "Zanim założysz boczek, rzuć okiem do środka. To ostatni moment na poprawki.",
+      "how": [
+        "Sprawdź, że przewody (lampka dolna, dioda klamki, przełączniki) wiszą swobodnie i nie są przyciśnięte.",
+        "Upewnij się, że cięgno blokady (metalowy pręt) jest na miejscu i niezagięte.",
+        "Sprawdź, że nic nie leży na dnie drzwi (śruby, narzędzia, spinki)."
+      ],
+      "mistakes": [
+        "Zostawiona w drzwiach śruba lub spinka: grzechocze potem w boczku."
+      ],
+      "check": "Wnętrze drzwi jest czyste, a wiązki wiszą swobodnie."
     },
     {
-      "t": "Montaż w odwrotnej kolejności",
+      "phase": "4. Montaż i test",
+      "t": "Zawieś boczek na górnych zaczepach i zapnij cięgno klamki",
       "view": "card",
       "focus": [
-        "card.top_clips",
-        "card.clip_a",
-        "card.clip_c"
+        "card.handle",
+        "card.top_clips"
       ],
-      "min": 10,
+      "min": 8,
       "conf": "high",
       "src": [
-        "xo-actuator",
+        "pelican-panel",
+        "xo-handle-fix",
+        "yt-bond"
+      ],
+      "b": "Boczek najpierw zawiesza się u góry, potem zapina cięgno klamki wewnętrznej.",
+      "see": "Cięgno klamki wewnętrznej kończy się małą końcówką, która klika w klamkę od tyłu. Zaczep na klamce odchyla się ręką.",
+      "how": [
+        "Trzymaj boczek tuż przy drzwiach i zawieś go na górnej krawędzi (pięć zaczepów i jeden środkowy).",
+        "Przy klamce wewnętrznej: wsuń końcówkę cięgna w klamkę pod kątem i zatrzaśnij (zielona strzałka na zdjęciu). Pomaga ustawienie klamki w położeniu zamkniętym.",
+        "Wsuń do góry metalowy pręt blokady przez otwór w boczku.",
+        "Delikatnie sprawdź, czy klamka wewnętrzna rusza cięgnem."
+      ],
+      "mistakes": [
+        "Zapinanie cięgna bez zawieszenia boczka: ciągniesz za klamkę i wyginasz cięgno.",
+        "Siłowe wciskanie końcówki w złym kącie: pęka zaczep."
+      ],
+      "check": "Klamka wewnętrzna jest zapięta, a boczek wisi stabilnie na górnej krawędzi.",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic12.jpg",
+          "cap": "Montaż: zatrzaśnij cięgno klamki wewnętrznej (zielona strzałka), potem dociśnij środkowy zaczep.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic11.jpg",
+          "cap": "Tak wygląda zaczep klamki przy odpinaniu (montaż jest odwrotnością).",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 1052,
+          "e": 1120,
+          "cap": "Montaż boczka na filmie",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Dobij spinki dookoła i środkowy zaczep",
+      "view": "card",
+      "focus": [
+        "card.clip_a",
+        "card.clip_b",
+        "card.clip_c",
+        "card.clip_d"
+      ],
+      "min": 6,
+      "conf": "high",
+      "src": [
+        "pelican-panel",
         "xo-handle-fix"
       ],
-      "b": "Najpierw wpnij cięgno klamki i diodę. Zawieś boczek na górnych zaczepach i przeciągnij wtyczki przełączników oraz lampki przez otwory. Dobij spinki dookoła, wkręć 4 śruby T20, podłącz przełączniki i lampkę, załóż listwę (od przodu) i osłonę."
+      "b": "Spinki zatrzaskują się pod naciskiem dłoni, od środka na zewnątrz. Nie uderzaj młotkiem.",
+      "how": [
+        "Ustaw boczek tak, aby wszystkie spinki wchodziły w otwory w drzwiach.",
+        "Zacznij od środkowego zaczepu u góry i dociskaj dłonią, aż usłyszysz kliknięcie.",
+        "Dociśnij spinki wzdłuż dolnej krawędzi i po bokach, jedna po drugiej.",
+        "Jeśli któraś spinka jest pęknięta, wymień ją na nową przed dociśnięciem."
+      ],
+      "mistakes": [
+        "Uderzanie boczka pięścią lub młotkiem: pękają spinki i wyginają się krawędzie.",
+        "Dociskanie ze złego kierunku: spinka się zagina."
+      ],
+      "check": "Boczek przylega równo do drzwi na całym obwodzie, bez szczelin.",
+      "tip": "Pęknięte spinki to norma. Zapasowe oszczędzą Ci drugiego rozbierania.",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic09.jpg",
+          "cap": "Spinki dookoła boczka: dociskaj je po kolei.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "video",
+          "id": "ge7-HJ0DUz0",
+          "t": 470,
+          "e": 520,
+          "cap": "Dociskanie spinek na filmie",
+          "credit": "BIMMER ZEIT (YouTube)"
+        }
+      ]
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Wkręć cztery śruby T20 i załóż naklejkę",
+      "view": "card",
+      "focus": [
+        "card.screw_map",
+        "card.screw_handle",
+        "card.screw_trim",
+        "card.screw_grommet"
+      ],
+      "min": 6,
+      "conf": "high",
+      "src": [
+        "pelican-panel",
+        "xo-actuator"
+      ],
+      "b": "Śruby trzymają boczek w sztywnych miejscach. Są do plastiku, dokręcaj lekko.",
+      "how": [
+        "Wkręć trzy widoczne śruby T20 (nad kieszenią na mapy, przy klamce wewnętrznej i pod tylnym końcem listwy).",
+        "Wkręć czwartą śrubę w górnym tylnym rogu.",
+        "Załóż z powrotem naklejkę lub zaślepkę z napisem o poduszce."
+      ],
+      "mistakes": [
+        "Zbyt mocne dokręcenie: wyrywasz gwint w plastiku."
+      ],
+      "check": "Cztery śruby są wkręcone, a naklejka jest na miejscu.",
+      "tools": [
+        "Torx T20"
+      ],
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic08.jpg",
+          "cap": "Trzy śruby T20 (zielone strzałki).",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic07.jpg",
+          "cap": "Czwarta śruba pod naklejką w górnym tylnym rogu.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic06.jpg",
+          "cap": "Naklejka „air bag”.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        }
+      ]
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Podłącz przełączniki szyb i lampkę oraz zatrzaśnij listwę",
+      "view": "card",
+      "focus": [
+        "card.switch",
+        "card.puddle",
+        "card.trim"
+      ],
+      "min": 8,
+      "conf": "high",
+      "src": [
+        "pelican-panel",
+        "xo-handle-fix",
+        "xo-actuator"
+      ],
+      "b": "Teraz wracają wszystkie wtyczki i listwa. Skorzystaj ze zdjęcia, które zrobiłeś na początku.",
+      "how": [
+        "Podłącz trzy wtyczki do bloku przełączników: duża czarna wchodzi do oporu i blokuje się, pozostałe zatrzaskują się z kliknięciem.",
+        "Wsuń blok przełączników w podłokietnik i dociśnij z dwóch stron.",
+        "Wciśnij lampkę dolną z jej wtyczką.",
+        "Zatrzaśnij ozdobną listwę: wsuń ją od przodu i dociśnij po całej długości."
+      ],
+      "mistakes": [
+        "Wtyczka włożona tylko częściowo: przełączniki nie działają i szukasz usterki godzinami.",
+        "Listwa zatrzaśnięta bez sprawdzenia dolnej lampki: potem trzeba zdejmować ponownie."
+      ],
+      "check": "Blok przełączników i lampka są na miejscu, a listwa jest zatrzaśnięta bez szczeliny.",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic05.jpg",
+          "cap": "Trzecia wtyczka: wsuń do oporu i zablokuj.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic04.jpg",
+          "cap": "Dwie mniejsze wtyczki: zatrzaśnij.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic03.jpg",
+          "cap": "Blok przełączników wraca na miejsce.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic02.jpg",
+          "cap": "Lampka dolna z wtyczką.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        },
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/images_large/pic01.jpg",
+          "cap": "Listwa ozdobna: dociśnij po całej długości.",
+          "credit": "Pelican Parts (zdejmowanie boczka)",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm"
+        }
+      ]
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Test: szyba, lusterko, zamek, klamki, lampki",
+      "view": "card",
+      "focus": [
+        "card.switch",
+        "card.handle"
+      ],
+      "min": 6,
+      "conf": "high",
+      "src": [
+        "pelican-panel",
+        "xo-handle-fix",
+        "xo-actuator"
+      ],
+      "b": "Zanim odejdziesz od auta, sprawdź wszystko, co było odpięte. Błąd teraz to dwie minuty, a później kolejny demontaż.",
+      "how": [
+        "Opuść i podnieś szybę z przełącznika w drzwiach, a potem z pozostałych drzwi.",
+        "Ustaw lusterko i je złóż (jeśli jest).",
+        "Zablokuj i odblokuj zamek centralny, sprawdź, czy blokada działa na wszystkie drzwi.",
+        "Otwórz drzwi klamką wewnętrzną i zewnętrzną.",
+        "Sprawdź lampkę dolną i diodę klamki wewnętrznej.",
+        "Jeśli odłączałeś akumulator: podłącz go, ustaw zegar i sprawdź kontrolki poduszek i ABS."
+      ],
+      "mistakes": [
+        "Zamykanie drzwi bez testu klamek: jeśli się zablokuje, rozbierasz od nowa."
+      ],
+      "check": "Szyba, lusterko, zamek, klamki, lampka i dioda działają, a boczek nie grzechocze.",
+      "tip": "Grzechot zwykle znaczy luźną spinkę. Dociśnij boczek dłonią w miejscu hałasu.",
+      "media": [
+        {
+          "type": "video",
+          "id": "ge7-HJ0DUz0",
+          "t": 476,
+          "e": 530,
+          "cap": "Testy po złożeniu: przełączniki, zamek, lusterko",
+          "credit": "BIMMER ZEIT (YouTube)"
+        },
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 1052,
+          "e": 1151,
+          "cap": "Złożenie boczka i test końcowy",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
     }
   ],
   "after": [
@@ -222,6 +847,7 @@
   "unknown": [
     "Momenty dokręcenia śrub T20: brak w źródłach. To śruby do plastiku, dokręcaj lekko.",
     "Numer OE spinek boczka.",
+    "Dokładne położenie trzech widocznych śrub T20 różni się w opisach: sprawdź na miejscu.",
     "Różnice dla drzwi kierowcy i dla aut po liftingu: nie sprawdzono."
   ],
   "related": [

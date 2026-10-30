@@ -419,11 +419,11 @@
       "door": "front",
       "difficulty": 2,
       "time": [
-        30,
-        60
+        40,
+        90
       ],
-      "completeness": "częściowe",
-      "steps": 8,
+      "completeness": "pełne",
+      "steps": 15,
       "icon": "door"
     },
     {
