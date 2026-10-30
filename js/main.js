@@ -1,6 +1,6 @@
 import { icon } from './icons.js';
 import * as S from './store.js';
-import { getPack, getRepair, matchPack } from './data.js';
+import { getPack, getRepair, getCatalog, matchPack } from './data.js';
 import { carSVG, ZONES, PHOTOS } from './art-car.js';
 import { SPINS, spinHtml, mountSpin } from './spin.js';
 import { doorSVG, ANCHORS, VIEW_LABELS, viewOf, DOOR_PHOTOS, setDoorPhoto, anchorOf } from './art-door.js';
@@ -85,6 +85,7 @@ const routes = [
   [/^$/, garage], [/^add$/, addScreen], [/^more$/, moreScreen],
   [/^car\/([^/]+)$/, carScreen],
   [/^car\/([^/]+)\/sys\/([^/]+)$/, sysScreen],
+  [/^car\/([^/]+)\/zone\/([^/]+)$/, zoneScreen],
   [/^car\/([^/]+)\/r\/([^/]+)$/, repairScreen]
 ];
 let renderId = 0;
@@ -152,14 +153,23 @@ async function garage() {
 }
 
 /* ---------- AUTO ---------- */
-const zoneLabels = Object.fromEntries(Object.entries(ZONES).map(([k, z]) => [k, z.label]));
+const zoneLabels = { doors: 'Drzwi', hood: 'Maska i przód', interior: 'Wnętrze', tail: 'Klapa i tył', wheels: 'Koła, hamulce i zawieszenie', under: 'Progi, podwozie i napęd' };
 async function carScreen(id) {
   const car = S.car(id);
   if (!car) { location.hash = '#/'; return { html: '' }; }
   const match = await matchPack(car).catch(() => null);
   const pack = match ? await getPack(match.id) : null;
+  const catalog = pack ? await getCatalog(pack.id).catch(() => null) : null;
   const ready = pack ? pack.systems.filter(s => s.ready) : [];
-  const sysTiles = (pack ? pack.systems : defaultSystems()).map(s => {
+  const cnt = z => { const all = z.groups.flatMap(g => g.items); return { n: all.length, r: all.filter(i => i.id).length }; };
+  const zoneTiles = catalog ? catalog.zones.map(z => {
+    const c = cnt(z);
+    return `<a class="sys ${c.r ? 'ready' : 'planned'}" href="#/car/${id}/zone/${z.id}">
+      <div class="ico">${icon(z.icon, 22)}</div>
+      <div><b>${esc(z.label)}</b><small>${c.n} napraw${c.r ? ` · ${c.r} gotowych` : ''}</small></div>
+      <div class="chips"><span class="chip ${c.r ? 'ok' : ''}">${c.r ? 'Gotowe: ' + c.r : 'W planie'}</span></div></a>`;
+  }).join('') : '';
+  const sysTiles = zoneTiles || (pack ? pack.systems : defaultSystems()).map(s => {
     const isReady = !!s.ready;
     const n = isReady ? (s.repairIds || []).length : 0;
     return `<button class="sys ${isReady ? 'ready' : 'planned'}" data-sys="${s.id}">
@@ -179,13 +189,13 @@ async function carScreen(id) {
         </div>
         <div class="zonepanel" id="zonepanel" hidden></div>
         <div class="car-side">
-        ${pack ? `<div class="chips" style="padding:0 4px"><span class="chip ok">${icon('check', 13)} ${esc(pack.title)} · ${esc(pack.status)}</span><span class="chip">${ready.length} z ${pack.systems.length} układów</span></div>` : `
+        ${pack ? `<div class="chips" style="padding:0 4px"><span class="chip ok">${icon('check', 13)} ${esc(pack.title)} · ${esc(pack.status)}</span><span class="chip">${catalog ? catalog.zones.reduce((a, z) => a + cnt(z).r, 0) + ' z ' + catalog.zones.reduce((a, z) => a + cnt(z).n, 0) + ' napraw gotowych' : ready.length + ' z ' + pack.systems.length + ' układów'}</span></div>` : `
         <div class="matchbox no">
           <b>Brak opracowania dla ${esc(car.make)} ${esc(car.model)} ${esc(car.year)}</b>
           <p style="color:var(--muted);font-size:14px">Opracowania powstają na zamówienie: wygenerujesz polecenie dla Claude, który zbierze źródła i dopisze paczkę do aplikacji.</p>
           <button class="btn primary" id="req">${icon('wrench', 18)} Zamów opracowanie</button>
         </div>`}
-        <div class="section-h">${icon('list', 16)} Układy</div>
+        <div class="section-h">${icon('list', 16)} ${catalog ? 'Strefy auta' : 'Układy'}</div>
         <div class="sys-grid">${sysTiles}</div>
         <div class="section-h">${icon('key', 16)} Dane auta</div>
         <div class="card"><div class="kv">
@@ -205,19 +215,17 @@ async function carScreen(id) {
       const spinEl = $('.spin', el);
       if (spinEl && pack && SPINS[pack.id]) {
         const zp = $('#zonepanel', el);
-        const sp = mountSpin(spinEl, SPINS[pack.id], { labels: zoneLabels, onZone: (zid) => {
-          const Z = ZONES[zid];
-          if (Z.system === 'doors') {
-            const reps = pack.repairs.filter(r => r.door === Z.door || r.door === 'both');
-            zp.innerHTML = `<div class="zp-h"><b>${esc(Z.label)}</b><button class="iconbtn" data-zx aria-label="Zamknij">${icon('x', 18)}</button></div>
-              <div class="zp-l">${reps.map(r => `<a class="zp-i" href="#/car/${id}/r/${r.id}"><span class="zi">${icon(r.icon || 'wrench', 18)}</span><span><b>${esc(r.title)}</b><small>${esc(r.subtitle || '')}</small></span>${icon('chevron', 16)}</a>`).join('')}</div>
-              <a class="btn small" href="#/car/${id}/sys/doors?door=${Z.door}">${icon('door', 16)} Schemat i zdjęcia drzwi</a>`;
-          } else {
-            zp.innerHTML = `<div class="zp-h"><b>${esc(Z.label)}</b><button class="iconbtn" data-zx aria-label="Zamknij">${icon('x', 18)}</button></div>
-              <p class="zp-n">Ten układ nie jest jeszcze opracowany. Opracowania powstają po jednym, w pełnej jakości.</p>
-              <button class="btn small primary" data-zreq>${icon('wrench', 16)} Zamów opracowanie</button>`;
-            const rq = $('[data-zreq]', zp); if (rq) rq.onclick = () => openRequest(car, Z.label);
-          }
+        const sp = mountSpin(spinEl, SPINS[pack.id], { labels: zoneLabels, onZone: (zid, btn) => {
+          const z = catalog.zones.find(x => x.id === zid); if (!z) return;
+          const side = btn.dataset.side || '';
+          const c = cnt(z);
+          const ok = z.groups.flatMap(g => g.items).filter(i => i.id && (!i.d || zid !== 'doors' || true));
+          const href = `#/car/${id}/zone/${z.id}${side ? '?side=' + side : ''}`;
+          zp.innerHTML = `<div class="zp-h"><span><b>${esc(z.label)}</b>${side ? `<em>${side === 'left' ? 'lewa strona' : 'prawa strona'}</em>` : ''}</span><button class="iconbtn" data-zx aria-label="Zamknij">${icon('x', 18)}</button></div>
+            <p class="zp-n">${esc(z.blurb)}</p>
+            <div class="zp-g">${z.groups.map(g => `<a class="chip" href="${href}#g">${esc(g.t)} <b>${g.items.length}</b></a>`).join('')}</div>
+            ${ok.length ? `<div class="zp-l">${ok.map(r => { const rep = pack.repairs.find(x => x.id === r.id) || {}; return `<a class="zp-i" href="#/car/${id}/r/${r.id}"><span class="zi">${icon(rep.icon || 'wrench', 18)}</span><span><b>${esc(r.t)}</b><small>${esc(rep.subtitle || '')}</small></span>${icon('chevron', 16)}</a>`; }).join('')}</div>` : ''}
+            <a class="btn primary small" href="${href}">${icon('list', 16)} Wszystkie naprawy: ${c.n}${c.r ? ' (gotowe: ' + c.r + ')' : ''}</a>`;
           zp.hidden = false;
           $('[data-zx]', zp).onclick = () => { zp.hidden = true; sp.clear(); };
           zp.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
@@ -227,7 +235,9 @@ async function carScreen(id) {
         z.addEventListener('mouseenter', () => { cap.innerHTML = `<b>${z.dataset.label}</b>`; });
         z.addEventListener('click', () => {
           const Z = ZONES[z.dataset.zone];
-          if (pack && Z.system === 'doors') location.hash = `#/car/${id}/sys/doors?door=${Z.door}`;
+          const zmap = { door_front: 'doors', door_rear: 'doors', engine: 'hood', wheels: 'wheels', tail: 'tail' };
+          if (pack && catalog && zmap[z.dataset.zone]) location.hash = `#/car/${id}/zone/${zmap[z.dataset.zone]}${Z.door ? '?door=' + Z.door : ''}`;
+          else if (pack && Z.system === 'doors') location.hash = `#/car/${id}/zone/doors?door=${Z.door}`;
           else openPlanned(car, pack, Z.system, Z.label);
         });
       });
@@ -278,6 +288,7 @@ async function sysScreen(carId, sysId, q) {
   if (!match || sysId !== 'doors') {
     return { html: `${topbar({ back: `#/car/${carId}`, title: 'W planie' })}<div class="wrap"><div class="note info">${icon('info', 22)}<div><b>Ten układ nie jest jeszcze opracowany</b><p>Wróć do auta i zamów opracowanie.</p></div></div></div>` };
   }
+  if (sysId === 'doors') { location.hash = `#/car/${carId}/zone/doors${q.get('door') ? '?door=' + q.get('door') : ''}`; return { html: '' }; }
   const pack = await getPack(match.id);
   let door = q.get('door') === 'rear' ? 'rear' : 'front';
   let view = 'outer';
@@ -378,6 +389,93 @@ async function sysScreen(carId, sysId, q) {
         if (!sd || !sv) { window.removeEventListener('resize', onResize); return; }
         syncSeg(sd, door); syncSeg(sv, view);
       };
+      window.addEventListener('resize', onResize, { passive: true });
+    }
+  };
+}
+
+/* ---------- STREFA (np. Drzwi): zdjęcie + pełna lista napraw ---------- */
+const ZONE_HERO = { hood: 76, interior: 8, tail: 40, wheels: 20, under: 16, service: 60 };
+async function zoneScreen(carId, zoneId, q) {
+  const car = S.car(carId);
+  if (!car) { location.hash = '#/'; return { html: '' }; }
+  const match = await matchPack(car).catch(() => null);
+  if (!match) { location.hash = `#/car/${carId}`; return { html: '' }; }
+  const pack = await getPack(match.id);
+  const catalog = await getCatalog(match.id).catch(() => null);
+  const zone = catalog && catalog.zones.find(z => z.id === zoneId);
+  if (!zone) { location.hash = `#/car/${carId}`; return { html: '' }; }
+  let side = q.get('side') === 'right' ? 'right' : 'left';
+  let door = q.get('door') === 'rear' ? 'rear' : 'front';
+  let sel = null, term = '';
+  const isDoors = zone.id === 'doors';
+  const all = zone.groups.flatMap(g => g.items);
+  const nReady = all.filter(i => i.id).length;
+  const spin = SPINS[pack.id];
+  const heroFrame = ZONE_HERO[zone.id];
+  const hero = isDoors ? `
+      <div class="seg" id="seg-side" role="tablist"><span class="thumb"></span><button data-v="left" role="tab">Lewa strona</button><button data-v="right" role="tab">Prawa strona</button></div>
+      <div class="seg" id="seg-door" role="tablist"><span class="thumb"></span><button data-v="front" role="tab">Przednie</button><button data-v="rear" role="tab">Tylne</button></div>
+      <div class="card doorbox glow"><div class="stage" id="stage"></div><div style="text-align:center"><span class="viewtag" id="viewtag"></span></div><div class="hs-caption" id="hscap"></div></div>`
+    : `<div class="card zhero glow">${spin && heroFrame != null ? `<div class="zhero-img"><img src="${spin.dir}f${String(heroFrame + 1).padStart(2, '0')}.${spin.ext}" alt="${esc(zone.label)}"></div>` : `<div class="zhero-ic">${icon(zone.icon, 44)}</div>`}</div>`;
+  const html = `
+    ${topbar({ back: `#/car/${carId}`, title: zone.label, sub: `${pack.title}${car.engine ? ' · ' + car.engine : ''}` })}
+    <div class="wrap door-wrap">
+      <div class="door-main">${hero}</div>
+      <div class="door-side">
+        <p class="zblurb">${esc(zone.blurb)}</p>
+        <div class="chips" style="margin:0 0 12px"><span class="chip">${all.length} napraw</span><span class="chip ${nReady ? 'ok' : ''}">${nReady ? 'Gotowe: ' + nReady : 'Wszystkie w planie'}</span></div>
+        <label class="zsearch">${icon('search', 18)}<input id="zq" type="search" placeholder="Szukaj w: ${esc(zone.label)}" autocomplete="off"></label>
+        <div id="zlist"></div>
+        <p class="foot">Pozycje „Wkrótce” są w planie. Opracowania powstają po jednym, w pełnej jakości, ze zdjęciami i filmami przy każdym kroku. Dotknij pozycji, aby zamówić następną.</p>
+      </div>
+    </div>`;
+  return {
+    tab: null, html,
+    bind(el) {
+      const norm = t => String(t).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l');
+      const paintList = () => {
+        const nt = norm(term);
+        const out = zone.groups.map(g => {
+          const items = g.items.filter(i => (!isDoors || !i.d || i.d === door) && (!nt || norm(i.t + ' ' + g.t + ' ' + (i.n || '')).includes(nt)));
+          if (!items.length) return '';
+          const rdy = items.filter(i => i.id).length;
+          const open = nt || rdy ? ' open' : '';
+          return `<details class="zg"${open}><summary>${icon('chevron', 16)}<span>${esc(g.t)}</span><em>${items.length}${rdy ? ` · gotowe ${rdy}` : ''}</em></summary><div class="zitems">${items.map(i => {
+            if (i.id) {
+              const r = pack.repairs.find(x => x.id === i.id) || {};
+              return `<a class="zrow ready" href="#/car/${carId}/r/${i.id}"><span class="zi">${icon(r.icon || 'wrench', 18)}</span><span class="zt"><b>${esc(i.t)}</b><small>${r.difficulty ? dots(r.difficulty) + ' &nbsp;·&nbsp; ' : ''}${r.time ? fmtTime(r.time) + ' &nbsp;·&nbsp; ' : ''}${esc(r.completeness || 'gotowe')}</small></span><span class="chip ok">Gotowe</span></a>`;
+            }
+            return `<button class="zrow" data-req="${esc(i.t)}"><span class="zi dim">${icon('clock', 16)}</span><span class="zt"><b>${esc(i.t)}</b>${i.n ? `<small>${esc(i.n)}</small>` : ''}</span><span class="chip">Wkrótce</span></button>`;
+          }).join('')}</div></details>`;
+        }).join('');
+        $('#zlist', el).innerHTML = out || `<div class="note info">${icon('info', 22)}<div><b>Nic nie pasuje</b><p>Spróbuj innego słowa.</p></div></div>`;
+        $$('[data-req]', el).forEach(b => b.onclick = () => openRequest(car, `${zone.label}: ${b.dataset.req}`));
+      };
+      $('#zq', el).addEventListener('input', e => { term = e.target.value.trim(); paintList(); });
+      paintList();
+      if (!isDoors) return;
+      const stage = $('#stage', el);
+      const syncSeg = (seg, val) => { $$('button', seg).forEach(b => { const on = b.dataset.v === val; b.classList.toggle('on', on); b.setAttribute('aria-selected', on); if (on) { const t = $('.thumb', seg); t.style.left = b.offsetLeft + 'px'; t.style.width = b.offsetWidth + 'px'; } }); };
+      const hsFor = () => (pack.doors[door].outer || []).filter(h => !(side === 'right' && h.anchor === 'outer.keyhole')).map(h => ({ ...h, state: h.planned ? 'planned' : '' }));
+      const paintCaption = () => {
+        const cap = $('#hscap', el);
+        $('#viewtag', el).innerHTML = `${icon('eye', 14)} ${side === 'left' ? 'Lewa' : 'Prawa'} strona · drzwi ${door === 'front' ? 'przednie' : 'tylne'}`;
+        if (!sel) { cap.innerHTML = `${icon('spark', 16)} Dotknij świecącego punktu na zdjęciu`; return; }
+        if (sel.repair) { const r = pack.repairs.find(x => x.id === sel.repair); cap.innerHTML = `<b>${esc(sel.label)}</b><a class="btn primary small" href="#/car/${carId}/r/${sel.repair}">Otwórz: ${esc(r ? r.title : 'poradnik')} ${icon('chevron', 16)}</a>`; }
+        else { cap.innerHTML = `<b>${esc(sel.label)}</b><span class="chip">wkrótce</span><button class="btn ghost small" id="hs-req">Zamów</button>`; $('#hs-req', el).onclick = () => openRequest(car, sel.label); }
+      };
+      const mountArt = () => {
+        setDoorPhoto(((DOOR_PHOTOS[pack.id] || {})[side] || {})[door]);
+        stage.innerHTML = doorSVG({ view: 'outer', hotspots: { outer: hsFor() }, rings: 1 });
+        $$('.hs', stage).forEach(h => h.addEventListener('click', () => { $$('.hs.sel', stage).forEach(x => x.classList.remove('sel')); h.classList.add('sel'); sel = (pack.doors[door].outer || []).find(x => x.id === h.dataset.hs); paintCaption(); }));
+        paintCaption();
+      };
+      $$('#seg-side button', el).forEach(b => b.onclick = () => { side = b.dataset.v; sel = null; syncSeg($('#seg-side', el), side); mountArt(); });
+      $$('#seg-door button', el).forEach(b => b.onclick = () => { door = b.dataset.v; sel = null; syncSeg($('#seg-door', el), door); mountArt(); paintList(); });
+      mountArt();
+      requestAnimationFrame(() => { syncSeg($('#seg-side', el), side); syncSeg($('#seg-door', el), door); });
+      const onResize = () => { const a = $('#seg-side', el), b = $('#seg-door', el); if (!a || !b) { window.removeEventListener('resize', onResize); return; } syncSeg(a, side); syncSeg(b, door); };
       window.addEventListener('resize', onResize, { passive: true });
     }
   };
@@ -491,7 +589,7 @@ async function repairScreen(carId, rid) {
   return {
     tab: null,
     html: `
-      ${topbar({ back: `#/car/${carId}/sys/doors?door=${rep.door === 'rear' ? 'rear' : 'front'}`, title: rep.title, sub: `${pack.title}${car.engine ? ' · ' + car.engine : ''}` })}
+      ${topbar({ back: `#/car/${carId}/zone/doors?door=${rep.door === 'rear' ? 'rear' : 'front'}`, title: rep.title, sub: `${pack.title}${car.engine ? ' · ' + car.engine : ''}` })}
       <div class="wrap">
         <div class="rhero">
           <div class="chips"><span class="chip ${comp[0]}">${comp[1]}</span><span class="chip">${rep.door === 'rear' ? 'Drzwi tylne' : rep.door === 'both' ? 'Drzwi przód i tył' : 'Drzwi przednie'}</span></div>
@@ -507,7 +605,7 @@ async function repairScreen(carId, rid) {
         <div class="section-h">${icon('list', 16)} Krok po kroku <span class="count" id="stepcount"></span></div>
         <div class="player">
           <div class="pdiag"><div class="inner">
-            <div>${(setDoorPhoto((DOOR_PHOTOS[pack.id] || {})[rep.door === 'rear' ? 'rear' : 'front']), doorSVG({ view: rep.steps[0].view, rings: 4 }))}</div>
+            <div>${(setDoorPhoto(((DOOR_PHOTOS[pack.id] || {}).left || {})[rep.door === 'rear' ? 'rear' : 'front']), doorSVG({ view: rep.steps[0].view, rings: 4 }))}</div>
             <div class="stepinfo"><small id="pi-n"></small><b id="pi-t"></b><span class="viewtag" id="pi-v"></span><div class="pbar"><i id="pbar"></i></div></div>
           </div></div>
           <div class="steps" id="steps">${steps}</div>

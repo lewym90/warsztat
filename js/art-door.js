@@ -31,8 +31,14 @@ export const ANCHORS = {
 // Zdjęcia drzwi z rzeczywistego auta (widok z zewnątrz) i położenie elementów na zdjęciu (układ 430x520).
 export const DOOR_PHOTOS = {
   'bmw-e53': {
-    front: { src: 'img/doors/e53-front.webp', alt: 'Lewe przednie drzwi BMW X5 E53 z zewnątrz', anchors: { 'outer.handle': [348, 248], 'outer.keyhole': [396, 252], 'outer.mirror': [121, 188], 'outer.glass': [220, 110], 'outer.rubber': [372, 270] } },
-    rear: { src: 'img/doors/e53-rear.webp', alt: 'Lewe tylne drzwi BMW X5 E53 z zewnątrz', anchors: { 'outer.handle': [300, 234], 'outer.glass': [200, 100], 'outer.rubber': [326, 256] } }
+    left: {
+      front: { src: 'img/doors/e53-front.webp', alt: 'Lewe przednie drzwi BMW X5 E53 z zewnątrz', anchors: { 'outer.handle': [348, 248], 'outer.keyhole': [396, 252], 'outer.mirror': [121, 188], 'outer.glass': [220, 110], 'outer.rubber': [372, 270] } },
+      rear: { src: 'img/doors/e53-rear.webp', alt: 'Lewe tylne drzwi BMW X5 E53 z zewnątrz', anchors: { 'outer.handle': [300, 234], 'outer.glass': [200, 100], 'outer.rubber': [326, 256] } }
+    },
+    right: {
+      front: { src: 'img/doors/e53-front-r.webp', alt: 'Prawe przednie drzwi BMW X5 E53 z zewnątrz', anchors: { 'outer.handle': [99, 245], 'outer.mirror': [313, 190], 'outer.glass': [230, 110], 'outer.rubber': [120, 264] } },
+      rear: { src: 'img/doors/e53-rear-r.webp', alt: 'Prawe tylne drzwi BMW X5 E53 z zewnątrz', anchors: { 'outer.handle': [94, 229], 'outer.glass': [200, 100], 'outer.rubber': [114, 248] } }
+    }
   }
 };
 let PHOTO = null;

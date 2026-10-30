@@ -14,6 +14,7 @@ async function getJSON(path) {
 
 export const getPacks = () => getJSON('data/packs.json');
 export const getPack = id => getJSON(`data/packs/${id}/pack.json`);
+export const getCatalog = id => getJSON(`data/packs/${id}/catalog.json`);
 export const getRepair = (packId, rid) => getJSON(`data/packs/${packId}/repairs/${rid}.json`);
 
 // Dopasowanie auta z garażu do paczki wiedzy.

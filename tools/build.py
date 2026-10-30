@@ -84,6 +84,23 @@ for p in packs:
 if errors:
     print('\nBŁĘDY:'); [print(' -', e) for e in errors]; sys.exit(1)
 
+# ---- katalog napraw (strefy) ----
+for pk in sorted((ROOT / 'data' / 'packs').iterdir()):
+    cat = pk / 'catalog.json'
+    if not cat.exists(): continue
+    cj = json.loads(cat.read_text(encoding='utf-8'))
+    zids = [z['id'] for z in cj['zones']]
+    if len(zids) != len(set(zids)): err(f'{pk.name}: powtórzone id strefy')
+    for z in cj['zones']:
+        for g in z['groups']:
+            for it in g['items']:
+                if not it.get('t'): err(f'{pk.name}/{z["id"]}: pozycja bez tytułu')
+                if it.get('id') and not (pk / 'repairs' / (it['id'] + '.json')).exists(): err(f'{pk.name}/{z["id"]}: brak karty {it["id"]}')
+                if it.get('d') not in (None, 'front', 'rear'): err(f'{pk.name}/{z["id"]}: zły filtr drzwi')
+
+if errors:
+    print('\nBŁĘDY:'); [print(' -', e) for e in errors]; sys.exit(1)
+
 # ---- service worker ----
 skip_dirs = {'tools', 'tests', '.git', 'node_modules'}
 files = []
