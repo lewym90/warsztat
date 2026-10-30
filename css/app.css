@@ -549,3 +549,10 @@ body.no-tabs #toast { bottom: calc(var(--sab) + 28px); }
 .lb-cap { display: grid; gap: 6px; }
 .lb-cap p { font-size: 15px; } .lb-cap small { color: var(--faint); }
 .lb-act { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+
+/* kompaktowy, przyklejony diagram kroku na telefonach i małych tabletach: nie zasłania zdjęć */
+@media (max-width: 899px) {
+  .pdiag .inner { grid-template-columns: auto minmax(0, 1fr); padding: 8px 14px 8px 10px; }
+  .pdiag .door-art { height: 118px; width: auto; max-width: none; display: block; }
+  .pdiag .stepinfo b { font-size: 15px; }
+}
