@@ -3,7 +3,7 @@ import * as S from './store.js';
 import { getPack, getRepair, matchPack } from './data.js';
 import { carSVG, ZONES, PHOTOS } from './art-car.js';
 import { SPINS, spinHtml, mountSpin } from './spin.js';
-import { doorSVG, ANCHORS, VIEW_LABELS, viewOf } from './art-door.js';
+import { doorSVG, ANCHORS, VIEW_LABELS, viewOf, DOOR_PHOTOS, setDoorPhoto, anchorOf } from './art-door.js';
 import { CATALOG, FUELS } from './catalog.js';
 
 const APP_VERSION = '0.1.0';
@@ -316,7 +316,7 @@ async function sysScreen(carId, sysId, q) {
       <div class="rlist" id="rlist"></div>
       <div class="section-h">${icon('search', 16)} Co się dzieje? Szybka diagnoza</div>
       <div class="diag">${diagHtml}</div>
-      <p class="foot">Szkic jest poglądowy: położenie elementów jest orientacyjne. Rysunek przedstawia lewe przednie drzwi.</p>
+      <p class="foot">Widok „Zewnątrz” to zdjęcie lewej strony Twojego BMW X5 E53. Boczek i środek drzwi to schemat poglądowy: położenie elementów jest orientacyjne.</p>
       </div>
     </div>`;
 
@@ -339,7 +339,7 @@ async function sysScreen(carId, sysId, q) {
         }).join('');
       };
       const mountArt = () => {
-        stage.innerHTML = doorSVG({ view, hotspots: hsFor(door), rings: 1 });
+        setDoorPhoto((DOOR_PHOTOS[pack.id] || {})[door]); stage.innerHTML = doorSVG({ view, hotspots: hsFor(door), rings: 1 });
         const svg = $('.door-art', stage);
         $$('.hs', svg).forEach(h => h.addEventListener('click', () => pick(h)));
         paintCaption();
@@ -507,7 +507,7 @@ async function repairScreen(carId, rid) {
         <div class="section-h">${icon('list', 16)} Krok po kroku <span class="count" id="stepcount"></span></div>
         <div class="player">
           <div class="pdiag"><div class="inner">
-            <div>${doorSVG({ view: rep.steps[0].view, rings: 4 })}</div>
+            <div>${(setDoorPhoto((DOOR_PHOTOS[pack.id] || {})[rep.door === 'rear' ? 'rear' : 'front']), doorSVG({ view: rep.steps[0].view, rings: 4 }))}</div>
             <div class="stepinfo"><small id="pi-n"></small><b id="pi-t"></b><span class="viewtag" id="pi-v"></span><div class="pbar"><i id="pbar"></i></div></div>
           </div></div>
           <div class="steps" id="steps">${steps}</div>
@@ -541,7 +541,7 @@ async function repairScreen(carId, rid) {
         const s = rep.steps[i];
         stepEls.forEach((e, k) => e.classList.toggle('active', k === i));
         svg.dataset.view = s.view;
-        const pts = (s.focus || []).filter(a => viewOf(a) === s.view).map(a => ANCHORS[a]).filter(Boolean);
+        const pts = (s.focus || []).filter(a => viewOf(a) === s.view).map(a => anchorOf(a)).filter(Boolean);
         rings.forEach((r, k) => {
           const p = pts[k];
           if (p) { r.style.transform = `translate(${p[0]}px, ${p[1]}px)`; r.style.opacity = 1; }

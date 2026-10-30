@@ -172,7 +172,7 @@ body.no-tabs #app { padding-bottom: calc(var(--sab) + 40px); }
 .seg { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 4px; padding: 4px; border-radius: 14px; background: rgba(255,255,255,.05); border: 1px solid var(--line); position: relative; }
 .seg button { min-height: 38px; border-radius: 10px; font-size: 13.5px; font-weight: 600; color: var(--muted); position: relative; z-index: 1; transition: color .25s; }
 .seg button.on { color: #12100e; }
-.seg .thumb { position: absolute; z-index: 0; top: 4px; bottom: 4px; border-radius: 10px; background: linear-gradient(135deg, #d9b878, #6a8bff); transition: left .35s var(--ease), width .35s var(--ease); box-shadow: 0 4px 18px -4px var(--accent-glow); }
+.seg .thumb { position: absolute; z-index: 0; top: 4px; bottom: 4px; border-radius: 10px; background: linear-gradient(135deg, #e6cc94, #b98a46); transition: left .35s var(--ease), width .35s var(--ease); box-shadow: 0 4px 18px -4px var(--accent-glow); }
 
 /* ---- rysunek drzwi ---- */
 .door-art { display: block; width: 100%; height: auto; overflow: visible; }
@@ -614,3 +614,9 @@ body.no-tabs #toast { bottom: calc(var(--sab) + 28px); }
 .zp-i b { display: block; font-size: 14.5px; } .zp-i small { color: var(--muted); font-size: 12.5px; }
 .zp-n { margin: 0; color: var(--muted); font-size: 14px; }
 @media (prefers-reduced-motion: reduce) { .spin-dot .r { animation: none; } .zonepanel { animation: none; } }
+/* kropki na zdjęciu drzwi: wyraźne na jasnym lakierze */
+.door-photo ~ .hs-layer .hs-dot, .layer.outer .hs-dot { stroke: #1a1408; stroke-width: 2.2; }
+.layer.outer .hs-dot { r: 7px; }
+.layer.outer .hs-ring { stroke-width: 2.2; fill: rgba(26,20,8,.18); }
+.layer.outer .hs.planned .hs-dot { fill: #f2efe9; }
+.layer.outer .hs.planned .hs-ring { stroke: #f2efe9; stroke-dasharray: 4 3; }

@@ -28,6 +28,17 @@ export const ANCHORS = {
   'outer.glass': [210, 100], 'outer.rubber': [244, 232]
 };
 
+// Zdjęcia drzwi z rzeczywistego auta (widok z zewnątrz) i położenie elementów na zdjęciu (układ 430x520).
+export const DOOR_PHOTOS = {
+  'bmw-e53': {
+    front: { src: 'img/doors/e53-front.webp', alt: 'Lewe przednie drzwi BMW X5 E53 z zewnątrz', anchors: { 'outer.handle': [348, 248], 'outer.keyhole': [396, 252], 'outer.mirror': [121, 188], 'outer.glass': [220, 110], 'outer.rubber': [372, 270] } },
+    rear: { src: 'img/doors/e53-rear.webp', alt: 'Lewe tylne drzwi BMW X5 E53 z zewnątrz', anchors: { 'outer.handle': [300, 234], 'outer.glass': [200, 100], 'outer.rubber': [326, 256] } }
+  }
+};
+let PHOTO = null;
+export function setDoorPhoto(p) { PHOTO = p || null; }
+export function anchorOf(a) { return (PHOTO && PHOTO.anchors && PHOTO.anchors[a]) || ANCHORS[a]; }
+
 export function viewOf(anchor) { return anchor.split('.')[0]; }
 
 const OUT = 'M26 498 L26 66 Q26 42 50 42 L318 42 Q336 42 346 58 L396 150 Q404 164 404 182 L404 476 Q404 498 382 498 Z';
@@ -35,7 +46,7 @@ const GLASS = 'M46 62 L312 62 L364 152 L46 152 Z';
 
 function hsLayer(list = []) {
   return `<g class="hs-layer">${list.map(h => {
-    const [x, y] = ANCHORS[h.anchor] || [0, 0];
+    const [x, y] = anchorOf(h.anchor) || [0, 0];
     return `<g class="hs ${h.state || ''}" data-hs="${h.id}" data-label="${h.label || ''}" transform="translate(${x} ${y})">
       <circle class="hs-hit" r="26"/><circle class="hs-ring" r="14"/><circle class="hs-dot" r="5"/></g>`;
   }).join('')}</g>`;
@@ -55,7 +66,7 @@ export function doorSVG({ view = 'outer', hotspots = {}, rings = 3, rear = false
 
   <!-- ================= Z ZEWNĄTRZ ================= -->
   <g class="layer outer">
-    <g transform="translate(430 0) scale(-1 1)">
+    ${PHOTO && PHOTO.src ? `<clipPath id="dgClip"><rect x="0" y="0" width="430" height="520" rx="22"/></clipPath><image class="door-photo" href="${PHOTO.src}" x="0" y="0" width="430" height="520" preserveAspectRatio="xMidYMid slice" clip-path="url(#dgClip)"><title>${PHOTO.alt}</title></image>` : `<g transform="translate(430 0) scale(-1 1)">
       <path class="skin" d="${OUT}"/>
       <path class="cladding" d="M26 404 L404 404 L404 476 Q404 498 382 498 L48 498 Q26 498 26 476 Z"/>
       <path class="streak" d="M80 480 L250 160 L300 160 L136 480 Z"/>
@@ -71,7 +82,7 @@ export function doorSVG({ view = 'outer', hotspots = {}, rings = 3, rear = false
     <path class="handle-recess" d="M222 196 Q290 186 356 196 L356 236 Q290 244 222 236 Z"/>
     <circle class="keyhole-cover" cx="364" cy="218" r="11"/><path class="keyhole" d="M364 214v7"/>
     <path class="seam" d="M404 66 L404 480"/>
-    <rect class="hinge" x="24" y="120" width="6" height="26" rx="2"/><rect class="hinge" x="24" y="408" width="6" height="26" rx="2"/>
+    <rect class="hinge" x="24" y="120" width="6" height="26" rx="2"/><rect class="hinge" x="24" y="408" width="6" height="26" rx="2"/>`}
     ${hsLayer(hotspots.outer)}
   </g>
 
