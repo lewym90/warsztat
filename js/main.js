@@ -161,7 +161,8 @@ async function carScreen(id) {
   const pack = match ? await getPack(match.id) : null;
   const catalog = pack ? await getCatalog(pack.id).catch(() => null) : null;
   const ready = pack ? pack.systems.filter(s => s.ready) : [];
-  const cnt = z => { const all = z.groups.flatMap(g => g.items); return { n: all.length, r: all.filter(i => i.id).length }; };
+  const isFull = i => i.id && (pack.repairs.find(x => x.id === i.id) || {}).completeness === 'pełne';
+  const cnt = z => { const all = z.groups.flatMap(g => g.items); return { n: all.length, r: all.filter(isFull).length, d: all.filter(i => i.id).length }; };
   const zoneTiles = catalog ? catalog.zones.map(z => {
     const c = cnt(z);
     return `<a class="sys ${c.r ? 'ready' : 'planned'}" href="#/car/${id}/zone/${z.id}">
@@ -410,7 +411,8 @@ async function zoneScreen(carId, zoneId, q) {
   let sel = null, term = '';
   const isDoors = zone.id === 'doors';
   const all = zone.groups.flatMap(g => g.items);
-  const nReady = all.filter(i => i.id).length;
+  const nReady = all.filter(i => i.id && (pack.repairs.find(x => x.id === i.id) || {}).completeness === 'pełne').length;
+  const nDraft = all.filter(i => i.id).length - nReady;
   const spin = SPINS[pack.id];
   const heroFrame = ZONE_HERO[zone.id];
   const hero = isDoors ? `
@@ -424,7 +426,7 @@ async function zoneScreen(carId, zoneId, q) {
       <div class="door-main">${hero}</div>
       <div class="door-side">
         <p class="zblurb">${esc(zone.blurb)}</p>
-        <div class="chips" style="margin:0 0 12px"><span class="chip">${all.length} napraw</span><span class="chip ${nReady ? 'ok' : ''}">${nReady ? 'Gotowe: ' + nReady : 'Wszystkie w planie'}</span></div>
+        <div class="chips" style="margin:0 0 12px"><span class="chip">${all.length} napraw</span><span class="chip ${nReady ? 'ok' : ''}">${nReady ? 'Gotowe: ' + nReady : 'Brak gotowych'}</span>${nDraft ? `<span class="chip">Wstępne wersje: ${nDraft}</span>` : ''}</div>
         <label class="zsearch">${icon('search', 18)}<input id="zq" type="search" placeholder="Szukaj w: ${esc(zone.label)}" autocomplete="off"></label>
         <div id="zlist"></div>
         <p class="foot">Pozycje „Wkrótce” są w planie. Opracowania powstają po jednym, w pełnej jakości, ze zdjęciami i filmami przy każdym kroku. Dotknij pozycji, aby zamówić następną.</p>
@@ -439,12 +441,12 @@ async function zoneScreen(carId, zoneId, q) {
         const out = zone.groups.map(g => {
           const items = g.items.filter(i => (!isDoors || !i.d || i.d === door) && (!nt || norm(i.t + ' ' + g.t + ' ' + (i.n || '')).includes(nt)));
           if (!items.length) return '';
-          const rdy = items.filter(i => i.id).length;
+          const rdy = items.filter(i => i.id && (pack.repairs.find(x => x.id === i.id) || {}).completeness === 'pełne').length;
           const open = nt || rdy ? ' open' : '';
           return `<details class="zg"${open}><summary>${icon('chevron', 16)}<span>${esc(g.t)}</span><em>${items.length}${rdy ? ` · gotowe ${rdy}` : ''}</em></summary><div class="zitems">${items.map(i => {
             if (i.id) {
               const r = pack.repairs.find(x => x.id === i.id) || {};
-              return `<a class="zrow ready" href="#/car/${carId}/r/${i.id}"><span class="zi">${icon(r.icon || 'wrench', 18)}</span><span class="zt"><b>${esc(i.t)}</b><small>${r.difficulty ? dots(r.difficulty) + ' &nbsp;·&nbsp; ' : ''}${r.time ? fmtTime(r.time) + ' &nbsp;·&nbsp; ' : ''}${esc(r.completeness || 'gotowe')}</small></span><span class="chip ok">Gotowe</span></a>`;
+              return `<a class="zrow ready" href="#/car/${carId}/r/${i.id}"><span class="zi">${icon(r.icon || 'wrench', 18)}</span><span class="zt"><b>${esc(i.t)}</b><small>${r.difficulty ? dots(r.difficulty) + ' &nbsp;·&nbsp; ' : ''}${r.time ? fmtTime(r.time) + ' &nbsp;·&nbsp; ' : ''}${esc(r.completeness || 'gotowe')}</small></span><span class="chip ${r.completeness === 'pełne' ? 'ok' : ''}">${r.completeness === 'pełne' ? 'Gotowe' : 'Wstępna wersja'}</span></a>`;
             }
             return `<button class="zrow" data-req="${esc(i.t)}"><span class="zi dim">${icon('clock', 16)}</span><span class="zt"><b>${esc(i.t)}</b>${i.n ? `<small>${esc(i.n)}</small>` : ''}</span><span class="chip">Wkrótce</span></button>`;
           }).join('')}</div></details>`;

@@ -408,7 +408,7 @@
         75,
         150
       ],
-      "completeness": "pełne",
+      "completeness": "częściowe",
       "steps": 9,
       "icon": "bolt"
     },
@@ -422,7 +422,7 @@
         30,
         60
       ],
-      "completeness": "pełne",
+      "completeness": "częściowe",
       "steps": 8,
       "icon": "door"
     },
