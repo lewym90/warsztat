@@ -110,6 +110,16 @@
       "title": "Xoutpost: X5 Door Handle Carrier Removal and Replacement DIY (wątek ze zdjęciami)",
       "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/102023-x5-door-handle-carrier-removal-replacement-diy-4.html",
       "kind": "forum"
+    },
+    "bz-video": {
+      "title": "BIMMER ZEIT (YouTube): BMW X5 Door Handle Carrier Removal and Installation DIY E53",
+      "url": "https://www.youtube.com/watch?v=ge7-HJ0DUz0",
+      "kind": "wideo"
+    },
+    "pelican-panel": {
+      "title": "Pelican Parts: BMW X5 Door Panel Replacement (12 zdjęć)",
+      "url": "https://www.pelicanparts.com/techarticles/BMW-X5/47-INTERIOR-Door_Panel_Replacement/47-INTERIOR-Door_Panel_Replacement.htm",
+      "kind": "artykuł"
     }
   },
   "systems": [
@@ -367,11 +377,11 @@
       "door": "front",
       "difficulty": 3,
       "time": [
-        60,
-        180
+        90,
+        240
       ],
       "completeness": "pełne",
-      "steps": 14,
+      "steps": 26,
       "icon": "wrench"
     },
     {

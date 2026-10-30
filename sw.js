@@ -1,6 +1,6 @@
 // Service worker: aplikacja działa offline po pierwszym wejściu.
 // Lista plików i wersja są aktualizowane przez tools/build.py (nie edytuj ręcznie między znacznikami).
-const VERSION = 'warsztat-/*V*/5e3eecb918/*ENDV*/';
+const VERSION = 'warsztat-/*V*/4313113535/*ENDV*/';
 const FILES = /*FILES*/["./", "css/app.css", "data/packs/bmw-e53/pack.json", "data/packs/bmw-e53/repairs/klamka-wewn.json", "data/packs/bmw-e53/repairs/klamka-zewn-przod.json", "data/packs/bmw-e53/repairs/klamka-zewn-tyl.json", "data/packs/bmw-e53/repairs/silownik-zamka-przod.json", "data/packs/bmw-e53/repairs/tapicerka-przod.json", "data/packs/bmw-e53/repairs/tapicerka-tyl.json", "data/packs.json", "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-512.png", "img/x5-e53.webp", "index.html", "js/art-car.js", "js/art-door.js", "js/catalog.js", "js/data.js", "js/icons.js", "js/main.js", "js/store.js", "manifest.webmanifest"]/*ENDFILES*/;
 
 self.addEventListener('install', e => {

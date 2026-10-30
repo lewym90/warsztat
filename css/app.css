@@ -556,3 +556,20 @@ body.no-tabs #toast { bottom: calc(var(--sab) + 28px); }
   .pdiag .door-art { height: 118px; width: auto; max-width: none; display: block; }
   .pdiag .stepinfo b { font-size: 15px; }
 }
+
+/* kroki: fazy i szczegóły dla początkujących */
+.steps .phase { margin: 22px 2px 8px; font: 600 12px/1.2 var(--sans, system-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+.steps .phase:first-child { margin-top: 4px; }
+.seebox, .mistbox, .checkbox { display: flex; gap: 10px; padding: 10px 12px; border-radius: 12px; font-size: 13.5px; line-height: 1.5; }
+.seebox b, .mistbox b, .checkbox b { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 2px; opacity: .85; }
+.seebox { background: rgba(217,184,120,.07); border: 1px solid rgba(217,184,120,.22); color: #ece0c8; }
+.seebox .ic { color: var(--accent); flex: none; margin-top: 2px; }
+.mistbox { background: rgba(255,102,116,.07); border: 1px solid rgba(255,102,116,.25); color: #ffd0d4; }
+.mistbox .ic { color: var(--danger); flex: none; margin-top: 2px; }
+.mistbox ul { margin: 0; padding-left: 18px; }
+.checkbox { background: rgba(90,200,140,.08); border: 1px solid rgba(90,200,140,.3); color: #c9f0da; }
+.checkbox .ic { color: #5ac88c; flex: none; margin-top: 2px; }
+.how { margin: 0; padding: 0; list-style: none; counter-reset: h; display: grid; gap: 8px; }
+.how li { counter-increment: h; position: relative; padding-left: 32px; font-size: 14.5px; line-height: 1.55; }
+.how li::before { content: counter(h); position: absolute; left: 0; top: 1px; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 12px; font-weight: 600; color: #1a1408; background: linear-gradient(145deg, var(--accent), var(--accent2)); }
+.stools { display: flex; flex-wrap: wrap; gap: 6px; }

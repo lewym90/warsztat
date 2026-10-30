@@ -436,12 +436,18 @@ async function repairScreen(carId, rid) {
   }).join('');
   const steps = rep.steps.map((s, i) => {
     const c = CONF[s.conf] || CONF.low;
-    return `<article class="step ${prog.steps[i] ? 'done' : ''}" data-i="${i}" id="st${i}">
+    const ph = s.phase && s.phase !== (rep.steps[i - 1] || {}).phase ? `<h3 class="phase">${esc(s.phase)}</h3>` : '';
+    return `${ph}<article class="step ${prog.steps[i] ? 'done' : ''}" data-i="${i}" id="st${i}">
       <button class="head" data-open="${i}"><span class="num">${prog.steps[i] ? icon('check', 18) : i + 1}</span><span><b>${esc(s.t)}</b><small>~${s.min} min · ${VIEW_LABELS[s.view].split(':')[0].toLowerCase()}</small></span><span class="conf ${c[0]}"><i></i></span></button>
       <div class="body"><div><div class="content">
         ${s.danger ? `<div class="dangerbox">${icon('alert', 20)}<span>Poduszka powietrzna: nie odłączaj wtyczki bez odłączenia akumulatora i odczekania co najmniej 30 minut.</span></div>` : ''}
         <p>${esc(s.b)}</p>
+        ${s.see ? `<div class="seebox">${icon('eye', 18)}<span><b>Co zobaczysz</b>${esc(s.see)}</span></div>` : ''}
+        ${s.tools ? `<div class="stools">${s.tools.map(t => `<span class="chip">${icon('wrench', 12)} ${esc(t)}</span>`).join('')}</div>` : ''}
+        ${s.how ? `<ol class="how">${s.how.map(h => `<li>${esc(h)}</li>`).join('')}</ol>` : ''}
         ${mediaHtml(s.media)}
+        ${s.mistakes ? `<div class="mistbox">${icon('alert', 18)}<span><b>Typowe błędy</b><ul>${s.mistakes.map(m => `<li>${esc(m)}</li>`).join('')}</ul></span></div>` : ''}
+        ${s.check ? `<div class="checkbox">${icon('check', 18)}<span><b>Sprawdź zanim pójdziesz dalej</b>${esc(s.check)}</span></div>` : ''}
         ${s.tip ? `<div class="tipbox">${icon('spark', 18)}<span>${esc(s.tip)}</span></div>` : ''}
         ${s.warn ? `<div class="tipbox">${icon('alert', 18)}<span>Zabezpiecz lakier taśmą malarską.</span></div>` : ''}
         ${s.link ? `<a class="btn small" href="#/car/${carId}/r/${s.link}">${icon('book', 16)} Otwórz kartę: ${esc(relTitle(s.link))}</a>` : ''}
