@@ -4,7 +4,7 @@ const cache = new Map();
 async function getJSON(path) {
   if (cache.has(path)) return cache.get(path);
   const url = new URL(path, document.baseURI).href;
-  const p = fetch(url).then(r => {
+  const p = fetch(url, { cache: 'no-cache' }).then(r => {
     if (!r.ok) throw new Error(`${r.status} ${path}`);
     return r.json();
   });
