@@ -365,12 +365,15 @@ async function sysScreen(carId, sysId, q) {
 const fmtT = t => `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`;
 function mediaHtml(list) {
   if (!list || !list.length) return '';
+  const films = list.filter(x => x.type === 'film');
+  list = list.filter(x => x.type !== 'film');
+  const filmHtml = films.length ? `<div class="films">${films.map((f, k) => `<a class="film" href="https://www.youtube.com/watch?v=${esc(f.id)}" target="_blank" rel="noopener"><span class="fthumb"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://i.ytimg.com/vi/${esc(f.id)}/hqdefault.jpg" alt=""><span class="mpl">${icon('chevron', 26)}</span>${f.len ? `<span class="flen">${esc(f.len)}</span>` : ''}</span><span class="ftxt"><b>Film naprawy ${k + 1}</b><small>${esc(f.cap)}</small><em>${esc(f.credit)}</em></span></a>`).join('')}</div>` : '';
   const items = list.map(x => {
     if (x.type === 'photo') return `<figure class="mfig"><button class="mph" data-lb="${esc(x.url)}" data-cap="${esc(x.cap)}" data-credit="${esc(x.credit)}" data-page="${esc(x.page || x.url)}" aria-label="Powiększ zdjęcie"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="${esc(x.url)}" alt="${esc(x.cap)}"><span class="mbadge">${icon('eye', 13)} Zdjęcie</span></button><figcaption>${esc(x.cap)} <em>${esc(x.credit)}</em></figcaption></figure>`;
     if (x.type === 'video') return `<div class="mvid" data-yt="${esc(x.id)}" data-t="${x.t}" data-e="${x.e || ''}"><button class="mplay" aria-label="Odtwórz film od ${fmtT(x.t)}"><span class="mpl">${icon('chevron', 26)}</span><span><b>Film od ${fmtT(x.t)}${x.e ? ' do ' + fmtT(x.e) : ''}</b><small>${esc(x.cap)} · ${esc(x.credit)}</small></span></button></div>`;
     return `<a class="mlink" href="${esc(x.url)}" target="_blank" rel="noopener">${icon('link', 16)} ${esc(x.label || x.url)} <em>${esc(x.credit || '')}</em></a>`;
   }).join('');
-  return `<div class="media">${items}</div>`;
+  return filmHtml + (items ? `<div class="media">${items}</div>` : '');
 }
 function openLightbox({ url, cap, credit, page }) {
   const lb = document.createElement('div');

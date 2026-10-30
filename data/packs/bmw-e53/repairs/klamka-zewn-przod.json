@@ -247,10 +247,18 @@
       ],
       "media": [
         {
-          "type": "link",
-          "url": "https://www.youtube.com/watch?v=ge7-HJ0DUz0",
-          "label": "Obejrzyj najpierw cały film (9:38, najpopularniejszy na ten temat, po angielsku)",
+          "type": "film",
+          "id": "ge7-HJ0DUz0",
+          "len": "9:38",
+          "cap": "Najpopularniejszy film na ten temat (po angielsku). Warto obejrzeć całość przed startem.",
           "credit": "BIMMER ZEIT (YouTube)"
+        },
+        {
+          "type": "film",
+          "id": "nYtyyRkn0yo",
+          "len": "19:34",
+          "cap": "Dłuższy, wolniejszy, z większą liczbą szczegółów (po angielsku).",
+          "credit": "BOND Garage (YouTube)"
         },
         {
           "type": "photo",
