@@ -1,0 +1,57 @@
+{
+  "id": "klamka-wewn",
+  "title": "Klamka wewnętrzna (przód i tył)",
+  "subtitle": "Wymiana uchwytu klamki w boczku",
+  "door": "both",
+  "completeness": "częściowe",
+  "difficulty": 2,
+  "time": [30, 90],
+  "summary": "Klamka wewnętrzna E53 to znana słabość: pęka, luzuje się albo ściera się z niej powłoka. Sam uchwyt siedzi w boczku, więc najpewniej zdejmujesz boczek i odkręcasz go od środka. Procedura fabryczna jest opisana dla drzwi tylnych, dla przednich przyjmujemy analogię (oznaczone niżej).",
+  "extras": [
+    { "t": "Tylko starta powłoka?", "b": "Jeśli klamka jest tylko porysowana (miękka powłoka ściera się od pierścieni i paznokci), zamiast wymiany można ją okleić nakładką ze skóry. Tańsze i szybsze.", "src": ["xo-interior-handle"] }
+  ],
+  "tools": [
+    { "name": "Torx T20", "note": "śruby boczka", "need": "must" },
+    { "name": "Plastikowe łopatki do tapicerki", "note": "boczek i zaślepki", "need": "must" },
+    { "name": "Mały klucz nasadowy lub płaski", "note": "nakrętka uchwytu; rozmiar niepotwierdzony", "need": "must" },
+    { "name": "Zapasowe spinki boczka", "note": "część pęknie", "need": "should" }
+  ],
+  "parts": [
+    { "name": "Klamka wewnętrzna, przód lewy (czarne wnętrze)", "oe": "51418265077", "conf": "med", "note": "Numer z forum, wyłącznie dla czarnego wnętrza. Dla innych kolorów będzie inny: sprawdź w katalogu po VIN.", "src": ["xo-interior-handle"] },
+    { "name": "Klamka wewnętrzna, przód prawy (czarne wnętrze)", "oe": "51418265078", "conf": "med", "note": "Jak wyżej.", "src": ["xo-interior-handle"] },
+    { "name": "Klamka wewnętrzna, tył lewy (czarne wnętrze)", "oe": "51428265173", "conf": "med", "note": "Jak wyżej.", "src": ["xo-interior-handle"] },
+    { "name": "Klamka wewnętrzna, tył prawy (czarne wnętrze)", "oe": "51428265174", "conf": "med", "note": "Jak wyżej.", "src": ["xo-interior-handle"] },
+    { "name": "Zamiennik URO, przód lewy", "oe": "51418408565", "conf": "med",
+      "note": "Sklep podaje ten numer BMW jako zastępowany przez zamiennik URO z 2-letnią gwarancją; dla prawej strony 51418408566. Numery różnią się od powyższych (wersja/kolor wnętrza), więc dobierz po VIN.",
+      "price": "ok. 15 USD u sprzedawcy z USA", "src": ["bw-interior"] }
+  ],
+  "warnings": [
+    { "lvl": "warn", "t": "Wersja z podświetleniem", "b": "Jeśli klamka ma podświetlenie, uważaj na światłowód (nie uszkodź go przy wyjmowaniu).", "src": ["tis-rear-inner"] },
+    { "lvl": "info", "t": "Oparte na instrukcji dla drzwi tylnych", "b": "Opis fabryczny dotyczy tylnych drzwi (3.0d). Dla przednich zakładamy podobną konstrukcję, ale nie potwierdzono tego w źródłach.", "src": ["tis-rear-inner", "xo-interior-handle"] }
+  ],
+  "steps": [
+    { "t": "Zdejmij boczek", "view": "card", "focus": ["card.pull"], "min": 40, "conf": "high", "src": ["xo-actuator", "tis-rear-inner"],
+      "b": "Dla przednich drzwi wykonaj kartę „Tapicerka drzwi przednich”. Dla tylnych kartę „Tapicerka drzwi tylnych”. Instrukcja fabryczna zaczyna ten zabieg od zdjęcia boczka.", "link": "tapicerka-przod" },
+    { "t": "Znajdź mocowanie uchwytu", "view": "card", "focus": ["card.screw_handle", "card.handle"], "min": 5, "conf": "low", "src": ["xo-interior-handle"],
+      "b": "Na forum opisano, że jedna ze śrub jest ukryta pod małą zaślepką pod klamką, a druga pod zaślepką w listwie. Odpowiedzi nie są jednoznaczne co do tego, czy przy samym uchwycie wystarczy część rozbiórki. Po zdjęciu boczka zobaczysz mocowanie od środka." },
+    { "t": "Poluzuj nakrętkę uchwytu", "view": "card", "focus": ["card.handle"], "min": 5, "conf": "med", "src": ["tis-rear-inner"],
+      "b": "Poluzuj nakrętkę trzymającą uchwyt. W wersji z podświetleniem uważaj na światłowód." },
+    { "t": "Wyjmij uchwyt z boczka", "view": "card", "focus": ["card.handle"], "min": 5, "conf": "med", "src": ["tis-rear-inner"],
+      "b": "Obróć uchwyt do wewnątrz i ku górze, aby wyszedł z boczka. Nie uszkodź prowadnic na uchwycie. Śruba ma przy wyjmowaniu leżeć lekko wsunięta w prowadnicę uchwytu." },
+    { "t": "Zamontuj nowy uchwyt", "view": "card", "focus": ["card.handle"], "min": 10, "conf": "med", "src": ["tis-rear-inner"],
+      "b": "Wsuń nowy uchwyt prowadnicami w boczek, zwracając uwagę, by śruba nie została uszkodzona w prowadnicy. Dokręć nakrętkę (momentu nie podajemy: brak w źródłach)." },
+    { "t": "Złóż boczek", "view": "card", "focus": ["card.top_clips"], "min": 15, "conf": "high", "src": ["xo-actuator"],
+      "b": "Zamontuj boczek według odpowiedniej karty i sprawdź otwieranie drzwi od środka." }
+  ],
+  "after": [
+    "Klamka wewnętrzna otwiera drzwi bez luzu",
+    "Podświetlenie klamki działa (jeśli jest)",
+    "Cięgno klamki wpięte w karetkę: boczek nie odstaje"
+  ],
+  "unknown": [
+    "Rozmiar nakrętki i moment dokręcenia: brak w źródłach.",
+    "Dokładna procedura dla drzwi przednich 3.0d: opis fabryczny widziany tylko dla tylnych.",
+    "Numery OE dla innych kolorów wnętrza niż czarne."
+  ],
+  "related": ["tapicerka-przod", "tapicerka-tyl"]
+}

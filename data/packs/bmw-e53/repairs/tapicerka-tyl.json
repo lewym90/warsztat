@@ -1,0 +1,42 @@
+{
+  "id": "tapicerka-tyl",
+  "title": "Tapicerka drzwi tylnych",
+  "subtitle": "Zdejmowanie boczka tylnych drzwi",
+  "door": "rear",
+  "completeness": "szkic",
+  "difficulty": 2,
+  "time": [45, 75],
+  "summary": "Szkic na podstawie artykułu technicznego i relacji z forum. Konstrukcja jest podobna do przedniej, ale mamy mniej szczegółów: nie potwierdziliśmy liczby i położenia śrub. To karta robocza: uzupełnimy ją po pierwszej rozbiórce.",
+  "tools": [
+    { "name": "Torx T20", "note": "wg artykułu technicznego", "need": "must" },
+    { "name": "Plastikowe łopatki do tapicerki", "note": "", "need": "must" },
+    { "name": "Narzędzie do spinek tapicerki", "note": "ułatwia zdjęcie spinek", "need": "should" },
+    { "name": "Zapasowe spinki", "note": "autorzy zalecają mieć zapas, bo pękają", "need": "must" }
+  ],
+  "parts": [
+    { "name": "Spinki i uszczelki boczka", "oe": null, "conf": "low", "note": "Numerów nie potwierdzono. Czytelnicy artykułu pytali o czarne uszczelki przy boczku (11 szt. na drzwi). Dobierz po VIN.", "src": ["pelican-rear-card"] }
+  ],
+  "warnings": [
+    { "lvl": "warn", "t": "Roleta przeciwsłoneczna", "b": "Jeśli masz roletę w tylnych drzwiach, wyjmij ją najpierw i uważaj, żeby siatka nie zaczepiła. Roleta wsuwa się w metalowy uchwyt na boczku.", "src": ["pelican-rear-card", "xo-rear-childlock"] },
+    { "lvl": "info", "t": "Szkic, nie pełna instrukcja", "b": "Liczba i miejsca śrub w tylnych drzwiach nie zostały potwierdzone. Rozbierając, rób zdjęcia i nie szarp.", "src": ["pelican-rear-card"] }
+  ],
+  "steps": [
+    { "t": "Wyjmij roletę (jeśli jest)", "view": "card", "focus": ["card.pull"], "min": 5, "conf": "med", "src": ["pelican-rear-card", "xo-rear-childlock"],
+      "b": "Najpierw wysuń roletę przeciwsłoneczną. Pilnuj, żeby siatka nie zaczepiła o elementy podczas wyciągania." },
+    { "t": "Odkręć śruby T20", "view": "card", "focus": ["card.screw_handle", "card.screw_map"], "min": 8, "conf": "low", "src": ["pelican-rear-card"],
+      "b": "Artykuł wymienia klucz T20 do śrub boczka. Miejsca śrub w tylnych drzwiach sprawdź wzrokowo, szukaj ich tak jak z przodu: za klamką wewnętrzną, w okolicy uchwytu i pod zaślepkami." },
+    { "t": "Zwolnij spinki i zdejmij boczek", "view": "card", "focus": ["card.clip_a", "card.clip_b", "card.clip_c"], "min": 15, "conf": "low", "src": ["pelican-rear-card", "xo-rear-childlock"],
+      "b": "Podważaj boczek łopatkami dookoła. Jedna relacja z forum mówi, że boczek zwolnił się „zdecydowanym pchnięciem w górę” po wyjęciu rolety. Przy utrudnionym dostępie (np. blokada dziecięca) fotel tylny bywa przeszkodą." },
+    { "t": "Odepnij wtyczki i cięgno klamki", "view": "card", "focus": ["card.handle", "card.led"], "min": 5, "conf": "low", "src": ["pelican-rear-card"],
+      "b": "Zanim odłożysz boczek, odepnij wszystko, co go łączy z drzwiami: wtyczki i cięgno klamki wewnętrznej." },
+    { "t": "Montaż", "view": "card", "focus": ["card.top_clips"], "min": 15, "conf": "med", "src": ["pelican-rear-card"],
+      "b": "Odwrotnie niż demontaż. Jeśli w czasie rozbiórki odpadła roleta, zamontuj ją, wsuwając w metalowy uchwyt boczka." }
+  ],
+  "after": ["Zamek i szyba działają", "Boczek nie grzechocze", "Roleta wysuwa się i chowa"],
+  "unknown": [
+    "Liczba i dokładne położenie śrub T20.",
+    "Czy przełączniki i inne wtyczki w tylnych drzwiach wymagają odpięcia (zależnie od wyposażenia).",
+    "Procedura dla aut po liftingu."
+  ],
+  "related": ["klamka-zewn-tyl", "klamka-wewn"]
+}

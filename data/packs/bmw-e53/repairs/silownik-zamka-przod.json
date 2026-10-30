@@ -1,0 +1,61 @@
+{
+  "id": "silownik-zamka-przod",
+  "title": "Siłownik zamka: drzwi przednie",
+  "subtitle": "Wymiana siłownika (aktuatora) zamka centralnego",
+  "door": "front",
+  "completeness": "pełne",
+  "difficulty": 3,
+  "time": [75, 150],
+  "summary": "Drzwi zamykają lub otwierają się wolno albo nie za pierwszym razem. Objaw może się utrzymywać tygodniami, ale ignorowanie go bywa kosztowne: słaby siłownik zmusza do ręcznego podnoszenia blokady, a to potrafi złamać plastik, w którym jest zamocowana linka. Opis dotyczy przednich drzwi pasażera.",
+  "tools": [
+    { "name": "Torx T20", "note": "4 śruby boczka", "need": "must" },
+    { "name": "Torx T30 (z bitem)", "note": "3 śruby siłownika", "need": "must" },
+    { "name": "Klucz nasadowy 10 mm", "note": "3 śruby poduszki", "need": "must" },
+    { "name": "Plastikowe i metalowa łopatka", "note": "boczek, kula linki", "need": "must" },
+    { "name": "Płaski wkrętak", "note": "wtyczki", "need": "should" },
+    { "name": "Szmatka", "note": "podkładaj przy podważaniu", "need": "should" },
+    { "name": "Sznurek", "note": "wyciągnięcie białej tulejki prowadzącej", "need": "should" }
+  ],
+  "parts": [
+    { "name": "Siłownik zamka, przód prawy", "oe": "51218402540", "conf": "med",
+      "note": "Numer z forum (zapis 51-21-8-402-540), użyty do drzwi pasażera. Pozostałe drzwi mają inne numery: sprawdź po VIN.",
+      "src": ["xo-actuator"] }
+  ],
+  "warnings": [
+    { "lvl": "danger", "t": "Poduszka powietrzna w drzwiach", "b": "Odkręć 3 śruby 10 mm i zawieś moduł. Nie odłączaj wtyczki; jeśli musisz, najpierw odłącz akumulator i odczekaj co najmniej 30 minut. Jeden z autorów po odłączeniu akumulatora nie odłączał poduszki w ogóle.", "src": ["xo-actuator"] },
+    { "lvl": "warn", "t": "Drzwi kierowcy: dodatkowy krok", "b": "Zamek na klucz wchodzi w małe gniazdo siłownika. Aby wyjąć i włożyć siłownik, trzeba najpierw wyjąć wkładkę zamka (jak w karcie klamki zewnętrznej).", "src": ["xo-actuator"] },
+    { "lvl": "info", "t": "Sprawdź stan linki wewnętrznej", "b": "Przy okazji obejrzyj linkę i jej plastikową karetkę. Jeśli pęka lub kruszy się, wymień ją, bo awaria uniemożliwia otwarcie drzwi i od środka, i od zewnątrz.", "src": ["xo-actuator"] }
+  ],
+  "steps": [
+    { "t": "Zdejmij tapicerkę", "view": "card", "focus": ["card.pull"], "min": 40, "conf": "high", "src": ["xo-actuator"],
+      "b": "Wykonaj kartę „Tapicerka drzwi przednich”. W tym wątku autor zdjął boczek, odpiął diodę klamki i karetkę cięgna klamki wewnętrznej.", "link": "tapicerka-przod" },
+    { "t": "Zawieś poduszkę", "view": "inner", "focus": ["inner.airbag"], "min": 5, "conf": "high", "src": ["xo-actuator"], "danger": true,
+      "b": "Wyjmij 3 śruby 10 mm i zawieś moduł poduszki na sznurku. Wtyczki nie odłączaj, bo wyskoczy błąd w układzie." },
+    { "t": "Odklej izolację", "view": "inner", "focus": ["inner.foam"], "min": 5, "conf": "high", "src": ["xo-actuator"],
+      "b": "Odklejaj izolację bardzo ostrożnie, zaczynając od lewego górnego rogu, tam gdzie przechodzi linka wewnętrzna. Potem po górze i w dół prawą stroną, aż odsłonisz miejsce po poduszce. Zobaczysz część siłownika." },
+    { "t": "Odepnij wtyczkę siłownika", "view": "inner", "focus": ["inner.harness"], "min": 5, "conf": "high", "src": ["xo-actuator"],
+      "b": "Wtyczka jest na dole siłownika i jej nie widać. Idź wzdłuż linki wewnętrznej w dół, wyczuj kable, ściśnij boki wtyczki i wyciągnij ją." },
+    { "t": "Zdejmij kulę linki zewnętrznej i białą tulejkę", "view": "inner", "focus": ["inner.ball", "inner.collar"], "min": 10, "conf": "high", "src": ["xo-actuator"],
+      "b": "Kulę linki zewnętrznej klamki zdejmij metalową łopatką, podkładając szmatkę, nie wymaga dużej siły. Białą tulejkę prowadzącą nad nią wypchnij, jeśli siedzi mocno, owiń ją sznurkiem i pociągnij prosto do przodu auta." },
+    { "t": "Odkręć trzy śruby T30", "view": "inner", "focus": ["inner.actuator"], "min": 5, "conf": "high", "src": ["xo-actuator"],
+      "b": "Trzy śruby T30 mocują siłownik do ramy. Przy ostatniej trzymaj siłownik ręką od środka, inaczej wpadnie do drzwi." },
+    { "t": "Wyjmij siłownik w dół", "view": "inner", "focus": ["inner.actuator", "inner.indicator"], "min": 10, "conf": "high", "src": ["xo-actuator"],
+      "b": "Opuść siłownik prosto w dół, żeby wskaźnik blokady przeszedł pod pianką, a potem powoli wysuń całość z otworu. Wyjmujesz razem: siłownik, trzpień wskaźnika blokady i linkę z karetką. Trzpień i linkę przełóż do nowego siłownika (karetka ma zaczep z tyłu, który trzeba zwolnić)." },
+    { "t": "Załóż nowy siłownik", "view": "inner", "focus": ["inner.actuator", "inner.ball", "inner.collar"], "min": 20, "conf": "high", "src": ["xo-actuator"],
+      "b": "Prowadź nowy siłownik z trzpieniem i linką do drzwi. Dopasuj otwory, uważaj, by wiązka i linka zewnętrzna nie były przyciśnięte. Dokręć 3 śruby, wciśnij białą tulejkę (z użyciem siły), załóż kulę linki i podłącz wtyczkę." },
+    { "t": "Złóż i sprawdź", "view": "card", "focus": ["card.top_clips"], "min": 20, "conf": "high", "src": ["xo-actuator"],
+      "b": "Przyklej izolację, przykręć poduszkę, wpnij diodę i karetkę klamki w boczek, najpierw zawieś górę, potem przeciągnij wtyczki przełączników i lampki, dobij spinki i wkręć T20. Sprawdź zamek, otwieranie z zewnątrz i od środka, diodę, szybę i lusterko." }
+  ],
+  "after": [
+    "Zamek zamyka i otwiera te drzwi tak samo szybko jak pozostałe",
+    "Klamka z zewnątrz i od środka otwiera drzwi",
+    "Dioda klamki, szyba i lusterko działają",
+    "Brak kontrolek poduszki powietrznej"
+  ],
+  "unknown": [
+    "Momenty dokręcenia śrub T30 i śrub poduszki: brak w źródłach.",
+    "Numery siłowników dla pozostałych drzwi i aut po liftingu.",
+    "Naprawa samego silniczka siłownika (zużyte szczotki) była opisana na forum: wątek do dopisania."
+  ],
+  "related": ["tapicerka-przod", "klamka-zewn-przod"]
+}

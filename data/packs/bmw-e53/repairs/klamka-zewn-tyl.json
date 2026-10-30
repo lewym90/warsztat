@@ -1,0 +1,50 @@
+{
+  "id": "klamka-zewn-tyl",
+  "title": "Klamka zewnętrzna: drzwi tylne",
+  "subtitle": "Wymiana klamki i mechanizmu zamka (opracowanie częściowe)",
+  "door": "rear",
+  "completeness": "szkic",
+  "difficulty": 3,
+  "time": [60, 150],
+  "summary": "To szkic: opiera się na krótkich opisach z instrukcji fabrycznej, które widzieliśmy tylko we fragmentach. Znamy kolejność i główne uwagi, ale nie mamy pełnych zdjęć ani numerów części dla tylnych drzwi. Pełną kartę dopiszemy przy Twojej pierwszej wymianie, gdy będziemy mieć dokładne opisy.",
+  "extras": [
+    { "t": "Awaryjnie: drzwi nie otwierają się wcale", "b": "Na forum opisano sposób otwarcia drzwi, gdy tylny mechanizm nie działa: przestawić blokadę dziecięcą (mały przełącznik na krawędzi drzwi) cienkim przedmiotem, np. karta plastikowa lub drut. Wtedy drzwi otwierają się od zewnątrz, ale nie od środka. Potem zablokuj, odblokuj i otwórz, a następnie przestaw blokadę z powrotem. Inna wskazówka: trzymaj klamkę wewnętrzną w pozycji otwarcia i w tym czasie zablokuj lub odblokuj centralnie.", "src": ["xo-rear-childlock", "xo-actuator"] }
+  ],
+  "tools": [
+    { "name": "Torx T20", "note": "boczek", "need": "must" },
+    { "name": "Plastikowe łopatki do tapicerki", "note": "", "need": "must" },
+    { "name": "Klucz nasadowy (8 mm?)", "note": "nakrętka klamki: rozmiar dla tylnych drzwi niepotwierdzony, jak w przednich", "need": "should" },
+    { "name": "Taśma malarska", "note": "ochrona lakieru", "need": "should" }
+  ],
+  "parts": [
+    { "name": "Mechanizm klamki zewnętrznej, tył", "oe": null, "conf": "low",
+      "note": "Numeru OE dla tylnych drzwi nie potwierdzono (w źródłach tylko przód: 51218243615). W ofertach sklepów mechanizm ma być wspólny dla lewej i prawej strony: sprawdź po VIN.",
+      "src": ["ads-prices", "autodoc-topran"] }
+  ],
+  "warnings": [
+    { "lvl": "info", "t": "Karta robocza", "b": "Kroki poniżej to skrót z instrukcji fabrycznej. Rozbierając, rób zdjęcia i uzupełniaj szczegóły, a my dopiszemy je do karty.", "src": ["tis-rear-outer-200", "tis-rear-outer-170"] }
+  ],
+  "steps": [
+    { "t": "Zdejmij tapicerkę tylnych drzwi", "view": "card", "focus": ["card.pull"], "min": 45, "conf": "med", "src": ["tis-rear-outer-200"],
+      "b": "Zacznij od zdjęcia boczka tylnych drzwi (karta w szkicu).", "link": "tapicerka-tyl" },
+    { "t": "Zdejmij izolację akustyczną", "view": "inner", "focus": ["inner.foam"], "min": 5, "conf": "med", "src": ["tis-rear-outer-200"],
+      "b": "Instrukcja fabryczna każe zdjąć izolację akustyczną z tylnych drzwi, aby dostać się do mechanizmu." },
+    { "t": "Zdejmij osłonę klamki", "view": "outer", "focus": ["outer.keyhole"], "min": 3, "conf": "med", "src": ["tis-rear-outer-170"],
+      "b": "Z zewnątrz zdejmij osłonę klamki zewnętrznej." },
+    { "t": "Poluzuj nakrętkę klamki", "view": "inner", "focus": ["inner.handle_nut"], "min": 5, "conf": "med", "src": ["tis-rear-outer-170"],
+      "b": "Poluzuj nakrętkę klamki, ale nie wykręcaj jej całkowicie: instrukcja podkreśla, że ma pozostać zakręcona częściowo." },
+    { "t": "Zdejmij klamkę", "view": "outer", "focus": ["outer.handle"], "min": 5, "conf": "low", "src": ["tis-rear-outer-170"],
+      "b": "Zdejmij klamkę z mocowania siłownika. Z fragmentu instrukcji wynika, że klamka schodzi z siłownika w najniższym położeniu: dokładny sposób potwierdzimy przy rozbiórce." },
+    { "t": "Wymień mechanizm", "view": "inner", "focus": ["inner.carrier"], "min": 20, "conf": "low", "src": ["tis-rear-outer-200"],
+      "b": "Przy montażu pilnuj dwóch rzeczy z instrukcji: prowadnica ma leżeć na zewnątrz krawędzi blachy, a siłownik zamka ma być równo z prowadnicą." },
+    { "t": "Sprawdź i złóż", "view": "card", "focus": ["card.top_clips"], "min": 25, "conf": "med", "src": ["tis-rear-outer-200"],
+      "b": "Przed założeniem boczka sprawdź działanie klamki i zamka. Potem złóż wszystko w odwrotnej kolejności." }
+  ],
+  "after": ["Klamka z zewnątrz otwiera drzwi", "Zamek centralny działa", "Klamka wewnętrzna działa", "Blokada dziecięca działa"],
+  "unknown": [
+    "Pełne zdjęcia i dokładna kolejność: do uzupełnienia po pierwszej rozbiórce.",
+    "Numer OE mechanizmu tylnego, rozmiar nakrętki, momenty dokręcenia.",
+    "Dokładne położenie elementów na rysunku: orientacyjne."
+  ],
+  "related": ["tapicerka-tyl", "klamka-wewn"]
+}

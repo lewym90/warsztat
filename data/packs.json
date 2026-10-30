@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "packs": [
+    {
+      "id": "bmw-e53",
+      "title": "BMW X5 (E53)",
+      "match": { "make": "BMW", "model": "X5", "gen": "E53", "years": [1999, 2006] }
+    }
+  ]
+}

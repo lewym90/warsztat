@@ -1,0 +1,61 @@
+{
+  "id": "tapicerka-przod",
+  "title": "Tapicerka drzwi przednich",
+  "subtitle": "Zdejmowanie i zakładanie boczka: dostęp do wnętrza drzwi",
+  "door": "front",
+  "completeness": "pełne",
+  "difficulty": 2,
+  "time": [30, 60],
+  "summary": "Czynność podstawowa przed wymianą klamki, siłownika zamka czy podnośnika szyby. Boczek trzyma się na czterech śrubach Torx T20 i plastikowych spinkach, a u góry siedzi na metalowych zaczepach. Opis powstał na podstawie drzwi pasażera.",
+  "tools": [
+    { "name": "Torx T20", "note": "4 śruby boczka", "need": "must" },
+    { "name": "Plastikowe łopatki do tapicerki", "note": "bez nich łatwo o rysy i połamane spinki", "need": "must" },
+    { "name": "Zapasowe spinki tapicerki", "note": "stare plastiki kruszeją, część pęknie", "need": "should" },
+    { "name": "Płaska łopatka metalowa lub wąski wkrętak", "note": "do wtyczek i zatwardziałych spinek; podkładaj szmatkę", "need": "opt" },
+    { "name": "Szmatka", "note": "ochrona lakieru i plastiku", "need": "opt" },
+    { "name": "Klucz nasadowy 10 mm", "note": "tylko gdy musisz poluzować poduszkę w drzwiach (3 śruby)", "need": "opt" },
+    { "name": "Sznurek lub opaska", "note": "do zawieszenia poduszki, żeby nie wisiała na kablu", "need": "opt" }
+  ],
+  "parts": [
+    { "name": "Spinki mocujące boczek", "oe": null, "conf": "low", "note": "Numeru OE nie potwierdzono. Dobierz zestaw do E53 po VIN u sprzedawcy; przyda się zapas, bo część spinek pęka przy zdejmowaniu.", "src": ["xo-handle-fix", "pelican-rear-card"] }
+  ],
+  "warnings": [
+    { "lvl": "danger", "t": "Poduszka powietrzna w drzwiach", "b": "Za boczkiem jest moduł poduszki na 3 śrubach 10 mm. Nie odłączaj jego wtyczki. Jeśli musisz, najpierw odłącz akumulator i odczekaj co najmniej 30 minut (zalecenie z forum). Najbezpieczniej poduszkę tylko odkręcić i zawiesić.", "src": ["xo-actuator", "febi-tip"] },
+    { "lvl": "warn", "t": "Boczek wisi na kablach", "b": "Diodę klamki, przełączniki szyb i cięgno klamki wewnętrznej trzeba odpiąć zanim boczek pójdzie na bok. Nie szarp.", "src": ["xo-handle-fix", "xo-actuator"] },
+    { "lvl": "info", "t": "Drzwi kierowcy", "b": "Mają więcej wtyczek w bloku przełączników (szyby, lusterka, składanie lusterek). Zrób zdjęcie, zanim je rozłączysz.", "src": ["xo-actuator"] }
+  ],
+  "steps": [
+    { "t": "Wyjmij blok przełączników szyb", "view": "card", "focus": ["card.switch"], "min": 5, "conf": "high", "src": ["xo-handle-fix", "xo-actuator"],
+      "b": "Podważ plastikową łopatką od strony wnętrza przełącznika, tam gdzie styka się z boczkiem. Obudowa lekko się uniesie. Potem podważ drugą stronę i wyjmij całość. Odłącz trzy wtyczki: biała i mała czarna zwalniają się po odchyleniu „kabłąka”, a duża czarna ma wysuwaną blokadę.",
+      "tip": "Zrób zdjęcie wtyczek przed rozłączeniem." },
+    { "t": "Wyjmij lampkę podłogową", "view": "card", "focus": ["card.puddle"], "min": 2, "conf": "high", "src": ["xo-handle-fix", "xo-actuator"],
+      "b": "Na dole boczka jest lampka oświetlająca próg. Podważ ją od strony tylnej (bliżej tyłu auta) i odłącz wtyczkę." },
+    { "t": "Zdejmij górną listwę poziomą", "view": "card", "focus": ["card.trim"], "min": 3, "conf": "med", "src": ["xo-actuator"],
+      "b": "Podważ listwę, zaczynając od jej tylnego końca. Ma cztery punkty mocowania. Przy montażu najpierw zahacz przód listwy, a potem dociskaj ją w kierunku tyłu." },
+    { "t": "Odkręć cztery śruby T20", "view": "card", "focus": ["card.screw_map", "card.screw_handle", "card.screw_trim", "card.screw_grommet"], "min": 8, "conf": "high", "src": ["xo-actuator", "xo-handle-fix"],
+      "b": "Śruby są w czterech miejscach: nad kieszenią na mapy, w otworze tuż za klamką wewnętrzną, pod tylnym końcem zdjętej listwy oraz za osłoną (zaślepką) w okolicy poduszki. Tę osłonę podważ od tyłu." },
+    { "t": "Odepnij spinki dookoła", "view": "card", "focus": ["card.clip_a", "card.clip_b", "card.clip_c", "card.top_clips"], "min": 10, "conf": "med", "src": ["xo-actuator", "xo-handle-fix"],
+      "b": "Złap za otwór po lampce i otwór po przełącznikach i szarpnij zdecydowanie. Zwolnią się dolne przednie spinki. Resztę zwalniaj łopatką dookoła. Górna krawędź trzyma się na niewidocznych metalowych zaczepach: ściągnij ją prosto od drzwi, nie do góry.",
+      "tip": "Połamane plastiki to norma. Zapas spinek oszczędzi ci nerwów." },
+    { "t": "Odepnij diodę i cięgno klamki wewnętrznej", "view": "card", "focus": ["card.led", "card.handle"], "min": 5, "conf": "high", "src": ["xo-actuator", "xo-handle-fix"],
+      "b": "Boczek jeszcze nie jest wolny: trzyma go dioda klamki i cięgno z karetką klamki wewnętrznej, a luzu jest niewiele. Diodę wysuń, ściskając dwa boczne zaczepy. Karetkę zwolnisz, odciągając zaczep z jej tylnej strony: wychyli się z gniazda." },
+    { "t": "Zdejmij boczek i odłóż", "view": "inner", "focus": ["inner.foam"], "min": 3, "conf": "high", "src": ["xo-actuator", "xo-handle-fix"],
+      "b": "Odłóż boczek tak, by się nie wyginał. Folia (pianka) na drzwiach jest przyklejona lepkim klejem. Odklejaj ją ostrożnie, od góry przy cięgnie, tylko tyle, ile potrzeba, żeby potem dało się ją przykleić z powrotem." },
+    { "t": "Montaż w odwrotnej kolejności", "view": "card", "focus": ["card.top_clips", "card.clip_a", "card.clip_c"], "min": 10, "conf": "high", "src": ["xo-actuator", "xo-handle-fix"],
+      "b": "Najpierw wpnij cięgno klamki i diodę. Zawieś boczek na górnych zaczepach i przeciągnij wtyczki przełączników oraz lampki przez otwory. Dobij spinki dookoła, wkręć 4 śruby T20, podłącz przełączniki i lampkę, załóż listwę (od przodu) i osłonę." }
+  ],
+  "after": [
+    "Zamek centralny: zablokuj i odblokuj wszystkie drzwi",
+    "Szyba: w górę i w dół z przełącznika drzwi",
+    "Lusterko: ustawianie i składanie (jeśli jest)",
+    "Dioda klamki wewnętrznej świeci",
+    "Drzwi otwierają się od zewnątrz i od środka",
+    "Boczek nie grzechocze (dociśnij luźne spinki)"
+  ],
+  "unknown": [
+    "Momenty dokręcenia śrub T20: brak w źródłach. To śruby do plastiku, dokręcaj lekko.",
+    "Numer OE spinek boczka.",
+    "Różnice dla drzwi kierowcy i dla aut po liftingu: nie sprawdzono."
+  ],
+  "related": ["klamka-zewn-przod", "klamka-wewn", "silownik-zamka-przod"]
+}

@@ -1,0 +1,419 @@
+{
+  "id": "bmw-e53",
+  "title": "BMW X5 (E53)",
+  "subtitle": "1999–2006",
+  "status": "prototyp v0.1",
+  "updated": "2026-10-30",
+  "scope": "Opracowano dla wersji 3.0d (M57) przedliftingowej i po liftingu tam, gdzie źródła nie wskazują różnic. Procedury drzwi są wspólne dla rodziny E53, ale numery części zawsze potwierdzaj po VIN w katalogu (np. ETK/TecDoc u sprzedawcy).",
+  "sources": {
+    "xo-handle-fix": {
+      "title": "Xoutpost: Broken Outside Door Handle Fix (wątek, 2008)",
+      "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/52359-broken-outside-door-handle-fix.html",
+      "kind": "forum"
+    },
+    "xo-handle-stuck": {
+      "title": "Xoutpost: Outside door handle stuck",
+      "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/39024-outside-door-handle-stuck.html",
+      "kind": "forum"
+    },
+    "xo-handle-redneck": {
+      "title": "Xoutpost: Outside door handle fix (obrót klamki przy zdejmowaniu)",
+      "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/81392-redneck-outside-door-handle-fix.html",
+      "kind": "forum"
+    },
+    "xo-handle-falling": {
+      "title": "Xoutpost: External door handle falling off",
+      "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/105115-external-door-handle-falling-off.html",
+      "kind": "forum"
+    },
+    "xo-actuator": {
+      "title": "Xoutpost: Replacing Door Lock Actuator (2011)",
+      "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/81215-replacing-door-lock-actuator.html",
+      "kind": "forum"
+    },
+    "xo-interior-handle": {
+      "title": "Xoutpost: How to remove interior door handle?",
+      "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/64378-how-remove-interior-door-handle.html",
+      "kind": "forum"
+    },
+    "xo-rear-childlock": {
+      "title": "Xoutpost: tylne drzwi, blokada dziecięca i zdejmowanie boczka",
+      "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/98763-diy-guide-how-make-bad-problem-worse.html",
+      "kind": "forum"
+    },
+    "pelican-rear-card": {
+      "title": "Pelican Parts: BMW X5 Rear Door Panel Replacement",
+      "url": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement_stTest.htm",
+      "kind": "artykuł"
+    },
+    "tis-front-outer": {
+      "title": "BMW TIS 51 21 170: klamka zewnętrzna, drzwi przednie (via workshop-manuals.com)",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_3.0i_m54_offrd/2_repair_instructions/51__body_equipment_(offrd)/21__front_door_locks_handles_fittings/6_ra__removing_and_installing_or_replacing_outside_handle_from_left_or_right_front_doo/",
+      "kind": "instrukcja fabryczna"
+    },
+    "tis-rear-outer-200": {
+      "title": "BMW TIS 51 22 200 (3.0d M57): klamka i mechanizm zamka, drzwi tylne",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_3.0d_m57_offrd/2_repair_instructions/51__body_equipment_(offrd)/22__rear_door_locks_handles_fittings/5_ra__removing_and_installing_replacing_outside_handle_and_lock_control_on_left_or_rig/",
+      "kind": "instrukcja fabryczna"
+    },
+    "tis-rear-outer-170": {
+      "title": "BMW TIS 51 22 170: klamka zewnętrzna, drzwi tylne",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_4.4i_m62_offrd/2_repair_instructions/51__body_equipment_(offrd)/22__rear_door_locks_handles_fittings/3_ra__removing_and_installing_replacing_outside_handle_on_left_or_right_back_door/",
+      "kind": "instrukcja fabryczna"
+    },
+    "tis-rear-inner": {
+      "title": "BMW TIS 51 22 225 (3.0d M57): klamka wewnętrzna, drzwi tylne",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_3.0d_m57_offrd/2_repair_instructions/51__body_equipment_(offrd)/22__rear_door_locks_handles_fittings/6_ra__removing_and_installing_replacing_inside_door_handle_of_rear_left_or_right_door/",
+      "kind": "instrukcja fabryczna"
+    },
+    "febi-tip": {
+      "title": "febi bilstein: wskazówka techniczna, klamka drzwi BMW X5 E53",
+      "url": "https://www.techtips.ie/febi/bmw-door-handle-not-working.pdf",
+      "kind": "producent części"
+    },
+    "bw-interior": {
+      "title": "BimmerWorld: klamka wewnętrzna E53 (URO), 51418408565",
+      "url": "https://www.bimmerworld.com/BMW-Interior/Switches-Knobs/Interior-Door-Handle-51418408565.html",
+      "kind": "sklep"
+    },
+    "bw-carrier": {
+      "title": "BimmerWorld: mechanizm klamki zewnętrznej, przód lewy, 51218243615",
+      "url": "https://www.bimmerworld.com/Body-Aero/BMW_Performance_Body_Accessories/Exterior-Door-Handle-Carrier-Front-Left-E53-X5-BMW-51218243615.html",
+      "kind": "sklep"
+    },
+    "autodoc-topran": {
+      "title": "Autodoc: rama klamki drzwi TOPRAN 503 511 (pasuje do E53)",
+      "url": "https://www.autodoc.pl/topran/15298300",
+      "kind": "sklep"
+    },
+    "ads-prices": {
+      "title": "Sprzedajemy.pl: ogłoszenia mechanizmu klamki E53 (ceny orientacyjne)",
+      "url": "https://sprzedajemy.pl/motoryzacja/czesci-samochodowe/karoseria/klamki/temat/bmw+nowe+cena",
+      "kind": "ogłoszenia"
+    },
+    "ys-handle": {
+      "title": "czesciauto24: klamki drzwi YSPARTS do BMW X5",
+      "url": "https://www.czesciauto24.pl/klamka-drzwi/bmw-x5/m-ysparts",
+      "kind": "sklep"
+    }
+  },
+  "systems": [
+    {
+      "id": "doors",
+      "name": "Drzwi i zamki",
+      "icon": "door",
+      "blurb": "Klamki, zamki, tapicerka drzwi",
+      "ready": true,
+      "repairIds": [
+        "klamka-wewn",
+        "klamka-zewn-przod",
+        "klamka-zewn-tyl",
+        "silownik-zamka-przod",
+        "tapicerka-przod",
+        "tapicerka-tyl"
+      ]
+    },
+    {
+      "id": "engine",
+      "name": "Silnik",
+      "icon": "engine",
+      "blurb": "M57 3.0d i pozostałe"
+    },
+    {
+      "id": "susp",
+      "name": "Zawieszenie i koła",
+      "icon": "wheel",
+      "blurb": "Wahacze, amortyzatory, powietrze"
+    },
+    {
+      "id": "brakes",
+      "name": "Hamulce",
+      "icon": "brake",
+      "blurb": "Klocki, tarcze, płyn"
+    },
+    {
+      "id": "drive",
+      "name": "Napęd i skrzynia",
+      "icon": "gear",
+      "blurb": "xDrive, skrzynia, półosie"
+    },
+    {
+      "id": "electrics",
+      "name": "Elektryka i światła",
+      "icon": "bolt",
+      "blurb": "Akumulator, żarówki, bezpieczniki"
+    },
+    {
+      "id": "climate",
+      "name": "Klimatyzacja",
+      "icon": "snow",
+      "blurb": "Nawiew, ogrzewanie, A/C"
+    },
+    {
+      "id": "body",
+      "name": "Nadwozie i szyby",
+      "icon": "car",
+      "blurb": "Klapa, szyby, uszczelki"
+    },
+    {
+      "id": "interior",
+      "name": "Wnętrze",
+      "icon": "seat",
+      "blurb": "Fotele, deska, konsola"
+    },
+    {
+      "id": "service",
+      "name": "Przeglądy i płyny",
+      "icon": "drop",
+      "blurb": "Oleje, filtry, interwały"
+    }
+  ],
+  "doors": {
+    "front": {
+      "outer": [
+        {
+          "id": "h",
+          "anchor": "outer.handle",
+          "label": "Klamka zewnętrzna",
+          "repair": "klamka-zewn-przod"
+        },
+        {
+          "id": "k",
+          "anchor": "outer.keyhole",
+          "label": "Wkładka zamka (drzwi kierowcy)",
+          "planned": true
+        },
+        {
+          "id": "m",
+          "anchor": "outer.mirror",
+          "label": "Lusterko",
+          "planned": true
+        }
+      ],
+      "card": [
+        {
+          "id": "ih",
+          "anchor": "card.handle",
+          "label": "Klamka wewnętrzna",
+          "repair": "klamka-wewn"
+        },
+        {
+          "id": "pl",
+          "anchor": "card.pull",
+          "label": "Boczek: zdejmowanie",
+          "repair": "tapicerka-przod"
+        },
+        {
+          "id": "sw",
+          "anchor": "card.switch",
+          "label": "Przełączniki szyb",
+          "planned": true
+        },
+        {
+          "id": "sp",
+          "anchor": "card.speaker",
+          "label": "Głośnik drzwi",
+          "planned": true
+        }
+      ],
+      "inner": [
+        {
+          "id": "c",
+          "anchor": "inner.carrier",
+          "label": "Mechanizm klamki zewnętrznej",
+          "repair": "klamka-zewn-przod"
+        },
+        {
+          "id": "a",
+          "anchor": "inner.actuator",
+          "label": "Siłownik zamka",
+          "repair": "silownik-zamka-przod"
+        },
+        {
+          "id": "ic",
+          "anchor": "inner.int_carrier",
+          "label": "Cięgno klamki wewnętrznej",
+          "repair": "klamka-wewn"
+        },
+        {
+          "id": "ab",
+          "anchor": "inner.airbag",
+          "label": "Poduszka w drzwiach: nie ruszać bez potrzeby",
+          "planned": true
+        },
+        {
+          "id": "r",
+          "anchor": "inner.regulator",
+          "label": "Podnośnik szyby",
+          "planned": true
+        }
+      ]
+    },
+    "rear": {
+      "outer": [
+        {
+          "id": "h",
+          "anchor": "outer.handle",
+          "label": "Klamka zewnętrzna (tył)",
+          "repair": "klamka-zewn-tyl"
+        }
+      ],
+      "card": [
+        {
+          "id": "ih",
+          "anchor": "card.handle",
+          "label": "Klamka wewnętrzna (tył)",
+          "repair": "klamka-wewn"
+        },
+        {
+          "id": "pl",
+          "anchor": "card.pull",
+          "label": "Boczek tylny: zdejmowanie",
+          "repair": "tapicerka-tyl"
+        }
+      ],
+      "inner": [
+        {
+          "id": "c",
+          "anchor": "inner.carrier",
+          "label": "Mechanizm klamki zewnętrznej (tył)",
+          "repair": "klamka-zewn-tyl"
+        },
+        {
+          "id": "a",
+          "anchor": "inner.actuator",
+          "label": "Siłownik zamka tylny: wkrótce",
+          "planned": true
+        }
+      ]
+    }
+  },
+  "diagnosis": [
+    {
+      "q": "Klamka zewnętrzna się unosi, ale drzwi się nie otwierają (zamek centralny działa)",
+      "a": "To najczęstsza usterka E53: pęka lub wypada z położenia mechanizm klamki. Zanim kupisz część, zdejmij boczek i sprawdź, czy oś nie wysunęła się z gniazda.",
+      "repair": {
+        "przód": "klamka-zewn-przod",
+        "tył": "klamka-zewn-tyl"
+      }
+    },
+    {
+      "q": "Klamka zewnętrzna wypada z gniazda lub ma luz z boku",
+      "a": "Mogły się ukruszyć zaczepy w plastiku klamki. Takiej klamki nie da się naprawić, kupujesz nową (lub używaną w kolorze).",
+      "repair": {
+        "przód": "klamka-zewn-przod"
+      }
+    },
+    {
+      "q": "Zamek zamyka lub otwiera te drzwi wolno albo nie za pierwszym razem",
+      "a": "Typowy objaw słabnącego siłownika zamka. Nie czekaj do całkowitej awarii: wg relacji z forum słaby siłownik potrafi uszkodzić plastikowe mocowanie linki.",
+      "repair": {
+        "przód": "silownik-zamka-przod"
+      }
+    },
+    {
+      "q": "Klamka wewnętrzna jest luźna, porysowana albo złamana",
+      "a": "Znana słabość modelu. Dostępne są tańsze zamienniki, a przy samym zdartym wykończeniu można rozważyć nakładkę.",
+      "repair": {
+        "przód/tył": "klamka-wewn"
+      }
+    },
+    {
+      "q": "W drzwiach nie działa nic z elektryki (szyba, lusterko, zamek, światełko)",
+      "a": "Zanim kupisz części, sprawdź wtyczkę wiązki między drzwiami a słupkiem (przy zawiasie) pod kątem korozji. To wspólny punkt zasilania całych drzwi (wskazówka z forum). Karta napraw: wkrótce."
+    },
+    {
+      "q": "Drzwi tylne nie chcą się otworzyć z żadnej strony",
+      "a": "Najpierw sprawdź blokadę dziecięcą na krawędzi drzwi. Przestawienie jej bywa pierwszym krokiem do awaryjnego otwarcia.",
+      "repair": {
+        "tył": "klamka-zewn-tyl"
+      }
+    }
+  ],
+  "repairs": [
+    {
+      "id": "klamka-wewn",
+      "title": "Klamka wewnętrzna (przód i tył)",
+      "subtitle": "Wymiana uchwytu klamki w boczku",
+      "door": "both",
+      "difficulty": 2,
+      "time": [
+        30,
+        90
+      ],
+      "completeness": "częściowe",
+      "steps": 6,
+      "icon": "wrench"
+    },
+    {
+      "id": "klamka-zewn-przod",
+      "title": "Klamka zewnętrzna: drzwi przednie",
+      "subtitle": "Wymiana mechanizmu klamki (carrier) i zdejmowanie klamki",
+      "door": "front",
+      "difficulty": 3,
+      "time": [
+        60,
+        180
+      ],
+      "completeness": "pełne",
+      "steps": 14,
+      "icon": "wrench"
+    },
+    {
+      "id": "klamka-zewn-tyl",
+      "title": "Klamka zewnętrzna: drzwi tylne",
+      "subtitle": "Wymiana klamki i mechanizmu zamka (opracowanie częściowe)",
+      "door": "rear",
+      "difficulty": 3,
+      "time": [
+        60,
+        150
+      ],
+      "completeness": "szkic",
+      "steps": 7,
+      "icon": "wrench"
+    },
+    {
+      "id": "silownik-zamka-przod",
+      "title": "Siłownik zamka: drzwi przednie",
+      "subtitle": "Wymiana siłownika (aktuatora) zamka centralnego",
+      "door": "front",
+      "difficulty": 3,
+      "time": [
+        75,
+        150
+      ],
+      "completeness": "pełne",
+      "steps": 9,
+      "icon": "bolt"
+    },
+    {
+      "id": "tapicerka-przod",
+      "title": "Tapicerka drzwi przednich",
+      "subtitle": "Zdejmowanie i zakładanie boczka: dostęp do wnętrza drzwi",
+      "door": "front",
+      "difficulty": 2,
+      "time": [
+        30,
+        60
+      ],
+      "completeness": "pełne",
+      "steps": 8,
+      "icon": "door"
+    },
+    {
+      "id": "tapicerka-tyl",
+      "title": "Tapicerka drzwi tylnych",
+      "subtitle": "Zdejmowanie boczka tylnych drzwi",
+      "door": "rear",
+      "difficulty": 2,
+      "time": [
+        45,
+        75
+      ],
+      "completeness": "szkic",
+      "steps": 5,
+      "icon": "door"
+    }
+  ]
+}
