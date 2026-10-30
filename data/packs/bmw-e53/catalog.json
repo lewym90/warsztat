@@ -81,7 +81,8 @@
      "items": [
       {
        "t": "Podnośnik szyby (przód)",
-       "d": "front"
+       "d": "front",
+       "id": "okno-podnosnik-przod"
       },
       {
        "t": "Podnośnik szyby (tył)",

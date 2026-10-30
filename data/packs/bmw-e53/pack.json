@@ -135,6 +135,16 @@
       "title": "leatherSteering: nakładka ze skóry na klamkę wewnętrzną X5 E53 (instrukcja szycia, wideo)",
       "url": "https://www.leathersteering.com/en/content/18-bmw-x5-e53-interior-door-handle-replacement",
       "kind": "sklep / wideo"
+    },
+    "pelican-reg": {
+      "title": "Pelican Parts: BMW X5 Front Window Regulator Replacement (6 zdjęć)",
+      "url": "https://www.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/48-BODY-Front_Window_Regulator_Replacement.htm",
+      "kind": "artykuł"
+    },
+    "mtech-reg": {
+      "title": "M Tech Guy: BMW E53 X5 Front Window Regulator DIY (YouTube, 18:59)",
+      "url": "https://www.youtube.com/watch?v=HqPpcqpPvAc",
+      "kind": "wideo"
     }
   },
   "systems": [
@@ -148,6 +158,7 @@
         "klamka-wewn",
         "klamka-zewn-przod",
         "klamka-zewn-tyl",
+        "okno-podnosnik-przod",
         "silownik-zamka-przod",
         "tapicerka-przod",
         "tapicerka-tyl"
@@ -411,6 +422,20 @@
       ],
       "completeness": "szkic",
       "steps": 7,
+      "icon": "wrench"
+    },
+    {
+      "id": "okno-podnosnik-przod",
+      "title": "Podnośnik szyby, przód",
+      "subtitle": "Wymiana mechanizmu opuszczania szyby",
+      "door": "front",
+      "difficulty": 3,
+      "time": [
+        120,
+        240
+      ],
+      "completeness": "częściowe",
+      "steps": 14,
       "icon": "wrench"
     },
     {

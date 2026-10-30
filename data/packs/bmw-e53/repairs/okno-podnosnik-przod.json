@@ -1,0 +1,538 @@
+{
+ "id": "okno-podnosnik-przod",
+ "title": "Podnośnik szyby, przód",
+ "subtitle": "Wymiana mechanizmu opuszczania szyby",
+ "door": "front",
+ "completeness": "częściowe",
+ "difficulty": 3,
+ "time": [
+  120,
+  240
+ ],
+ "summary": "Podnośnik szyby w E53 to prowadnica z silnikiem, która unosi szybę. Gdy zawiedzie, szyba stoi, klika silnik albo skrzypi. Wymiana polega na zdjęciu boczka i folii, uwolnieniu szyby, wyjęciu podnośnika na pięciu nakrętkach 10 mm i przełożeniu silnika na nowy. Karta oparta o artykuł Pelican Parts dla E53 i film M Tech Guy; momenty dokręcenia nie są podane w źródłach.",
+ "extras": [],
+ "tools": [
+  {
+   "name": "Klucz nasadowy 10 mm",
+   "note": "poduszka (3 śruby), podnośnik (5 nakrętek)",
+   "need": "must"
+  },
+  {
+   "name": "Plastikowe łopatki do tapicerki",
+   "note": "uszczelki i boczek",
+   "need": "must"
+  },
+  {
+   "name": "Śrubokręty płaski i krzyżakowy",
+   "note": "śruby szyby, wtyczki",
+   "need": "must"
+  },
+  {
+   "name": "Taśma malarska",
+   "note": "gdyby szybę trzeba było podeprzeć w górze",
+   "need": "should"
+  },
+  {
+   "name": "Zapasowe spinki boczka",
+   "note": "część pęknie",
+   "need": "should"
+  },
+  {
+   "name": "Magnes teleskopowy",
+   "note": "zgubione nakrętki w drzwiach",
+   "need": "nice"
+  }
+ ],
+ "parts": [
+  {
+   "name": "Podnośnik szyby, przód lewy",
+   "oe": "51338254911",
+   "conf": "med",
+   "note": "Numer z opisu filmu M Tech Guy; sprawdź po VIN.",
+   "src": [
+    "mtech-reg"
+   ]
+  },
+  {
+   "name": "Podnośnik szyby, przód prawy",
+   "oe": "51338254912",
+   "conf": "med",
+   "note": "Jak wyżej.",
+   "src": [
+    "mtech-reg"
+   ]
+  },
+  {
+   "name": "Klipsy szyby",
+   "oe": "51338254781",
+   "conf": "med",
+   "note": "Numer z opisu filmu M Tech Guy.",
+   "src": [
+    "mtech-reg"
+   ]
+  }
+ ],
+ "warnings": [
+  {
+   "lvl": "danger",
+   "t": "Poduszka powietrzna w drzwiach",
+   "b": "Pracuj przy odłączonym akumulatorze. Poduszka jest na trzech śrubach 10 mm; odkładaj ją uchwytem montażowym w dół.",
+   "src": [
+    "pelican-reg"
+   ]
+  },
+  {
+   "lvl": "info",
+   "t": "Karta częściowa",
+   "b": "Brak wycinków filmu i zdjęć własnych dla kroków składania; momenty dokręcenia nieznane.",
+   "src": []
+  }
+ ],
+ "steps": [
+  {
+   "phase": "1. Diagnoza i przygotowanie",
+   "t": "Ustal, co jest zepsute: podnośnik, silnik, klipsy czy przełącznik",
+   "view": "card",
+   "focus": [
+    "card.switch"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "pelican-reg",
+    "mtech-reg"
+   ],
+   "b": "Zanim kupisz część, sprawdź objaw. Podnośnik to mechanizm z prowadnicami, po których jedzie szyba; silnik elektryczny jest osobną częścią.",
+   "see": "Przycisk szyby w drzwiach kierowcy i kontrola z drugiego przycisku (jeśli masz).",
+   "how": [
+    "Naciśnij przycisk szyby i posłuchaj. Silnik klika, a szyba stoi: najczęściej zablokowany podnośnik (komentarz serwisu Pelican Parts).",
+    "Skrzypienie przy zamykaniu na samej górze: może wystarczyć wymiana czarnych klipsów szyby (komentarz Pelican Parts: zdejmujesz szybę, wymieniasz klipsy, składasz).",
+    "Nic się nie dzieje i silnik milczy: najpierw sprawdź przełącznik i bezpiecznik, bo to nie musi być podnośnik (kontrola do dopisania, brak w źródłach).",
+    "Szyba chodzi opornie, ale pomoc ręką ją porusza: obejrzyj uszczelki i prowadnice, bo opór niszczy podnośnik (Pelican Parts)."
+   ],
+   "mistakes": [
+    "Kupienie podnośnika, gdy zepsute są tylko klipsy za kilka złotych.",
+    "Pominięcie uszczelek: zużyte zwiększają tarcie i podnośnik padnie ponownie."
+   ],
+   "check": "Wiesz, czy wymieniasz podnośnik, same klipsy, czy szukasz usterki gdzie indziej.",
+   "media": [
+    {
+     "type": "film",
+     "id": "HqPpcqpPvAc",
+     "len": "18:59",
+     "cap": "BMW E53 X5 front window regulator DIY: cała wymiana na E53, po angielsku, z numerami części w opisie (51 tys. wyświetleń).",
+     "credit": "M Tech Guy (YouTube)"
+    }
+   ]
+  },
+  {
+   "phase": "1. Diagnoza i przygotowanie",
+   "t": "Kup część i przygotuj narzędzia",
+   "view": "inner",
+   "focus": [
+    "inner.regulator"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "pelican-reg",
+    "mtech-reg"
+   ],
+   "b": "Podnośnik kupuje się osobno dla lewej i prawej strony. Przy okazji kup nowe klipsy szyby, bo stare często pękają.",
+   "see": "Nowy podnośnik z dwoma ślizgami na szybę; silnik zdejmiesz ze starego.",
+   "how": [
+    "Numery z opisu filmu M Tech Guy: podnośnik przód lewy 51 33 8 254 911, przód prawy 51 33 8 254 912, klipsy szyby 51 33 8 254 781. Sprawdź je po VIN przed zakupem.",
+    "Narzędzia: plastikowe łopatki do tapicerki, klucz nasadowy 10 mm, śrubokręty płaski i krzyżakowy, spinki boczka na zapas (Pelican Parts).",
+    "Czas wg Pelican Parts: ok. 3 godziny. Dla pierwszego razu zaplanuj pół dnia.",
+    "Folia przeciwwilgociowa (vapor barrier) bywa do wymiany, jeśli się podrze."
+   ],
+   "mistakes": [
+    "Zamówienie podnośnika z niewłaściwej strony.",
+    "Brak klipsów szyby: stare przy ponownym montażu często pękają."
+   ],
+   "check": "Masz właściwy podnośnik, klipsy i klucz 10 mm.",
+   "media": [
+    {
+     "type": "link",
+     "url": "https://www.youtube.com/watch?v=HqPpcqpPvAc",
+     "label": "Numery części są w opisie filmu M Tech Guy",
+     "credit": "M Tech Guy (YouTube)"
+    }
+   ]
+  },
+  {
+   "phase": "1. Diagnoza i przygotowanie",
+   "t": "Ustaw szybę w połowie i odłącz akumulator",
+   "view": "card",
+   "focus": [
+    "card.switch"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "pelican-reg"
+   ],
+   "b": "Zanim zdejmiesz boczek, opuść szybę do pozycji roboczej i odłącz akumulator, bo w drzwiach jest poduszka powietrzna.",
+   "see": "Szyba opuszczona częściowo; akumulator w bagażniku lub komorze silnika.",
+   "how": [
+    "Opuść szybę do około 14 cm od dolnej krawędzi okna (Pelican Parts: ok. 5,5 cala mierzone przy zamku). Jeśli szyba nie rusza, zob. krok o zablokowanej szybie.",
+    "Odłącz ujemny przewód akumulatora (zob. kartę o akumulatorze, jeśli ją masz).",
+    "Odczekaj co najmniej 30 minut przed pracą przy poduszce (zalecenie z innych kart tej aplikacji, nie z tego artykułu)."
+   ],
+   "mistakes": [
+    "Obracanie szyby przełącznikiem przy wyjętej poduszce bez odłączonego akumulatora: może zapalić kontrolkę poduszki i wymagać diagnostyki (relacja z forum Xoutpost)."
+   ],
+   "check": "Szyba jest w połowie opuszczona, akumulator odłączony."
+  },
+  {
+   "phase": "2. Dostęp do wnętrza drzwi",
+   "t": "Zdejmij boczek drzwi",
+   "view": "card",
+   "focus": [
+    "card.trim"
+   ],
+   "min": 40,
+   "conf": "high",
+   "src": [
+    "pelican-panel",
+    "pelican-reg"
+   ],
+   "b": "Boczek zdejmujesz tak samo jak przy wymianie klamki zewnętrznej. Szczegóły z zdjęciami są w karcie „Tapicerka drzwi przednich”.",
+   "see": "Boczek z przyciskami szyb, uchwytem i lampką dolną.",
+   "how": [
+    "Otwórz kartę „Tapicerka drzwi przednich” (patrz „Powiązane”) i wykonaj kroki zdejmowania boczka aż do jego odłożenia.",
+    "Odepnij wtyczki przełącznika i lampki oraz linkę klamki, które trzymają boczek (opisane w tamtej karcie).",
+    "Miej spinki zapasowe: Pelican Parts radzi mieć je pod ręką."
+   ],
+   "mistakes": [
+    "Zdejmowanie boczka na siłę bez odpięcia wtyczek."
+   ],
+   "check": "Boczek leży osobno, wtyczki odpięte."
+  },
+  {
+   "phase": "2. Dostęp do wnętrza drzwi",
+   "t": "Odkręć poduszkę powietrzną i odłóż ją",
+   "view": "inner",
+   "focus": [
+    "inner.airbag"
+   ],
+   "min": 10,
+   "conf": "high",
+   "src": [
+    "pelican-reg"
+   ],
+   "b": "Poduszka jest na trzech śrubach 10 mm. Odkręcasz śruby i odkładasz moduł, wtyczki nie ruszasz, jeśli się da.",
+   "see": "Czarny moduł z żółtą wtyczką wysoko w drzwiach.",
+   "how": [
+    "Odkręć trzy śruby 10 mm (zielone strzałki na zdjęciu).",
+    "Jeśli musisz odpiąć wtyczkę, ciągnij ją prosto i uważaj na przewody: żadnych załamań.",
+    "Odłóż poduszkę na bok, z uchwytem montażowym skierowanym w dół."
+   ],
+   "mistakes": [
+    "Szarpanie przewodu poduszki.",
+    "Odkładanie poduszki górą do dołu."
+   ],
+   "check": "Poduszka jest odkręcona i leży bezpiecznie obok drzwi.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/images_large/pic01.jpg",
+     "cap": "Trzy śruby 10 mm poduszki (zielone strzałki); zdejmij też folię z drzwi.",
+     "credit": "Pelican Parts (podnośnik szyby)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/48-BODY-Front_Window_Regulator_Replacement.htm"
+    }
+   ],
+   "danger": "Poduszka powietrzna: pracuj przy odłączonym akumulatorze. Moduł odkładaj uchwytem montażowym w dół."
+  },
+  {
+   "phase": "2. Dostęp do wnętrza drzwi",
+   "t": "Odklej folię przeciwwilgociową",
+   "view": "inner",
+   "focus": [
+    "inner.foam"
+   ],
+   "min": 10,
+   "conf": "high",
+   "src": [
+    "pelican-reg"
+   ],
+   "b": "Folia chroni boczek przed wodą. Odklejasz ją ostrożnie, bo łatwo się rwie, a podarta przecieka.",
+   "see": "Czarna folia z masą klejącą na całym środku drzwi.",
+   "how": [
+    "Odklejaj powoli od krawędzi, od góry do dołu.",
+    "Jeśli klei się mocno, podważ ją plastikową łopatką.",
+    "Nie odklejaj do końca u dołu, jeśli nie musisz, ale tak, aby sięgnąć nakrętek na tylnej krawędzi."
+   ],
+   "mistakes": [
+    "Podarcie folii: po złożeniu woda może zalewać wnętrze (Pelican Parts)."
+   ],
+   "check": "Folia odklejona i odchylona; nic nie jest podarte.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/images_large/pic01.jpg",
+     "cap": "Folię z drzwi odklejaj ostrożnie, najlepiej łopatką, gdy się klei.",
+     "credit": "Pelican Parts (podnośnik szyby)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/48-BODY-Front_Window_Regulator_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "3. Wyjmowanie starego podnośnika",
+   "t": "Zdejmij uszczelki okna",
+   "view": "outer",
+   "focus": [
+    "outer.rubber"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "pelican-reg"
+   ],
+   "b": "Zewnętrzna listwa i wewnętrzna uszczelka na krawędzi okna zasłaniają dostęp do szyby. Podważasz je od brzegu drzwi.",
+   "see": "Gumowe listwy wzdłuż dolnej krawędzi okna, od wewnątrz i z zewnątrz.",
+   "how": [
+    "Podważ plastikową łopatką zewnętrzną listwę z uszczelką od krawędzi drzwi do środka, unosząc do góry.",
+    "Tak samo zdejmij wewnętrzną uszczelkę.",
+    "Obejrzyj je: jeśli są zużyte, wymień (Pelican Parts)."
+   ],
+   "mistakes": [
+    "Metalowy śrubokręt zamiast łopatki: zadrapiesz lakier."
+   ],
+   "check": "Oba uszczelnienia zdjęte i leżą osobno.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/images_large/pic02.jpg",
+     "cap": "Zewnętrzną i wewnętrzną uszczelkę podważ od krawędzi drzwi, unosząc do góry.",
+     "credit": "Pelican Parts (podnośnik szyby)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/48-BODY-Front_Window_Regulator_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "3. Wyjmowanie starego podnośnika",
+   "t": "Zwolnij szybę z podnośnika i wyjmij ją",
+   "view": "inner",
+   "focus": [
+    "inner.regulator"
+   ],
+   "min": 20,
+   "conf": "med",
+   "src": [
+    "pelican-reg",
+    "mtech-reg"
+   ],
+   "b": "Szyba jest wpięta w dwa ślizgi podnośnika. Poluzowujesz dwie śruby, zdejmujesz szybę z punktów mocowania i wyciągasz ją z drzwi.",
+   "see": "Dwa punkty mocowania na dolnej krawędzi szyby (śruby z klipsami).",
+   "how": [
+    "Poluzuj dwie śruby mocujące szybę o trzy obroty, nie wykręcaj ich (zielone strzałki na zdjęciu).",
+    "Pociągnij szybę do góry, aby zeszła z punktów mocowania.",
+    "Wyjmij ją z drzwi: najpierw tylny róg, potem unosząc i wysuwając.",
+    "Szybę odłóż w bezpieczne miejsce, najlepiej wsuniętą pionowo na miękkim podłożu."
+   ],
+   "mistakes": [
+    "Ciężar szyby oparty na krawędziach plastikowych klipsów: mogą pęknąć.",
+    "Szarpanie zablokowanej szyby: cięgna podnośnika ratuje się przecięciem (Pelican Parts)."
+   ],
+   "check": "Szyba jest wyjęta i bezpieczna.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/images_large/pic03.jpg",
+     "cap": "Poluzuj dwie śruby mocujące szybę (zielone strzałki), unieś szybę i wyjmij tylnym rogiem do przodu.",
+     "credit": "Pelican Parts (podnośnik szyby)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/48-BODY-Front_Window_Regulator_Replacement.htm"
+    }
+   ],
+   "warn": "Rozbieżność źródeł: Pelican Parts każe poluzować śruby o trzy obroty, a inna relacja z Xoutpost mówi o opuszczeniu szyby i odkręceniu dwóch zestawów śruba-nakrętka przez otwór w podnośniku, z podwiązaniem szyby taśmą w górze. Wybierz jedną metodę i trzymaj się jej."
+  },
+  {
+   "phase": "3. Wyjmowanie starego podnośnika",
+   "t": "Jeśli szyba się zacięła na dole",
+   "view": "inner",
+   "focus": [
+    "inner.regulator"
+   ],
+   "min": 20,
+   "conf": "low",
+   "src": [
+    "pelican-reg"
+   ],
+   "b": "Zdarza się, że szyba nie chce się ruszyć nawet po poluzowaniu śrub. Wtedy trzeba ją uwolnić ręcznie.",
+   "see": "Szyba stoi na dole i nie ma luzu.",
+   "how": [
+    "Najpierw delikatnie ją popchnij ku górze (zalecenie Pelican Parts).",
+    "Jeśli nie ruszy, przetnij cięgna starego podnośnika, aby ją uwolnić (zalecenie Pelican Parts: i tak wymieniasz podnośnik).",
+    "Zrób to dopiero po odkręceniu śrub, aby nie uszkodzić szyby."
+   ],
+   "mistakes": [
+    "Siłowe podważanie szyby: może pęknąć."
+   ],
+   "check": "Szyba jest wolna i da się ją wyjąć."
+  },
+  {
+   "phase": "3. Wyjmowanie starego podnośnika",
+   "t": "Odepnij silnik i wyjmij podnośnik",
+   "view": "inner",
+   "focus": [
+    "inner.regulator"
+   ],
+   "min": 20,
+   "conf": "high",
+   "src": [
+    "pelican-reg"
+   ],
+   "b": "Podnośnik jest na pięciu nakrętkach 10 mm. Najpierw odpinasz wtyczkę silnika.",
+   "see": "Metalowa prowadnica z silnikiem; wtyczka z zaczepem.",
+   "how": [
+    "Naciśnij zaczep wtyczki silnika i wyciągnij ją prosto (zielona strzałka).",
+    "Odkręć pięć nakrętek 10 mm (zielone strzałki).",
+    "Wysuń z drzwi najpierw tylną część podnośnika, potem przednią."
+   ],
+   "mistakes": [
+    "Szarpanie wtyczki bez naciśnięcia zaczepu.",
+    "Zgubienie nakrętki w drzwiach: przygotuj magnes."
+   ],
+   "check": "Stary podnośnik leży poza drzwiami.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/images_large/pic04.jpg",
+     "cap": "Naciśnij zaczep wtyczki silnika i ściągnij ją prosto.",
+     "credit": "Pelican Parts (podnośnik szyby)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/48-BODY-Front_Window_Regulator_Replacement.htm"
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/images_large/pic05.jpg",
+     "cap": "Pięć nakrętek 10 mm podnośnika; wysuń tylną część, potem przednią.",
+     "credit": "Pelican Parts (podnośnik szyby)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/48-BODY-Front_Window_Regulator_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "3. Wyjmowanie starego podnośnika",
+   "t": "Przełóż silnik na nowy podnośnik",
+   "view": "inner",
+   "focus": [
+    "inner.regulator"
+   ],
+   "min": 15,
+   "conf": "high",
+   "src": [
+    "pelican-reg"
+   ],
+   "b": "Silnik zdejmujesz ze starego podnośnika i zakładasz na nowy. Silnik można założyć w dowolnej pozycji.",
+   "see": "Silnik z trzema śrubami przy podnośniku.",
+   "how": [
+    "Odkręć trzy śruby mocujące silnik (zielone strzałki).",
+    "Załóż silnik na nowy podnośnik i dokręć trzy śruby.",
+    "Pelican Parts: silnik nie ma mechanicznego ogranicznika, więc kierunek zakładania nie ma znaczenia."
+   ],
+   "mistakes": [
+    "Dokręcanie śrub na siłę: moment nieznany."
+   ],
+   "check": "Nowy podnośnik ma silnik.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/images_large/pic06.jpg",
+     "cap": "Trzy śruby silnika (zielone strzałki); przełóż silnik na nowy podnośnik.",
+     "credit": "Pelican Parts (podnośnik szyby)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/48-BODY-Front_Window_Regulator_Replacement/48-BODY-Front_Window_Regulator_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "4. Montaż, regulacja i test",
+   "t": "Włóż nowy podnośnik i przykręć",
+   "view": "inner",
+   "focus": [
+    "inner.regulator"
+   ],
+   "min": 20,
+   "conf": "med",
+   "src": [
+    "pelican-reg"
+   ],
+   "b": "Montaż to odwrotna kolejność. Przesuwasz podnośnik do drzwi tylną częścią, potem przednią.",
+   "see": "Wnętrze drzwi z pięcioma otworami na nakrętki.",
+   "how": [
+    "Wsuń podnośnik w drzwi, tylną część pierwszą.",
+    "Lekko nałóż pięć nakrętek 10 mm, pozwalając podnośnikowi się ustawić.",
+    "Podłącz wtyczkę silnika."
+   ],
+   "mistakes": [
+    "Całkowite dokręcenie nakrętek przed ustawieniem szyby: nie będziesz mógł jej wyregulować."
+   ],
+   "check": "Podnośnik jest wpięty i wtyczka włożona."
+  },
+  {
+   "phase": "4. Montaż, regulacja i test",
+   "t": "Zamontuj szybę i ustaw ją",
+   "view": "outer",
+   "focus": [
+    "outer.glass"
+   ],
+   "min": 25,
+   "conf": "med",
+   "src": [
+    "pelican-reg"
+   ],
+   "b": "Szybę wsuwasz do drzwi, wpinasz w ślizgi podnośnika i regulujesz tak, aby w górnej pozycji równo wchodziła w uszczelkę.",
+   "see": "Szyba wsunięta w uszczelkę, dwa otwory na dolnej krawędzi nad ślizgami.",
+   "how": [
+    "Wsuń szybę i wpasuj klipsy w ślizgi; dokręć dwie śruby.",
+    "Zamknij szybę przełącznikiem. W górze ma równo dotykać uszczelki, a szyba ma wchodzić w uszczelkę ok. 6 mm.",
+    "Jeśli nie, poluzuj nakrętki podnośnika, ustaw szybę ręcznie i dokręć nakrętki."
+   ],
+   "mistakes": [
+    "Szyba niedomknięta w górze: wiatr i woda.",
+    "Otwory klipsów nie pasują: Pelican Parts radzi sprawdzić, czy szyba siedzi w uszczelce i czy klipsy są takie same jak stare."
+   ],
+   "check": "Szyba chodzi gładko i w górze wchodzi w uszczelkę ok. 6 mm."
+  },
+  {
+   "phase": "4. Montaż, regulacja i test",
+   "t": "Test i złożenie drzwi",
+   "view": "card",
+   "focus": [
+    "card.switch"
+   ],
+   "min": 45,
+   "conf": "med",
+   "src": [
+    "pelican-reg"
+   ],
+   "b": "Zanim nałożysz folię i boczek, sprawdź działanie szyby.",
+   "see": "Okno chodzi w górę i w dół bez szarpania.",
+   "how": [
+    "Podłącz akumulator i podnieś oraz opuść szybę kilka razy.",
+    "Przyklej folię, załóż uszczelki, zamontuj poduszkę (trzy śruby 10 mm) i boczek.",
+    "Po podłączeniu akumulatora sprawdź kontrolki poduszki i ABS."
+   ],
+   "mistakes": [
+    "Montaż boczka przed testem: musiałbyś go znów zdejmować."
+   ],
+   "check": "Szyba działa, kontrolki są wygaszone, boczek siedzi."
+  }
+ ],
+ "after": [
+  "Szyba unosi się i opada płynnie",
+  "Szyba w górze wchodzi w uszczelkę ok. 6 mm",
+  "Kontrolki poduszki i ABS nie świecą",
+  "Folia jest cała i przylega"
+ ],
+ "unknown": [
+  "Momenty dokręcenia nakrętek podnośnika, silnika i śrub szyby: brak w źródłach.",
+  "Dokładne czasy fragmentów filmu: nie udało się wczytać transkryptu.",
+  "Kolejność z Pelican Parts a relacja z Xoutpost (poluzowanie śrub vs wykręcenie przez otwór) nie została rozstrzygnięta.",
+  "Czy kroki są identyczne dla prawych drzwi: zakładamy lustrzane."
+ ],
+ "related": [
+  "tapicerka-przod",
+  "klamka-wewn"
+ ]
+}
