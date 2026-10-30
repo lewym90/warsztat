@@ -184,11 +184,13 @@ async function carScreen(id) {
     html: `
       ${topbar({ back: '#/', title: carName(car), sub: carSub(car), right: `<button class="iconbtn ${car.fav ? 'on' : ''}" id="fav" aria-label="Ulubione">${icon(car.fav ? 'starFill' : 'star', 20)}</button><button class="iconbtn" id="edit" aria-label="Edytuj">${icon('more', 20)}</button>` })}
       <div class="wrap car-wrap">
+        <div class="car-main">
         <div class="card hero-card glow">
           ${SPINS[pack && pack.id] ? spinHtml(SPINS[pack.id], zoneLabels) : carSVG({ pins: pack ? ['door_front', 'door_rear'] : [], photo: PHOTOS[pack && pack.id] || '' })}
           <div class="caption" id="cap">${pack ? `${icon('spark', 16)} ${SPINS[pack.id] ? 'Obracaj auto palcem, dotknij kropki' : 'Dotknij drzwi, aby zobaczyć poradniki'}` : `${icon('clock', 16)} Dla tego auta nie ma jeszcze opracowania`}</div>
         </div>
         <div class="zonepanel" id="zonepanel" hidden></div>
+        </div>
         <div class="car-side">
         ${pack ? `<div class="chips" style="padding:0 4px"><span class="chip ok">${icon('check', 13)} ${esc(pack.title)} · ${esc(pack.status)}</span><span class="chip">${catalog ? catalog.zones.reduce((a, z) => a + cnt(z).r, 0) + ' z ' + catalog.zones.reduce((a, z) => a + cnt(z).n, 0) + ' napraw gotowych' : ready.length + ' z ' + pack.systems.length + ' układów'}</span></div>` : `
         <div class="matchbox no">
@@ -749,6 +751,11 @@ async function moreScreen() {
     tab: '#/more',
     html: `${topbar({ title: 'Więcej', sub: `Warsztat ${APP_VERSION}` })}
     <div class="wrap">
+      <div class="section-h">${icon('refresh', 16)} Aktualizacja</div>
+      <div class="card pad" style="display:grid;gap:10px">
+        <p style="color:var(--muted);font-size:14px;margin:0">Aplikacja sama sprawdza nową wersję co 2 minuty i po powrocie do niej. Jeśli coś wygląda staro, odśwież ją ręcznie. Twoje auta i postęp napraw zostają.</p>
+        <button class="btn primary block" id="hard-refresh">${icon('refresh', 18)} Odśwież aplikację teraz</button>
+      </div>
       <div class="section-h">${icon('shield', 16)} Jak czytać oznaczenia</div>
       <div class="card pad" style="display:grid;gap:12px">
         <div class="conf high"><i></i><span><b style="color:var(--text)">Wysoka:</b> krok potwierdzony w co najmniej dwóch niezależnych źródłach lub w instrukcji fabrycznej.</span></div>
@@ -782,11 +789,22 @@ async function moreScreen() {
         const f = e.target.files[0]; if (!f) return;
         try { S.importAll(await f.text()); toast('Kopia wczytana'); location.hash = '#/'; render(); } catch (err) { toast(err.message); }
       };
+      const hr = $('#hard-refresh', el); if (hr) hr.onclick = hardRefresh;
       const off = $('#offl', el);
       off.textContent = 'serviceWorker' in navigator && navigator.serviceWorker.controller ? 'aktywne' : 'włączy się po pierwszym odświeżeniu';
     }
   };
 }
+
+/* ---------- odświeżanie aplikacji (także w zainstalowanej, bez paska przeglądarki) ---------- */
+async function hardRefresh() {
+  toast('Aktualizuję aplikację...');
+  try { for (const r of await navigator.serviceWorker.getRegistrations()) await r.unregister(); } catch (_) {}
+  try { for (const k of await caches.keys()) await caches.delete(k); } catch (_) {}
+  try { sessionStorage.removeItem('healed'); } catch (_) {}
+  location.reload();
+}
+window.addEventListener('keydown', e => { if ((e.key === 'F5') || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'r')) { e.preventDefault(); hardRefresh(); } });
 
 /* ---------- start ---------- */
 window.__warsztatOK = true;
@@ -798,5 +816,12 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
   const hadController = !!navigator.serviceWorker.controller;
   let reloaded = false;
   navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadController && !reloaded) { reloaded = true; location.reload(); } });
-  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(r => r.update()).catch(() => {}));
+  window.addEventListener('load', () => navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).then(r => {
+    r.update();
+    // automatyczne sprawdzanie nowej wersji: co 2 minuty i po powrocie do aplikacji
+    const check = () => r.update().catch(() => {});
+    setInterval(check, 120000);
+    document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') check(); });
+    window.addEventListener('focus', check);
+  }).catch(() => {}));
 }

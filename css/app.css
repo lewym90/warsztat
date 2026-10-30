@@ -454,7 +454,7 @@ body.no-tabs #toast { bottom: calc(var(--sab) + 28px); }
   .wrap { padding: 24px 32px; gap: 22px; }
   .topbar { padding-left: 32px; padding-right: 32px; }
   .car-wrap { grid-template-columns: minmax(0, 1.18fr) minmax(0, 1fr); align-items: start; }
-  .car-wrap > .hero-card { position: sticky; top: calc(var(--sat) + 88px); }
+  .car-wrap > .car-main { position: sticky; top: calc(var(--sat) + 88px); max-height: calc(100vh - var(--sat) - 100px); overflow-y: auto; scrollbar-width: thin; }
   .door-wrap { grid-template-columns: minmax(0, 420px) minmax(0, 1fr); align-items: start; gap: 28px; }
   .door-wrap .door-main { position: sticky; top: calc(var(--sat) + 88px); }
   .doorbox .stage { width: min(100%, 380px); }
@@ -648,3 +648,6 @@ body.no-tabs #toast { bottom: calc(var(--sab) + 28px); }
 .zp-h em { display: block; font: 500 12px/1.2 system-ui; color: var(--accent); letter-spacing: .06em; text-transform: uppercase; margin-top: 4px; }
 .zp-g { display: flex; flex-wrap: wrap; gap: 6px; }
 .zp-g .chip b { margin-left: 4px; color: var(--accent); }
+
+.car-main { display: grid; gap: 12px; align-content: start; min-width: 0; }
+.car-main .zonepanel { margin: 0; }
