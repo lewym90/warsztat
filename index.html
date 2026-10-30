@@ -23,6 +23,18 @@
 <div id="sheet" aria-hidden="true"><div class="scrim"></div><div class="panel" role="dialog" aria-modal="true"><div class="grab"></div><div id="sheet-body"></div></div></div>
 <div id="toast" role="status" aria-live="polite"></div>
 <noscript><p style="padding:24px;color:#fff">Warsztat wymaga włączonego JavaScriptu.</p></noscript>
+<script>
+// samoleczenie: jeśli aplikacja się nie uruchomi (np. niespójna pamięć podręczna), wyczyść cache i odśwież raz
+setTimeout(function () {
+  if (window.__warsztatOK) return;
+  try { if (sessionStorage.getItem('healed')) return; sessionStorage.setItem('healed', '1'); } catch (e) {}
+  var done = function () { location.reload(); };
+  Promise.all([
+    navigator.serviceWorker ? navigator.serviceWorker.getRegistrations().then(function (r) { return Promise.all(r.map(function (x) { return x.unregister(); })); }) : 0,
+    window.caches ? caches.keys().then(function (k) { return Promise.all(k.map(function (x) { return caches.delete(x); })); }) : 0
+  ]).then(done, done);
+}, 4000);
+</script>
 <script type="module" src="js/main.js"></script>
 </body>
 </html>

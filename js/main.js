@@ -614,6 +614,7 @@ async function moreScreen() {
 }
 
 /* ---------- start ---------- */
+window.__warsztatOK = true;
 S.init();
 // Wzbogacenie indeksu napraw o postęp (liczba kroków) wymaga pack.repairs — dostarcza build.py.
 render();
