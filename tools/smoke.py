@@ -67,5 +67,6 @@ with sync_playwright() as p:
     b.close()
 
 httpd.shutdown()
+errors = [e for e in errors if 'pelicanparts' not in e and 'ERR_TUNNEL' not in e and 'youtube' not in e]  # zasoby zewnętrzne: sandbox ich nie ładuje
 print('BŁĘDY:' if errors else 'brak błędów konsoli')
 for e in errors: print(' -', e)

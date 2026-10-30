@@ -5,80 +5,582 @@
   "door": "front",
   "completeness": "pełne",
   "difficulty": 3,
-  "time": [60, 180],
+  "time": [
+    60,
+    180
+  ],
   "summary": "Klamka się unosi, ale drzwi nie zwalniają zamka. W E53 to znana wada: pęka lub wypada z położenia mechanizm klamki, mocowany w drzwiach. Wymiana jest umiarkowanie trudna i wymaga cierpliwości, głównie przy wkładaniu nowego mechanizmu i białej tulejki linki.",
   "extras": [
-    { "t": "Zanim kupisz część: sprawdź oś", "b": "U jednego z autorów na forum mechanizm wcale nie był zepsuty, tylko oś wysunęła się z położenia. Wystarczyło ją wcisnąć z powrotem. Po zdjęciu boczka przyjrzyj się mechanizmowi, zanim zamówisz nowy.", "src": ["xo-handle-fix"] },
-    { "t": "Klamka sama wypada z gniazda?", "b": "Jeśli ukruszone są jej plastikowe zaczepy, nie da się jej naprawić. Potrzebna jest nowa klamka (osobna część od mechanizmu).", "src": ["xo-handle-falling"] },
-    { "t": "Zużyte plastikowe „klucze” klamki", "b": "Z czasem ściera się plastikowe wpustowe zamocowanie przedniej części klamki. Klamkę zdejmuje się wtedy tym samym obrotem co w kroku 8.", "src": ["xo-handle-redneck"] }
+    {
+      "t": "Zanim kupisz część: sprawdź oś",
+      "b": "U jednego z autorów na forum mechanizm wcale nie był zepsuty, tylko oś wysunęła się z położenia. Wystarczyło ją wcisnąć z powrotem. Po zdjęciu boczka przyjrzyj się mechanizmowi, zanim zamówisz nowy.",
+      "src": [
+        "xo-handle-fix"
+      ]
+    },
+    {
+      "t": "Klamka sama wypada z gniazda?",
+      "b": "Jeśli ukruszone są jej plastikowe zaczepy, nie da się jej naprawić. Potrzebna jest nowa klamka (osobna część od mechanizmu).",
+      "src": [
+        "xo-handle-falling"
+      ]
+    },
+    {
+      "t": "Zużyte plastikowe „klucze” klamki",
+      "b": "Z czasem ściera się plastikowe wpustowe zamocowanie przedniej części klamki. Klamkę zdejmuje się wtedy tym samym obrotem co w kroku 8.",
+      "src": [
+        "xo-handle-redneck"
+      ]
+    }
   ],
   "tools": [
-    { "name": "Torx T20", "note": "4 śruby boczka", "need": "must" },
-    { "name": "Klucz nasadowy 10 mm", "note": "3 śruby poduszki w drzwiach", "need": "must" },
-    { "name": "Klucz 8 mm (nasadka)", "note": "nakrętka mocująca klamkę", "need": "must" },
-    { "name": "Mały klucz imbusowy", "note": "śruba mechanizmu pod zaślepką; rozmiar niepotwierdzony, dobierz na miejscu", "need": "must" },
-    { "name": "Wkrętak krzyżakowy (średni)", "note": "wkręt przy klamce", "need": "must" },
-    { "name": "Plastikowe łopatki do tapicerki", "note": "boczek, osłona wkładki, zaślepki", "need": "must" },
-    { "name": "Ostrze lub nóż", "note": "do nacięcia wokół wewnętrznego korka zaślepki", "need": "should" },
-    { "name": "Taśma malarska", "note": "ochrona lakieru wokół klamki", "need": "should" },
-    { "name": "Sznurek lub opaska", "note": "zawieszenie poduszki; wyciąganie białej tulejki", "need": "should" },
-    { "name": "Łopatka w kształcie litery U", "note": "pomaga dociskać białą tulejkę", "need": "opt" },
-    { "name": "Zapasowe spinki boczka", "note": "część pęknie", "need": "should" }
+    {
+      "name": "Torx T20",
+      "note": "4 śruby boczka",
+      "need": "must"
+    },
+    {
+      "name": "Klucz nasadowy 10 mm",
+      "note": "3 śruby poduszki w drzwiach",
+      "need": "must"
+    },
+    {
+      "name": "Klucz 8 mm (nasadka)",
+      "note": "nakrętka mocująca klamkę",
+      "need": "must"
+    },
+    {
+      "name": "Klucz imbusowy 4 mm",
+      "note": "śruba mechanizmu pod zaślepką na krawędzi drzwi",
+      "need": "must"
+    },
+    {
+      "name": "Wkrętak krzyżakowy (średni)",
+      "note": "wkręt przy klamce",
+      "need": "must"
+    },
+    {
+      "name": "Plastikowe łopatki do tapicerki",
+      "note": "boczek, osłona wkładki, zaślepki",
+      "need": "must"
+    },
+    {
+      "name": "Ostrze lub nóż",
+      "note": "do nacięcia wokół wewnętrznego korka zaślepki",
+      "need": "should"
+    },
+    {
+      "name": "Taśma malarska",
+      "note": "ochrona lakieru wokół klamki",
+      "need": "should"
+    },
+    {
+      "name": "Sznurek lub opaska",
+      "note": "zawieszenie poduszki; wyciąganie białej tulejki",
+      "need": "should"
+    },
+    {
+      "name": "Łopatka w kształcie litery U",
+      "note": "pomaga dociskać białą tulejkę",
+      "need": "opt"
+    },
+    {
+      "name": "Zapasowe spinki boczka",
+      "note": "część pęknie",
+      "need": "should"
+    }
   ],
   "parts": [
-    { "name": "Mechanizm klamki zewnętrznej, przód", "oe": "51218243615", "conf": "med",
+    {
+      "name": "Mechanizm klamki zewnętrznej, przód",
+      "oe": "51218243615",
+      "conf": "med",
       "note": "Numer z relacji na forum (część lewych drzwi przednich) i z opisu sklepu. W ogłoszeniach ta sama część bywa opisana jako „przód lewy, prawy”, ale numeru dla prawej strony nie potwierdzono: sprawdź po VIN.",
       "price": "ok. 79 zł (ogłoszenia, 10.2026); oryginał na forum w latach 2008–2012: 73–105 USD",
       "alt": [
-        { "brand": "Meyle", "no": "51218243615", "note": "zamiennik opisany w sklepie jako lewy przód" },
-        { "brand": "febi bilstein", "no": "37681", "note": "„uchwyt klamki” dla E53 (strona/oś do potwierdzenia)" },
-        { "brand": "TOPRAN", "no": "503 511", "note": "„rama klamki” dla E53 (strona/oś do potwierdzenia)" }
+        {
+          "brand": "Meyle",
+          "no": "51218243615",
+          "note": "zamiennik opisany w sklepie jako lewy przód"
+        },
+        {
+          "brand": "febi bilstein",
+          "no": "37681",
+          "note": "„uchwyt klamki” dla E53 (strona/oś do potwierdzenia)"
+        },
+        {
+          "brand": "TOPRAN",
+          "no": "503 511",
+          "note": "„rama klamki” dla E53 (strona/oś do potwierdzenia)"
+        }
       ],
-      "src": ["xo-handle-fix", "bw-carrier", "febi-tip", "autodoc-topran", "ads-prices"] },
-    { "name": "Klamka zewnętrzna (sama), jeśli zaczepy ukruszone", "oe": null, "conf": "low",
+      "src": [
+        "xo-handle-fix",
+        "bw-carrier",
+        "febi-tip",
+        "autodoc-topran",
+        "ads-prices"
+      ]
+    },
+    {
+      "name": "Klamka zewnętrzna (sama), jeśli zaczepy ukruszone",
+      "oe": null,
+      "conf": "low",
       "note": "Zwykle malowana w kolor nadwozia. Numery zamienników w sklepach: YS-DH0003H (lewa) i YS-DH0004H (prawa), podane jako przód/tył. Kolor dobierz po kodzie lakieru.",
       "price": "zamiennik ok. 43 zł (bez lakieru)",
-      "src": ["ys-handle", "xo-handle-falling"] },
-    { "name": "Spinki tapicerki drzwi", "oe": null, "conf": "low", "note": "Kup zapas.", "src": ["xo-handle-fix"] }
+      "src": [
+        "ys-handle",
+        "xo-handle-falling"
+      ]
+    },
+    {
+      "name": "Spinki tapicerki drzwi",
+      "oe": null,
+      "conf": "low",
+      "note": "Kup zapas.",
+      "src": [
+        "xo-handle-fix"
+      ]
+    }
   ],
   "warnings": [
-    { "lvl": "danger", "t": "Poduszka powietrzna w drzwiach", "b": "Moduł poduszki jest na 3 śrubach 10 mm. Odkręć śruby, ale nie odłączaj wtyczki. Jeśli musisz ją odłączyć, najpierw odłącz akumulator i odczekaj co najmniej 30 minut. Po ponownym podłączeniu akumulatora jeden z autorów miał zapalone kontrolki poduszki i ABS: w razie takiego objawu jedź na diagnostykę.", "src": ["xo-actuator", "xo-handle-stuck", "febi-tip"] },
-    { "lvl": "warn", "t": "Lakier", "b": "Przy obracaniu i wyjmowaniu klamki łatwo porysować drzwi. Oklej okolicę taśmą malarską.", "src": ["xo-handle-redneck"] },
-    { "lvl": "warn", "t": "Zaczepy osłony wkładki zamka", "b": "Osłona ma dwa plastikowe zaczepy (góra i dół). Zacznij podważanie od dołu i obchodź osłonę delikatnie dookoła.", "src": ["xo-handle-fix"] },
-    { "lvl": "info", "t": "Wymiana wymaga cierpliwości", "b": "Forumowicze piszą o 1–3 godzinach. Wkładanie mechanizmu i białej tulejki to najtrudniejszy moment.", "src": ["xo-handle-fix"] }
+    {
+      "lvl": "danger",
+      "t": "Poduszka powietrzna w drzwiach",
+      "b": "Moduł poduszki jest na 3 śrubach 10 mm. Odkręć śruby, ale nie odłączaj wtyczki. Jeśli musisz ją odłączyć, najpierw odłącz akumulator i odczekaj co najmniej 30 minut. Po ponownym podłączeniu akumulatora jeden z autorów miał zapalone kontrolki poduszki i ABS: w razie takiego objawu jedź na diagnostykę.",
+      "src": [
+        "xo-actuator",
+        "xo-handle-stuck",
+        "febi-tip"
+      ]
+    },
+    {
+      "lvl": "warn",
+      "t": "Lakier",
+      "b": "Przy obracaniu i wyjmowaniu klamki łatwo porysować drzwi. Oklej okolicę taśmą malarską.",
+      "src": [
+        "xo-handle-redneck"
+      ]
+    },
+    {
+      "lvl": "warn",
+      "t": "Zaczepy osłony wkładki zamka",
+      "b": "Osłona ma dwa plastikowe zaczepy (góra i dół). Zacznij podważanie od dołu i obchodź osłonę delikatnie dookoła.",
+      "src": [
+        "xo-handle-fix"
+      ]
+    },
+    {
+      "lvl": "info",
+      "t": "Wymiana wymaga cierpliwości",
+      "b": "Forumowicze piszą o 1–3 godzinach. Wkładanie mechanizmu i białej tulejki to najtrudniejszy moment.",
+      "src": [
+        "xo-handle-fix"
+      ]
+    }
   ],
   "steps": [
-    { "t": "Zdejmij tapicerkę drzwi", "view": "card", "focus": ["card.pull"], "min": 40, "conf": "high", "src": ["xo-handle-fix", "xo-actuator"],
-      "b": "Wykonaj całą procedurę z karty „Tapicerka drzwi przednich”. Pozostałe czynności robisz od środka drzwi i przez ich krawędź.", "link": "tapicerka-przod" },
-    { "t": "Odkręć poduszkę, nie odłączając jej", "view": "inner", "focus": ["inner.airbag"], "min": 5, "conf": "high", "src": ["xo-handle-fix", "xo-actuator", "febi-tip"], "danger": true,
-      "b": "Wykręć trzy śruby 10 mm mocujące moduł poduszki do ramy drzwi i zawieś go na sznurku lub opasce. Wtyczki nie odłączaj." },
-    { "t": "Odklej folię z wnętrza drzwi", "view": "inner", "focus": ["inner.foam"], "min": 5, "conf": "high", "src": ["xo-handle-fix", "xo-actuator"],
-      "b": "Odchyl piankę przyklejoną do drzwi. Klej jest lepki i smolisty. Odklejaj od góry, tylko tyle, by zobaczyć mechanizm, a potem da się ją przykleić z powrotem." },
-    { "t": "Wyjmij zaślepkę na krawędzi drzwi", "view": "edge", "focus": ["edge.plug"], "min": 10, "conf": "high", "src": ["xo-handle-fix", "xo-handle-stuck"],
+    {
+      "t": "Zdejmij tapicerkę drzwi",
+      "view": "card",
+      "focus": [
+        "card.pull"
+      ],
+      "min": 40,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "xo-actuator",
+        "yt-bond"
+      ],
+      "b": "Wykonaj całą procedurę z karty „Tapicerka drzwi przednich”. Pozostałe czynności robisz od środka drzwi i przez ich krawędź.",
+      "link": "tapicerka-przod",
+      "media": [
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 237,
+          "e": 343,
+          "cap": "Zdejmowanie boczka krok po kroku",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
+    },
+    {
+      "t": "Odkręć poduszkę, nie odłączając jej",
+      "view": "inner",
+      "focus": [
+        "inner.airbag"
+      ],
+      "min": 5,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "xo-actuator",
+        "febi-tip",
+        "yt-bond"
+      ],
+      "danger": true,
+      "b": "Wykręć trzy śruby 10 mm mocujące moduł poduszki do ramy drzwi i zawieś go na sznurku lub opasce. Wtyczki nie odłączaj.",
+      "media": [
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 343,
+          "e": 399,
+          "cap": "Poduszka w drzwiach: śruby 10 mm i wtyczka (w filmie przy odłączonym akumulatorze)",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
+    },
+    {
+      "t": "Odklej folię z wnętrza drzwi",
+      "view": "inner",
+      "focus": [
+        "inner.foam"
+      ],
+      "min": 5,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "xo-actuator",
+        "yt-bond"
+      ],
+      "b": "Odchyl piankę przyklejoną do drzwi. Klej jest lepki i smolisty. Odklejaj od góry, tylko tyle, by zobaczyć mechanizm, a potem da się ją przykleić z powrotem.",
+      "media": [
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 399,
+          "e": 486,
+          "cap": "Odklejanie folii (steam barrier) bez rozerwania",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
+    },
+    {
+      "t": "Wyjmij zaślepkę na krawędzi drzwi",
+      "view": "edge",
+      "focus": [
+        "edge.plug"
+      ],
+      "min": 10,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "xo-handle-stuck",
+        "yt-bond",
+        "pelican-handle"
+      ],
       "b": "Na krawędzi drzwi (od strony zamka) jest czarna zaślepka z dwóch części: wewnętrzny korek i zewnętrzny pierścień. Obetnij wokół korka ostrzem i podważ go, pierścień wyjdzie łatwo. Pod spodem leży śruba z łbem sześciokątnym, położona pod kątem.",
-      "tip": "Rozmiaru klucza do tej śruby nie potwierdzono w źródłach: dobierz go na miejscu." },
-    { "t": "Zdejmij osłonę wokół wkładki zamka", "view": "outer", "focus": ["outer.keyhole"], "min": 5, "conf": "high", "src": ["xo-handle-fix", "xo-handle-stuck", "tis-front-outer"],
-      "b": "Zdejmij osłonę przy otworze na klucz: ma dwa zaczepy, górny i dolny. Zacznij od dołu i obchodź ją dookoła, można też podważyć od strony otworu na klucz. W drzwiach kierowcy instrukcja fabryczna każe wyjąć całą wkładkę zamka, w drzwiach pasażera wystarczy zdjąć osłonę klamki." },
-    { "t": "Wykręć śrubę mechanizmu", "view": "edge", "focus": ["edge.plug"], "min": 3, "conf": "med", "src": ["xo-handle-fix", "xo-handle-stuck"],
-      "b": "Po zdjęciu osłony wykręć śrubę z łbem sześciokątnym widoczną przez otwór po zaślepce. Zespół zamka da się wtedy po prostu wysunąć." },
-    { "t": "Odkręć nakrętkę klamki od środka", "view": "inner", "focus": ["inner.handle_nut"], "min": 5, "conf": "high", "src": ["xo-handle-fix", "xo-handle-redneck"],
-      "b": "Przytrzymaj klamkę w położeniu „otwierania” i odkręć nakrętkę 8 mm. Wypchnij śrubę." },
-    { "t": "Obróć i zdejmij klamkę", "view": "outer", "focus": ["outer.handle"], "min": 5, "conf": "high", "src": ["xo-handle-fix", "xo-handle-redneck"], "warn": true,
-      "b": "Nadal trzymaj klamkę wyciągniętą, jak do otwarcia drzwi. Obróć ją zgodnie z ruchem wskazówek zegara, mniej więcej od godz. 3 do godz. 5, aż jej przednia część „wyjdzie z wpustu” i wysunie się na bok. Klamka jest wtedy luźna w dłoni. Pod koniec prowadź ją ostrożnie, żeby nie zarysować drzwi." },
-    { "t": "Zdejmij gumę i wykręć wkręt", "view": "outer", "focus": ["outer.rubber"], "min": 3, "conf": "med", "src": ["xo-handle-fix"],
-      "b": "Zdejmij gumową listwę przy klamce i wykręć mały wkręt krzyżakowy od zewnętrznej strony klamki." },
-    { "t": "Odepnij linkę i wyjmij stary mechanizm", "view": "inner", "focus": ["inner.ball", "inner.collar"], "min": 10, "conf": "high", "src": ["xo-handle-fix", "xo-actuator"],
+      "tip": "Śruba pod zaślepką to imbus 4 mm (potwierdzone w dwóch źródłach).",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/45-BODY-Door_Handle_Replacement/images_large/pic01.jpg",
+          "cap": "Zaślepka na krawędzi drzwi (zielona strzałka): podważ ją plastikową łopatką, potem zdejmij owalny pierścień.",
+          "credit": "Pelican Parts",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/45-BODY-Door_Handle_Replacement/45-BODY-Door_Handle_Replacement.htm"
+        },
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 561,
+          "e": 606,
+          "cap": "Zaślepka i pierścień na krawędzi drzwi",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
+    },
+    {
+      "t": "Zdejmij osłonę wokół wkładki zamka",
+      "view": "outer",
+      "focus": [
+        "outer.keyhole"
+      ],
+      "min": 5,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "xo-handle-stuck",
+        "tis-front-outer",
+        "yt-bond",
+        "pelican-handle"
+      ],
+      "b": "Zdejmij osłonę przy otworze na klucz: ma dwa zaczepy, górny i dolny. Zacznij od dołu i obchodź ją dookoła, można też podważyć od strony otworu na klucz. W drzwiach kierowcy instrukcja fabryczna każe wyjąć całą wkładkę zamka, w drzwiach pasażera wystarczy zdjąć osłonę klamki.",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/45-BODY-Door_Handle_Replacement/images_large/pic03.jpg",
+          "cap": "Wkładka zamka (drzwi kierowcy) wysuwa się z drzwi. W drzwiach pasażera jest tylko osłona.",
+          "credit": "Pelican Parts",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/45-BODY-Door_Handle_Replacement/45-BODY-Door_Handle_Replacement.htm"
+        }
+      ]
+    },
+    {
+      "t": "Wykręć śrubę mechanizmu",
+      "view": "edge",
+      "focus": [
+        "edge.plug"
+      ],
+      "min": 3,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "xo-handle-stuck",
+        "yt-bond",
+        "pelican-handle"
+      ],
+      "b": "Po zdjęciu zaślepki wykręć śrubę imbusową 4 mm widoczną przez otwór. Przytrzymaj ją, żeby nie wpadła w głąb drzwi. Zespół zamka da się wtedy wysunąć.",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/45-BODY-Door_Handle_Replacement/images_large/pic02.jpg",
+          "cap": "Śruba imbusowa 4 mm (zielona strzałka) mocująca wkładkę lub mechanizm.",
+          "credit": "Pelican Parts",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/45-BODY-Door_Handle_Replacement/45-BODY-Door_Handle_Replacement.htm"
+        },
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 606,
+          "e": 640,
+          "cap": "Wykręcanie śruby 4 mm. Uważaj, by nie wpadła w drzwi.",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
+    },
+    {
+      "t": "Odkręć nakrętkę klamki od środka",
+      "view": "inner",
+      "focus": [
+        "inner.handle_nut"
+      ],
+      "min": 5,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "xo-handle-redneck",
+        "yt-bond",
+        "pelican-handle"
+      ],
+      "b": "Przytrzymaj klamkę w położeniu „otwierania” i odkręć nakrętkę 8 mm. Wypchnij śrubę.",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/45-BODY-Door_Handle_Replacement/images_large/pic04.jpg",
+          "cap": "Klamka wyciągnięta, narzędzie w otworze po wkładce blokuje ją w położeniu otwartym (żółta strzałka), nakrętka klamki (zielona).",
+          "credit": "Pelican Parts",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/45-BODY-Door_Handle_Replacement/45-BODY-Door_Handle_Replacement.htm"
+        },
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 662,
+          "e": 680,
+          "cap": "Nakrętka 8 mm",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ],
+      "tip": "Pelican Parts: włóż narzędzie w otwór po wkładce zamka, aby zablokować klamkę w położeniu otwartym, a dopiero potem odkręć nakrętkę 8 mm."
+    },
+    {
+      "t": "Obróć i zdejmij klamkę",
+      "view": "outer",
+      "focus": [
+        "outer.handle"
+      ],
+      "min": 5,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "xo-handle-redneck",
+        "yt-bond",
+        "pelican-handle"
+      ],
+      "warn": true,
+      "b": "Nadal trzymaj klamkę wyciągniętą, jak do otwarcia drzwi. Obróć ją zgodnie z ruchem wskazówek zegara, mniej więcej od godz. 3 do godz. 5, aż jej przednia część „wyjdzie z wpustu” i wysunie się na bok. Klamka jest wtedy luźna w dłoni. Pod koniec prowadź ją ostrożnie, żeby nie zarysować drzwi.",
+      "media": [
+        {
+          "type": "photo",
+          "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/45-BODY-Door_Handle_Replacement/images_large/pic05.jpg",
+          "cap": "Obrót klamki o ok. 45° i zdjęcie jej z przedniego zaczepu.",
+          "credit": "Pelican Parts",
+          "page": "https://www.pelicanparts.com/techarticles/BMW-X5/45-BODY-Door_Handle_Replacement/45-BODY-Door_Handle_Replacement.htm"
+        },
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 670,
+          "e": 735,
+          "cap": "Palcem przytrzymaj czarny element z tyłu, potem obróć klamkę",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
+    },
+    {
+      "t": "Zdejmij gumę i wykręć wkręt",
+      "view": "outer",
+      "focus": [
+        "outer.rubber"
+      ],
+      "min": 3,
+      "conf": "med",
+      "src": [
+        "xo-handle-fix",
+        "yt-bond",
+        "pelican-handle"
+      ],
+      "b": "Zdejmij gumową listwę przy klamce i wykręć mały wkręt krzyżakowy od zewnętrznej strony klamki.",
+      "media": [
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 738,
+          "e": 767,
+          "cap": "Wkręt krzyżakowy po zdjęciu uszczelki",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
+    },
+    {
+      "t": "Odepnij linkę i wyjmij stary mechanizm",
+      "view": "inner",
+      "focus": [
+        "inner.ball",
+        "inner.collar"
+      ],
+      "min": 10,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "xo-actuator",
+        "yt-bond",
+        "xo-diy-carrier"
+      ],
       "b": "Sięgnij do wnętrza drzwi i zdejmij kulę linki zewnętrznej klamki. Następnie wypchnij białą tulejkę prowadzącą z uchwytu. U niektórych siedzi mocno, pomaga sznurek owinięty wokół tulejki i pociągnięcie prosto do przodu. Wyjmij stary mechanizm.",
-      "tip": "Zrób zdjęcie ułożenia linki i tulejki przed rozebraniem." },
-    { "t": "Załóż nowy mechanizm", "view": "inner", "focus": ["inner.carrier", "inner.collar", "inner.ball"], "min": 20, "conf": "high", "src": ["xo-handle-fix", "xo-actuator"],
-      "b": "Nowy mechanizm ma zwykle wkręconą śrubę i wkręt. Wsuń go na miejsce, to wymaga cierpliwości. Kula linki wskakuje łatwo, biała tulejka trudniej, bo ciężko włożyć rękę. Dociśnij ją mocno, np. łopatką w kształcie litery U." },
-    { "t": "Załóż klamkę", "view": "outer", "focus": ["outer.handle"], "min": 10, "conf": "high", "src": ["xo-handle-fix"],
+      "tip": "Zrób zdjęcie ułożenia linki i tulejki przed rozebraniem.",
+      "media": [
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 486,
+          "e": 561,
+          "cap": "Wypinanie linki i białej tulejki od środka",
+          "credit": "BOND Garage (YouTube)"
+        },
+        {
+          "type": "link",
+          "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/102023-x5-door-handle-carrier-removal-replacement-diy-4.html",
+          "label": "Zdjęcia z wątku DIY na Xoutpost",
+          "credit": "Xoutpost"
+        }
+      ]
+    },
+    {
+      "t": "Załóż nowy mechanizm",
+      "view": "inner",
+      "focus": [
+        "inner.carrier",
+        "inner.collar",
+        "inner.ball"
+      ],
+      "min": 20,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "xo-actuator",
+        "yt-bond"
+      ],
+      "b": "Nowy mechanizm ma zwykle wkręconą śrubę i wkręt. Wsuń go na miejsce, to wymaga cierpliwości. Kula linki wskakuje łatwo, biała tulejka trudniej, bo ciężko włożyć rękę. Dociśnij ją mocno, np. łopatką w kształcie litery U.",
+      "media": [
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 859,
+          "e": 945,
+          "cap": "Zakładanie nowego mechanizmu: poluzuj śrubę, wsuń od dołu, obróć i zaczep",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ],
+      "tip": "Z filmu: nowy mechanizm ma wkręconą śrubę. Poluzuj ją trochę, bo inaczej nie da się go wsunąć. Nie wykręcaj jej."
+    },
+    {
+      "t": "Załóż klamkę",
+      "view": "outer",
+      "focus": [
+        "outer.handle"
+      ],
+      "min": 10,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "yt-bond"
+      ],
       "b": "Dociśnij mechanizm od środka, np. trzonkiem wkrętaka. Klamka unosi się i łatwiej wprowadzić jej czarny koniec od strony zamka, a potem obrócić ją na miejsce. Załóż śrubę i dokręć nakrętkę 8 mm.",
-      "tip": "Momentu dokręcenia nie podajemy, bo nie ma go w źródłach. Dokręć pewnie, bez użycia siły." },
-    { "t": "Sprawdź działanie przed złożeniem", "view": "outer", "focus": ["outer.handle"], "min": 5, "conf": "med", "src": ["xo-handle-fix"],
-      "b": "Zanim założysz boczek: klamka z zewnątrz otwiera drzwi, zamek centralny blokuje i odblokowuje wszystkie drzwi. Jeden z autorów po montażu miał zamek, który nie odblokowywał pozostałych drzwi. Pomogło poruszanie bolcem blokady przy uniesionej klamce." },
-    { "t": "Złóż wszystko", "view": "card", "focus": ["card.top_clips"], "min": 25, "conf": "high", "src": ["xo-handle-fix", "xo-actuator"],
-      "b": "Włóż zaślepkę na krawędzi, załóż osłonę wkładki zamka, przyklej folię, przykręć poduszkę (3 × 10 mm) i załóż boczek według karty „Tapicerka drzwi przednich”.", "link": "tapicerka-przod" }
+      "tip": "Momentu dokręcenia nie podajemy, bo nie ma go w źródłach. Dokręć pewnie, bez użycia siły.",
+      "media": [
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 945,
+          "e": 1004,
+          "cap": "Zakładanie klamki: noski do tyłu i obrót",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
+    },
+    {
+      "t": "Sprawdź działanie przed złożeniem",
+      "view": "outer",
+      "focus": [
+        "outer.handle"
+      ],
+      "min": 5,
+      "conf": "med",
+      "src": [
+        "xo-handle-fix",
+        "yt-bond"
+      ],
+      "b": "Zanim założysz boczek: klamka z zewnątrz otwiera drzwi, zamek centralny blokuje i odblokowuje wszystkie drzwi. Jeden z autorów po montażu miał zamek, który nie odblokowywał pozostałych drzwi. Pomogło poruszanie bolcem blokady przy uniesionej klamce. Bezpieczny sposób testu z filmu: nie trzaskaj drzwiami, tylko zasymuluj zamknięcie śrubokrętem w zamku, potem otwórz klamką.",
+      "media": [
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 1004,
+          "e": 1052,
+          "cap": "Test zamka śrubokrętem bez trzaskania drzwiami",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
+    },
+    {
+      "t": "Złóż wszystko",
+      "view": "card",
+      "focus": [
+        "card.top_clips"
+      ],
+      "min": 25,
+      "conf": "high",
+      "src": [
+        "xo-handle-fix",
+        "xo-actuator",
+        "yt-bond"
+      ],
+      "b": "Włóż zaślepkę na krawędzi, załóż osłonę wkładki zamka, przyklej folię, przykręć poduszkę (3 × 10 mm) i załóż boczek według karty „Tapicerka drzwi przednich”.",
+      "link": "tapicerka-przod",
+      "media": [
+        {
+          "type": "video",
+          "id": "nYtyyRkn0yo",
+          "t": 1052,
+          "e": 1151,
+          "cap": "Składanie: klamka wewnętrzna, boczek",
+          "credit": "BOND Garage (YouTube)"
+        }
+      ]
+    }
   ],
   "after": [
     "Klamka z zewnątrz otwiera drzwi za każdym razem",
@@ -90,9 +592,13 @@
   ],
   "unknown": [
     "Momenty dokręcenia nakrętki 8 mm, śruby mechanizmu i śrub poduszki: brak w źródłach.",
-    "Rozmiar klucza imbusowego do śruby mechanizmu.",
     "Numer OE mechanizmu dla prawych drzwi przednich i dla aut po liftingu.",
-    "Dokładne położenie nakrętki 8 mm w drzwiach: pozycja na rysunku orientacyjna."
+    "Dokładne położenie nakrętki 8 mm w drzwiach: pozycja na rysunku orientacyjna.",
+    "Rozmiar torxa/śrub boczka: w filmie „T20 lub T25”, sprawdź na miejscu."
   ],
-  "related": ["tapicerka-przod", "silownik-zamka-przod", "klamka-wewn"]
+  "related": [
+    "tapicerka-przod",
+    "silownik-zamka-przod",
+    "klamka-wewn"
+  ]
 }

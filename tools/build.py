@@ -49,6 +49,12 @@ for p in packs:
                 if a not in ANCHORS: err(f'{rid} krok {i+1}: nieznana kotwica {a}')
                 elif a.split('.')[0] != s['view']: err(f'{rid} krok {i+1}: kotwica {a} nie pasuje do widoku {s["view"]}')
             if not s.get('focus'): err(f'{rid} krok {i+1}: brak focus')
+            for m in s.get('media', []):
+                if m.get('type') not in ('photo', 'video', 'link'): err(f'{rid} krok {i+1}: zły typ media')
+                if m['type'] == 'video' and not (m.get('id') and isinstance(m.get('t'), int)): err(f'{rid} krok {i+1}: wideo bez id lub czasu')
+                if m['type'] in ('photo', 'link') and not str(m.get('url', '')).startswith('https://'): err(f'{rid} krok {i+1}: media bez adresu https')
+                if m['type'] != 'link' and not m.get('cap'): err(f'{rid} krok {i+1}: media bez opisu')
+                if not m.get('credit'): err(f'{rid} krok {i+1}: media bez autora/źródła')
             if 'link' in s and not (pdir / 'repairs' / f'{s["link"]}.json').exists(): err(f'{rid} krok {i+1}: link do nieistniejącej karty {s["link"]}')
         for rel in r.get('related', []):
             if not (pdir / 'repairs' / f'{rel}.json').exists(): err(f'{rid}: related -> brak {rel}')

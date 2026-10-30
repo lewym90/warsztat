@@ -360,6 +360,46 @@ async function sysScreen(carId, sysId, q) {
 }
 
 /* ---------- NAPRAWA ---------- */
+
+/* ---------- media przy krokach: zdjęcia, wideo od właściwego momentu, linki ---------- */
+const fmtT = t => `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`;
+function mediaHtml(list) {
+  if (!list || !list.length) return '';
+  const items = list.map(x => {
+    if (x.type === 'photo') return `<figure class="mfig"><button class="mph" data-lb="${esc(x.url)}" data-cap="${esc(x.cap)}" data-credit="${esc(x.credit)}" data-page="${esc(x.page || x.url)}" aria-label="Powiększ zdjęcie"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="${esc(x.url)}" alt="${esc(x.cap)}"><span class="mbadge">${icon('eye', 13)} Zdjęcie</span></button><figcaption>${esc(x.cap)} <em>${esc(x.credit)}</em></figcaption></figure>`;
+    if (x.type === 'video') return `<div class="mvid" data-yt="${esc(x.id)}" data-t="${x.t}" data-e="${x.e || ''}"><button class="mplay" aria-label="Odtwórz film od ${fmtT(x.t)}"><span class="mpl">${icon('chevron', 26)}</span><span><b>Film od ${fmtT(x.t)}${x.e ? ' do ' + fmtT(x.e) : ''}</b><small>${esc(x.cap)} · ${esc(x.credit)}</small></span></button></div>`;
+    return `<a class="mlink" href="${esc(x.url)}" target="_blank" rel="noopener">${icon('link', 16)} ${esc(x.label || x.url)} <em>${esc(x.credit || '')}</em></a>`;
+  }).join('');
+  return `<div class="media">${items}</div>`;
+}
+function openLightbox({ url, cap, credit, page }) {
+  const lb = document.createElement('div');
+  lb.className = 'lightbox';
+  lb.innerHTML = `<div class="lb-in"><img referrerpolicy="no-referrer" src="${esc(url)}" alt="${esc(cap)}"><div class="lb-cap"><p>${esc(cap)}</p><small>Źródło: ${esc(credit)}</small><div class="lb-act"><a class="btn small" href="${esc(page)}" target="_blank" rel="noopener">${icon('link', 16)} Otwórz źródło</a><button class="btn small primary" data-x>Zamknij</button></div></div></div>`;
+  const close = () => { lb.classList.add('out'); setTimeout(() => lb.remove(), 220); document.removeEventListener('keydown', esc_); };
+  const esc_ = e => { if (e.key === 'Escape') close(); };
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.closest('[data-x]')) close(); });
+  document.addEventListener('keydown', esc_);
+  document.body.appendChild(lb);
+}
+function bindMedia(root) {
+  root.addEventListener('click', e => {
+    const ph = e.target.closest('.mph');
+    if (ph && ph.classList.contains('broken')) { window.open(ph.dataset.page, '_blank', 'noopener'); return; }
+    if (ph) { openLightbox({ url: ph.dataset.lb, cap: ph.dataset.cap, credit: ph.dataset.credit, page: ph.dataset.page }); return; }
+    const pl = e.target.closest('.mplay');
+    if (pl) {
+      const box = pl.closest('.mvid'); const id = box.dataset.yt, t = box.dataset.t, en = box.dataset.e;
+      const src = `https://www.youtube-nocookie.com/embed/${id}?start=${t}${en ? '&end=' + en : ''}&rel=0&playsinline=1&autoplay=1&modestbranding=1`;
+      box.innerHTML = `<div class="mframe"><iframe src="${src}" title="Film instruktażowy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div><a class="mlink" href="https://www.youtube.com/watch?v=${id}&t=${t}s" target="_blank" rel="noopener">${icon('link', 16)} Otwórz w YouTube</a>`;
+    }
+  });
+  root.addEventListener('error', e => {
+    const img = e.target;
+    if (img && img.tagName === 'IMG' && img.closest('.mph')) { const b = img.closest('.mph'); b.classList.add('broken'); img.remove(); b.insertAdjacentHTML('afterbegin', `<span class="mbroken">${icon('eye', 20)}<b>Podgląd niedostępny (offline lub źródło blokuje)</b><small>Dotknij, aby otworzyć</small></span>`); }
+  }, true);
+}
+
 async function repairScreen(carId, rid) {
   const car = S.car(carId);
   if (!car) { location.hash = '#/'; return { html: '' }; }
@@ -401,6 +441,7 @@ async function repairScreen(carId, rid) {
       <div class="body"><div><div class="content">
         ${s.danger ? `<div class="dangerbox">${icon('alert', 20)}<span>Poduszka powietrzna: nie odłączaj wtyczki bez odłączenia akumulatora i odczekania co najmniej 30 minut.</span></div>` : ''}
         <p>${esc(s.b)}</p>
+        ${mediaHtml(s.media)}
         ${s.tip ? `<div class="tipbox">${icon('spark', 18)}<span>${esc(s.tip)}</span></div>` : ''}
         ${s.warn ? `<div class="tipbox">${icon('alert', 18)}<span>Zabezpiecz lakier taśmą malarską.</span></div>` : ''}
         ${s.link ? `<a class="btn small" href="#/car/${carId}/r/${s.link}">${icon('book', 16)} Otwórz kartę: ${esc(relTitle(s.link))}</a>` : ''}
@@ -448,6 +489,7 @@ async function repairScreen(carId, rid) {
         <button class="btn ghost block" id="reset">Zacznij tę kartę od nowa</button>
       </div>`,
     bind(el) {
+      bindMedia($('#steps', el));
       const svg = $('.door-art', el); const rings = $$('.ring', svg);
       const stepEls = $$('.step', el);
       const total = rep.steps.length;
