@@ -1,7 +1,7 @@
 import { icon } from './icons.js';
 import * as S from './store.js';
 import { getPack, getRepair, matchPack } from './data.js';
-import { carSVG, ZONES } from './art-car.js';
+import { carSVG, ZONES, PHOTOS } from './art-car.js';
 import { doorSVG, ANCHORS, VIEW_LABELS, viewOf } from './art-door.js';
 import { CATALOG, FUELS } from './catalog.js';
 
@@ -122,7 +122,7 @@ async function garage() {
     const p = packs[i];
     return `<article class="card gcard" data-id="${c.id}" role="link" tabindex="0">
       <button class="iconbtn fav ${c.fav ? 'on' : ''}" data-fav="${c.id}" aria-label="Ulubione">${icon(c.fav ? 'starFill' : 'star', 20)}</button>
-      <div class="art">${carSVG({ mini: true })}</div>
+      <div class="art">${carSVG({ mini: true, photo: PHOTOS[p && p.id] || '' })}</div>
       <div class="info">
         <div><h3>${esc(carName(c))}</h3><div class="sub">${esc(carSub(c))}</div></div>
         <div class="chips">
@@ -172,7 +172,7 @@ async function carScreen(id) {
       ${topbar({ back: '#/', title: carName(car), sub: carSub(car), right: `<button class="iconbtn ${car.fav ? 'on' : ''}" id="fav" aria-label="Ulubione">${icon(car.fav ? 'starFill' : 'star', 20)}</button><button class="iconbtn" id="edit" aria-label="Edytuj">${icon('more', 20)}</button>` })}
       <div class="wrap car-wrap">
         <div class="card hero-card glow">
-          ${carSVG({ pins: pack ? ['door_front', 'door_rear'] : [] })}
+          ${carSVG({ pins: pack ? ['door_front', 'door_rear'] : [], photo: PHOTOS[pack && pack.id] || '' })}
           <div class="caption" id="cap">${pack ? `${icon('spark', 16)} Dotknij drzwi, aby zobaczyć poradniki` : `${icon('clock', 16)} Dla tego auta nie ma jeszcze opracowania`}</div>
         </div>
         <div class="car-side">

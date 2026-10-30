@@ -47,10 +47,10 @@ export function doorSVG({ view = 'outer', hotspots = {}, rings = 3, rear = false
   return `
 <svg class="door-art" data-view="${view}" viewBox="0 0 430 520" role="img" aria-label="Szkic drzwi">
   <defs>
-    <linearGradient id="dgSkin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b394d"/><stop offset="1" stop-color="#121923"/></linearGradient>
-    <linearGradient id="dgCard" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#242e3c"/><stop offset="1" stop-color="#171d27"/></linearGradient>
-    <linearGradient id="dgGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5fb8ff" stop-opacity=".38"/><stop offset="1" stop-color="#1d3a5c" stop-opacity=".18"/></linearGradient>
-    <pattern id="dgHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0V8" stroke="#c9a56a" stroke-opacity=".18" stroke-width="2"/></pattern>
+    <linearGradient id="dgSkin" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#42403e"/><stop offset="1" stop-color="#0e1013"/></linearGradient>
+    <linearGradient id="dgCard" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#27282d"/><stop offset="1" stop-color="#17181b"/></linearGradient>
+    <linearGradient id="dgGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9db3cf" stop-opacity=".38"/><stop offset="1" stop-color="#272523" stop-opacity=".18"/></linearGradient>
+    <pattern id="dgHatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><path d="M0 0V8" stroke="#d9b878" stroke-opacity=".18" stroke-width="2"/></pattern>
   </defs>
 
   <!-- ================= Z ZEWNĄTRZ ================= -->

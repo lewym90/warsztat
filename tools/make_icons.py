@@ -13,44 +13,58 @@ def lerp(a, b, t): return tuple(int(a[i] + (b[i] - a[i]) * t) for i in range(3))
 def hexagon(cx, cy, r, rot=0):
     return [(cx + r * math.cos(math.radians(60 * i + rot)), cy + r * math.sin(math.radians(60 * i + rot))) for i in range(6)]
 
+def gold_gradient(size, c0=(247, 232, 190), c1=(176, 128, 58)):
+    g = Image.new('RGB', (size, size))
+    d = ImageDraw.Draw(g)
+    for i in range(size * 2):
+        t = i / (size * 2)
+        t = 1 - abs(2 * t - 1) * .9  # połysk w środku przekątnej
+        d.line([(i, 0), (0, i)], fill=lerp(c1, c0, t), width=2)
+    return g
+
+def ring_mask(draw_fn):
+    m = Image.new('L', (S, S), 0)
+    draw_fn(ImageDraw.Draw(m))
+    return m
+
 def draw(maskable=False):
-    img = Image.new('RGB', (S, S), (7, 9, 13))
-    px = img.load()
-    # tło: pionowy gradient + poświata
-    top, bot = (16, 22, 32), (6, 8, 12)
+    img = Image.new('RGB', (S, S), (8, 8, 10))
     d = ImageDraw.Draw(img)
+    top, bot = (24, 22, 20), (6, 6, 8)
     for y in range(S):
         d.line([(0, y), (S, y)], fill=lerp(top, bot, y / S))
-    glow = Image.new('RGB', (S, S), (0, 0, 0))
-    gd = ImageDraw.Draw(glow)
-    gd.ellipse([S * .14, S * .12, S * .86, S * .84], fill=(40, 110, 190))
-    glow = glow.filter(ImageFilter.GaussianBlur(S * .12))
-    img = Image.blend(img, Image.composite(glow, img, glow.convert('L')), .55)
-    d = ImageDraw.Draw(img)
+    glow = Image.new('L', (S, S), 0)
+    ImageDraw.Draw(glow).ellipse([S * .2, S * .16, S * .8, S * .76], fill=255)
+    glow = glow.filter(ImageFilter.GaussianBlur(S * .14))
+    warm = Image.new('RGB', (S, S), (120, 88, 40))
+    img = Image.composite(Image.blend(img, warm, .38), img, glow)
 
-    scale = .74 if maskable else .9
-    cx, cy = S / 2, S / 2
-    R = S * .34 * scale / .9
-    # nakrętka: dwie obwiednie sześciokąta
-    layers = Image.new('RGBA', (S, S), (0, 0, 0, 0))
-    ld = ImageDraw.Draw(layers)
-    ld.polygon(hexagon(cx, cy, R, 30), outline=(88, 180, 255, 255), width=int(S * .028))
-    ld.polygon(hexagon(cx, cy, R * .82, 30), outline=(141, 123, 255, 150), width=int(S * .012))
-    # otwór
-    r_in = R * .44
-    ld.ellipse([cx - r_in, cy - r_in, cx + r_in, cy + r_in], outline=(190, 225, 255, 255), width=int(S * .022))
-    r_in2 = R * .22
-    ld.ellipse([cx - r_in2, cy - r_in2, cx + r_in2, cy + r_in2], fill=(88, 180, 255, 255))
-    # trzy rysy gwintu
-    for a in (90, 210, 330):
-        x1, y1 = cx + r_in * .62 * math.cos(math.radians(a)), cy + r_in * .62 * math.sin(math.radians(a))
-        x2, y2 = cx + r_in * 1.0 * math.cos(math.radians(a)), cy + r_in * 1.0 * math.sin(math.radians(a))
-        ld.line([(x1, y1), (x2, y2)], fill=(190, 225, 255, 200), width=int(S * .014))
-    blur = layers.filter(ImageFilter.GaussianBlur(S * .02))
-    base = img.convert('RGBA')
-    base = Image.alpha_composite(base, blur)
-    base = Image.alpha_composite(base, layers)
-    return base.convert('RGB')
+    k = .74 if maskable else .9
+    cx = cy = S / 2
+    R = S * .34 * k / .9
+    gold = gold_gradient(S)
+
+    def nut(dr):
+        dr.polygon(hexagon(cx, cy, R, 30), outline=255, width=int(S * .03))
+        dr.polygon(hexagon(cx, cy, R * .8, 30), outline=255, width=int(S * .008))
+        r1 = R * .46
+        dr.ellipse([cx - r1, cy - r1, cx + r1, cy + r1], outline=255, width=int(S * .024))
+        r2 = R * .2
+        dr.ellipse([cx - r2, cy - r2, cx + r2, cy + r2], fill=255)
+        for a in (90, 210, 330):
+            x1, y1 = cx + r1 * .5 * math.cos(math.radians(a)), cy + r1 * .5 * math.sin(math.radians(a))
+            x2, y2 = cx + r1 * .92 * math.cos(math.radians(a)), cy + r1 * .92 * math.sin(math.radians(a))
+            dr.line([(x1, y1), (x2, y2)], fill=255, width=int(S * .012))
+    m = ring_mask(nut)
+    # miękka poświata pod złotem
+    halo = Image.composite(Image.new('RGB', (S, S), (217, 170, 90)), Image.new('RGB', (S, S), (0, 0, 0)), m).filter(ImageFilter.GaussianBlur(S * .02))
+    img = Image.blend(img, Image.composite(halo, img, halo.convert('L')), .5)
+    img.paste(gold, (0, 0), m)
+    # cienka rama premium
+    if not maskable:
+        fm = ring_mask(lambda dr: dr.rounded_rectangle([S * .035, S * .035, S * .965, S * .965], radius=S * .2, outline=255, width=int(S * .006)))
+        img.paste(Image.blend(Image.new('RGB', (S, S), (8, 8, 10)), gold, .55), (0, 0), fm)
+    return img
 
 def save(img, name, size):
     img.resize((size, size), Image.LANCZOS).save(OUT / name, optimize=True)
