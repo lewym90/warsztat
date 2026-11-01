@@ -430,9 +430,9 @@ async function zoneScreen(carId, zoneId, q) {
       <div class="door-side">
         <p class="zblurb">${esc(zone.blurb)}</p>
         <div class="chips" style="margin:0 0 12px"><span class="chip">${all.length} napraw</span><span class="chip ${nReady ? 'ok' : ''}">${nReady ? 'Gotowe: ' + nReady : 'Brak gotowych'}</span>${nDraft ? `<span class="chip">Wstępne wersje: ${nDraft}</span>` : ''}</div>
-        ${offlineCardHtml(zone.label)}
         <label class="zsearch">${icon('search', 18)}<input id="zq" type="search" placeholder="Szukaj w: ${esc(zone.label)}" autocomplete="off"></label>
         <div id="zlist"></div>
+        ${offlineCardHtml(zone.label)}
         <p class="foot">Pozycje „Wkrótce” są w planie. Opracowania powstają po jednym, w pełnej jakości, ze zdjęciami i filmami przy każdym kroku. Dotknij pozycji, aby zamówić następną.</p>
       </div>
     </div>`;
