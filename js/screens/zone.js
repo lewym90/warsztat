@@ -59,7 +59,9 @@ async function zoneScreen(carId, zoneId, q) {
           return `<details class="zg"${open}><summary>${icon('chevron', 16)}<span>${esc(g.t)}</span><em>${items.length}${rdy ? ` · gotowe ${rdy}` : ''}</em></summary><div class="zitems">${items.map(i => {
             if (i.id) {
               const r = pack.repairs.find(x => x.id === i.id) || {};
-              return `<a class="zrow ready" href="#/car/${carId}/r/${i.id}"><span class="zi">${icon(r.icon || 'wrench', 18)}</span><span class="zt"><b>${esc(i.t)}</b><small>${r.difficulty ? dots(r.difficulty) + ' &nbsp;·&nbsp; ' : ''}${r.time ? fmtTime(r.time) + ' &nbsp;·&nbsp; ' : ''}${esc(r.completeness || 'gotowe')}</small></span><span class="chip ${r.completeness === 'pełne' ? 'ok' : ''}">${r.completeness === 'pełne' ? 'Gotowe' : 'Wstępna wersja'}</span></a>`;
+              const pg = S.prog(carId, i.id), nDone = Object.values(pg.steps).filter(Boolean).length, nAll = r.steps || 0;
+              const prg = nAll && (pg.pos > 0 || nDone) ? (nDone >= nAll ? `<span class="zprog done"><u style="width:100%"></u></span><small class="zp">Ukończone</small>` : `<span class="zprog"><u style="width:${Math.round(nDone / nAll * 100)}%"></u></span><small class="zp">Krok ${Math.min((pg.cur || 0) + 1, nAll)} z ${nAll}</small>`) : '';
+              return `<a class="zrow ready" href="#/car/${carId}/r/${i.id}"><span class="zi">${icon(r.icon || 'wrench', 18)}</span><span class="zt"><b>${esc(i.t)}</b><small>${r.difficulty ? dots(r.difficulty) + ' &nbsp;·&nbsp; ' : ''}${r.time ? fmtTime(r.time) + ' &nbsp;·&nbsp; ' : ''}${esc(r.completeness || 'gotowe')}</small>${prg}</span><span class="chip ${r.completeness === 'pełne' ? 'ok' : ''}">${r.completeness === 'pełne' ? 'Gotowe' : 'Wstępna wersja'}</span></a>`;
             }
             return `<button class="zrow" data-req="${esc(i.t)}"><span class="zi dim">${icon('clock', 16)}</span><span class="zt"><b>${esc(i.t)}</b>${i.n ? `<small>${esc(i.n)}</small>` : ''}</span><span class="chip">Wkrótce</span></button>`;
           }).join('')}</div></details>`;

@@ -1,7 +1,7 @@
 // Tryb offline "na dziś": zapisuje zdjęcia i grafiki wybranych napraw w pamięci telefonu na 24 godziny.
 // Teksty kart i aplikacja są w pamięci service workera cały czas. Filmów z YouTube nie da się zapisać
 // w aplikacji (zasady serwisu), więc zapisujemy tylko listę filmów do pobrania w aplikacji YouTube.
-import { getRepair, getPack } from './data.js';
+import { getRepair } from './data.js';
 
 export const OFFLINE_CACHE = 'offline-24h';
 const KEY = 'warsztat.offline';

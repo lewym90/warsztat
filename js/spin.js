@@ -49,7 +49,7 @@ export function mountSpin(root, spin, { onZone, labels }) {
   const dots = spin.dots.map(d => ({ d, el: root.querySelector(`[data-dot="${d.id}"]`) }));
   const frames = new Array(spin.n);
   const url = i => `${spin.dir}f${String(i + 1).padStart(2, '0')}.${spin.ext}`;
-  let f = spin.start, shown = -1, vel = 0, drag = null, auto = true, raf = 0, loaded = 0, dead = false, t0 = performance.now();
+  let f = spin.start, shown = -1, vel = 0, drag = null, auto = true, raf = 0, loaded = 0, dead = false;
 
   // ładowanie: najpierw co 4. klatka, potem reszta
   const order = [...Array(spin.n).keys()].sort((a, b) => (a % 4 ? 1 : 0) - (b % 4 ? 1 : 0) || a - b);

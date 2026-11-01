@@ -19,6 +19,7 @@ export async function render() {
       const out = await fn(...m.slice(1).map(decodeURIComponent), q);
       if (id !== renderId) return;
       app.innerHTML = `<div class="screen">${out.html}</div>`;
+      document.body.classList.remove('in-deck');
       setTabs(out.tab ?? null);
       window.scrollTo(0, 0);
       out.bind && out.bind(app);

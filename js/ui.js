@@ -48,8 +48,8 @@ export function topbar({ back, title, sub, right = '' }) {
     <div class="title"><b>${esc(title)}</b>${sub ? `<small>${esc(sub)}</small>` : ''}</div>${right}</header>`;
 }
 export function setTabs(active) {
-  const tabs = [['#/', 'Garaż', 'car'], ['#/add', 'Dodaj auto', 'plus'], ['#/more', 'Więcej', 'more']];
-  $('#tabs').innerHTML = tabs.map(([h, l, i]) => `<a href="${h}" class="${active === h ? 'on' : ''}">${icon(i, 22)}<span>${l}</span></a>`).join('');
+  const tabs = [['#/', 'Garaż', 'car'], ['#/search', 'Szukaj', 'search'], ['#/plan', 'Dzisiaj', 'list'], ['#/more', 'Więcej', 'more']];
+  $('#tabs').innerHTML = tabs.map(([h, l, i]) => `<a href="${h}" class="${active === h ? 'on' : ''}"${active === h ? ' aria-current="page"' : ''}>${icon(i, 22)}<span>${l}</span></a>`).join('');
   document.body.classList.toggle('no-tabs', !active);
 }
 

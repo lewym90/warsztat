@@ -9,7 +9,7 @@ import * as S from '../store.js';
 async function addScreen() {
   const st = { step: 1, make: '', model: '', gen: '', year: '', engine: '', fuel: 'diesel', kw: '', vin: '', nick: '', range: null, customMake: false, customModel: false };
   return {
-    tab: '#/add',
+    tab: '#/',
     html: `${topbar({ back: '#/', title: 'Dodaj auto', sub: 'Garaż' })}<div class="wrap" id="wiz"></div>`,
     bind(el) {
       const wiz = $('#wiz', el);

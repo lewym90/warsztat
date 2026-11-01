@@ -52,6 +52,7 @@ async function carScreen(id) {
           <p style="color:var(--muted);font-size:14px">Opracowania powstają na zamówienie: wygenerujesz polecenie dla Claude, który zbierze źródła i dopisze paczkę do aplikacji.</p>
           <button class="btn primary" id="req">${icon('wrench', 18)} Zamów opracowanie</button>
         </div>`}
+        <a class="card resume" href="#/book/${id}"><span class="zi">${icon('book', 20)}</span><span class="zt"><b>Książka serwisowa</b><small>${S.bookEntries(id).length ? S.bookEntries(id).length + ' wpisów' + (car.km ? ' · przebieg ' + car.km + ' km' : '') : 'Przebieg, daty, koszty i kupione części'}</small></span>${icon('chevron', 20)}</a>
         <div class="section-h">${icon('list', 16)} ${catalog ? 'Strefy auta' : 'Układy'}</div>
         <div class="sys-grid">${sysTiles}</div>
         <div class="section-h">${icon('key', 16)} Dane auta</div>

@@ -49,6 +49,17 @@ Po dodaniu: sprawdzić w przeglądarce, że wszystkie zdjęcia się ładują (Im
 - **Filmów YouTube nie zapisujemy** (zasady serwisu). Panel pokazuje listę filmów do pobrania w aplikacji YouTube (Premium).
 - Zdjęcia z obcych stron zapisują się przez CORS, a gdy serwer go nie daje, jako odpowiedź nieprzezroczysta; zdjęć, które się nie zapiszą, nie da się wykryć w 100%.
 
+## 5b. Funkcje robocze w talii (od 2026-11-01)
+- **Karta bezpieczeństwa** (ogólna, z odhaczaniem; dla napraw z poduszką powietrzną dodatkowy punkt o odczekaniu). Treść bez wymyślonych liczb: wartości zawsze z kroków i źródeł (`js/safety.js`).
+- **Minutnik:** krok z zapisanym czasem oczekiwania („odczekaj 30 minut”) dostaje przycisk minutnika (`suggestMinutes`). Przy pisaniu napraw zapisuj czas oczekiwania słowami „odczekaj/poczekaj … N minut”, wtedy minutnik pojawi się sam.
+- **Zdjęcia i notatki użytkownika** w każdym kroku (IndexedDB i `prog.notes`). W krokach montażu (faza zawiera „montaż”, „składanie”, „założ”, „test”) pojawia się pasek zdjęć zrobionych w demontażu. Nazywaj fazy zgodnie z tą regułą (`isAssembly` w `repair.js`).
+- **Ustawienia:** motyw jasny/ciemny/auto, wielkość liter A−/A+ (skaluje karty naprawy), blokada wygaszania ekranu (Wake Lock).
+- **Plan „Dzisiaj robię”:** lista części i narzędzi bez powtórzeń z kilku napraw (klucz części: numer OE, narzędzia: nazwa), podpowiedź kolejności, gdy kilka napraw wymaga zdjęcia boczka.
+- **Książka serwisowa**, wpis proponowany po montażu (część z karty trafia do wpisu).
+- **Szukaj:** indeks kroków, części (także numery OE ze spacjami), narzędzi. Wyniki prowadzą do kroku (`?step=`). Dopasowanie po rdzeniu słowa (polska fleksja).
+- **Kopie:** plik v2 (stan, notatki, zdjęcia), migawka lokalna raz na dobę (5 ostatnich), przypomnienie raz w tygodniu o zapisie do Plików, synchronizacja telefon↔komputer przez kody QR (bez zdjęć) lub plik.
+- **Testy:** `node --test tests/*.test.mjs` (łączenie stanów, kody QR, plan, szukaj, store, minutnik, kontrast WCAG AA palet), `sh tools/lint.sh`, `python3 tools/smoke.py`.
+
 ## 6. Proces
 1. Zbierz materiał (sekcja 1), zapisz najważniejsze fakty.
 2. Napisz JSON według sekcji 2, przypisz media z sekcji 3.
