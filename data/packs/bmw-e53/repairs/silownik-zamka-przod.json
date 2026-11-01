@@ -1,227 +1,566 @@
 {
-  "id": "silownik-zamka-przod",
-  "title": "Siłownik zamka: drzwi przednie",
-  "subtitle": "Wymiana siłownika (aktuatora) zamka centralnego",
-  "door": "front",
-  "completeness": "częściowe",
-  "difficulty": 3,
-  "time": [
-    75,
-    150
-  ],
-  "summary": "Drzwi zamykają lub otwierają się wolno albo nie za pierwszym razem. Objaw może się utrzymywać tygodniami, ale ignorowanie go bywa kosztowne: słaby siłownik zmusza do ręcznego podnoszenia blokady, a to potrafi złamać plastik, w którym jest zamocowana linka. Opis dotyczy przednich drzwi pasażera.",
-  "tools": [
+ "id": "silownik-zamka-przod",
+ "title": "Siłownik zamka: drzwi przednie",
+ "subtitle": "Wymiana siłownika (aktuatora) zamka centralnego",
+ "door": "front",
+ "completeness": "częściowe",
+ "difficulty": 3,
+ "time": [
+  75,
+  180
+ ],
+ "summary": "Siłownik zamka centralnego to silniczek w zamku drzwi. Gdy słabnie, drzwi zamykają się wolno lub nie za pierwszym razem. Wymiana wymaga zdjęcia boczka i poduszki, wypięcia wtyczki i kuli linki, trzech śrub T30 i przełożenia wskaźnika oraz linki wewnętrznej na nowy siłownik. Karta opiera się na wątku Xoutpost (drzwi przednie pasażera, 2011); nie znaleźliśmy zweryfikowanego filmu ani momentów dokręcenia.",
+ "tools": [
+  {
+   "name": "Torx T30 z nasadką",
+   "note": "3 śruby siłownika",
+   "need": "must"
+  },
+  {
+   "name": "Torx T20",
+   "note": "śruby boczka",
+   "need": "must"
+  },
+  {
+   "name": "Klucz nasadowy 10 mm",
+   "note": "3 śruby poduszki",
+   "need": "must"
+  },
+  {
+   "name": "Plastikowe łopatki do tapicerki",
+   "note": "boczek, lampki",
+   "need": "must"
+  },
+  {
+   "name": "Metalowa łopatka (puller)",
+   "note": "kula linki; z ręcznikiem",
+   "need": "must"
+  },
+  {
+   "name": "Sznurek",
+   "note": "zawieszenie poduszki, wyciągnięcie białej prowadnicy",
+   "need": "should"
+  },
+  {
+   "name": "Ręcznik lub miękka szmatka",
+   "note": "ochrona lakieru",
+   "need": "should"
+  },
+  {
+   "name": "Zapasowe spinki boczka",
+   "note": "część pęknie",
+   "need": "should"
+  }
+ ],
+ "parts": [
+  {
+   "name": "Siłownik zamka, drzwi przednie",
+   "oe": "51218402540",
+   "conf": "med",
+   "note": "Numer z wątku (przednie drzwi pasażera, 2011). Dla drugiej strony i aut po liftingu sprawdź po VIN.",
+   "src": [
+    "xo-actuator"
+   ]
+  }
+ ],
+ "warnings": [
+  {
+   "lvl": "danger",
+   "t": "Poduszka powietrzna w drzwiach",
+   "b": "Odkręć 3 śruby 10 mm i zawieś moduł; nie odpinaj wtyczki. Odpięcie bez odłączenia akumulatora zapisuje błąd; odczekaj co najmniej 30 minut po odłączeniu.",
+   "src": [
+    "xo-actuator"
+   ]
+  },
+  {
+   "lvl": "info",
+   "t": "Karta częściowa",
+   "b": "Opis opiera się na jednym wątku (drzwi przednie pasażera). Zdjęcia pochodzą z galerii autora wątku; nie sprawdzono ich ładowania w przeglądarce. Brak filmu i momentów dokręcenia.",
+   "src": []
+  }
+ ],
+ "steps": [
+  {
+   "phase": "1. Decyzja i przygotowanie",
+   "t": "Upewnij się, że to siłownik, a nie klamka",
+   "view": "card",
+   "focus": [
+    "card.pull"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Siłownik zamka centralnego to silniczek w zamku, który zamyka i otwiera drzwi pilotem. Objawy podobne do klamki mogą mieć inną przyczynę.",
+   "see": "Drzwi pasażera lub kierowcy, które zamykają się wolno albo nie reagują na pilota.",
+   "how": [
+    "Siłownik: drzwi zamykają lub otwierają się wolno albo nie za pierwszym razem, a drugie naciśnięcie pilota zwykle działa (autor wątku miał dokładnie to).",
+    "Drzwi nie otwierają się z zewnątrz, ale zamek zamyka i otwiera się normalnie: to raczej klamka lub linka, nie siłownik (odpowiedź z wątku). Zacznij wtedy od karty klamki zewnętrznej.",
+    "Brak zamykania, brak ruchu szyby i brak działania lusterka po tej samej stronie: autor innego wpisu wymienił podnośnik szyby i skrzynkę sterującą, i to nie pomogło. Nie wymieniaj siłownika na ślepo, sprawdź wiązkę przy drzwiach.",
+    "Sprawdź też po drugiej stronie: u jednego autora lustrzany problem po stronie kierowcy naprawiło wyjęcie i ponowne podłączenie wtyczek panelu sterowania."
+   ],
+   "mistakes": [
+    "Wymiana siłownika, gdy winna jest klamka lub wiązka.",
+    "Pozostawienie usterki: słaby siłownik zmusza do ręcznego podnoszenia blokady, a to łamie plastik, w którym jest linka."
+   ],
+   "check": "Wiesz, że naprawiasz siłownik, nie klamkę ani wiązkę."
+  },
+  {
+   "phase": "1. Decyzja i przygotowanie",
+   "t": "Kup część i przygotuj narzędzia",
+   "view": "inner",
+   "focus": [
+    "inner.actuator"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Siłownik zamka kupujesz osobno dla każdych drzwi. Z forum wiemy, jaki numer pasował do przednich drzwi pasażera.",
+   "see": "Siłownik to plastikowa obudowa z silniczkiem, wskaźnikiem blokady i wtyczką.",
+   "how": [
+    "Numer części z wątku: 51 21 8 402 540 (przednie drzwi pasażera, 2011). Sprawdź po VIN, bo dla drugiej strony i po liftingu może być inny.",
+    "Narzędzia z wątku: plastikowe łopatki do tapicerki, metalowa łopatka do zdejmowania kuli, klucz nasadowy 10 mm, Torx T20, Torx T30 z nasadką, mały płaski śrubokręt, ręcznik, sznurek.",
+    "Czas z wątku: ok. 1 h 15 min. Dla pierwszego razu zaplanuj 2–3 godziny.",
+    "Zapasowe spinki boczka: część pęknie."
+   ],
+   "mistakes": [
+    "Zakup siłownika dla złej strony.",
+    "Brak sznurka i ręcznika: oba przydają się przy kuli linki i poduszce."
+   ],
+   "check": "Masz siłownik, T30, T20, klucz 10 mm, sznurek i ręcznik."
+  },
+  {
+   "phase": "2. Dostęp do zamka",
+   "t": "Zdejmij boczek drzwi",
+   "view": "card",
+   "focus": [
+    "card.trim"
+   ],
+   "min": 40,
+   "conf": "high",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Do siłownika dostaniesz się po zdjęciu boczka. Pełna procedura ze zdjęciami jest w karcie „Tapicerka drzwi przednich”.",
+   "see": "Boczek z przełącznikiem szyb, uchwytem i lampką dolną.",
+   "how": [
+    "Otwórz kartę „Tapicerka drzwi przednich” (przycisk poniżej) i wykonaj zdejmowanie boczka.",
+    "Wątek podaje: wypnij przełącznik szyby (3 wtyczki) i lampkę dolną; odkręć Torx T20 nad kieszenią na mapy, w otworze za klamką wewnętrzną, pod tylną częścią listwy i za zaślepką przy poduszce, po zdjęciu poziomej listwy (4 punkty mocowania).",
+    "Pociągnij boczek prosto od drzwi, nie do góry: górne metalowe zaczepy puszczają. Zaczepka blokady się odgina, to normalne.",
+    "Uważaj na lampkę klamki i prowadnicę klamki wewnętrznej: mają krótkie przewody."
+   ],
+   "mistakes": [
+    "Ciągnięcie boczka do góry zamiast prosto od drzwi.",
+    "Zerwanie przewodu lampki klamki."
+   ],
+   "check": "Boczek wisi lub leży obok, a wtyczki nie są naciągnięte.",
+   "media": [
     {
-      "name": "Torx T20",
-      "note": "4 śruby boczka",
-      "need": "must"
-    },
-    {
-      "name": "Torx T30 (z bitem)",
-      "note": "3 śruby siłownika",
-      "need": "must"
-    },
-    {
-      "name": "Klucz nasadowy 10 mm",
-      "note": "3 śruby poduszki",
-      "need": "must"
-    },
-    {
-      "name": "Plastikowe i metalowa łopatka",
-      "note": "boczek, kula linki",
-      "need": "must"
-    },
-    {
-      "name": "Płaski wkrętak",
-      "note": "wtyczki",
-      "need": "should"
-    },
-    {
-      "name": "Szmatka",
-      "note": "podkładaj przy podważaniu",
-      "need": "should"
-    },
-    {
-      "name": "Sznurek",
-      "note": "wyciągnięcie białej tulejki prowadzącej",
-      "need": "should"
+     "type": "photo",
+     "url": "https://www.stevedu.com/photos/i-Fvn5Gz5/0/L/i-Fvn5Gz5-L.jpg",
+     "cap": "Drzwi po zdjęciu elementów boczka (zdjęcie z wątku).",
+     "credit": "duboy, Xoutpost (zdjęcia z jego galerii)",
+     "page": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/81215-replacing-door-lock-actuator.html"
     }
-  ],
-  "parts": [
+   ],
+   "link": "tapicerka-przod",
+   "tip": "Szczegóły: karta „Tapicerka drzwi przednich”."
+  },
+  {
+   "phase": "2. Dostęp do zamka",
+   "t": "Odepnij lampkę klamki i prowadnicę klamki wewnętrznej",
+   "view": "card",
+   "focus": [
+    "card.led",
+    "card.pull"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Klamka wewnętrzna jest na prowadnicy, a lampka klamki jest osobnym elementem. Muszą zostać na boczku albo być odpięte, żeby boczek zszedł.",
+   "see": "Mała lampka klamki w gnieździe i prowadnica klamki z tyłu zaczepem.",
+   "how": [
+    "Wyjmij lampkę klamki z gniazda, naciskając dwa boczne zaczepy.",
+    "Zwolnij prowadnicę klamki wewnętrznej, odciągając zaczep z jej tyłu.",
+    "Przy montażu wsuń najpierw przód prowadnicy, potem zatrzaśnij tył."
+   ],
+   "mistakes": [
+    "Siłowe szarpanie boczka bez odpięcia lampki."
+   ],
+   "check": "Lampka i prowadnica są wolne, boczek odłożony.",
+   "media": [
     {
-      "name": "Siłownik zamka, przód prawy",
-      "oe": "51218402540",
-      "conf": "med",
-      "note": "Numer z forum (zapis 51-21-8-402-540), użyty do drzwi pasażera. Pozostałe drzwi mają inne numery: sprawdź po VIN.",
-      "src": [
-        "xo-actuator"
-      ]
+     "type": "photo",
+     "url": "https://www.stevedu.com/photos/i-pg4PqjK/0/L/i-pg4PqjK-L.jpg",
+     "cap": "Drzwi po zdjęciu boczka (zdjęcie z wątku).",
+     "credit": "duboy, Xoutpost (zdjęcia z jego galerii)",
+     "page": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/81215-replacing-door-lock-actuator.html"
     }
-  ],
-  "warnings": [
+   ]
+  },
+  {
+   "phase": "2. Dostęp do zamka",
+   "t": "Odkręć poduszkę i zawieś ją, nie odpinaj wtyczki",
+   "view": "inner",
+   "focus": [
+    "inner.airbag"
+   ],
+   "min": 10,
+   "conf": "high",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Boczkowa poduszka powietrzna jest na trzech śrubach 10 mm. Odkręcasz śruby i odkładasz moduł, wtyczki nie ruszasz.",
+   "see": "Płaski moduł z żółtą naklejką wysoko w drzwiach.",
+   "how": [
+    "Odkręć trzy śruby 10 mm kluczem nasadowym.",
+    "Odłóż poduszkę na bok i przywiąż ją sznurkiem, tak jak w wątku, aby nie wisiała na przewodzie.",
+    "Nie odpinaj wtyczki. Jeśli musisz, najpierw odłącz akumulator i odczekaj co najmniej 30 minut."
+   ],
+   "mistakes": [
+    "Odpięcie wtyczki bez odłączenia akumulatora: błąd w pamięci usterek."
+   ],
+   "check": "Poduszka jest odkręcona i zawieszona na sznurku.",
+   "danger": "Wątek ostrzega: odpięcie poduszki bez odłączenia akumulatora zapisuje błąd. Odłącz akumulator i odczekaj co najmniej 30 minut, jeśli musisz ją odpiąć."
+  },
+  {
+   "phase": "2. Dostęp do zamka",
+   "t": "Odklej izolację (pianka z folią) od góry",
+   "view": "inner",
+   "focus": [
+    "inner.foam"
+   ],
+   "min": 10,
+   "conf": "high",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Izolacja zasłania siłownik. Odklejasz ją od lewej góry wokół i w dół po prawej, a po pracy przyklejasz z powrotem.",
+   "see": "Czarna folia z masą klejącą na całych drzwiach.",
+   "how": [
+    "Odklejaj od góry po lewej, gdzie przechodzi linka wewnętrzna, wokół góry i w dół prawą stroną.",
+    "Odklejaj powoli: ma się dać przykleić z powrotem.",
+    "Odsłoń na tyle, aby było widać siłownik."
+   ],
+   "mistakes": [
+    "Podarcie folii: po złożeniu woda może przeciekać."
+   ],
+   "check": "Siłownik jest widoczny, folia nie jest podarta."
+  },
+  {
+   "phase": "3. Wyjmowanie siłownika",
+   "t": "Odepnij wtyczkę sterowania zamkiem",
+   "view": "inner",
+   "focus": [
+    "inner.harness"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Wtyczka jest na spodzie siłownika i trudno ją zobaczyć. Odpinasz ją na czucie.",
+   "see": "Wiązka z kostką na dolnej części siłownika.",
+   "how": [
+    "Podążaj za linką wewnętrzną w dół i obmacaj siłownik od spodu.",
+    "Ściśnij boki wtyczki i pociągnij ją prosto."
+   ],
+   "mistakes": [
+    "Szarpanie za przewody zamiast za kostkę."
+   ],
+   "check": "Wtyczka jest odpięta."
+  },
+  {
+   "phase": "3. Wyjmowanie siłownika",
+   "t": "Zdejmij kulę linki zewnętrznej klamki",
+   "view": "inner",
+   "focus": [
+    "inner.ball"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Linka od klamki zewnętrznej kończy się kulą wpiętą w siłownik. Zdejmujesz ją metalową łopatką.",
+   "see": "Metalowa kula na końcu linki, w siłowniku z jego górnej strony.",
+   "how": [
+    "Podłóż ręcznik, aby nie porysować lakieru.",
+    "Podważ kulę metalową łopatką: według wątku wymaga niewielkiej siły."
+   ],
+   "mistakes": [
+    "Metalowe narzędzie bez ręcznika: rysy na lakierze."
+   ],
+   "check": "Kula jest zdjęta z siłownika.",
+   "media": [
     {
-      "lvl": "danger",
-      "t": "Poduszka powietrzna w drzwiach",
-      "b": "Odkręć 3 śruby 10 mm i zawieś moduł. Nie odłączaj wtyczki; jeśli musisz, najpierw odłącz akumulator i odczekaj co najmniej 30 minut. Jeden z autorów po odłączeniu akumulatora nie odłączał poduszki w ogóle.",
-      "src": [
-        "xo-actuator"
-      ]
-    },
-    {
-      "lvl": "warn",
-      "t": "Drzwi kierowcy: dodatkowy krok",
-      "b": "Zamek na klucz wchodzi w małe gniazdo siłownika. Aby wyjąć i włożyć siłownik, trzeba najpierw wyjąć wkładkę zamka (jak w karcie klamki zewnętrznej).",
-      "src": [
-        "xo-actuator"
-      ]
-    },
-    {
-      "lvl": "info",
-      "t": "Sprawdź stan linki wewnętrznej",
-      "b": "Przy okazji obejrzyj linkę i jej plastikową karetkę. Jeśli pęka lub kruszy się, wymień ją, bo awaria uniemożliwia otwarcie drzwi i od środka, i od zewnątrz.",
-      "src": [
-        "xo-actuator"
-      ]
+     "type": "photo",
+     "url": "https://www.stevedu.com/photos/i-R4qMbZL/0/L/i-R4qMbZL-L.jpg",
+     "cap": "Kula linki zewnętrznej i biała prowadnica nad nią (zdjęcie z wątku).",
+     "credit": "duboy, Xoutpost (zdjęcia z jego galerii)",
+     "page": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/81215-replacing-door-lock-actuator.html"
     }
-  ],
-  "steps": [
+   ]
+  },
+  {
+   "phase": "3. Wyjmowanie siłownika",
+   "t": "Wyjmij białą prowadnicę linki",
+   "view": "inner",
+   "focus": [
+    "inner.collar"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Biała plastikowa prowadnica (tulejka) trzyma osłonę linki. Czasem się zacina.",
+   "see": "Biały element nad kulą linki.",
+   "how": [
+    "Spróbuj ją wyjąć palcami.",
+    "Jeśli się zatnie, owiń ją sznurkiem i pociągnij prosto w stronę przodu auta, aż puści (tak zrobił autor wątku)."
+   ],
+   "mistakes": [
+    "Ciągnięcie w bok: łamiesz tulejkę."
+   ],
+   "check": "Prowadnica jest wyjęta i leży osobno.",
+   "media": [
     {
-      "t": "Zdejmij tapicerkę",
-      "view": "card",
-      "focus": [
-        "card.pull"
-      ],
-      "min": 40,
-      "conf": "high",
-      "src": [
-        "xo-actuator"
-      ],
-      "b": "Wykonaj kartę „Tapicerka drzwi przednich”. W tym wątku autor zdjął boczek, odpiął diodę klamki i karetkę cięgna klamki wewnętrznej.",
-      "link": "tapicerka-przod"
-    },
-    {
-      "t": "Zawieś poduszkę",
-      "view": "inner",
-      "focus": [
-        "inner.airbag"
-      ],
-      "min": 5,
-      "conf": "high",
-      "src": [
-        "xo-actuator"
-      ],
-      "danger": true,
-      "b": "Wyjmij 3 śruby 10 mm i zawieś moduł poduszki na sznurku. Wtyczki nie odłączaj, bo wyskoczy błąd w układzie."
-    },
-    {
-      "t": "Odklej izolację",
-      "view": "inner",
-      "focus": [
-        "inner.foam"
-      ],
-      "min": 5,
-      "conf": "high",
-      "src": [
-        "xo-actuator"
-      ],
-      "b": "Odklejaj izolację bardzo ostrożnie, zaczynając od lewego górnego rogu, tam gdzie przechodzi linka wewnętrzna. Potem po górze i w dół prawą stroną, aż odsłonisz miejsce po poduszce. Zobaczysz część siłownika."
-    },
-    {
-      "t": "Odepnij wtyczkę siłownika",
-      "view": "inner",
-      "focus": [
-        "inner.harness"
-      ],
-      "min": 5,
-      "conf": "high",
-      "src": [
-        "xo-actuator"
-      ],
-      "b": "Wtyczka jest na dole siłownika i jej nie widać. Idź wzdłuż linki wewnętrznej w dół, wyczuj kable, ściśnij boki wtyczki i wyciągnij ją."
-    },
-    {
-      "t": "Zdejmij kulę linki zewnętrznej i białą tulejkę",
-      "view": "inner",
-      "focus": [
-        "inner.ball",
-        "inner.collar"
-      ],
-      "min": 10,
-      "conf": "high",
-      "src": [
-        "xo-actuator"
-      ],
-      "b": "Kulę linki zewnętrznej klamki zdejmij metalową łopatką, podkładając szmatkę, nie wymaga dużej siły. Białą tulejkę prowadzącą nad nią wypchnij, jeśli siedzi mocno, owiń ją sznurkiem i pociągnij prosto do przodu auta."
-    },
-    {
-      "t": "Odkręć trzy śruby T30",
-      "view": "inner",
-      "focus": [
-        "inner.actuator"
-      ],
-      "min": 5,
-      "conf": "high",
-      "src": [
-        "xo-actuator"
-      ],
-      "b": "Trzy śruby T30 mocują siłownik do ramy. Przy ostatniej trzymaj siłownik ręką od środka, inaczej wpadnie do drzwi."
-    },
-    {
-      "t": "Wyjmij siłownik w dół",
-      "view": "inner",
-      "focus": [
-        "inner.actuator",
-        "inner.indicator"
-      ],
-      "min": 10,
-      "conf": "high",
-      "src": [
-        "xo-actuator"
-      ],
-      "b": "Opuść siłownik prosto w dół, żeby wskaźnik blokady przeszedł pod pianką, a potem powoli wysuń całość z otworu. Wyjmujesz razem: siłownik, trzpień wskaźnika blokady i linkę z karetką. Trzpień i linkę przełóż do nowego siłownika (karetka ma zaczep z tyłu, który trzeba zwolnić)."
-    },
-    {
-      "t": "Załóż nowy siłownik",
-      "view": "inner",
-      "focus": [
-        "inner.actuator",
-        "inner.ball",
-        "inner.collar"
-      ],
-      "min": 20,
-      "conf": "high",
-      "src": [
-        "xo-actuator"
-      ],
-      "b": "Prowadź nowy siłownik z trzpieniem i linką do drzwi. Dopasuj otwory, uważaj, by wiązka i linka zewnętrzna nie były przyciśnięte. Dokręć 3 śruby, wciśnij białą tulejkę (z użyciem siły), załóż kulę linki i podłącz wtyczkę."
-    },
-    {
-      "t": "Złóż i sprawdź",
-      "view": "card",
-      "focus": [
-        "card.top_clips"
-      ],
-      "min": 20,
-      "conf": "high",
-      "src": [
-        "xo-actuator"
-      ],
-      "b": "Przyklej izolację, przykręć poduszkę, wpnij diodę i karetkę klamki w boczek, najpierw zawieś górę, potem przeciągnij wtyczki przełączników i lampki, dobij spinki i wkręć T20. Sprawdź zamek, otwieranie z zewnątrz i od środka, diodę, szybę i lusterko."
+     "type": "photo",
+     "url": "https://www.stevedu.com/photos/i-R4qMbZL/0/L/i-R4qMbZL-L.jpg",
+     "cap": "Kula linki zewnętrznej i biała prowadnica (zdjęcie z wątku).",
+     "credit": "duboy, Xoutpost (zdjęcia z jego galerii)",
+     "page": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/81215-replacing-door-lock-actuator.html"
     }
-  ],
-  "after": [
-    "Zamek zamyka i otwiera te drzwi tak samo szybko jak pozostałe",
-    "Klamka z zewnątrz i od środka otwiera drzwi",
-    "Dioda klamki, szyba i lusterko działają",
-    "Brak kontrolek poduszki powietrznej"
-  ],
-  "unknown": [
-    "Momenty dokręcenia śrub T30 i śrub poduszki: brak w źródłach.",
-    "Numery siłowników dla pozostałych drzwi i aut po liftingu.",
-    "Naprawa samego silniczka siłownika (zużyte szczotki) była opisana na forum: wątek do dopisania."
-  ],
-  "related": [
-    "tapicerka-przod",
-    "klamka-zewn-przod"
-  ]
+   ]
+  },
+  {
+   "phase": "3. Wyjmowanie siłownika",
+   "t": "Odkręć trzy śruby T30, trzymając siłownik od spodu",
+   "view": "inner",
+   "focus": [
+    "inner.actuator"
+   ],
+   "min": 10,
+   "conf": "high",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Siłownik jest przykręcony do ramy trzema śrubami Torx T30. Ostatnia śruba puści go, więc musisz go przytrzymać.",
+   "see": "Trzy śruby na krawędzi drzwi przy zamku.",
+   "how": [
+    "Odkręć dwie śruby T30 z nasadką.",
+    "Podłóż rękę od wewnątrz pod siłownik.",
+    "Odkręć ostatnią śrubę, trzymając siłownik, żeby nie wpadł w drzwi."
+   ],
+   "mistakes": [
+    "Upuszczenie siłownika do wnętrza drzwi."
+   ],
+   "check": "Siłownik jest odkręcony i trzymasz go w ręce."
+  },
+  {
+   "phase": "3. Wyjmowanie siłownika",
+   "t": "Wysuń siłownik w dół i wyjmij",
+   "view": "inner",
+   "focus": [
+    "inner.actuator",
+    "inner.indicator"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Siłownik, wskaźnik blokady i linka wewnętrzna z prowadnicą wychodzą razem. Wskaźnik musi przejść przez piankę.",
+   "see": "Wskaźnik blokady (trzpień) na górze siłownika.",
+   "how": [
+    "Opuść siłownik prosto w dół, aby trzpień wskaźnika wyszedł spod pianki.",
+    "Wyjmij całość przez otwór."
+   ],
+   "mistakes": [
+    "Wyginanie trzpienia wskaźnika."
+   ],
+   "check": "Stary siłownik leży w ręce razem ze wskaźnikiem i linką wewnętrzną.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://www.stevedu.com/photos/i-XqMMLxR/0/L/i-XqMMLxR-L.jpg",
+     "cap": "Stary komplet po wyjęciu (zdjęcie z wątku).",
+     "credit": "duboy, Xoutpost (zdjęcia z jego galerii)",
+     "page": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/81215-replacing-door-lock-actuator.html"
+    }
+   ]
+  },
+  {
+   "phase": "3. Wyjmowanie siłownika",
+   "t": "Przełóż wskaźnik i linkę wewnętrzną na nowy siłownik",
+   "view": "inner",
+   "focus": [
+    "inner.actuator"
+   ],
+   "min": 15,
+   "conf": "med",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Nowy siłownik zwykle nie ma wskaźnika i linki wewnętrznej z prowadnicą. Przekładasz je ze starego.",
+   "see": "Wskaźnik blokady i prowadnica linki wewnętrznej, zatrzask z tyłu prowadnicy.",
+   "how": [
+    "Odepnij zaczep z tyłu prowadnicy linki wewnętrznej.",
+    "Przełóż wskaźnik i linkę z prowadnicą na nowy siłownik.",
+    "Obejrzyj linkę i prowadnicę: pęknięte lub kruszące się wymień. Jeśli pęknie, nie otworzysz drzwi ani z zewnątrz, ani od środka (wątek)."
+   ],
+   "mistakes": [
+    "Montaż nowego siłownika ze starą, pękniętą prowadnicą."
+   ],
+   "check": "Nowy siłownik ma wskaźnik i sprawną linkę wewnętrzną."
+  },
+  {
+   "phase": "4. Montaż i test",
+   "t": "Włóż nowy siłownik i dokręć trzy śruby",
+   "view": "inner",
+   "focus": [
+    "inner.actuator"
+   ],
+   "min": 15,
+   "conf": "med",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Montaż odwrotnie do demontażu. Uważaj, żeby nie przycisnąć wiązki ani linki zewnętrznej.",
+   "see": "Trzy otwory na śruby T30 na krawędzi drzwi.",
+   "how": [
+    "Wprowadź siłownik, wskaźnik i linkę wewnętrzną razem do ramy.",
+    "Dopasuj otwory na śruby i sprawdź, że wiązka i linka zewnętrzna nie są przyciśnięte.",
+    "Dokręć trzy śruby T30. Moment nieznany: dokręć pewnie, bez przeciążania plastiku."
+   ],
+   "mistakes": [
+    "Przytrzaśnięcie wiązki lub linki zewnętrznej."
+   ],
+   "check": "Siłownik siedzi w ramie na trzech śrubach."
+  },
+  {
+   "phase": "4. Montaż i test",
+   "t": "Zatrzaśnij białą prowadnicę, załóż kulę i wtyczkę",
+   "view": "inner",
+   "focus": [
+    "inner.collar",
+    "inner.ball",
+    "inner.harness"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Wpinasz z powrotem to, co zdjąłeś: najpierw prowadnicę, potem kulę, na końcu wtyczkę.",
+   "see": "Biała prowadnica, kula linki i kostka wtyczki.",
+   "how": [
+    "Wciśnij białą prowadnicę linki zewnętrznej: według wątku wymaga to siły.",
+    "Załóż kulę linki na siłownik.",
+    "Podłącz wtyczkę sterowania zamkiem."
+   ],
+   "mistakes": [
+    "Pomylenie kolejności: kula nie wchodzi, gdy prowadnica jest niezatrzaśnięta."
+   ],
+   "check": "Prowadnica, kula i wtyczka są na miejscu."
+  },
+  {
+   "phase": "4. Montaż i test",
+   "t": "Sprawdź działanie zanim założysz boczek",
+   "view": "inner",
+   "focus": [
+    "inner.actuator"
+   ],
+   "min": 10,
+   "conf": "high",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Najpierw test, potem zamykanie drzwi. Gdy coś nie gra, nie trzeba od nowa zdejmować boczka.",
+   "see": "Siłownik w drzwiach, otwarte drzwi, pilot i klamki.",
+   "how": [
+    "Zamknij i otwórz centralny zamek pilotem. Siłownik ma pracować żwawo.",
+    "Pociągnij klamkę zewnętrzną i wewnętrzną: drzwi mają się otworzyć.",
+    "Jeśli coś nie działa, sprawdź wtyczkę i kulę linki."
+   ],
+   "mistakes": [
+    "Zakładanie boczka bez testu."
+   ],
+   "check": "Zamek zamyka i otwiera drzwi szybko, a klamki działają."
+  },
+  {
+   "phase": "4. Montaż i test",
+   "t": "Przyklej izolację i przykręć poduszkę",
+   "view": "inner",
+   "focus": [
+    "inner.foam",
+    "inner.airbag"
+   ],
+   "min": 10,
+   "conf": "high",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Izolacja ma się przykleić z powrotem, a poduszka wrócić na trzy śruby 10 mm.",
+   "see": "Folia na drzwiach i moduł poduszki.",
+   "how": [
+    "Przyklej izolację na swoje miejsce: według wątku masa klejąca wystarcza.",
+    "Przykręć poduszkę trzema śrubami 10 mm."
+   ],
+   "mistakes": [
+    "Przeciek wody przez nieszczelną folię."
+   ],
+   "check": "Folia przylega, poduszka jest przykręcona.",
+   "danger": true
+  },
+  {
+   "phase": "4. Montaż i test",
+   "t": "Załóż boczek i sprawdź wszystko",
+   "view": "card",
+   "focus": [
+    "card.top_clips"
+   ],
+   "min": 40,
+   "conf": "med",
+   "src": [
+    "xo-actuator"
+   ],
+   "b": "Boczek zakładasz w odwrotnej kolejności. Najpierw górę, potem wtyczki i zatrzaski.",
+   "see": "Górne zaczepy boczka i wtyczki przełącznika i lampki.",
+   "how": [
+    "Załóż prowadnicę klamki (przód, potem tył) i lampkę klamki.",
+    "Załóż górę boczka, przeprowadź wtyczki przełącznika i lampki dolnej przez otwory i zatrzaśnij zatrzaski dookoła.",
+    "Wkręć cztery śruby T20, podłącz przełącznik i lampkę, załóż listwę (najpierw przednie zaczepy) i wciśnij zaślepkę przy poduszce.",
+    "Sprawdź zamykanie i otwieranie z zewnątrz i od środka, lampkę klamki, szybę i lusterko."
+   ],
+   "mistakes": [
+    "Niedopasowanie górnych zaczepów: boczek odstaje."
+   ],
+   "check": "Drzwi zamykają i otwierają się tak samo szybko jak pozostałe, a szyba, lusterko i lampka działają.",
+   "link": "tapicerka-przod"
+  }
+ ],
+ "after": [
+  "Zamek zamyka i otwiera te drzwi tak samo szybko jak pozostałe",
+  "Klamka z zewnątrz i od środka otwiera drzwi",
+  "Lampka klamki, szyba i lusterko działają",
+  "Brak kontrolek poduszki powietrznej"
+ ],
+ "unknown": [
+  "Momenty dokręcenia śrub T30 i śrub poduszki: brak w źródłach.",
+  "Różnice dla drzwi kierowcy i drzwi tylnych: wątek opisuje drzwi przednie pasażera.",
+  "Zweryfikowany film E53 dla tej operacji: nie znaleziono.",
+  "Zdjęcia z wątku: pochodzą z zewnętrznej galerii autora i mogą się nie ładować; ich podpisy wynikają z opisu w wątku.",
+  "Numery siłowników dla pozostałych drzwi i aut po liftingu."
+ ],
+ "related": [
+  "tapicerka-przod",
+  "klamka-zewn-przod"
+ ]
 }

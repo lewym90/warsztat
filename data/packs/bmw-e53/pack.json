@@ -446,10 +446,10 @@
       "difficulty": 3,
       "time": [
         75,
-        150
+        180
       ],
       "completeness": "częściowe",
-      "steps": 9,
+      "steps": 17,
       "icon": "bolt"
     },
     {
