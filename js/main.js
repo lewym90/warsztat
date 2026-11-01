@@ -680,7 +680,7 @@ async function repairScreen(carId, rid) {
     const warnH = s.warn ? `<div class="dk-note warn"><b>Uwaga</b><span>${typeof s.warn === 'string' ? esc(s.warn) : 'Zabezpiecz lakier taśmą malarską.'}</span></div>` : '';
     const lenOf = a => (a || []).reduce((n, x) => n + String(x).length + 25, 0);
     // podział listy czynności na ekrany według budżetu znaków (zdjęcie zajmuje miejsce)
-    let budget = (ph ? 400 : 760) - (s.danger ? 230 : 0) - (s.warn ? 160 : 0) - (extra ? 50 : 0) - (String(s.t).length > 38 ? 40 : 0);
+    let budget = 1e9; const _unused = (ph ? 400 : 760) - (s.danger ? 230 : 0) - (s.warn ? 160 : 0) - (extra ? 50 : 0) - (String(s.t).length > 38 ? 40 : 0);
     const chunks = []; let curc = [], used = 0, bud = Math.max(budget, 200);
     (s.how || []).forEach(h => { const l = String(h).length + 25; if (curc.length && used + l > bud) { chunks.push(curc); curc = []; used = 0; bud = 820; } curc.push(h); used += l; });
     if (curc.length) chunks.push(curc);
@@ -694,17 +694,13 @@ async function repairScreen(carId, rid) {
         ${first ? metaA : metaB(tagA)}
         <h2 class="${first ? 'dk-h2' : 'dk-h3'}">${esc(s.t)}</h2>
         ${first ? dangerH + warnH + ph + (extra ? `<div class="dk-extra">${extra}</div>` : '') : ''}
-        ${lis}
-        <p class="dk-next">Dalej →</p>` });
+        ${lis}` });
     });
     const bigB = String(s.b || '').length + String(s.see || '').length + lenOf(s.mistakes) + String(s.check || '').length + String(s.tip || '').length;
     const bTail = `${s.link ? `<a class="btn small" href="#/car/${carId}/r/${s.link}">${icon('book', 16)} Otwórz kartę: ${esc(relTitle(s.link))}</a>` : ''}<div class="dk-srcs">${srcChips(s.src)}</div>`;
     const ctx = `<p class="dk-lead">${esc(s.b)}</p>${s.see ? `<p class="dk-see">${icon('eye', 16)}<span><b>Co zobaczysz:</b> ${esc(s.see)}</span></p>` : ''}${s.tools ? `<div class="dk-tl">${s.tools.map(t => `<span class="dk-pill">${icon('wrench', 12)} ${esc(t)}</span>`).join('')}</div>` : ''}`;
     const risk = `${s.mistakes ? `<div class="dk-note mist"><b>Typowe błędy</b><ul>${s.mistakes.map(m => `<li>${esc(m)}</li>`).join('')}</ul></div>` : ''}${s.check ? `<div class="dk-note check"><b>Sprawdź, zanim przesuniesz dalej</b><span>${esc(s.check)}</span></div>` : ''}${s.tip ? `<div class="dk-note tip"><b>Wskazówka</b><span>${esc(s.tip)}</span></div>` : ''}`;
-    if (bigB > 760) {
-      group.push({ step: i, tag: 'Kontekst', label: s.t, html: `${metaB('Kontekst')}<h2 class="dk-h3">${esc(s.t)}</h2>${ctx}` });
-      group.push({ step: i, tag: 'Uwaga', label: s.t, html: `${metaB('Uwaga i kontrola')}<h2 class="dk-h3">${esc(s.t)}</h2>${risk}${bTail}` });
-    } else group.push({ step: i, tag: 'Uwaga', label: s.t, html: `${metaB('Uwaga i kontrola')}<h2 class="dk-h3">${esc(s.t)}</h2>${ctx}${risk}${bTail}` });
+    group[0].html += `${ctx}${risk}${bTail}`; group[0].tag = 'Krok'; group[0].last = true;
     group.forEach((g, k) => { g.last = k === group.length - 1; cards.push(g); });
   });
 
@@ -760,7 +756,7 @@ async function repairScreen(carId, rid) {
         prog.pos = pos; prog.cur = cards[pos].step != null ? cards[pos].step : (pos < stepBase ? 0 : rep.steps.length - 1); S.saveProg();
       };
       const paint = () => {
-        { const c0 = cards[pos]; $('#dk-count', el).textContent = c0.step != null ? `Krok ${c0.step + 1} z ${nSteps} · ${c0.tag}` : c0.label; }
+        { const c0 = cards[pos]; $('#dk-count', el).textContent = c0.step != null ? `Krok ${c0.step + 1} z ${nSteps}` : c0.label; }
         $('#dk-fill', el).style.width = ((pos + 1) / total * 100) + '%';
         $('#dk-prev', el).disabled = pos === 0; $('#dk-next', el).disabled = pos === total - 1;
         const c = cards[pos];
@@ -817,8 +813,8 @@ async function repairScreen(carId, rid) {
           if (c.scrollHeight > c.clientHeight + 1 && ph) { let h = ph.offsetHeight; while (c.scrollHeight > c.clientHeight + 1 && h > 80) { h -= 12; ph.style.height = h + 'px'; } }
         });
       };
-      requestAnimationFrame(() => { fit(); goTo(pos, false); paint(); sync(); });
-      window.addEventListener('resize', () => { fit(); goTo(pos, false); });
+      requestAnimationFrame(() => { goTo(pos, false); paint(); sync(); });
+      window.addEventListener('resize', () => { goTo(pos, false); });
       window.addEventListener('hashchange', () => document.body.classList.remove('in-deck'), { once: true });
     }
   };
