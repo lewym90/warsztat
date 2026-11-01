@@ -143,6 +143,13 @@ with sync_playwright() as p:
     page.goto(BASE + '#/'); shot('12-desktop-garaz')
     page.goto(BASE + f'#/car/{cid()}'); shot('13-desktop-auto')
     page.goto(BASE + f'#/car/{cid()}/r/klamka-zewn-przod'); page.wait_for_selector('.dk-card'); shot('14-desktop-naprawa')
+    import json as _jr, glob as _gl
+    for f in sorted(_gl.glob('data/packs/bmw-e53/repairs/*.json')):
+        rid = _jr.load(open(f))['id']; nst = len(_jr.load(open(f))['steps'])
+        page.goto(BASE + f'#/car/{cid()}/r/{rid}'); page.wait_for_selector('.dk-card')
+        check(page.locator('.dk-card').count() >= nst, f'{rid}: za mało kart ({page.locator(".dk-card").count()} < {nst})')
+    for z in ['doors', 'hood', 'interior', 'tail', 'wheels', 'under', 'service']:
+        page.goto(BASE + f'#/car/{cid()}/zone/{z}'); page.wait_for_selector('#zlist .zg')
     for name, w, h in [('tel-se', 320, 568), ('tel-mini', 375, 667), ('tel-max', 430, 932), ('tab-pion', 768, 1024), ('laptop', 1440, 900)]:
         page.set_viewport_size({'width': w, 'height': h})
         for tag, hsh in [('garaz', '#/'), ('auto', f'#/car/{cid()}'), ('drzwi', f'#/car/{cid()}/zone/doors'), ('naprawa', f'#/car/{cid()}/r/klamka-zewn-przod'), ('wiecej', '#/more'), ('plan', '#/plan'), ('szukaj', '#/search')]:

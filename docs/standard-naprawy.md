@@ -72,3 +72,9 @@ Po dodaniu: sprawdzić w przeglądarce, że wszystkie zdjęcia się ładują (Im
 - Interfejs po polsku. **Wygląd: jasny motyw** (kość słoniowa, ciemny tekst, złoty akcent `#8a6317`), bo jest czytelniejszy w garażu; zdjęcia auta i widok 360° zostają w ciemnych ramkach.
 - Poduszka powietrzna: zalecamy odkręcić i zawiesić bez odpinania wtyczki. Odpinanie tylko po odłączeniu akumulatora i odczekaniu co najmniej 30 minut.
 - Kolejne naprawy robimy po jednej, dopracowanej, a nie wiele szkiców.
+
+## Zasada źródeł i sprzeczności (dopisane 2026-11-01)
+- Gdy źródła się różnią (np. TIS a forum), karta opisuje jedną metodę, a drugą i sprzeczność wpisuje do listy `unknown`. Nie wybieramy po cichu.
+- Numery części bez drugiego źródła mają `conf: med`; `high` dopiero od dwóch niezależnych źródeł.
+- Wyciąg z instrukcji BMW (TIS) bez wartości momentów: momentów nie zgadujemy, wpis w `unknown`.
+- Karta bez mediów zostaje „częściowe” bez względu na kompletność tekstu.

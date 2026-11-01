@@ -1,1057 +1,1308 @@
 {
- "zones": [
-  {
-   "id": "doors",
-   "label": "Drzwi",
-   "blurb": "Wszystko w drzwiach i na drzwiach: klamki, zamki, szyby, lusterka, tapicerka, uszczelki",
-   "icon": "door",
-   "groups": [
+  "zones": [
     {
-     "t": "Klamki i otwieranie",
-     "items": [
-      {
-       "t": "Klamka zewnętrzna i jej mechanizm (przód)",
-       "id": "klamka-zewn-przod",
-       "d": "front"
-      },
-      {
-       "t": "Klamka zewnętrzna i jej mechanizm (tył)",
-       "id": "klamka-zewn-tyl",
-       "d": "rear"
-      },
-      {
-       "t": "Klamka wewnętrzna",
-       "id": "klamka-wewn"
-      },
-      {
-       "t": "Cięgna i linki klamek"
-      },
-      {
-       "t": "Osłona wkładki zamka (malowana)",
-       "d": "front"
-      },
-      {
-       "t": "Zawias drzwi: luz i wymiana"
-      },
-      {
-       "t": "Ogranicznik otwarcia drzwi"
-      },
-      {
-       "t": "Regulacja przylegania drzwi do nadwozia"
-      }
-     ]
+      "id": "doors",
+      "label": "Drzwi",
+      "blurb": "Wszystko w drzwiach i na drzwiach: klamki, zamki, szyby, lusterka, tapicerka, uszczelki",
+      "icon": "door",
+      "groups": [
+        {
+          "t": "Klamki i otwieranie",
+          "items": [
+            {
+              "t": "Klamka zewnętrzna i jej mechanizm (przód)",
+              "id": "klamka-zewn-przod",
+              "d": "front"
+            },
+            {
+              "t": "Klamka zewnętrzna i jej mechanizm (tył)",
+              "id": "klamka-zewn-tyl",
+              "d": "rear"
+            },
+            {
+              "t": "Klamka wewnętrzna",
+              "id": "klamka-wewn"
+            },
+            {
+              "t": "Cięgna i linki klamek",
+              "n": "Łączą klamki z zamkiem. Objaw: klamka luźna, nie otwiera drzwi."
+            },
+            {
+              "t": "Osłona wkładki zamka (malowana)",
+              "d": "front",
+              "n": "Plastikowa zaślepka przy klamce. Pęka lub odpada."
+            },
+            {
+              "t": "Zawias drzwi: luz i wymiana",
+              "n": "Objaw: drzwi opadają, skrzypią, ocierają o słupek."
+            },
+            {
+              "t": "Ogranicznik otwarcia drzwi",
+              "n": "Trzyma drzwi w pozycjach otwarcia. Objaw: drzwi nie zatrzymują się lub trzeszczą."
+            },
+            {
+              "t": "Regulacja przylegania drzwi do nadwozia",
+              "n": "Ustawienie drzwi względem słupka i błotnika. Objaw: szum, woda, nierówna szczelina."
+            }
+          ]
+        },
+        {
+          "t": "Zamki i zamek centralny",
+          "items": [
+            {
+              "t": "Siłownik zamka (przód)",
+              "id": "silownik-zamka-przod",
+              "d": "front"
+            },
+            {
+              "t": "Siłownik zamka (tył)",
+              "d": "rear",
+              "n": "Elektryczny zamek centralny tylnych drzwi. Objaw: drzwi nie zamykają się z pilota."
+            },
+            {
+              "t": "Mechanizm zamka drzwi",
+              "n": "Zatrzask i dźwignie w drzwiach. Objaw: drzwi nie domykają się lub nie otwierają."
+            },
+            {
+              "t": "Wkładka kluczyka w drzwiach kierowcy",
+              "d": "front",
+              "n": "tylko drzwi kierowcy"
+            },
+            {
+              "t": "Zaczep zamka na słupku",
+              "n": "Metalowy bolec na słupku. Objaw: drzwi trzeszczą lub źle się domykają."
+            },
+            {
+              "t": "Styk otwarcia drzwi (kontrolka „drzwi otwarte”)",
+              "n": "Czujnik informujący o otwarciu drzwi. Objaw: kontrolka świeci mimo zamkniętych drzwi."
+            },
+            {
+              "t": "Blokada dziecięca (tylne drzwi)",
+              "d": "rear",
+              "n": "Uniemożliwia otwarcie drzwi od środka. Objaw: drzwi nie otwierają się od wewnątrz."
+            },
+            {
+              "t": "Zamek centralny nie działa na jednych drzwiach: diagnostyka",
+              "n": "Najczęściej siłownik, wiązka w gumie lub wtyczka."
+            }
+          ]
+        },
+        {
+          "t": "Szyby i podnośniki",
+          "items": [
+            {
+              "t": "Podnośnik szyby (przód)",
+              "d": "front",
+              "id": "okno-podnosnik-przod"
+            },
+            {
+              "t": "Podnośnik szyby (tył)",
+              "d": "rear",
+              "id": "okno-podnosnik-tyl"
+            },
+            {
+              "t": "Silnik podnośnika szyby",
+              "id": "okno-silnik"
+            },
+            {
+              "t": "Wymiana szyby w drzwiach",
+              "id": "okno-szyba"
+            },
+            {
+              "t": "Prowadnice i listwy szyby",
+              "n": "Gumowe prowadnice szyby. Objaw: szyba chodzi z oporem, piszczy."
+            },
+            {
+              "t": "Uszczelka szyby (wycieraki zewnętrzne i wewnętrzne)",
+              "id": "uszczelka-szyby"
+            },
+            {
+              "t": "Szyba opada, zacina się lub nie reaguje: diagnostyka",
+              "n": "Przełącznik, silnik, klips szyby lub podnośnik. Zacznij od sprawdzenia drugiego przycisku."
+            },
+            {
+              "t": "Inicjalizacja szyb po odłączeniu akumulatora",
+              "n": "Funkcje automatyczne szyb po odłączeniu zasilania. Źródła nie są zgodne."
+            },
+            {
+              "t": "Przełącznik szyb (blok w drzwiach)",
+              "n": "Panel przycisków w drzwiach. Objaw: jedna szyba nie reaguje."
+            }
+          ]
+        },
+        {
+          "t": "Lusterka",
+          "items": [
+            {
+              "t": "Lusterko zewnętrzne: wymiana całości",
+              "d": "front",
+              "id": "lusterko-wymiana"
+            },
+            {
+              "t": "Szkło lusterka",
+              "id": "lusterko-szklo"
+            },
+            {
+              "t": "Obudowa lusterka",
+              "n": "Plastikowa osłona lusterka. Pęka, blaknie."
+            },
+            {
+              "t": "Silnik regulacji i składania lusterka",
+              "n": "Objaw: lusterko nie rusza, brzęczy, nie składa się."
+            },
+            {
+              "t": "Podgrzewanie lusterka",
+              "n": "Element grzejny w szkle. Objaw: szkło nie odmraża się."
+            },
+            {
+              "t": "Kierunkowskaz w lusterku",
+              "n": "Dioda lub lampka w obudowie. Objaw: nie świeci."
+            },
+            {
+              "t": "Pamięć ustawień lusterka",
+              "d": "front",
+              "n": "drzwi kierowcy"
+            }
+          ]
+        },
+        {
+          "t": "Tapicerka i wnętrze drzwi",
+          "items": [
+            {
+              "t": "Boczek (tapicerka) drzwi przednich",
+              "id": "tapicerka-przod",
+              "d": "front"
+            },
+            {
+              "t": "Boczek (tapicerka) drzwi tylnych",
+              "id": "tapicerka-tyl",
+              "d": "rear"
+            },
+            {
+              "t": "Spinki i mocowania boczka",
+              "n": "Plastikowe klipsy, które pękają przy zdejmowaniu. Warto mieć zapas."
+            },
+            {
+              "t": "Głośnik w drzwiach",
+              "n": "Objaw: chrypienie, brak dźwięku z jednego kanału."
+            },
+            {
+              "t": "Podłokietnik i uchwyt",
+              "n": "Uchwyt przy boczku. Objaw: poluzowany, pęknięty."
+            },
+            {
+              "t": "Kieszeń boczka",
+              "n": "Plastikowa kieszeń w dolnej części boczka."
+            },
+            {
+              "t": "Lampka progowa w boczku",
+              "n": "Światło ostrzegawcze przy dolnej krawędzi boczka."
+            },
+            {
+              "t": "Folia (pianka) osłonowa wnętrza drzwi",
+              "n": "Chroni boczek i elektronikę przed wodą. Po zdjęciu trzeba ją przykleić."
+            },
+            {
+              "t": "Boczna poduszka powietrzna: bezpieczne zdejmowanie i odkładanie",
+              "n": "Przednie drzwi. Praca przy odłączonym akumulatorze."
+            }
+          ]
+        },
+        {
+          "t": "Uszczelki i woda",
+          "items": [
+            {
+              "t": "Uszczelka obwodowa drzwi",
+              "id": "uszczelka-obwodowa"
+            },
+            {
+              "t": "Uszczelka słupka",
+              "n": "Guma na słupku. Objaw: szum, woda przy zawiasach."
+            },
+            {
+              "t": "Wygłuszenie drzwi",
+              "n": "Maty i pianka w drzwiach. Objaw: głośniejsze drgania blachy."
+            },
+            {
+              "t": "Odpływy wody z dolnej krawędzi",
+              "n": "Otwory na dole drzwi. Zatkane zatrzymują wodę."
+            },
+            {
+              "t": "Woda w drzwiach lub w kabinie: diagnostyka",
+              "n": "Uszczelki, folia, odpływy lub uszkodzona okładzina."
+            }
+          ]
+        },
+        {
+          "t": "Elektryka drzwi",
+          "items": [
+            {
+              "t": "Wiązka przewodów między słupkiem a drzwiami",
+              "n": "Gumowa osłona przy zawiasie. Przetarte przewody: szyba, zamek, lusterko."
+            },
+            {
+              "t": "Oświetlenie klamki i światło ostrzegawcze w drzwiach",
+              "n": "Diody w klamce i w dolnej części drzwi."
+            },
+            {
+              "t": "Czujnik uderzeniowy poduszki bocznej: diagnostyka",
+              "n": "Kontrolka poduszek. Odczyt błędu w serwisie."
+            }
+          ]
+        },
+        {
+          "t": "Blacharka i lakier",
+          "items": [
+            {
+              "t": "Wgniecenie lub zarysowanie drzwi",
+              "n": "Naprawa blacharsko-lakiernicza."
+            },
+            {
+              "t": "Korozja dolnej krawędzi drzwi",
+              "n": "Zacieki i bąble lakieru przy dole drzwi."
+            },
+            {
+              "t": "Wymiana poszycia lub całych drzwi",
+              "n": "Dopasowanie koloru, szczelin i osprzętu."
+            },
+            {
+              "t": "Szczeliny i dopasowanie drzwi",
+              "n": "Nierówne szczeliny po wypadku lub zawiasach."
+            }
+          ]
+        }
+      ]
     },
     {
-     "t": "Zamki i zamek centralny",
-     "items": [
-      {
-       "t": "Siłownik zamka (przód)",
-       "id": "silownik-zamka-przod",
-       "d": "front"
-      },
-      {
-       "t": "Siłownik zamka (tył)",
-       "d": "rear"
-      },
-      {
-       "t": "Mechanizm zamka drzwi"
-      },
-      {
-       "t": "Wkładka kluczyka w drzwiach kierowcy",
-       "d": "front",
-       "n": "tylko drzwi kierowcy"
-      },
-      {
-       "t": "Zaczep zamka na słupku"
-      },
-      {
-       "t": "Styk otwarcia drzwi (kontrolka „drzwi otwarte”)"
-      },
-      {
-       "t": "Blokada dziecięca (tylne drzwi)",
-       "d": "rear"
-      },
-      {
-       "t": "Zamek centralny nie działa na jednych drzwiach: diagnostyka"
-      }
-     ]
+      "id": "hood",
+      "label": "Maska i przód",
+      "blurb": "Pod maską i z przodu: silnik, chłodzenie, paliwo, turbo, światła, zderzak i przednia szyba",
+      "icon": "engine",
+      "groups": [
+        {
+          "t": "Maska i przód nadwozia",
+          "items": [
+            {
+              "t": "Pokrywa silnika (maska): regulacja i wymiana",
+              "n": "Ustawienie względem błotników. Objaw: nierówna szczelina, maska nie domyka się."
+            },
+            {
+              "t": "Zawiasy i podpórki maski",
+              "n": "Objaw: maska opada lub trzyma się nierówno."
+            },
+            {
+              "t": "Zamek maski i linka",
+              "n": "Objaw: maska nie otwiera się z kabiny lub nie zamyka."
+            },
+            {
+              "t": "Błotnik przedni",
+              "n": "Naprawa i wymiana po uszkodzeniu lub korozji."
+            },
+            {
+              "t": "Zderzak przedni: zdejmowanie i wymiana",
+              "n": "Dostęp do chłodnic i reflektorów."
+            },
+            {
+              "t": "Belka zderzaka i pochłaniacz uderzeń",
+              "n": "Element zabezpieczający po kolizji."
+            },
+            {
+              "t": "Nerki (grill) i osłony",
+              "n": "Osłony na przodzie. Pękają, blakną."
+            },
+            {
+              "t": "Pas przedni i wzmocnienie",
+              "n": "Konstrukcja mocująca chłodnice i reflektory."
+            }
+          ]
+        },
+        {
+          "t": "Przednia szyba i wycieraczki",
+          "items": [
+            {
+              "t": "Przednia szyba: wymiana",
+              "n": "Zakres prac i uszczelnianie."
+            },
+            {
+              "t": "Uszczelka i listwy przedniej szyby",
+              "n": "Objaw: wiatr, woda, rdza na obrzeżu."
+            },
+            {
+              "t": "Pióra i ramiona wycieraczek",
+              "n": "Objaw: smugi, hałas, nierówne wycieranie."
+            },
+            {
+              "t": "Mechanizm i silnik wycieraczek",
+              "n": "Objaw: wycieraczki stoją, chodzą wolno lub nierówno."
+            },
+            {
+              "t": "Dysze i pompka spryskiwaczy",
+              "n": "Objaw: brak strumienia, zła strzałka."
+            },
+            {
+              "t": "Zbiornik płynu spryskiwaczy",
+              "n": "Zbiornik w komorze silnika. Objaw: pęknięcie, wyciek."
+            },
+            {
+              "t": "Czujnik deszczu",
+              "n": "Automatyczna praca wycieraczek."
+            }
+          ]
+        },
+        {
+          "t": "Światła przednie",
+          "items": [
+            {
+              "t": "Reflektor: wymiana",
+              "n": "Objaw: zaparowany lub pęknięty klosz, uszkodzone mocowania."
+            },
+            {
+              "t": "Żarówka reflektora (w tym ksenon)",
+              "n": "Wymiana źródła światła."
+            },
+            {
+              "t": "Przetwornica i zapłonnik ksenonu",
+              "n": "Objaw: reflektor nie zapala się lub miga."
+            },
+            {
+              "t": "Regulacja i poziomowanie świateł",
+              "n": "Ustawienie wysokości wiązki."
+            },
+            {
+              "t": "Kierunkowskaz przedni i boczny",
+              "n": "Objaw: nie świeci lub miga szybciej."
+            },
+            {
+              "t": "Halogeny przeciwmgłowe",
+              "n": "Żarówki i obudowy."
+            },
+            {
+              "t": "Pierścienie świetlne",
+              "n": "Pierścienie wokół reflektorów (angel eyes)."
+            },
+            {
+              "t": "Polerowanie i uszczelnianie kloszy",
+              "n": "Matowe klosze, woda w reflektorze."
+            },
+            {
+              "t": "Spryskiwacze reflektorów",
+              "n": "Dysze i pompka. Objaw: brak spryskiwania."
+            }
+          ]
+        },
+        {
+          "t": "Silnik: mechanika",
+          "items": [
+            {
+              "t": "Olej i filtr silnikowy: wymiana",
+              "n": "Podstawowa obsługa. Rodzaj oleju i pojemności z instrukcji."
+            },
+            {
+              "t": "Obudowa filtra oleju i uszczelki",
+              "n": "Objaw: wyciek oleju przy filtrze."
+            },
+            {
+              "t": "Pokrywa zaworów: uszczelka",
+              "n": "Objaw: wyciek oleju na górze silnika."
+            },
+            {
+              "t": "Pasek wieloklinowy, napinacz i rolki",
+              "n": "Objaw: pisk, pęknięty pasek, hałas rolek."
+            },
+            {
+              "t": "Rozrząd łańcuchowy: kontrola",
+              "n": "Objaw: grzechot po rozruchu, błędy rozrządu."
+            },
+            {
+              "t": "Uszczelniacz wału korbowego",
+              "n": "Wyciek oleju z przodu lub tyłu silnika."
+            },
+            {
+              "t": "Miska olejowa: uszczelka",
+              "n": "Wyciek oleju z dołu silnika."
+            },
+            {
+              "t": "Poduszki silnika",
+              "n": "Objaw: drgania, stuki przy ruszaniu."
+            },
+            {
+              "t": "Wyciek oleju: gdzie szukać",
+              "n": "Najczęstsze miejsca nieszczelności."
+            },
+            {
+              "t": "Chłodnica oleju",
+              "n": "Objaw: wyciek oleju lub płynu, zmieszanie."
+            }
+          ]
+        },
+        {
+          "t": "Paliwo i wtrysk (M57)",
+          "items": [
+            {
+              "t": "Filtr paliwa",
+              "n": "Objaw: spadek mocy, trudny rozruch."
+            },
+            {
+              "t": "Wtryskiwacze",
+              "n": "Objaw: dymienie, szarpanie, nierówna praca."
+            },
+            {
+              "t": "Pompa wysokiego ciśnienia i listwa",
+              "n": "Objaw: brak rozruchu, błędy ciśnienia paliwa."
+            },
+            {
+              "t": "Świece żarowe i sterownik",
+              "n": "Objaw: trudny rozruch na zimnym silniku, kontrolka."
+            },
+            {
+              "t": "Zawór EGR",
+              "n": "Objaw: dymienie, szarpanie, spadek mocy."
+            },
+            {
+              "t": "Klapy wirowe (swirl flaps)",
+              "n": "Element dolotu silnika diesla. Objaw: spadek mocy, błędy."
+            },
+            {
+              "t": "Odpowietrzenie układu paliwowego",
+              "n": "Po wymianie filtra lub gdy zabraknie paliwa."
+            },
+            {
+              "t": "Przewody paliwowe i nieszczelności",
+              "n": "Objaw: zapach paliwa, trudny rozruch."
+            },
+            {
+              "t": "Silnik kopci, szarpie lub nie pali: diagnostyka",
+              "n": "Wstępne rozpoznanie przyczyn. Moduł diagnostyczny w przygotowaniu."
+            }
+          ]
+        },
+        {
+          "t": "Turbo i dolot",
+          "items": [
+            {
+              "t": "Turbosprężarka: diagnostyka",
+              "n": "Objaw: spadek mocy, gwizd, dym."
+            },
+            {
+              "t": "Siłownik i sterowanie turbiny",
+              "n": "Objaw: brak doładowania, błędy."
+            },
+            {
+              "t": "Intercooler i przewody doładowania",
+              "n": "Objaw: syczenie, spadek mocy, olej w przewodach."
+            },
+            {
+              "t": "Rury dolotowe i opaski",
+              "n": "Objaw: nieszczelność, gwizd."
+            },
+            {
+              "t": "Przepływomierz powietrza",
+              "n": "Objaw: spadek mocy, błędy."
+            },
+            {
+              "t": "Filtr powietrza",
+              "n": "Wymiana okresowa."
+            },
+            {
+              "t": "Pompa podciśnienia i przewody podciśnienia",
+              "n": "Objaw: słabe wspomaganie hamulców lub błędy."
+            },
+            {
+              "t": "Czujnik ciśnienia doładowania",
+              "n": "Objaw: błędy doładowania."
+            }
+          ]
+        },
+        {
+          "t": "Chłodzenie",
+          "items": [
+            {
+              "t": "Chłodnica wody",
+              "n": "Objaw: wyciek, przegrzewanie."
+            },
+            {
+              "t": "Termostat",
+              "n": "Objaw: za długie nagrzewanie lub przegrzewanie."
+            },
+            {
+              "t": "Pompa wody",
+              "n": "Objaw: wyciek, hałas, przegrzewanie."
+            },
+            {
+              "t": "Wentylator wiskotyczny",
+              "n": "Objaw: głośna praca, przegrzewanie w korku."
+            },
+            {
+              "t": "Zbiornik wyrównawczy",
+              "n": "Objaw: pęknięcie, ubytek płynu."
+            },
+            {
+              "t": "Węże chłodzenia",
+              "n": "Objaw: pęknięte lub miękkie węże, wycieki."
+            },
+            {
+              "t": "Płyn chłodzący: wymiana i odpowietrzenie",
+              "n": "Obsługa okresowa."
+            },
+            {
+              "t": "Przegrzewanie silnika: diagnostyka",
+              "n": "Wstępne rozpoznanie przyczyn. Moduł diagnostyczny w przygotowaniu."
+            }
+          ]
+        },
+        {
+          "t": "Elektryka silnika",
+          "items": [
+            {
+              "t": "Alternator",
+              "n": "Objaw: kontrolka akumulatora, słabe ładowanie."
+            },
+            {
+              "t": "Rozrusznik",
+              "n": "Objaw: kliknięcie bez rozruchu, mielenie."
+            },
+            {
+              "t": "Czujniki wałka i wału korbowego",
+              "n": "Objaw: silnik gaśnie lub nie odpala."
+            },
+            {
+              "t": "Skrzynka bezpieczników w komorze",
+              "n": "Bezpieczniki i przekaźniki w komorze silnika."
+            },
+            {
+              "t": "Wiązka silnika",
+              "n": "Objaw: przetarcia, nieregularna praca."
+            }
+          ]
+        },
+        {
+          "t": "Klimatyzacja (komora silnika)",
+          "items": [
+            {
+              "t": "Sprężarka klimatyzacji",
+              "n": "Objaw: brak chłodzenia, hałas."
+            },
+            {
+              "t": "Skraplacz",
+              "n": "Objaw: wyciek czynnika, słabe chłodzenie."
+            },
+            {
+              "t": "Osuszacz",
+              "n": "Wymieniany przy otwarciu układu."
+            },
+            {
+              "t": "Napełnianie czynnikiem i szczelność",
+              "n": "Zwykle w serwisie klimatyzacji."
+            }
+          ]
+        }
+      ]
     },
     {
-     "t": "Szyby i podnośniki",
-     "items": [
-      {
-       "t": "Podnośnik szyby (przód)",
-       "d": "front",
-       "id": "okno-podnosnik-przod"
-      },
-      {
-       "t": "Podnośnik szyby (tył)",
-       "d": "rear"
-      },
-      {
-       "t": "Silnik podnośnika szyby"
-      },
-      {
-       "t": "Wymiana szyby w drzwiach"
-      },
-      {
-       "t": "Prowadnice i listwy szyby"
-      },
-      {
-       "t": "Uszczelka szyby (wycieraki zewnętrzne i wewnętrzne)"
-      },
-      {
-       "t": "Szyba opada, zacina się lub nie reaguje: diagnostyka"
-      },
-      {
-       "t": "Inicjalizacja szyb po odłączeniu akumulatora"
-      },
-      {
-       "t": "Przełącznik szyb (blok w drzwiach)"
-      }
-     ]
+      "id": "interior",
+      "label": "Wnętrze",
+      "blurb": "Kabina: fotele, deska, kierownica, klimatyzacja, elektryka, tapicerka i pedały",
+      "icon": "seat",
+      "groups": [
+        {
+          "t": "Fotele i pasy",
+          "items": [
+            {
+              "t": "Regulacja elektryczna fotela",
+              "n": "Objaw: fotel nie rusza lub brzęczy."
+            },
+            {
+              "t": "Podgrzewanie fotela",
+              "n": "Objaw: brak ciepła w siedzisku lub oparciu."
+            },
+            {
+              "t": "Tapicerka fotela: naprawa",
+              "n": "Przetarcia, pęknięcia, plamy."
+            },
+            {
+              "t": "Pas bezpieczeństwa i napinacz",
+              "n": "Układ bezpieczeństwa. Naprawa tylko w serwisie."
+            },
+            {
+              "t": "Zagłówki",
+              "n": "Objaw: luz, nie blokują się."
+            },
+            {
+              "t": "Tylna kanapa i oparcia",
+              "n": "Składanie i blokady oparć."
+            },
+            {
+              "t": "Czujnik zajęcia fotela i poduszka pasażera",
+              "n": "Objaw: kontrolka poduszek."
+            }
+          ]
+        },
+        {
+          "t": "Deska rozdzielcza i konsola",
+          "items": [
+            {
+              "t": "Zegary (kokpit): naprawa i wymiana",
+              "n": "Objaw: nie działa wskazówka lub wyświetlacz."
+            },
+            {
+              "t": "Wyświetlacz komputera pokładowego",
+              "n": "Objaw: wyblakłe lub brakujące piksele."
+            },
+            {
+              "t": "Radio i nawigacja: wymiana",
+              "n": "Wymiana lub modernizacja."
+            },
+            {
+              "t": "Głośniki i wzmacniacz",
+              "n": "Objaw: brak dźwięku, szumy."
+            },
+            {
+              "t": "Schowek i półki",
+              "n": "Zamki i zawiasy schowka."
+            },
+            {
+              "t": "Gniazdo zasilania i popielniczka",
+              "n": "Objaw: brak zasilania."
+            },
+            {
+              "t": "Wnętrze konsoli środkowej i podłokietnik",
+              "n": "Pękające elementy, zamki."
+            },
+            {
+              "t": "Dźwignia zmiany biegów: osłona i mocowanie",
+              "n": "Zużyta osłona, luz."
+            },
+            {
+              "t": "Dźwignia hamulca ręcznego",
+              "n": "Osłona i mechanizm."
+            },
+            {
+              "t": "Nawiewy i kratki",
+              "n": "Połamane żaluzje i pokrętła."
+            },
+            {
+              "t": "Skrzypienia i trzaski wnętrza",
+              "n": "Szukanie źródła hałasu w kabinie."
+            }
+          ]
+        },
+        {
+          "t": "Kierownica i kolumna",
+          "items": [
+            {
+              "t": "Kierownica: wymiana i obszycie",
+              "n": "Zużyta skóra, luz."
+            },
+            {
+              "t": "Poduszka kierowcy: bezpieczna obsługa",
+              "n": "Układ bezpieczeństwa. Praca po odłączeniu akumulatora."
+            },
+            {
+              "t": "Taśma zwijana poduszki (clock spring)",
+              "n": "Objaw: kontrolka poduszki, nie działają przyciski w kierownicy."
+            },
+            {
+              "t": "Przełączniki przy kierownicy",
+              "n": "Objaw: kierunkowskazy, wycieraczki lub tempomat nie działają."
+            },
+            {
+              "t": "Stacyjka i blokada kolumny",
+              "n": "Objaw: kluczyk nie obraca się, brak zasilania."
+            },
+            {
+              "t": "Regulacja kolumny kierownicy",
+              "n": "Objaw: kolumna nie blokuje się."
+            }
+          ]
+        },
+        {
+          "t": "Klimatyzacja i nawiew",
+          "items": [
+            {
+              "t": "Dmuchawa",
+              "n": "Objaw: brak nawiewu, hałas."
+            },
+            {
+              "t": "Rezystor lub stopień końcowy dmuchawy",
+              "n": "Objaw: dmuchawa działa tylko na jednym biegu."
+            },
+            {
+              "t": "Nagrzewnica",
+              "n": "Objaw: brak ciepła, zapach płynu."
+            },
+            {
+              "t": "Parownik",
+              "n": "Objaw: zapach, brak chłodzenia."
+            },
+            {
+              "t": "Filtr kabinowy",
+              "n": "Wymiana okresowa."
+            },
+            {
+              "t": "Silniczki klap nawiewu",
+              "n": "Objaw: nawiew idzie w złą stronę, stuki."
+            },
+            {
+              "t": "Panel sterowania klimatyzacji",
+              "n": "Objaw: nie reaguje na pokrętła."
+            },
+            {
+              "t": "Zapach i zawilgocenie z nawiewu",
+              "n": "Filtr, parownik lub odpływ."
+            }
+          ]
+        },
+        {
+          "t": "Elektryka kabiny",
+          "items": [
+            {
+              "t": "Skrzynka bezpieczników w kabinie",
+              "n": "Bezpieczniki wewnątrz auta."
+            },
+            {
+              "t": "Moduł komfortu (zamek centralny, światła)",
+              "n": "Objaw: błędy zamka, świateł, szyb."
+            },
+            {
+              "t": "Alarm i immobilizer",
+              "n": "Objaw: auto nie odpala, alarm sam się włącza."
+            },
+            {
+              "t": "Kluczyk i pilot: bateria i obudowa",
+              "n": "Objaw: pilot nie działa."
+            },
+            {
+              "t": "Kontrolki poduszek powietrznych i ABS",
+              "n": "Odczyt błędów w serwisie."
+            },
+            {
+              "t": "Gniazdo diagnostyczne OBD i odczyt błędów",
+              "n": "Podstawy odczytu kodów."
+            },
+            {
+              "t": "Oświetlenie wnętrza",
+              "n": "Żarówki i wyłączniki."
+            }
+          ]
+        },
+        {
+          "t": "Tapicerka i wykładziny",
+          "items": [
+            {
+              "t": "Podsufitka",
+              "n": "Opadanie materiału. Naprawa lub wymiana."
+            },
+            {
+              "t": "Osłony słupków",
+              "n": "Plastikowe osłony. Dostęp do poduszek."
+            },
+            {
+              "t": "Wykładzina i dywaniki",
+              "n": "Zawilgocenie, mocowania."
+            },
+            {
+              "t": "Wygłuszenie podłogi",
+              "n": "Maty pod wykładziną."
+            },
+            {
+              "t": "Lusterko wewnętrzne",
+              "n": "Objaw: odkleja się, ściemnianie nie działa."
+            },
+            {
+              "t": "Osłony przeciwsłoneczne",
+              "n": "Zawiasy, oświetlenie."
+            },
+            {
+              "t": "Szyberdach: mechanizm, uszczelnienie i odpływy",
+              "n": "Objaw: woda, hałas, nie zamyka się."
+            },
+            {
+              "t": "Woda w kabinie: diagnostyka",
+              "n": "Uszczelki, odpływy, nagrzewnica."
+            }
+          ]
+        },
+        {
+          "t": "Pedały",
+          "items": [
+            {
+              "t": "Pedał gazu i czujnik",
+              "n": "Objaw: brak reakcji, błędy."
+            },
+            {
+              "t": "Pedał hamulca i wyłącznik świateł stop",
+              "n": "Objaw: światła stopu nie działają."
+            },
+            {
+              "t": "Gumy i osłony pedałów",
+              "n": "Zużyte nakładki."
+            }
+          ]
+        }
+      ]
     },
     {
-     "t": "Lusterka",
-     "items": [
-      {
-       "t": "Lusterko zewnętrzne: wymiana całości",
-       "d": "front"
-      },
-      {
-       "t": "Szkło lusterka"
-      },
-      {
-       "t": "Obudowa lusterka"
-      },
-      {
-       "t": "Silnik regulacji i składania lusterka"
-      },
-      {
-       "t": "Podgrzewanie lusterka"
-      },
-      {
-       "t": "Kierunkowskaz w lusterku"
-      },
-      {
-       "t": "Pamięć ustawień lusterka",
-       "d": "front",
-       "n": "drzwi kierowcy"
-      }
-     ]
+      "id": "tail",
+      "label": "Klapa i tył",
+      "blurb": "Tylna klapa, szyba, światła, zderzak, hak, bagażnik, akumulator i wydech końcowy",
+      "icon": "car",
+      "groups": [
+        {
+          "t": "Klapa i szyba tylna",
+          "items": [
+            {
+              "t": "Tylna klapa: regulacja i dopasowanie",
+              "n": "Objaw: nierówna szczelina, nie domyka się."
+            },
+            {
+              "t": "Zamek klapy",
+              "n": "Objaw: nie otwiera się z kluczyka lub przycisku."
+            },
+            {
+              "t": "Sprężyny gazowe klapy",
+              "n": "Objaw: klapa opada."
+            },
+            {
+              "t": "Otwierana szyba tylna: zamek i siłowniki",
+              "n": "Objaw: szyba nie otwiera się."
+            },
+            {
+              "t": "Wycieraczka tylna: silnik i ramię",
+              "n": "Objaw: nie działa, ramię luźne."
+            },
+            {
+              "t": "Dysza spryskiwacza tylnego",
+              "n": "Objaw: brak strumienia."
+            },
+            {
+              "t": "Uszczelka klapy i woda w bagażniku",
+              "n": "Objaw: woda, zapach, wilgoć."
+            },
+            {
+              "t": "Wiązka przewodów w klapie",
+              "n": "Objaw: przerwy w zasilaniu lamp, wycieraczki."
+            }
+          ]
+        },
+        {
+          "t": "Światła tylne",
+          "items": [
+            {
+              "t": "Lampa tylna: wymiana",
+              "n": "Objaw: pęknięta, zaparowana."
+            },
+            {
+              "t": "Żarówki tylnych świateł",
+              "n": "Wymiana żarówek."
+            },
+            {
+              "t": "Światło cofania i przeciwmgłowe",
+              "n": "Objaw: nie świeci."
+            },
+            {
+              "t": "Oświetlenie tablicy rejestracyjnej",
+              "n": "Objaw: nie świeci."
+            },
+            {
+              "t": "Trzecie światło stop",
+              "n": "Objaw: nie świeci."
+            }
+          ]
+        },
+        {
+          "t": "Zderzak i hak",
+          "items": [
+            {
+              "t": "Zderzak tylny: zdejmowanie i wymiana",
+              "n": "Dostęp do czujników i haka."
+            },
+            {
+              "t": "Czujniki parkowania",
+              "n": "Objaw: błędny sygnał, brak sygnału."
+            },
+            {
+              "t": "Hak holowniczy i moduł",
+              "n": "Elektryka haka i mocowanie."
+            },
+            {
+              "t": "Gniazdo przyczepy",
+              "n": "Objaw: brak zasilania przyczepy."
+            }
+          ]
+        },
+        {
+          "t": "Bagażnik",
+          "items": [
+            {
+              "t": "Akumulator (w bagażniku): wymiana",
+              "n": "Wymiana i zabezpieczenie kodów."
+            },
+            {
+              "t": "Koło zapasowe i narzędzia",
+              "n": "Wyposażenie bagażnika."
+            },
+            {
+              "t": "Boczne tapicerki bagażnika",
+              "n": "Dostęp do wiązek i lamp."
+            },
+            {
+              "t": "Roleta, siatki i szyny mocujące",
+              "n": "Wyposażenie bagażnika."
+            },
+            {
+              "t": "Wygłuszenie i podłoga bagażnika",
+              "n": "Dostęp do wnęki koła zapasowego."
+            }
+          ]
+        },
+        {
+          "t": "Wydech (koniec układu)",
+          "items": [
+            {
+              "t": "Tłumik końcowy",
+              "n": "Objaw: głośny wydech, korozja."
+            },
+            {
+              "t": "Końcówki i mocowania wydechu",
+              "n": "Gumy zawieszenia wydechu."
+            }
+          ]
+        }
+      ]
     },
     {
-     "t": "Tapicerka i wnętrze drzwi",
-     "items": [
-      {
-       "t": "Boczek (tapicerka) drzwi przednich",
-       "id": "tapicerka-przod",
-       "d": "front"
-      },
-      {
-       "t": "Boczek (tapicerka) drzwi tylnych",
-       "id": "tapicerka-tyl",
-       "d": "rear"
-      },
-      {
-       "t": "Spinki i mocowania boczka"
-      },
-      {
-       "t": "Głośnik w drzwiach"
-      },
-      {
-       "t": "Podłokietnik i uchwyt"
-      },
-      {
-       "t": "Kieszeń boczka"
-      },
-      {
-       "t": "Lampka progowa w boczku"
-      },
-      {
-       "t": "Folia (pianka) osłonowa wnętrza drzwi"
-      },
-      {
-       "t": "Boczna poduszka powietrzna: bezpieczne zdejmowanie i odkładanie"
-      }
-     ]
+      "id": "wheels",
+      "label": "Koła, hamulce i zawieszenie",
+      "blurb": "Koła, opony, hamulce, zawieszenie przód i tył, układ kierowniczy",
+      "icon": "wheel",
+      "groups": [
+        {
+          "t": "Koła i opony",
+          "items": [
+            {
+              "t": "Wymiana koła",
+              "n": "Bezpieczne podniesienie auta i dokręcenie kół."
+            },
+            {
+              "t": "Sezonowa wymiana opon",
+              "n": "Zmiana kompletu kół."
+            },
+            {
+              "t": "Wyważanie kół",
+              "n": "Objaw: drgania kierownicy przy prędkości."
+            },
+            {
+              "t": "Śruby kół i nakrętki",
+              "n": "Dobór i dokręcenie."
+            },
+            {
+              "t": "Łożysko koła (przód)",
+              "n": "Objaw: szum rosnący z prędkością."
+            },
+            {
+              "t": "Łożysko koła (tył)",
+              "n": "Objaw: szum rosnący z prędkością."
+            },
+            {
+              "t": "Czujnik ABS koła",
+              "n": "Objaw: kontrolka ABS."
+            }
+          ]
+        },
+        {
+          "t": "Hamulce",
+          "items": [
+            {
+              "t": "Klocki hamulcowe (przód)",
+              "n": "Zużycie, piski."
+            },
+            {
+              "t": "Tarcze hamulcowe (przód)",
+              "n": "Objaw: drgania przy hamowaniu."
+            },
+            {
+              "t": "Klocki hamulcowe (tył)",
+              "n": "Zużycie, piski."
+            },
+            {
+              "t": "Tarcze hamulcowe (tył)",
+              "n": "Objaw: drgania lub rysy."
+            },
+            {
+              "t": "Zaciski hamulcowe",
+              "n": "Objaw: ściąganie, zatarte tłoczki."
+            },
+            {
+              "t": "Płyn hamulcowy: wymiana i odpowietrzenie",
+              "n": "Obsługa okresowa."
+            },
+            {
+              "t": "Przewody hamulcowe",
+              "n": "Objaw: pęcznienie, wycieki."
+            },
+            {
+              "t": "Czujniki zużycia klocków",
+              "n": "Objaw: kontrolka klocków."
+            },
+            {
+              "t": "Hamulec ręczny: szczęki i linki",
+              "n": "Objaw: słabe trzymanie."
+            },
+            {
+              "t": "Moduł ABS i DSC: diagnostyka",
+              "n": "Objaw: kontrolki, błędy."
+            },
+            {
+              "t": "Serwo hamulca",
+              "n": "Objaw: twardy pedał."
+            }
+          ]
+        },
+        {
+          "t": "Zawieszenie przednie",
+          "items": [
+            {
+              "t": "Amortyzatory przednie",
+              "n": "Objaw: stuki, bujanie, wycieki."
+            },
+            {
+              "t": "Sprężyny przednie",
+              "n": "Objaw: pęknięcie, opadnięcie auta."
+            },
+            {
+              "t": "Wahacze przednie",
+              "n": "Objaw: stuki, ściąganie."
+            },
+            {
+              "t": "Tuleje i sworznie wahaczy",
+              "n": "Objaw: luz, stuki."
+            },
+            {
+              "t": "Łączniki stabilizatora",
+              "n": "Objaw: stuki na nierównościach."
+            },
+            {
+              "t": "Gumy stabilizatora",
+              "n": "Objaw: stuki, skrzypienie."
+            },
+            {
+              "t": "Górne mocowanie amortyzatora",
+              "n": "Objaw: stuki przy skręcie."
+            },
+            {
+              "t": "Zwrotnica",
+              "n": "Element nośny koła."
+            }
+          ]
+        },
+        {
+          "t": "Zawieszenie tylne",
+          "items": [
+            {
+              "t": "Amortyzatory tylne",
+              "n": "Objaw: bujanie, stuki."
+            },
+            {
+              "t": "Poduszki pneumatyczne (jeśli auto je ma)",
+              "n": "Objaw: opadanie tyłu."
+            },
+            {
+              "t": "Kompresor zawieszenia pneumatycznego (jeśli auto go ma)",
+              "n": "Objaw: brak podnoszenia."
+            },
+            {
+              "t": "Wahacze tylne i tuleje",
+              "n": "Objaw: stuki, nierówne prowadzenie."
+            },
+            {
+              "t": "Łączniki stabilizatora tylnego",
+              "n": "Objaw: stuki."
+            },
+            {
+              "t": "Poziomowanie i regulacja wysokości",
+              "n": "Objaw: auto stoi nierówno."
+            }
+          ]
+        },
+        {
+          "t": "Układ kierowniczy",
+          "items": [
+            {
+              "t": "Końcówki drążków i drążki",
+              "n": "Objaw: luz kierownicy."
+            },
+            {
+              "t": "Przekładnia kierownicza",
+              "n": "Objaw: luz, stuki, wycieki."
+            },
+            {
+              "t": "Pompa wspomagania",
+              "n": "Objaw: wycie, ciężka kierownica."
+            },
+            {
+              "t": "Płyn wspomagania i przewody",
+              "n": "Objaw: wycieki."
+            },
+            {
+              "t": "Geometria kół (zbieżność)",
+              "n": "Objaw: ściąganie, nierówne zużycie opon."
+            }
+          ]
+        }
+      ]
     },
     {
-     "t": "Uszczelki i woda",
-     "items": [
-      {
-       "t": "Uszczelka obwodowa drzwi"
-      },
-      {
-       "t": "Uszczelka słupka"
-      },
-      {
-       "t": "Wygłuszenie drzwi"
-      },
-      {
-       "t": "Odpływy wody z dolnej krawędzi"
-      },
-      {
-       "t": "Woda w drzwiach lub w kabinie: diagnostyka"
-      }
-     ]
+      "id": "under",
+      "label": "Progi, podwozie i napęd",
+      "blurb": "Napęd na cztery koła, skrzynia, wydech, zbiornik, progi i korozja",
+      "icon": "gear",
+      "groups": [
+        {
+          "t": "Skrzynia i napęd 4x4",
+          "items": [
+            {
+              "t": "Olej w skrzyni automatycznej",
+              "n": "Obsługa okresowa. Dobór oleju z instrukcji."
+            },
+            {
+              "t": "Wycieki ze skrzyni biegów",
+              "n": "Szukanie źródła wycieku."
+            },
+            {
+              "t": "Przekładnia rozdzielcza: olej i łańcuch",
+              "n": "Objaw: szum, drgania napędu."
+            },
+            {
+              "t": "Wał napędowy i krzyżaki",
+              "n": "Objaw: drgania, stuki."
+            },
+            {
+              "t": "Łożysko pośrednie wału",
+              "n": "Objaw: drgania, szum."
+            },
+            {
+              "t": "Olej w mostach (dyferencjały)",
+              "n": "Obsługa okresowa."
+            },
+            {
+              "t": "Półosie i przeguby",
+              "n": "Objaw: stuki przy skręcie."
+            },
+            {
+              "t": "Poduszki skrzyni biegów",
+              "n": "Objaw: wibracje, stuki."
+            }
+          ]
+        },
+        {
+          "t": "Wydech",
+          "items": [
+            {
+              "t": "Układ wydechowy: wymiana elementów",
+              "n": "Rury, tłumiki, zawieszenia."
+            },
+            {
+              "t": "Katalizator",
+              "n": "Objaw: spadek mocy, kontrolka silnika."
+            },
+            {
+              "t": "Sondy i czujniki w wydechu",
+              "n": "Objaw: błędy, spalanie."
+            },
+            {
+              "t": "Osłony termiczne i mocowania",
+              "n": "Objaw: grzechot spod auta."
+            }
+          ]
+        },
+        {
+          "t": "Paliwo",
+          "items": [
+            {
+              "t": "Zbiornik paliwa i pompa podająca",
+              "n": "Objaw: brak paliwa, szarpanie."
+            },
+            {
+              "t": "Przewody paliwowe pod autem",
+              "n": "Objaw: wycieki, zapach."
+            },
+            {
+              "t": "Klapka i wlew paliwa",
+              "n": "Objaw: nie otwiera się, wyciek."
+            }
+          ]
+        },
+        {
+          "t": "Progi i nadwozie",
+          "items": [
+            {
+              "t": "Progi i stopnie boczne",
+              "n": "Korozja, uszkodzenia."
+            },
+            {
+              "t": "Korozja progów i podłużnic",
+              "n": "Ocena stanu nadwozia."
+            },
+            {
+              "t": "Osłony podwozia",
+              "n": "Mocowania i uszkodzenia."
+            },
+            {
+              "t": "Konserwacja antykorozyjna",
+              "n": "Zabezpieczenie podwozia."
+            },
+            {
+              "t": "Punkty podnoszenia auta",
+              "n": "Bezpieczne podnoszenie."
+            },
+            {
+              "t": "Ramy pomocnicze i ich mocowania",
+              "n": "Korozja i luz."
+            }
+          ]
+        }
+      ]
     },
     {
-     "t": "Elektryka drzwi",
-     "items": [
-      {
-       "t": "Wiązka przewodów między słupkiem a drzwiami"
-      },
-      {
-       "t": "Oświetlenie klamki i światło ostrzegawcze w drzwiach"
-      },
-      {
-       "t": "Czujnik uderzeniowy poduszki bocznej: diagnostyka"
-      }
-     ]
-    },
-    {
-     "t": "Blacharka i lakier",
-     "items": [
-      {
-       "t": "Wgniecenie lub zarysowanie drzwi"
-      },
-      {
-       "t": "Korozja dolnej krawędzi drzwi"
-      },
-      {
-       "t": "Wymiana poszycia lub całych drzwi"
-      },
-      {
-       "t": "Szczeliny i dopasowanie drzwi"
-      }
-     ]
+      "id": "service",
+      "label": "Przeglądy i płyny",
+      "blurb": "Regularna obsługa auta, płyny, diagnostyka błędów",
+      "icon": "drop",
+      "groups": [
+        {
+          "t": "Obsługa okresowa",
+          "items": [
+            {
+              "t": "Przegląd olejowy: co i kiedy",
+              "n": "Zakres obsługi okresowej."
+            },
+            {
+              "t": "Lista płynów i pojemności",
+              "n": "Zestawienie płynów eksploatacyjnych."
+            },
+            {
+              "t": "Akumulator: kontrola i ładowanie",
+              "n": "Napięcie, ładowanie."
+            },
+            {
+              "t": "Odczyt błędów OBD: jak zacząć",
+              "n": "Podłączenie skanera."
+            },
+            {
+              "t": "Znaczenie kontrolek na zegarach",
+              "n": "Co oznaczają kontrolki."
+            },
+            {
+              "t": "Przygotowanie do zimy i do lata",
+              "n": "Sezonowa lista kontrolna."
+            },
+            {
+              "t": "Przed zakupem używanego auta: lista kontrolna",
+              "n": "Co sprawdzić przy zakupie."
+            }
+          ]
+        }
+      ]
     }
-   ]
-  },
-  {
-   "id": "hood",
-   "label": "Maska i przód",
-   "blurb": "Pod maską i z przodu: silnik, chłodzenie, paliwo, turbo, światła, zderzak i przednia szyba",
-   "icon": "engine",
-   "groups": [
-    {
-     "t": "Maska i przód nadwozia",
-     "items": [
-      {
-       "t": "Pokrywa silnika (maska): regulacja i wymiana"
-      },
-      {
-       "t": "Zawiasy i podpórki maski"
-      },
-      {
-       "t": "Zamek maski i linka"
-      },
-      {
-       "t": "Błotnik przedni"
-      },
-      {
-       "t": "Zderzak przedni: zdejmowanie i wymiana"
-      },
-      {
-       "t": "Belka zderzaka i pochłaniacz uderzeń"
-      },
-      {
-       "t": "Nerki (grill) i osłony"
-      },
-      {
-       "t": "Pas przedni i wzmocnienie"
-      }
-     ]
-    },
-    {
-     "t": "Przednia szyba i wycieraczki",
-     "items": [
-      {
-       "t": "Przednia szyba: wymiana"
-      },
-      {
-       "t": "Uszczelka i listwy przedniej szyby"
-      },
-      {
-       "t": "Pióra i ramiona wycieraczek"
-      },
-      {
-       "t": "Mechanizm i silnik wycieraczek"
-      },
-      {
-       "t": "Dysze i pompka spryskiwaczy"
-      },
-      {
-       "t": "Zbiornik płynu spryskiwaczy"
-      },
-      {
-       "t": "Czujnik deszczu"
-      }
-     ]
-    },
-    {
-     "t": "Światła przednie",
-     "items": [
-      {
-       "t": "Reflektor: wymiana"
-      },
-      {
-       "t": "Żarówka reflektora (w tym ksenon)"
-      },
-      {
-       "t": "Przetwornica i zapłonnik ksenonu"
-      },
-      {
-       "t": "Regulacja i poziomowanie świateł"
-      },
-      {
-       "t": "Kierunkowskaz przedni i boczny"
-      },
-      {
-       "t": "Halogeny przeciwmgłowe"
-      },
-      {
-       "t": "Pierścienie świetlne"
-      },
-      {
-       "t": "Polerowanie i uszczelnianie kloszy"
-      },
-      {
-       "t": "Spryskiwacze reflektorów"
-      }
-     ]
-    },
-    {
-     "t": "Silnik: mechanika",
-     "items": [
-      {
-       "t": "Olej i filtr silnikowy: wymiana"
-      },
-      {
-       "t": "Obudowa filtra oleju i uszczelki"
-      },
-      {
-       "t": "Pokrywa zaworów: uszczelka"
-      },
-      {
-       "t": "Pasek wieloklinowy, napinacz i rolki"
-      },
-      {
-       "t": "Rozrząd łańcuchowy: kontrola"
-      },
-      {
-       "t": "Uszczelniacz wału korbowego"
-      },
-      {
-       "t": "Miska olejowa: uszczelka"
-      },
-      {
-       "t": "Poduszki silnika"
-      },
-      {
-       "t": "Wyciek oleju: gdzie szukać"
-      },
-      {
-       "t": "Chłodnica oleju"
-      }
-     ]
-    },
-    {
-     "t": "Paliwo i wtrysk (M57)",
-     "items": [
-      {
-       "t": "Filtr paliwa"
-      },
-      {
-       "t": "Wtryskiwacze"
-      },
-      {
-       "t": "Pompa wysokiego ciśnienia i listwa"
-      },
-      {
-       "t": "Świece żarowe i sterownik"
-      },
-      {
-       "t": "Zawór EGR"
-      },
-      {
-       "t": "Klapy wirowe (swirl flaps)"
-      },
-      {
-       "t": "Odpowietrzenie układu paliwowego"
-      },
-      {
-       "t": "Przewody paliwowe i nieszczelności"
-      },
-      {
-       "t": "Silnik kopci, szarpie lub nie pali: diagnostyka"
-      }
-     ]
-    },
-    {
-     "t": "Turbo i dolot",
-     "items": [
-      {
-       "t": "Turbosprężarka: diagnostyka"
-      },
-      {
-       "t": "Siłownik i sterowanie turbiny"
-      },
-      {
-       "t": "Intercooler i przewody doładowania"
-      },
-      {
-       "t": "Rury dolotowe i opaski"
-      },
-      {
-       "t": "Przepływomierz powietrza"
-      },
-      {
-       "t": "Filtr powietrza"
-      },
-      {
-       "t": "Pompa podciśnienia i przewody podciśnienia"
-      },
-      {
-       "t": "Czujnik ciśnienia doładowania"
-      }
-     ]
-    },
-    {
-     "t": "Chłodzenie",
-     "items": [
-      {
-       "t": "Chłodnica wody"
-      },
-      {
-       "t": "Termostat"
-      },
-      {
-       "t": "Pompa wody"
-      },
-      {
-       "t": "Wentylator wiskotyczny"
-      },
-      {
-       "t": "Zbiornik wyrównawczy"
-      },
-      {
-       "t": "Węże chłodzenia"
-      },
-      {
-       "t": "Płyn chłodzący: wymiana i odpowietrzenie"
-      },
-      {
-       "t": "Przegrzewanie silnika: diagnostyka"
-      }
-     ]
-    },
-    {
-     "t": "Elektryka silnika",
-     "items": [
-      {
-       "t": "Alternator"
-      },
-      {
-       "t": "Rozrusznik"
-      },
-      {
-       "t": "Czujniki wałka i wału korbowego"
-      },
-      {
-       "t": "Skrzynka bezpieczników w komorze"
-      },
-      {
-       "t": "Wiązka silnika"
-      }
-     ]
-    },
-    {
-     "t": "Klimatyzacja (komora silnika)",
-     "items": [
-      {
-       "t": "Sprężarka klimatyzacji"
-      },
-      {
-       "t": "Skraplacz"
-      },
-      {
-       "t": "Osuszacz"
-      },
-      {
-       "t": "Napełnianie czynnikiem i szczelność"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "interior",
-   "label": "Wnętrze",
-   "blurb": "Kabina: fotele, deska, kierownica, klimatyzacja, elektryka, tapicerka i pedały",
-   "icon": "seat",
-   "groups": [
-    {
-     "t": "Fotele i pasy",
-     "items": [
-      {
-       "t": "Regulacja elektryczna fotela"
-      },
-      {
-       "t": "Podgrzewanie fotela"
-      },
-      {
-       "t": "Tapicerka fotela: naprawa"
-      },
-      {
-       "t": "Pas bezpieczeństwa i napinacz"
-      },
-      {
-       "t": "Zagłówki"
-      },
-      {
-       "t": "Tylna kanapa i oparcia"
-      },
-      {
-       "t": "Czujnik zajęcia fotela i poduszka pasażera"
-      }
-     ]
-    },
-    {
-     "t": "Deska rozdzielcza i konsola",
-     "items": [
-      {
-       "t": "Zegary (kokpit): naprawa i wymiana"
-      },
-      {
-       "t": "Wyświetlacz komputera pokładowego"
-      },
-      {
-       "t": "Radio i nawigacja: wymiana"
-      },
-      {
-       "t": "Głośniki i wzmacniacz"
-      },
-      {
-       "t": "Schowek i półki"
-      },
-      {
-       "t": "Gniazdo zasilania i popielniczka"
-      },
-      {
-       "t": "Wnętrze konsoli środkowej i podłokietnik"
-      },
-      {
-       "t": "Dźwignia zmiany biegów: osłona i mocowanie"
-      },
-      {
-       "t": "Dźwignia hamulca ręcznego"
-      },
-      {
-       "t": "Nawiewy i kratki"
-      },
-      {
-       "t": "Skrzypienia i trzaski wnętrza"
-      }
-     ]
-    },
-    {
-     "t": "Kierownica i kolumna",
-     "items": [
-      {
-       "t": "Kierownica: wymiana i obszycie"
-      },
-      {
-       "t": "Poduszka kierowcy: bezpieczna obsługa"
-      },
-      {
-       "t": "Taśma zwijana poduszki (clock spring)"
-      },
-      {
-       "t": "Przełączniki przy kierownicy"
-      },
-      {
-       "t": "Stacyjka i blokada kolumny"
-      },
-      {
-       "t": "Regulacja kolumny kierownicy"
-      }
-     ]
-    },
-    {
-     "t": "Klimatyzacja i nawiew",
-     "items": [
-      {
-       "t": "Dmuchawa"
-      },
-      {
-       "t": "Rezystor lub stopień końcowy dmuchawy"
-      },
-      {
-       "t": "Nagrzewnica"
-      },
-      {
-       "t": "Parownik"
-      },
-      {
-       "t": "Filtr kabinowy"
-      },
-      {
-       "t": "Silniczki klap nawiewu"
-      },
-      {
-       "t": "Panel sterowania klimatyzacji"
-      },
-      {
-       "t": "Zapach i zawilgocenie z nawiewu"
-      }
-     ]
-    },
-    {
-     "t": "Elektryka kabiny",
-     "items": [
-      {
-       "t": "Skrzynka bezpieczników w kabinie"
-      },
-      {
-       "t": "Moduł komfortu (zamek centralny, światła)"
-      },
-      {
-       "t": "Alarm i immobilizer"
-      },
-      {
-       "t": "Kluczyk i pilot: bateria i obudowa"
-      },
-      {
-       "t": "Kontrolki poduszek powietrznych i ABS"
-      },
-      {
-       "t": "Gniazdo diagnostyczne OBD i odczyt błędów"
-      },
-      {
-       "t": "Oświetlenie wnętrza"
-      }
-     ]
-    },
-    {
-     "t": "Tapicerka i wykładziny",
-     "items": [
-      {
-       "t": "Podsufitka"
-      },
-      {
-       "t": "Osłony słupków"
-      },
-      {
-       "t": "Wykładzina i dywaniki"
-      },
-      {
-       "t": "Wygłuszenie podłogi"
-      },
-      {
-       "t": "Lusterko wewnętrzne"
-      },
-      {
-       "t": "Osłony przeciwsłoneczne"
-      },
-      {
-       "t": "Szyberdach: mechanizm, uszczelnienie i odpływy"
-      },
-      {
-       "t": "Woda w kabinie: diagnostyka"
-      }
-     ]
-    },
-    {
-     "t": "Pedały",
-     "items": [
-      {
-       "t": "Pedał gazu i czujnik"
-      },
-      {
-       "t": "Pedał hamulca i wyłącznik świateł stop"
-      },
-      {
-       "t": "Gumy i osłony pedałów"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "tail",
-   "label": "Klapa i tył",
-   "blurb": "Tylna klapa, szyba, światła, zderzak, hak, bagażnik, akumulator i wydech końcowy",
-   "icon": "car",
-   "groups": [
-    {
-     "t": "Klapa i szyba tylna",
-     "items": [
-      {
-       "t": "Tylna klapa: regulacja i dopasowanie"
-      },
-      {
-       "t": "Zamek klapy"
-      },
-      {
-       "t": "Sprężyny gazowe klapy"
-      },
-      {
-       "t": "Otwierana szyba tylna: zamek i siłowniki"
-      },
-      {
-       "t": "Wycieraczka tylna: silnik i ramię"
-      },
-      {
-       "t": "Dysza spryskiwacza tylnego"
-      },
-      {
-       "t": "Uszczelka klapy i woda w bagażniku"
-      },
-      {
-       "t": "Wiązka przewodów w klapie"
-      }
-     ]
-    },
-    {
-     "t": "Światła tylne",
-     "items": [
-      {
-       "t": "Lampa tylna: wymiana"
-      },
-      {
-       "t": "Żarówki tylnych świateł"
-      },
-      {
-       "t": "Światło cofania i przeciwmgłowe"
-      },
-      {
-       "t": "Oświetlenie tablicy rejestracyjnej"
-      },
-      {
-       "t": "Trzecie światło stop"
-      }
-     ]
-    },
-    {
-     "t": "Zderzak i hak",
-     "items": [
-      {
-       "t": "Zderzak tylny: zdejmowanie i wymiana"
-      },
-      {
-       "t": "Czujniki parkowania"
-      },
-      {
-       "t": "Hak holowniczy i moduł"
-      },
-      {
-       "t": "Gniazdo przyczepy"
-      }
-     ]
-    },
-    {
-     "t": "Bagażnik",
-     "items": [
-      {
-       "t": "Akumulator (w bagażniku): wymiana"
-      },
-      {
-       "t": "Koło zapasowe i narzędzia"
-      },
-      {
-       "t": "Boczne tapicerki bagażnika"
-      },
-      {
-       "t": "Roleta, siatki i szyny mocujące"
-      },
-      {
-       "t": "Wygłuszenie i podłoga bagażnika"
-      }
-     ]
-    },
-    {
-     "t": "Wydech (koniec układu)",
-     "items": [
-      {
-       "t": "Tłumik końcowy"
-      },
-      {
-       "t": "Końcówki i mocowania wydechu"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "wheels",
-   "label": "Koła, hamulce i zawieszenie",
-   "blurb": "Koła, opony, hamulce, zawieszenie przód i tył, układ kierowniczy",
-   "icon": "wheel",
-   "groups": [
-    {
-     "t": "Koła i opony",
-     "items": [
-      {
-       "t": "Wymiana koła"
-      },
-      {
-       "t": "Sezonowa wymiana opon"
-      },
-      {
-       "t": "Wyważanie kół"
-      },
-      {
-       "t": "Śruby kół i nakrętki"
-      },
-      {
-       "t": "Łożysko koła (przód)"
-      },
-      {
-       "t": "Łożysko koła (tył)"
-      },
-      {
-       "t": "Czujnik ABS koła"
-      }
-     ]
-    },
-    {
-     "t": "Hamulce",
-     "items": [
-      {
-       "t": "Klocki hamulcowe (przód)"
-      },
-      {
-       "t": "Tarcze hamulcowe (przód)"
-      },
-      {
-       "t": "Klocki hamulcowe (tył)"
-      },
-      {
-       "t": "Tarcze hamulcowe (tył)"
-      },
-      {
-       "t": "Zaciski hamulcowe"
-      },
-      {
-       "t": "Płyn hamulcowy: wymiana i odpowietrzenie"
-      },
-      {
-       "t": "Przewody hamulcowe"
-      },
-      {
-       "t": "Czujniki zużycia klocków"
-      },
-      {
-       "t": "Hamulec ręczny: szczęki i linki"
-      },
-      {
-       "t": "Moduł ABS i DSC: diagnostyka"
-      },
-      {
-       "t": "Serwo hamulca"
-      }
-     ]
-    },
-    {
-     "t": "Zawieszenie przednie",
-     "items": [
-      {
-       "t": "Amortyzatory przednie"
-      },
-      {
-       "t": "Sprężyny przednie"
-      },
-      {
-       "t": "Wahacze przednie"
-      },
-      {
-       "t": "Tuleje i sworznie wahaczy"
-      },
-      {
-       "t": "Łączniki stabilizatora"
-      },
-      {
-       "t": "Gumy stabilizatora"
-      },
-      {
-       "t": "Górne mocowanie amortyzatora"
-      },
-      {
-       "t": "Zwrotnica"
-      }
-     ]
-    },
-    {
-     "t": "Zawieszenie tylne",
-     "items": [
-      {
-       "t": "Amortyzatory tylne"
-      },
-      {
-       "t": "Poduszki pneumatyczne (jeśli auto je ma)"
-      },
-      {
-       "t": "Kompresor zawieszenia pneumatycznego (jeśli auto go ma)"
-      },
-      {
-       "t": "Wahacze tylne i tuleje"
-      },
-      {
-       "t": "Łączniki stabilizatora tylnego"
-      },
-      {
-       "t": "Poziomowanie i regulacja wysokości"
-      }
-     ]
-    },
-    {
-     "t": "Układ kierowniczy",
-     "items": [
-      {
-       "t": "Końcówki drążków i drążki"
-      },
-      {
-       "t": "Przekładnia kierownicza"
-      },
-      {
-       "t": "Pompa wspomagania"
-      },
-      {
-       "t": "Płyn wspomagania i przewody"
-      },
-      {
-       "t": "Geometria kół (zbieżność)"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "under",
-   "label": "Progi, podwozie i napęd",
-   "blurb": "Napęd na cztery koła, skrzynia, wydech, zbiornik, progi i korozja",
-   "icon": "gear",
-   "groups": [
-    {
-     "t": "Skrzynia i napęd 4x4",
-     "items": [
-      {
-       "t": "Olej w skrzyni automatycznej"
-      },
-      {
-       "t": "Wycieki ze skrzyni biegów"
-      },
-      {
-       "t": "Przekładnia rozdzielcza: olej i łańcuch"
-      },
-      {
-       "t": "Wał napędowy i krzyżaki"
-      },
-      {
-       "t": "Łożysko pośrednie wału"
-      },
-      {
-       "t": "Olej w mostach (dyferencjały)"
-      },
-      {
-       "t": "Półosie i przeguby"
-      },
-      {
-       "t": "Poduszki skrzyni biegów"
-      }
-     ]
-    },
-    {
-     "t": "Wydech",
-     "items": [
-      {
-       "t": "Układ wydechowy: wymiana elementów"
-      },
-      {
-       "t": "Katalizator"
-      },
-      {
-       "t": "Sondy i czujniki w wydechu"
-      },
-      {
-       "t": "Osłony termiczne i mocowania"
-      }
-     ]
-    },
-    {
-     "t": "Paliwo",
-     "items": [
-      {
-       "t": "Zbiornik paliwa i pompa podająca"
-      },
-      {
-       "t": "Przewody paliwowe pod autem"
-      },
-      {
-       "t": "Klapka i wlew paliwa"
-      }
-     ]
-    },
-    {
-     "t": "Progi i nadwozie",
-     "items": [
-      {
-       "t": "Progi i stopnie boczne"
-      },
-      {
-       "t": "Korozja progów i podłużnic"
-      },
-      {
-       "t": "Osłony podwozia"
-      },
-      {
-       "t": "Konserwacja antykorozyjna"
-      },
-      {
-       "t": "Punkty podnoszenia auta"
-      },
-      {
-       "t": "Ramy pomocnicze i ich mocowania"
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "id": "service",
-   "label": "Przeglądy i płyny",
-   "blurb": "Regularna obsługa auta, płyny, diagnostyka błędów",
-   "icon": "drop",
-   "groups": [
-    {
-     "t": "Obsługa okresowa",
-     "items": [
-      {
-       "t": "Przegląd olejowy: co i kiedy"
-      },
-      {
-       "t": "Lista płynów i pojemności"
-      },
-      {
-       "t": "Akumulator: kontrola i ładowanie"
-      },
-      {
-       "t": "Odczyt błędów OBD: jak zacząć"
-      },
-      {
-       "t": "Znaczenie kontrolek na zegarach"
-      },
-      {
-       "t": "Przygotowanie do zimy i do lata"
-      },
-      {
-       "t": "Przed zakupem używanego auta: lista kontrolna"
-      }
-     ]
-    }
-   ]
-  }
- ]
+  ]
 }

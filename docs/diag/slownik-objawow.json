@@ -1,0 +1,12 @@
+{
+  "_opis": "Słownik synonimów dla pilotażowych objawów etapu 0. To tylko język (jak ludzie nazywają objaw), bez przyczyn i diagnoz. Rozszerzamy go, gdy pojawią się kolejne objawy.",
+  "symptoms": [
+    {"id": "halas-z-predkoscia", "title": "Hałas rosnący z prędkością", "synonyms": ["szumi", "szum", "huczy", "buczy", "wyje", "wycie", "furczy", "brzęczy", "im szybciej tym głośniej", "hałas przy jeździe", "dudni"]},
+    {"id": "szarpanie-dym", "title": "Silnik szarpie i dymi", "synonyms": ["szarpie", "szarpanie", "dławi się", "traci moc", "kopci", "dymi na czarno", "czarny dym", "biały dym", "niebieski dym", "nierówno pracuje", "gaśnie"]},
+    {"id": "wibracje", "title": "Wibracje kierownicy lub nadwozia", "synonyms": ["trzęsie", "drga", "wibruje", "kierownica drga", "bije", "bicie kół", "trzęsie na autostradzie", "wibracje przy hamowaniu"]},
+    {"id": "sciaganie", "title": "Auto ściąga na bok", "synonyms": ["ściąga", "ucieka w bok", "ciągnie w lewo", "ciągnie w prawo", "nie jedzie prosto", "krzywo jedzie"]},
+    {"id": "trudny-rozruch", "title": "Trudny rozruch lub brak rozruchu", "synonyms": ["nie odpala", "nie pali", "kręci i nie zapala", "trudno odpala", "kręci wolno", "klika i nie kręci", "słaby rozrusznik", "dopiero za którymś razem"]},
+    {"id": "stuki-nierownosci", "title": "Stuki na nierównościach", "synonyms": ["stuka", "puka", "stuki w zawieszeniu", "łomocze", "dudni na dziurach", "trzeszczy na nierównościach", "skrzypi przy zawracaniu"]},
+    {"id": "drzwi-klamka", "title": "Problem z drzwiami (klamka, zamek, szyba)", "synonyms": ["klamka nie działa", "klamka luźna", "drzwi się nie otwierają", "szyba nie idzie", "szyba zjeżdża", "zamek centralny nie działa", "drzwi nie zamykają się z pilota"], "naprawy": ["klamka-zewn-przod", "klamka-zewn-tyl", "klamka-wewn", "silownik-zamka-przod", "okno-podnosnik-przod", "okno-podnosnik-tyl", "okno-silnik", "okno-szyba"]}
+  ]
+}

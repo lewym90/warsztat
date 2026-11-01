@@ -1,0 +1,300 @@
+{
+  "id": "okno-szyba",
+  "title": "Szyba w drzwiach: wyjęcie i klips",
+  "subtitle": "Zdjęcie szyby, wymiana klipsa i tulei",
+  "door": "both",
+  "completeness": "częściowe",
+  "difficulty": 3,
+  "time": [
+    90,
+    180
+  ],
+  "summary": "Szyba w E53 trzyma się podnośnika na plastikowym klipsie z tuleją i śrubą. Klips pęka z wiekiem, a szyba zjeżdża w głąb drzwi i stuka. Wymiana klipsa wymaga dostępu do śruby przez otwór w podnośniku i zdjęcia szyby z klipsa; w tylnych drzwiach instrukcja fabryczna podaje, jak wyjąć szybę do góry. Karta zbiera relację z forum Xoutpost (klips, śruba 8 mm, numery), artykuł FCP Euro i wyciąg TIS dla tylnych drzwi.",
+  "extras": [],
+  "tools": [
+    {
+      "name": "Klucz nasadowy 8 mm",
+      "note": "śruba klipsa szyby przez otwór dostępu",
+      "need": "must"
+    },
+    {
+      "name": "Klucz nasadowy 10 mm",
+      "note": "poduszka w przednich drzwiach (3 śruby)",
+      "need": "should"
+    },
+    {
+      "name": "Szczypce płaskie i magnes teleskopowy",
+      "note": "drobne elementy i odłamki",
+      "need": "should"
+    },
+    {
+      "name": "Plastikowe łopatki do tapicerki",
+      "note": "boczek, uszczelki, listwy",
+      "need": "must"
+    },
+    {
+      "name": "Taśma malarska",
+      "note": "podparcie szyby w górze",
+      "need": "must"
+    },
+    {
+      "name": "Zapasowe spinki boczka",
+      "note": "część pęknie",
+      "need": "should"
+    }
+  ],
+  "parts": [
+    {
+      "name": "Klips szyby",
+      "oe": "51338254781",
+      "conf": "high",
+      "note": "Numer z FCP Euro i wątku Xoutpost; w tylnych drzwiach TIS każe wymienić uchwyt za każdym razem, gdy szyba była wyjmowana.",
+      "src": [
+        "fcp-windows",
+        "xo-glass-clip",
+        "tis-rear-glass"
+      ]
+    },
+    {
+      "name": "Tuleja (bush) klipsa",
+      "oe": "51338242760",
+      "conf": "med",
+      "note": "Numer z jednego wątku Xoutpost (RealOEM).",
+      "src": [
+        "xo-glass-clip"
+      ]
+    },
+    {
+      "name": "Śruba sześciokątna klipsa",
+      "oe": "07147154229",
+      "conf": "med",
+      "note": "Numer z jednego wątku Xoutpost; w TIS dla tyłu jest nowa śruba z nakrętką, jeśli stara jest zużyta.",
+      "src": [
+        "xo-glass-clip",
+        "tis-rear-glass"
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "lvl": "danger",
+      "t": "Poduszka powietrzna w drzwiach",
+      "b": "W przednich drzwiach jest boczna poduszka. Pracuj przy odłączonym akumulatorze i nie odpinaj jej wtyczki bez odczekania. Artykuł Xoutpost ostrzega, że poruszanie szybą z odkręconą poduszką i podłączonym akumulatorem może zapalić kontrolkę poduszki (kasowanie tylko w serwisie).",
+      "src": [
+        "xo-reg-article"
+      ]
+    },
+    {
+      "lvl": "warn",
+      "t": "Dwa plastikowe klipsy pękają pod ciężarem szyby",
+      "b": "Artykuł Xoutpost: nie opieraj ciężaru szyby na plastikowych klipsach przy ich rozłączaniu; pomaga druga osoba. Przy zjechanej szybie podeprzyj ją taśmą.",
+      "src": [
+        "xo-reg-article"
+      ]
+    },
+    {
+      "lvl": "info",
+      "t": "Karta bez filmów i zdjęć",
+      "b": "Tekst oparty na instrukcjach fabrycznych (wyciągi TIS) i relacjach z forów. Nie ma jeszcze wycinków filmu ani zdjęć przy krokach, dlatego status to „częściowe”.",
+      "src": []
+    }
+  ],
+  "steps": [
+    {
+      "phase": "1. Diagnoza i przygotowanie",
+      "t": "Rozpoznaj uszkodzony klips",
+      "view": "card",
+      "focus": [
+        "card.switch"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-glass-clip",
+        "fcp-windows"
+      ],
+      "b": "Pęknięty klips daje stuk przy opuszczaniu szyby, szyba zjeżdża w głąb drzwi albo się zacina.",
+      "see": "Szyba chwieje się na boki lub zjeżdża w drzwiach.",
+      "how": [
+        "Wątek Xoutpost opisuje klips, którego „ramiona” pękły i szyba zsunęła się z tulei po ok. 10 cyklach.",
+        "Objawy: stuk przy opuszczaniu, szyba stoi lub zacina się (relacja z forum).",
+        "FCP Euro wskazuje klipsy i linkę jako dwie najczęstsze awarie."
+      ],
+      "mistakes": [
+        "Kupowanie podnośnika, gdy pękł tylko klips."
+      ],
+      "check": "Wiesz, że problem to klips.",
+      "link": "okno-podnosnik-tyl"
+    },
+    {
+      "phase": "1. Diagnoza i przygotowanie",
+      "t": "Kup klips, tuleję i śrubę",
+      "view": "inner",
+      "focus": [
+        "inner.regulator"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-glass-clip",
+        "tis-rear-glass"
+      ],
+      "b": "Klips jest tanią częścią. Kup go z tuleją i śrubą, bo przy wyjmowaniu szyby łatwo je zniszczyć.",
+      "see": "Plastikowy klips, tuleja i śruba.",
+      "how": [
+        "Klips 51338254781, tuleja 51338242760, śruba 07147154229 (numery z wątku Xoutpost; sprawdź po VIN).",
+        "TIS dla tyłu: uchwyt wymieniasz za każdym razem, gdy wyjmujesz szybę."
+      ],
+      "check": "Masz komplet części."
+    },
+    {
+      "phase": "2. Dostęp do wnętrza drzwi",
+      "t": "Odłącz akumulator, zdejmij boczek i foliię",
+      "view": "card",
+      "focus": [
+        "card.trim"
+      ],
+      "min": 50,
+      "conf": "med",
+      "src": [
+        "pelican-panel",
+        "xo-glass-clip",
+        "tis-rear-glass"
+      ],
+      "b": "Boczek i folia jak w innych naprawach wnętrza drzwi. W przednich drzwiach odkręć poduszkę (3 śruby 10 mm) i zawieś ją, nie odpinając wtyczki.",
+      "see": "Wnętrze drzwi z podnośnikiem.",
+      "how": [
+        "Odłącz akumulator (TIS tył wymaga tego przed odkręceniem śruby szyby).",
+        "Zdejmij boczek wg karty tapicerki (przód lub tył).",
+        "Przód: odkręć poduszkę trzema śrubami 10 mm i zawieś na gałce zamka (relacja squeasel).",
+        "Odklej folię powoli."
+      ],
+      "mistakes": [
+        "Odpinanie poduszki z podłączonym akumulatorem."
+      ],
+      "check": "Widać suwak z klipsem i otwór na śrubę.",
+      "link": "tapicerka-przod",
+      "danger": "Przód: boczna poduszka powietrzna. Akumulator odłączony, wtyczki poduszki nie odpinaj bez potrzeby; kasowanie kontrolki poduszki jest możliwe tylko w serwisie."
+    },
+    {
+      "phase": "3. Wyjmowanie szyby",
+      "t": "Ustaw szybę tak, aby śruba była w otworze dostępu",
+      "view": "inner",
+      "focus": [
+        "inner.regulator"
+      ],
+      "min": 15,
+      "conf": "med",
+      "src": [
+        "xo-glass-clip",
+        "tis-rear-glass"
+      ],
+      "b": "Śruba klipsa jest widoczna w otworze podnośnika tylko przy odpowiednim ułożeniu szyby. Tył: TIS każe opuścić szybę na odległość ok. 85 mm (wymiar A).",
+      "see": "Otwór w podnośniku i łeb śruby.",
+      "how": [
+        "Chwilowo podłącz sterowanie szybą, jeśli trzeba je ustawić (wątek Xoutpost).",
+        "Przesuń szybę tak, aby łeb śruby był w otworze.",
+        "Tył: opuść szybę ok. 85 mm (TIS) i odłącz akumulator, zanim poluzujesz śrubę."
+      ],
+      "mistakes": [
+        "Odkręcanie bez ustawienia szyby."
+      ],
+      "check": "Śruba jest w otworze."
+    },
+    {
+      "phase": "3. Wyjmowanie szyby",
+      "t": "Odkręć śrubę i zdejmij szybę z klipsa",
+      "view": "inner",
+      "focus": [
+        "inner.regulator"
+      ],
+      "min": 25,
+      "conf": "med",
+      "src": [
+        "xo-glass-clip",
+        "fcp-windows",
+        "tis-rear-glass"
+      ],
+      "b": "Śrubę odkręcasz kluczem nasadowym 8 mm przez otwór. Szybę zdejmij z klipsa i podeprzyj w górze.",
+      "see": "Szyba oparta o taśmę w ramie.",
+      "how": [
+        "Odkręć śrubę kluczem nasadowym 8 mm (płaski klucz zrywa łeb: relacja squeasel).",
+        "Zdejmij szybę z klipsa i tulei; resztki klipsa wyjmij magnesem lub szczypcami.",
+        "Podnieś szybę ręką i zabezpiecz taśmą malarską.",
+        "Przód: wg FCP Euro zdejmij też zewnętrzną listwę wokół okna, żeby wyjąć szybę do góry; podważ ją ostrożnie, trzyma mocno.",
+        "Tył: szybę wyjmij do góry (TIS); bez zdejmowania, jeśli zmieniasz sam klips."
+      ],
+      "mistakes": [
+        "Opieranie szyby na delikatnych plastikach.",
+        "Użycie płaskiego klucza zamiast nasadowego."
+      ],
+      "check": "Stary klips i tuleja wyjęte, szyba podparta."
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Załóż nowy klips, tuleję i szybę",
+      "view": "outer",
+      "focus": [
+        "outer.glass"
+      ],
+      "min": 30,
+      "conf": "med",
+      "src": [
+        "xo-glass-clip",
+        "tis-rear-glass"
+      ],
+      "b": "Nowy klips wsuwasz na suwak, szybę zakładasz na jego okrągłą część, tuleję wciskasz od strony zewnętrznej kołnierzem na zewnątrz.",
+      "see": "Szyba w nowym klipsie.",
+      "how": [
+        "Wsuń nowy klips (mały zatrzask na dole można popchnąć przez otwór dostępu).",
+        "Załóż szybę na okrągłą część klipsa.",
+        "Wciśnij tuleję od strony zewnętrznej (kołnierz na zewnątrz): wymaga umiarkowanej siły.",
+        "Włóż i dokręć śrubę (momentu źródła nie podają).",
+        "Tył: wg TIS szyby po montażu nie trzeba regulować."
+      ],
+      "mistakes": [
+        "Odwrócona tuleja.",
+        "Przeciągnięcie śruby."
+      ],
+      "check": "Szyba siedzi w klipsie bez luzu."
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Test, folia i boczek",
+      "view": "card",
+      "focus": [
+        "card.switch"
+      ],
+      "min": 40,
+      "conf": "med",
+      "src": [
+        "xo-glass-clip",
+        "xo-reg-article"
+      ],
+      "b": "Przed założeniem boczka sprawdź szybę. Funkcja „auto” może zadziałać dopiero po uruchomieniu silnika (relacja z Xoutpost).",
+      "see": "Szyba chodzi góra-dół.",
+      "how": [
+        "Podłącz akumulator i kilka razy ruszaj szybą.",
+        "Zaklej folię i załóż poduszkę (3 śruby 10 mm), potem boczek.",
+        "Sprawdź kontrolki poduszki i ABS po uruchomieniu silnika."
+      ],
+      "check": "Szyba działa, kontrolki nie świecą."
+    }
+  ],
+  "after": [
+    "Szyba nie stuka i nie ma luzu",
+    "Szyba unosi się i opada płynnie",
+    "Kontrolki poduszki i ABS nie świecą",
+    "Folia i boczek na miejscu"
+  ],
+  "unknown": [
+    "Momenty dokręcania śrub i nakrętek: instrukcje fabryczne odsyłają do rozdziału z momentami i nie podają wartości na stronie, więc ich tu nie ma.",
+    "Śruba 07147154229 i tuleja 51338242760: po jednym źródle (forum), sprawdź po VIN.",
+    "Szczegóły wyjmowania szyby w przednich drzwiach E53: TIS-owy opis nie znalazł się w źródłach, opieramy się na FCP Euro i Xoutpost."
+  ],
+  "related": [
+    "okno-podnosnik-przod",
+    "okno-podnosnik-tyl",
+    "tapicerka-przod"
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "id": "lusterko-szklo",
+  "title": "Szkło lusterka",
+  "subtitle": "Wymiana pękniętego szkła w lusterku zewnętrznym",
+  "door": "front",
+  "completeness": "częściowe",
+  "difficulty": 2,
+  "time": [
+    20,
+    45
+  ],
+  "summary": "Szkło lusterka E53 trzyma się na czterech klipsach na płycie regulacyjnej. Zdejmuje się je, podważając dolny brzeg do góry (szkło „wjeżdża” do góry) szerokim płaskim narzędziem, a następnie odpina wtyczki podgrzewania i ściemniania. Fabryczna instrukcja każe doprowadzić auto do temperatury pokojowej, żeby klipsy nie pękły, i okleić brzeg szkła taśmą.",
+  "extras": [],
+  "tools": [
+    {
+      "name": "Szerokie płaskie narzędzie (klin uniwersalny 00 9 318 lub zamiennik)",
+      "note": "TIS: klin uniwersalny; forum: szeroki płaski przedmiot owinięty ściereczką",
+      "need": "must"
+    },
+    {
+      "name": "Taśma malarska lub plastikowa taśma klejąca",
+      "note": "oklejenie brzegu szkła i obudowy",
+      "need": "must"
+    },
+    {
+      "name": "Ściereczka",
+      "note": "ochrona szkła i obudowy",
+      "need": "should"
+    }
+  ],
+  "parts": [
+    {
+      "name": "Szkło lusterka, lewe",
+      "oe": "51167039595",
+      "conf": "med",
+      "note": "Wariant: szeroki kąt, podgrzewane, ściemniane (EC). Numer z jednego wątku Xoutpost; sprawdź w katalogu.",
+      "src": [
+        "xo-mirror-glass"
+      ]
+    },
+    {
+      "name": "Szkło lusterka, prawe",
+      "oe": "51167039596",
+      "conf": "med",
+      "note": "Jak wyżej.",
+      "src": [
+        "xo-mirror-glass"
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "lvl": "warn",
+      "t": "Temperatura i siła",
+      "b": "Instrukcja fabryczna: doprowadź auto do temperatury pokojowej, żeby klipsy nie pękły. Nie szarp: w wątku Xoutpost ktoś pękł szkło, zakładając je do góry nogami.",
+      "src": [
+        "tis-mirror-glass",
+        "xo-mirror-glass"
+      ]
+    },
+    {
+      "lvl": "info",
+      "t": "Sprawdź wariant szkła",
+      "b": "Szkło bywa chromatyczne lub nie, z martwym polem lub bez, płaskie lub wypukłe; ma znaczenie strona lewa i prawa.",
+      "src": [
+        "xo-mirror-glass"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "phase": "1. Przygotowanie",
+      "t": "Kup właściwe szkło i przygotuj samochód",
+      "view": "outer",
+      "focus": [
+        "outer.mirror"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-mirror-glass",
+        "tis-mirror-glass"
+      ],
+      "b": "Szkło ma różne warianty. Porównaj tył nowego szkła ze starym przed zakupem i przed montażem.",
+      "see": "Tył szkła z czterema łapkami.",
+      "how": [
+        "Sprawdź wariant: podgrzewanie, ściemnianie, szeroki kąt, strona.",
+        "Postaw auto w ciepłym miejscu: TIS wymaga temperatury pokojowej.",
+        "Z części numery: lewe 51167039595, prawe 51167039596 (jedno źródło)."
+      ],
+      "mistakes": [
+        "Kupno szkła bez wtyczek podgrzewania lub ściemniania."
+      ],
+      "check": "Masz właściwe szkło i ciepły samochód."
+    },
+    {
+      "phase": "2. Zdejmowanie szkła",
+      "t": "Przechyl szkło i oklej brzegi",
+      "view": "outer",
+      "focus": [
+        "outer.mirror"
+      ],
+      "min": 5,
+      "conf": "high",
+      "src": [
+        "tis-mirror-glass"
+      ],
+      "b": "TIS: dolny brzeg szkła przepchnij do przodu do oporu i oklej brzeg szkła i obudowy taśmą.",
+      "see": "Szkło wychylone, brzeg obudowy w taśmie.",
+      "how": [
+        "Przechyl dolny brzeg szkła do przodu.",
+        "Oklej brzeg szkła i brzeg obudowy plastikową taśmą klejącą (TIS)."
+      ],
+      "check": "Brzegi okleione."
+    },
+    {
+      "phase": "2. Zdejmowanie szkła",
+      "t": "Podważ szkło do góry i wyjmij do tyłu",
+      "view": "outer",
+      "focus": [
+        "outer.mirror"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "tis-mirror-glass",
+        "xo-mirror-glass",
+        "xo-mirror-glass2"
+      ],
+      "b": "Szkło zwalnia się, gdy przesuniesz je do góry: wsuń szerokie narzędzie pod dolny brzeg i podważaj powoli.",
+      "see": "Szkło wysuwa się ku górze, a potem do tyłu.",
+      "how": [
+        "Wsuń narzędzie (klin 00 9 318 wg TIS) między dolny brzeg szkła a obudowę i pchnij szkło do góry.",
+        "Ostrożnie wyciągnij szkło do tyłu.",
+        "Jeśli klipsy się upierają: alternatywa z forum (AW8): pochyl szkło ku górze, podważ dolną krawędź i zwolnij cztery klipsy, a potem pochyl w dół i wysuń do przodu.",
+        "Szerokie narzędzie rozkłada nacisk, wąski wkrętak łamie szkło (TwinsPoppa)."
+      ],
+      "mistakes": [
+        "Szarpanie, wąski wkrętak, brak taśmy: pęka szkło.",
+        "Szukanie „suwaka”: część osób (hayaku) wspomina o nim, inni go nie mają."
+      ],
+      "check": "Szkło odchylone od płyty."
+    },
+    {
+      "phase": "2. Zdejmowanie szkła",
+      "t": "Odepnij wtyczki podgrzewania i ściemniania",
+      "view": "outer",
+      "focus": [
+        "outer.mirror"
+      ],
+      "min": 5,
+      "conf": "med",
+      "src": [
+        "tis-mirror-glass",
+        "xo-mirror-glass"
+      ],
+      "b": "Jeśli szkło ma podgrzewanie lub ściemnianie, odepnij wtyczki. Podgrzewanie ma dwa przewody, ściemnianie (EC) drugie dwa.",
+      "see": "Wtyczki z tyłu szkła.",
+      "how": [
+        "Odepnij wtyczkę podgrzewania.",
+        "Odepnij wtyczkę ściemniania, jeśli jest.",
+        "Zapamiętaj, która jest która."
+      ],
+      "check": "Stare szkło jest zdjęte."
+    },
+    {
+      "phase": "3. Montaż",
+      "t": "Załóż nowe szkło",
+      "view": "outer",
+      "focus": [
+        "outer.mirror"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "tis-mirror-glass",
+        "xo-mirror-glass"
+      ],
+      "b": "Montaż odwrotnie. Zwróć uwagę na orientację szkła: forum opisuje pęknięcie przy zakładaniu do góry nogami.",
+      "see": "Szkło wchodzi na łapki.",
+      "how": [
+        "Podłącz wtyczki podgrzewania i ściemniania.",
+        "Ustaw szkło tak jak stare, zwróć uwagę na orientację.",
+        "Wsuń szkło na prowadnice i dociśnij w dół, aż zaskoczą klipsy (TIS).",
+        "Wskazówka z forum: ustaw płytę lusterka silnikiem tak, aby szczeliny pokryły się z klipsami."
+      ],
+      "mistakes": [
+        "Szkło założone do góry nogami."
+      ],
+      "check": "Szkło siedzi na wszystkich klipsach."
+    },
+    {
+      "phase": "3. Montaż",
+      "t": "Sprawdź działanie",
+      "view": "outer",
+      "focus": [
+        "outer.mirror"
+      ],
+      "min": 5,
+      "conf": "high",
+      "src": [
+        "tis-mirror-glass"
+      ],
+      "b": "TIS wymaga kontroli działania po wymianie.",
+      "see": "Szkło rusza i się nagrzewa.",
+      "how": [
+        "Sprawdź ruch szkła we wszystkich kierunkach.",
+        "Sprawdź podgrzewanie i ściemnianie, jeśli są.",
+        "Wątek Xoutpost: po montażu jeden użytkownik słyszał kliknięcia; to pytanie pozostało bez odpowiedzi."
+      ],
+      "check": "Szkło działa i nie hałasuje."
+    }
+  ],
+  "after": [
+    "Szkło siedzi na wszystkich klipsach",
+    "Regulacja działa we wszystkich kierunkach",
+    "Podgrzewanie i ściemnianie działają (jeśli są)"
+  ],
+  "unknown": [
+    "Numery szkieł: tylko jeden wątek forum (wariant z szerokim kątem, podgrzewany, ściemniany).",
+    "Narzędzie TIS 00 9 318: zamiennik nie jest opisany w źródłach; forum używa szerokiego płaskiego narzędzia.",
+    "Kliknięcia po montażu: brak potwierdzenia w źródłach."
+  ],
+  "related": [
+    "lusterko-wymiana"
+  ]
+}

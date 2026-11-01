@@ -22,12 +22,22 @@ Prywatna aplikacja PWA do napraw samochodów rodziny. Adres: https://lewym90.git
 | Siłownik zamka, przód | częściowe | 17 | 4 | 0 | wątek Xoutpost; zdjęcia z galerii autora, niesprawdzone |
 | Tapicerka drzwi tylnych | częściowe | 13 | 12 | 0 | Pelican Parts; adresy zdjęć z wzorca nazw, niesprawdzone |
 | Klamka zewnętrzna, tył | częściowe | 12 | 0 | 0 | tylko instrukcja fabryczna |
+| Podnośnik szyby, tył | częściowe | 11 | 0 | 0 | TIS + Xoutpost + FCP Euro; bez mediów |
+| Silnik podnośnika szyby | częściowe | 7 | 0 | 0 | TIS tył i przód + Xoutpost; bez mediów |
+| Szyba w drzwiach: klips | częściowe | 7 | 0 | 0 | Xoutpost + FCP Euro + TIS tył; bez mediów |
+| Lusterko: wymiana całości | częściowe | 7 | 0 | 0 | TIS + Xoutpost; bez mediów |
+| Szkło lusterka | częściowe | 6 | 0 | 0 | TIS + Xoutpost; bez mediów |
+| Uszczelka obwodowa drzwi | częściowe | 6 | 0 | 0 | jedna relacja forum (Xoutpost); bez mediów |
+| Uszczelki szyby (listwy) | częściowe | 4 | 0 | 0 | TIS; bez mediów |
 
 Tylko „pełne” liczą się jako gotowe w aplikacji.
 
 ## Do zrobienia (wymaga przeglądarki w aplikacji desktopowej)
 - Transkrypty i wycinki filmów: klamka wewnętrzna, podnośnik szyby, siłownik zamka, tapicerka tył (kryteria wyboru filmu w `standard-naprawy.md`).
 - Sprawdzenie ładowania zdjęć na żywo (Pelican Parts, Xoutpost, stevedu.com) oraz offline na telefonie.
-- Dalej w strefie Drzwi: uszczelki, lusterko, szyba w drzwiach, silnik podnośnika, podnośnik tył i reszta listy; pozostałe strefy mają tylko katalog.
+- Teksty wszystkich 14 kart Drzwi są kompletne (kroki, źródła, części, lista „nieznane”). Do „pełne” brakuje mediów: zdjęcia i klipsy przy krokach, sprawdzenie ich ładowania na żywo.
+- Strefa Drzwi: 14 z 53 pozycji ma kartę; pozostałe 39 to wpisy katalogu z krótkim opisem („Wkrótce”) i czekają na opracowanie ze źródeł.
+- Pozostałe strefy (maska, wnętrze, tył, koła, podwozie, serwis): katalog z krótkimi opisami objawów, bez kart napraw.
+- Diagnostyka: szkielet schematu i słownik objawów w `docs/diag/` (bez przyczyn; pełne drzewka po zakończeniu bazy).
 - Auta rodziny (lista od użytkownika).
 - Momenty dokręcenia: brak w źródłach, są w listach „unknown”.

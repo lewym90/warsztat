@@ -1,0 +1,38 @@
+{
+  "_opis": "Szkielet schematu danych modułu diagnostycznego (etap 0). Dane z tego schematu NIE są jeszcze w aplikacji. Każda przyczyna, test i wartość wymaga źródła; brak źródła = pole „nieznane”.",
+  "symptom": {
+    "id": "krótki-identyfikator",
+    "title": "Nazwa objawu po polsku",
+    "synonyms": ["zwroty użytkownika, np. 'szumi', 'huczy', 'wyje'"],
+    "interview": [
+      {"id": "pytanie-id", "q": "Treść pytania", "type": "choice|yesno|number", "options": [{"id": "opcja-id", "t": "Odpowiedź"}], "why": "po co to pytanie"}
+    ],
+    "stop_if": [{"when": "warunek w odpowiedziach", "msg": "Nie jedź: powód", "src": ["klucz-źródła"]}],
+    "causes": ["id przyczyn"]
+  },
+  "cause": {
+    "id": "przyczyna-id",
+    "title": "Nazwa przyczyny",
+    "systems": ["układy, których dotyczy"],
+    "frequency": "bardzo częste|częste|rzadkie|nieznane",
+    "frequency_basis": "uzasadnienie jakościowe ze źródła",
+    "typical_for": "E53 3.0d M57|ogólne",
+    "supports": [{"answer": "pytanie-id=opcja-id", "weight": "wzmacnia|osłabia|wyklucza"}],
+    "tests": ["id testów"],
+    "repair": "id karty naprawy lub null",
+    "needs_workshop": false,
+    "src": ["klucz-źródła"],
+    "conf": "high|med|low"
+  },
+  "test": {
+    "id": "test-id",
+    "title": "Nazwa testu",
+    "cost": "darmowy|tani|drogi",
+    "tools": ["narzędzia"],
+    "how": ["kroki"],
+    "outcomes": [{"result": "tak|nie|nie wiem", "means": "co to znaczy", "keeps": ["przyczyny"], "drops": ["przyczyny"]}],
+    "expected_values": [{"what": "wielkość", "value": "wartość ze źródła", "src": "klucz-źródła"}],
+    "src": ["klucz-źródła"]
+  },
+  "dtc": {"code": "P0000", "title": "opis", "causes": ["id przyczyn"], "notes_e53": "uwagi dla E53 ze źródła", "src": ["klucz-źródła"]}
+}

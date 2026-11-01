@@ -1,0 +1,253 @@
+{
+  "id": "lusterko-wymiana",
+  "title": "Lusterko zewnętrzne: wymiana całości",
+  "subtitle": "Zdjęcie lusterka z przednich drzwi E53",
+  "door": "front",
+  "completeness": "częściowe",
+  "difficulty": 3,
+  "time": [
+    60,
+    120
+  ],
+  "summary": "Lusterko zewnętrzne E53 siedzi na przednich drzwiach i jest przykręcone od środka. Wg wyciągu TIS zaczynasz od zdjęcia głośnika w ramie okna, potem odpinasz przewód, zdejmujesz osłonę, odkręcasz śrubę i zdejmujesz lusterko razem z kablem. Forum dodaje, że do wiązki trzeba zdjąć boczek. Karta jest krótka, bo źródła nie podają numerów części ani momentów dokręcania.",
+  "extras": [],
+  "tools": [
+    {
+      "name": "Torx T20",
+      "note": "boczek",
+      "need": "must"
+    },
+    {
+      "name": "Plastikowe łopatki do tapicerki",
+      "note": "osłona i boczek",
+      "need": "must"
+    },
+    {
+      "name": "Klucz lub wkrętak do śruby lusterka",
+      "note": "rozmiar nieznany: patrz „Czego nie wiemy”",
+      "need": "must"
+    },
+    {
+      "name": "Taśma malarska",
+      "note": "ochrona lakieru wokół lusterka",
+      "need": "should"
+    },
+    {
+      "name": "Zapasowe spinki boczka",
+      "note": "część pęknie",
+      "need": "should"
+    }
+  ],
+  "parts": [
+    {
+      "name": "Lusterko zewnętrzne (kompletne), lewe lub prawe",
+      "conf": "low",
+      "note": "Brak numerów w źródłach; kupując, sprawdź wersję: podgrzewane, z pamięcią, składane, ściemniane, lewe lub prawe, LHD lub RHD.",
+      "src": [
+        "xo-mirror-assy",
+        "xo-mirror-glass"
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "lvl": "danger",
+      "t": "Poduszka powietrzna w drzwiach",
+      "b": "W przednich drzwiach jest boczna poduszka. Pracuj przy odłączonym akumulatorze i nie odpinaj jej wtyczki bez odczekania. Artykuł Xoutpost ostrzega, że poruszanie szybą z odkręconą poduszką i podłączonym akumulatorem może zapalić kontrolkę poduszki (kasowanie tylko w serwisie).",
+      "src": [
+        "xo-reg-article"
+      ]
+    },
+    {
+      "lvl": "warn",
+      "t": "Wersje lusterek",
+      "b": "Kupujesz konkretny wariant: z podgrzewaniem, ściemnianiem, składaniem lub pamięcią. Zły wariant nie ma wszystkich wtyczek.",
+      "src": [
+        "xo-mirror-glass"
+      ]
+    },
+    {
+      "lvl": "info",
+      "t": "Karta bez filmów i zdjęć",
+      "b": "Tekst oparty na instrukcjach fabrycznych (wyciągi TIS) i relacjach z forów. Nie ma jeszcze wycinków filmu ani zdjęć przy krokach, dlatego status to „częściowe”.",
+      "src": []
+    }
+  ],
+  "steps": [
+    {
+      "phase": "1. Diagnoza i przygotowanie",
+      "t": "Ustal, co wymienić: szkło, obudowę czy całość",
+      "view": "outer",
+      "focus": [
+        "outer.mirror"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-mirror-assy",
+        "xo-mirror-glass2"
+      ],
+      "b": "Zepsute szkło lub obudowa wymieniasz osobno. Silnik regulacji wymaga zdjęcia boczka i dostępu do wiązki.",
+      "see": "Lusterko na przednich drzwiach.",
+      "how": [
+        "Pęknięte szkło: karta „Szkło lusterka”.",
+        "Uszkodzona obudowa: IFlyX5 pisze na forum, że można rozebrać lusterko i wymienić obudowę i szkło.",
+        "Niedziałający silnik regulacji: wg tego samego wątku trzeba zdjąć boczek, żeby dojść do wiązki."
+      ],
+      "mistakes": [
+        "Wymiana całości, gdy wystarczy szkło."
+      ],
+      "check": "Wiesz, czy zdejmujesz całe lusterko.",
+      "link": "lusterko-szklo"
+    },
+    {
+      "phase": "1. Diagnoza i przygotowanie",
+      "t": "Odłącz akumulator i zabezpiecz lakier",
+      "view": "outer",
+      "focus": [
+        "outer.mirror"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-reg-article",
+        "tis-mirror"
+      ],
+      "b": "Odłącz akumulator, bo w drzwiach jest poduszka. Oklej lakier wokół lusterka.",
+      "see": "Drzwi otwarte, lakier w taśmie.",
+      "how": [
+        "Odłącz klemę minusową akumulatora.",
+        "Oklej taśmą malarską okolice mocowania lusterka."
+      ],
+      "check": "Akumulator odłączony, lakier zabezpieczony."
+    },
+    {
+      "phase": "2. Dostęp do wnętrza drzwi",
+      "t": "Zdejmij boczek",
+      "view": "card",
+      "focus": [
+        "card.trim"
+      ],
+      "min": 40,
+      "conf": "med",
+      "src": [
+        "xo-mirror-assy",
+        "pelican-panel"
+      ],
+      "b": "Do wiązki lusterka dojdziesz po zdjęciu boczka (relacja IFlyX5). Instrukcja TIS zaczyna od głośnika w ramie okna.",
+      "see": "Boczek z przyciskami.",
+      "how": [
+        "Zdejmij boczek wg karty „Tapicerka drzwi przednich”.",
+        "Odepnij wtyczki i cięgno klamki."
+      ],
+      "mistakes": [
+        "Szarpanie boczka bez odpięcia wtyczek."
+      ],
+      "check": "Boczek zdjęty.",
+      "link": "tapicerka-przod"
+    },
+    {
+      "phase": "3. Zdejmowanie lusterka",
+      "t": "Zdejmij głośnik z ramy okna i odepnij przewód",
+      "view": "card",
+      "focus": [
+        "card.speaker"
+      ],
+      "min": 20,
+      "conf": "med",
+      "src": [
+        "tis-mirror"
+      ],
+      "b": "Instrukcja fabryczna: zdejmij głośnik w ramie okna, odepnij klips przewodu, odklej taśmę i odsłoń przewód.",
+      "see": "Głośnik w górnym rogu drzwi, przewód lusterka obok.",
+      "how": [
+        "Zdejmij głośnik w ramie okna przednich drzwi.",
+        "Odepnij klips przewodu (cable clip).",
+        "Odklej taśmę i odsłoń przewód."
+      ],
+      "check": "Przewód lusterka jest odsłonięty."
+    },
+    {
+      "phase": "3. Zdejmowanie lusterka",
+      "t": "Odepnij osłonę, odkręć śrubę i zdejmij lusterko",
+      "view": "outer",
+      "focus": [
+        "outer.mirror"
+      ],
+      "min": 20,
+      "conf": "med",
+      "src": [
+        "tis-mirror"
+      ],
+      "b": "Osłonę podważasz, pod nią jest śruba. Po jej odkręceniu zdejmujesz lusterko z kablem.",
+      "see": "Osłona w trójkącie przy lusterku.",
+      "how": [
+        "Podważ osłonę i odkręć śrubę pod nią.",
+        "Odsuń osłonę na bok.",
+        "Odkręć jeszcze jedną śrubę i zdejmij lusterko razem z kablem (TIS: item 5 i 4).",
+        "Pamiętaj o kablu: nie szarp."
+      ],
+      "mistakes": [
+        "Szarpnięcie lusterka bez odpięcia kabla."
+      ],
+      "check": "Lusterko jest zdjęte, kabel wyjęty."
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Zamontuj nowe lusterko",
+      "view": "outer",
+      "focus": [
+        "outer.mirror"
+      ],
+      "min": 25,
+      "conf": "med",
+      "src": [
+        "tis-mirror"
+      ],
+      "b": "Montaż odwrotnie do demontażu. Podstawa lusterka z uszczelką i wygłuszeniem idzie na miejsce.",
+      "see": "Lusterko na przednich drzwiach.",
+      "how": [
+        "Załóż podstawę lusterka z uszczelką i wygłuszeniem.",
+        "Dokręć śrubę (moment: TIS odsyła do rozdziału z momentami, wartości brak).",
+        "Poprowadź kabel i podłącz wtyczki."
+      ],
+      "check": "Lusterko siedzi pewnie."
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Test działania i złożenie",
+      "view": "outer",
+      "focus": [
+        "outer.mirror"
+      ],
+      "min": 20,
+      "conf": "med",
+      "src": [
+        "tis-mirror",
+        "xo-mirror-glass"
+      ],
+      "b": "Instrukcja TIS wymaga kontroli działania po montażu.",
+      "see": "Lusterko rusza przy sterowaniu.",
+      "how": [
+        "Podłącz akumulator i sprawdź regulację, podgrzewanie i składanie (jeśli są).",
+        "Załóż boczek."
+      ],
+      "check": "Wszystko działa."
+    }
+  ],
+  "after": [
+    "Lusterko siedzi pewnie, bez luzu",
+    "Regulacja i podgrzewanie działają (jeśli są)",
+    "Boczek założony, kontrolki nie świecą"
+  ],
+  "unknown": [
+    "Momenty dokręcania śrub i nakrętek: instrukcje fabryczne odsyłają do rozdziału z momentami i nie podają wartości na stronie, więc ich tu nie ma.",
+    "Numer lusterka (wersje): brak w źródłach.",
+    "Rozmiar śruby mocującej lusterko i nazwy elementów w wyciągu TIS: strona podaje tylko numery pozycji na rysunku.",
+    "Wyciąg TIS dotyczy E53 3.0i (M54); lusterko jest takie samo w całej rodzinie, ale to założenie."
+  ],
+  "related": [
+    "lusterko-szklo",
+    "tapicerka-przod"
+  ]
+}

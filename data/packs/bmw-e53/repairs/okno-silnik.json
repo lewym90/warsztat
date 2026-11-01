@@ -1,0 +1,277 @@
+{
+  "id": "okno-silnik",
+  "title": "Silnik podnośnika szyby",
+  "subtitle": "Wymiana lub przełożenie płaskiego silnika, przód i tył",
+  "door": "both",
+  "completeness": "częściowe",
+  "difficulty": 3,
+  "time": [
+    60,
+    150
+  ],
+  "summary": "Silnik podnośnika szyby w E53 jest płaskim silnikiem przykręconym do podnośnika. W tylnych drzwiach fabryczna instrukcja pozwala wyjąć sam silnik po zdjęciu wygłuszenia: odłączasz wtyczkę, odkręcasz śruby i obracasz silnik. W przednich drzwiach wg wyciągu TIS najpierw wyjmujesz podnośnik, a silnik odkręcasz od niego. Karta zawiera też ostrzeżenie z forum, że przy nietypowym zachowaniu silnika (rozpędzenie, brak zatrzymania) przyczyną bywa przełącznik lub moduł.",
+  "extras": [],
+  "tools": [
+    {
+      "name": "Torx T20",
+      "note": "śruby boczka",
+      "need": "must"
+    },
+    {
+      "name": "Klucz nasadowy 10 mm",
+      "note": "poduszka (3 śruby) i nakrętki podnośnika, przód",
+      "need": "should"
+    },
+    {
+      "name": "Plastikowe łopatki do tapicerki",
+      "note": "boczek i klipsy",
+      "need": "must"
+    },
+    {
+      "name": "Śrubokręty płaski i krzyżakowy",
+      "note": "śruby silnika",
+      "need": "must"
+    },
+    {
+      "name": "Zapasowe spinki boczka",
+      "note": "część pęknie",
+      "need": "should"
+    },
+    {
+      "name": "Multimetr",
+      "note": "opcjonalnie: sprawdzenie zasilania wtyczki silnika",
+      "need": "opt"
+    }
+  ],
+  "parts": [
+    {
+      "name": "Silnik podnośnika szyby (płaski)",
+      "conf": "low",
+      "note": "Numeru nie podajemy: źródła go nie mają. Wersja przód i tył różni się; dobierz po VIN. Często taniej jest przełożyć silnik z nowego podnośnika, gdy wymieniasz oba.",
+      "src": [
+        "tis-rear-motor",
+        "tis-front-motor"
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "lvl": "danger",
+      "t": "Poduszka powietrzna w drzwiach",
+      "b": "W przednich drzwiach jest boczna poduszka. Pracuj przy odłączonym akumulatorze i nie odpinaj jej wtyczki bez odczekania. Artykuł Xoutpost ostrzega, że poruszanie szybą z odkręconą poduszką i podłączonym akumulatorem może zapalić kontrolkę poduszki (kasowanie tylko w serwisie).",
+      "src": [
+        "xo-reg-article"
+      ]
+    },
+    {
+      "lvl": "warn",
+      "t": "Przed wymianą wykluczyć przełącznik",
+      "b": "W wątku Xoutpost użytkownik killcrap zauważa, że najczęstszą przyczyną samorozpędzającego się silnika w E53 jest przełącznik szyby po stronie pasażera. Zanim kupisz silnik, sprawdź przełącznik i okablowanie.",
+      "src": [
+        "xo-motor-init"
+      ]
+    },
+    {
+      "lvl": "info",
+      "t": "Karta bez filmów i zdjęć",
+      "b": "Tekst oparty na instrukcjach fabrycznych (wyciągi TIS) i relacjach z forów. Nie ma jeszcze wycinków filmu ani zdjęć przy krokach, dlatego status to „częściowe”.",
+      "src": []
+    }
+  ],
+  "steps": [
+    {
+      "phase": "1. Diagnoza i przygotowanie",
+      "t": "Ustal, czy winny jest silnik",
+      "view": "card",
+      "focus": [
+        "card.switch"
+      ],
+      "min": 15,
+      "conf": "med",
+      "src": [
+        "xo-motor-init",
+        "tis-rear-motor"
+      ],
+      "b": "Silnik, przełącznik i podnośnik dają podobne objawy. Najpierw sprawdź, czy silnik w ogóle dostaje zasilanie i reaguje.",
+      "see": "Przycisk szyby w drzwiach i druga strona drzwi.",
+      "how": [
+        "Sprawdź szybę drugim przyciskiem (np. z drzwi kierowcy): jeśli działa, winny jest przełącznik w tych drzwiach.",
+        "Silnik brzęczy, ale szyba stoi: częściej podnośnik lub klips (zobacz karty podnośnika).",
+        "Silnik chodzi bez zatrzymania lub „ucieka”: wg wątku Xoutpost zwykle zawodzi przełącznik lub moduł, nie silnik."
+      ],
+      "mistakes": [
+        "Wymiana silnika, gdy zepsuty jest przełącznik."
+      ],
+      "check": "Wiesz, czy wymieniasz silnik.",
+      "link": "okno-podnosnik-przod"
+    },
+    {
+      "phase": "1. Diagnoza i przygotowanie",
+      "t": "Ustaw szybę w środku i odłącz akumulator",
+      "view": "card",
+      "focus": [
+        "card.switch"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "tis-rear-motor",
+        "tis-rear-reg"
+      ],
+      "b": "Szyba nie może stać w skrajnym położeniu, gdy odkręcasz silnik (TIS tył). Przy zdjętej poduszce w przednich drzwiach odłącz akumulator.",
+      "see": "Szyba w połowie drzwi.",
+      "how": [
+        "Ustaw szybę mniej więcej w połowie.",
+        "Odłącz klemę minusową akumulatora."
+      ],
+      "mistakes": [
+        "Szyba na dole lub na górze przy odkręcaniu silnika."
+      ],
+      "check": "Szyba w połowie, akumulator odłączony."
+    },
+    {
+      "phase": "2. Dostęp do wnętrza drzwi",
+      "t": "Zdejmij boczek, odsłoń silnik",
+      "view": "card",
+      "focus": [
+        "card.trim"
+      ],
+      "min": 45,
+      "conf": "med",
+      "src": [
+        "pelican-panel",
+        "pelican-rear-card",
+        "tis-rear-motor"
+      ],
+      "b": "Dostęp jak przy każdej naprawie wnętrza drzwi: boczek, potem folia (przód) lub wygłuszenie (tył).",
+      "see": "Boczek z przyciskiem szyby.",
+      "how": [
+        "Przód: karta „Tapicerka drzwi przednich”. Tył: karta „Tapicerka drzwi tylnych”.",
+        "Tył: zdejmij wygłuszenie (TIS).",
+        "Przód: poduszkę odkręć i odłóż, folię odklej powoli (karta „Podnośnik szyby, przód”)."
+      ],
+      "mistakes": [
+        "Odpinanie wtyczki poduszki bez odłączenia akumulatora."
+      ],
+      "check": "Widzisz silnik i jego wtyczkę.",
+      "link": "tapicerka-przod"
+    },
+    {
+      "phase": "3. Wyjmowanie silnika",
+      "t": "Tył: odłącz wtyczkę, odkręć śruby i obróć silnik",
+      "view": "inner",
+      "focus": [
+        "inner.regulator"
+      ],
+      "min": 20,
+      "conf": "high",
+      "src": [
+        "tis-rear-motor"
+      ],
+      "b": "W tylnych drzwiach silnik zdejmujesz bez wyjmowania podnośnika.",
+      "see": "Płaski silnik z wtyczką na podnośniku.",
+      "how": [
+        "Upewnij się, że szyba nie stoi w skrajnym położeniu (TIS).",
+        "Odłącz wtyczkę.",
+        "Poluzuj śruby silnika.",
+        "Obróć silnik w kierunku strzałki, aż da się go zdjąć, i wyjmij (TIS tył)."
+      ],
+      "mistakes": [
+        "Odkręcanie silnika z szybą w skrajnym położeniu."
+      ],
+      "check": "Silnik leży poza drzwiami."
+    },
+    {
+      "phase": "3. Wyjmowanie silnika",
+      "t": "Przód: wyjmij podnośnik i odkręć silnik",
+      "view": "inner",
+      "focus": [
+        "inner.regulator"
+      ],
+      "min": 60,
+      "conf": "med",
+      "src": [
+        "tis-front-reg",
+        "tis-front-motor",
+        "xo-reg-article"
+      ],
+      "b": "W przednich drzwiach wyciąg TIS każe najpierw wyjąć cały podnośnik. Silnik odkręcasz od niego poza drzwiami.",
+      "see": "Podnośnik na nakrętkach.",
+      "how": [
+        "Wyjmij podnośnik tak jak w karcie „Podnośnik szyby, przód” (zwolnienie szyby, nakrętki, wtyczka).",
+        "Po wyjęciu odkręć śruby silnika i zdejmij silnik z podnośnika (TIS: release screws and detach the drive mechanism).",
+        "Zanotuj, jak silnik leży względem podnośnika."
+      ],
+      "mistakes": [
+        "Wyjmowanie podnośnika bez zwolnienia szyby."
+      ],
+      "check": "Silnik jest odkręcony od podnośnika.",
+      "link": "okno-podnosnik-przod"
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Zamontuj silnik i sprawdź działanie",
+      "view": "inner",
+      "focus": [
+        "inner.regulator"
+      ],
+      "min": 30,
+      "conf": "med",
+      "src": [
+        "tis-rear-motor",
+        "xo-motor-init"
+      ],
+      "b": "Montaż odwrotnie do demontażu. Silnik i podnośnik muszą wrócić na swoje miejsca w tym samym ułożeniu.",
+      "see": "Silnik na podnośniku, wtyczka podłączona.",
+      "how": [
+        "Załóż silnik, dokręć śruby (momentów brak w źródłach: dokręć pewnie).",
+        "Podłącz wtyczkę i akumulator.",
+        "Przetestuj szybę: góra i dół. W wątku Xoutpost użytkownik SlickGT1 przełożył silnik między drzwiami bez żadnego programowania, odwracając wtyczkę, aby szyba szła we właściwą stronę.",
+        "Jeśli silnik chodzi długo bez zatrzymania w skrajnym położeniu, odłącz zasilanie: w jednej relacji silnik przepalił się podczas próby „adaptacji”."
+      ],
+      "mistakes": [
+        "Wielokrotne przytrzymywanie przycisku w skrajnym położeniu."
+      ],
+      "check": "Szyba chodzi w obu kierunkach i zatrzymuje się na końcach.",
+      "warn": "Nie przytrzymuj przycisku, gdy szyba dojedzie do końca."
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Złóż drzwi",
+      "view": "card",
+      "focus": [
+        "card.trim"
+      ],
+      "min": 30,
+      "conf": "med",
+      "src": [
+        "pelican-panel"
+      ],
+      "b": "Folia i wygłuszenie na miejsce, potem boczek.",
+      "see": "Złożone drzwi.",
+      "how": [
+        "Docisnąć folię lub wygłuszenie.",
+        "Załóż boczek zgodnie z kartą tapicerki.",
+        "Sprawdź przycisk szyby i światła w drzwiach."
+      ],
+      "check": "Drzwi zamknięte, szyba działa."
+    }
+  ],
+  "after": [
+    "Szyba chodzi w obu kierunkach i zatrzymuje się na końcach",
+    "Kontrolki poduszki i ABS nie świecą",
+    "Folia lub wygłuszenie przylega",
+    "Boczek założony, wtyczki podłączone"
+  ],
+  "unknown": [
+    "Momenty dokręcania śrub i nakrętek: instrukcje fabryczne odsyłają do rozdziału z momentami i nie podają wartości na stronie, więc ich tu nie ma.",
+    "Numer silnika (przód i tył): brak w źródłach.",
+    "Czy silnik po wymianie wymaga inicjalizacji skrajnych położeń: źródła forum są sprzeczne (killcrap: nie, Qsilver7: „normalizacja” przy pierwszym ruchu, Ricky Bobby: brak funkcji inicjalizacji).",
+    "Strona TIS silnika przedniego nie opisuje kroków: opieramy się na stronie podnośnika."
+  ],
+  "related": [
+    "okno-podnosnik-przod",
+    "okno-podnosnik-tyl",
+    "tapicerka-przod"
+  ]
+}

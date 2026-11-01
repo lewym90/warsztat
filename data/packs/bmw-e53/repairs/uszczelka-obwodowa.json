@@ -1,0 +1,221 @@
+{
+  "id": "uszczelka-obwodowa",
+  "title": "Uszczelka obwodowa drzwi",
+  "subtitle": "Wymiana uszczelki nadwozia wokół otworu drzwi (przód)",
+  "door": "front",
+  "completeness": "częściowe",
+  "difficulty": 2,
+  "time": [
+    45,
+    90
+  ],
+  "summary": "Uszczelka obwodowa przednich drzwi E53 to gumowy profil nasunięty na blachę w otworze drzwi. Wymiana polega na zdjęciu listwy progowej, zdjęciu starej uszczelki, zwilżeniu i nałożeniu nowej od strony zawiasu, a potem wyciągnięciu wewnętrznej wargi. Karta opiera się na relacji fepat55 z Xoutpost (2008): ceny w niej są dawne i kanadyjskie, ale przebieg pracy i numery części są konkretne.",
+  "extras": [],
+  "tools": [
+    {
+      "name": "Młotek z gumową rączką lub gumowy młotek i klocek drewniany",
+      "note": "dobijanie uszczelki",
+      "need": "must"
+    },
+    {
+      "name": "Plastikowe łopatki do tapicerki",
+      "note": "listwa progowa",
+      "need": "must"
+    },
+    {
+      "name": "Woda z mydłem",
+      "note": "zwilżenie uszczelki i blachy",
+      "need": "should"
+    }
+  ],
+  "parts": [
+    {
+      "name": "Uszczelka drzwi (nadwozia), przód lewy i prawy",
+      "oe": "51727025579",
+      "conf": "med",
+      "note": "Ten sam numer dla kierowcy i pasażera (relacja fepat55, 2008). Cena z relacji jest nieaktualna.",
+      "src": [
+        "xo-seals"
+      ]
+    },
+    {
+      "name": "Klipsy listwy progowej",
+      "oe": "51478263533",
+      "conf": "med",
+      "note": "5 sztuk na stronę (jedno źródło).",
+      "src": [
+        "xo-seals"
+      ]
+    },
+    {
+      "name": "Listwa progowa, kierowca / pasażer",
+      "conf": "low",
+      "note": "Numery w relacji: 51478254289 (kierowca) i 51478254290 (pasażer); tylko gdy listwa pęknie przy zdejmowaniu.",
+      "src": [
+        "xo-seals"
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "lvl": "info",
+      "t": "Jedno źródło",
+      "b": "Procedura pochodzi z jednej relacji forum (fepat55) i nie jest instrukcją BMW. Klej nie jest wspomniany; uszczelka jest dobijana na blachę.",
+      "src": [
+        "xo-seals"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "phase": "1. Przygotowanie",
+      "t": "Kup uszczelkę i klipsy",
+      "view": "edge",
+      "focus": [
+        "edge.seal"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-seals"
+      ],
+      "b": "Do jednego otworu drzwi potrzebujesz uszczelki i, na zapas, pięciu klipsów listwy progowej.",
+      "see": "Gumowy profil o długości otworu drzwi.",
+      "how": [
+        "Uszczelka 51727025579; kierowca i pasażer używają tej samej części.",
+        "Klipsy listwy progowej 51478263533, 5 na stronę.",
+        "Warsztat z relacji liczył 1 h na jedną uszczelkę, 1,5 h na obie."
+      ],
+      "mistakes": [
+        "Zakup uszczelki do tylnych drzwi: numer dotyczy przednich."
+      ],
+      "check": "Masz uszczelkę i klipsy."
+    },
+    {
+      "phase": "2. Zdejmowanie",
+      "t": "Zdejmij listwę progową",
+      "view": "edge",
+      "focus": [
+        "edge.seal"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-seals"
+      ],
+      "b": "Listwę (próg) podważasz od strony zawiasu. Jej drugi koniec klipsuje się w pionowym plastiku.",
+      "see": "Plastikowa listwa na progu przy drzwiach.",
+      "how": [
+        "Zacznij od końca przy zawiasie i delikatnie podnoś listwę.",
+        "Drugi koniec wychodzi spod pionowego plastiku.",
+        "Klipsy trzymają mocno; autor relacji złamał kilka zaczepów."
+      ],
+      "mistakes": [
+        "Szarpanie listwy: łamią się zaczepy."
+      ],
+      "check": "Listwa progowa zdjęta."
+    },
+    {
+      "phase": "2. Zdejmowanie",
+      "t": "Zdejmij starą uszczelkę",
+      "view": "edge",
+      "focus": [
+        "edge.seal"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-seals"
+      ],
+      "b": "Uszczelka jest nasunięta na środkową krawędź blachy. Początek trudny, potem schodzi łatwo.",
+      "see": "Guma wzdłuż otworu.",
+      "how": [
+        "Zacznij od jednego końca i wciągnij uszczelkę z blachy.",
+        "Dalej schodzi łatwo."
+      ],
+      "check": "Stara uszczelka zdjęta."
+    },
+    {
+      "phase": "3. Montaż",
+      "t": "Nałóż nową uszczelkę",
+      "view": "edge",
+      "focus": [
+        "edge.seal"
+      ],
+      "min": 25,
+      "conf": "med",
+      "src": [
+        "xo-seals"
+      ],
+      "b": "Nową uszczelkę zwilż wodą z mydłem razem z blachą. Zaczynasz od zawiasu i idziesz w górę.",
+      "see": "Uszczelka dociskana na blachę.",
+      "how": [
+        "Zwilż uszczelkę i krawędź wodą z mydłem (jeden z autorów to pominął).",
+        "Zacznij od strony zawiasu, idź na górę ramy, dalej przez dolny zawias i próg i skończ po stronie zamka.",
+        "Dobijaj gumowym młotkiem lub młotkiem z klocka drewnianego, aż uszczelka ledwo się odbija.",
+        "Unikaj luzu uszczelki, bo się fałduje."
+      ],
+      "mistakes": [
+        "Luz uszczelki: marszczy się.",
+        "Nadmierne uderzanie bez klocka."
+      ],
+      "check": "Uszczelka siedzi równo na całej długości."
+    },
+    {
+      "phase": "3. Montaż",
+      "t": "Wyciągnij wewnętrzną wargę i dociśnij",
+      "view": "edge",
+      "focus": [
+        "edge.seal"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-seals"
+      ],
+      "b": "Mała gumowa żyłka w miejscu łączenia pozwala wyciągnąć wewnętrzną wargę na okładzinę drzwi.",
+      "see": "Wewnętrzna warga na całym obwodzie.",
+      "how": [
+        "Pociągnij żyłkę w miejscu łączenia, aby wyciągnąć wewnętrzną wargę na wierzch okładziny.",
+        "Autor pracował zwilżonym palcem dookoła.",
+        "Dociśnij uszczelkę do przegrody."
+      ],
+      "check": "Warga wyciągnięta, uszczelka przylega."
+    },
+    {
+      "phase": "3. Montaż",
+      "t": "Załóż listwę progową",
+      "view": "edge",
+      "focus": [
+        "edge.seal"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-seals"
+      ],
+      "b": "Klipsy nasuwasz najpierw na listwę, potem wciskasz w otwory ramy.",
+      "see": "Listwa progowa z klipsami.",
+      "how": [
+        "Nasuń klipsy na listwę i dopasuj do otworów w ramie.",
+        "Wsuń stronę zamka pod pionowy plastik.",
+        "Wciśnij klipsy (5 sztuk); mogą wymagać kilku mocnych uderzeń."
+      ],
+      "check": "Listwa siedzi, drzwi się zamykają."
+    }
+  ],
+  "after": [
+    "Uszczelka przylega, bez fałd i luzu",
+    "Wewnętrzna warga jest na okładzinie",
+    "Listwa progowa na miejscu",
+    "Drzwi zamykają się normalnie"
+  ],
+  "unknown": [
+    "Cena z relacji jest z 2008 roku i kanadyjska: sprawdź aktualną.",
+    "Dokładna trasa i miejsca łączenia: źródło opisuje je ogólnie.",
+    "Czy tylne drzwi mają ten sam numer: brak w źródłach."
+  ],
+  "related": [
+    "uszczelka-szyby"
+  ]
+}

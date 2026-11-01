@@ -1,0 +1,187 @@
+{
+  "id": "uszczelka-szyby",
+  "title": "Uszczelki szyby w drzwiach (listwy przyszybowe)",
+  "subtitle": "Wewnętrzna uszczelka i zewnętrzna listwa szczeliny okna, przód",
+  "door": "front",
+  "completeness": "częściowe",
+  "difficulty": 2,
+  "time": [
+    30,
+    75
+  ],
+  "summary": "Szczelinę okna od środka zamyka uszczelka, którą ściąga się do góry (po zdjęciu boczka), a od zewnątrz listwa wypychana specjalnym narzędziem BMW. Instrukcje fabryczne E53 podają: wewnętrzną uszczelkę ściągnąć do góry i przy montażu posmarować środkiem zastępującym terpentynę, a zewnętrzną listwę podważyć narzędziem 00 9 324 od słupka B i założyć równo z krawędzią drzwi.",
+  "extras": [],
+  "tools": [
+    {
+      "name": "Narzędzie BMW 00 9 324",
+      "note": "do zewnętrznej listwy; zamiennik nie jest opisany w źródłach",
+      "need": "should"
+    },
+    {
+      "name": "Plastikowe łopatki do tapicerki",
+      "note": "boczek i podważenie uszczelki",
+      "need": "must"
+    },
+    {
+      "name": "Środek zastępujący terpentynę",
+      "note": "posmarowanie nowej wewnętrznej uszczelki (z asortymentu BMW Parts Service)",
+      "need": "should"
+    },
+    {
+      "name": "Zapasowe klipsy uszczelki",
+      "note": "wymień uszkodzone klipsy",
+      "need": "should"
+    }
+  ],
+  "parts": [
+    {
+      "name": "Uszczelka szczeliny okna (wewnętrzna), przód",
+      "conf": "low",
+      "note": "Numeru nie podaje żadne ze źródeł.",
+      "src": [
+        "tis-cavity-front"
+      ]
+    },
+    {
+      "name": "Zewnętrzna listwa szczeliny okna, przód",
+      "conf": "low",
+      "note": "Numeru nie podaje żadne ze źródeł.",
+      "src": [
+        "tis-cavity-outer"
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "lvl": "info",
+      "t": "Różne wyciągi TIS",
+      "b": "Wewnętrzną uszczelkę opisuje wyciąg dla E53 4.8is, zewnętrzną listwę wyciąg dla E53 3.0i; zestaw jest jednak ten sam w całej rodzinie E53 (to założenie).",
+      "src": [
+        "tis-cavity-front",
+        "tis-cavity-outer"
+      ]
+    },
+    {
+      "lvl": "info",
+      "t": "Karta bez filmów i zdjęć",
+      "b": "Tekst oparty na instrukcjach fabrycznych (wyciągi TIS) i relacjach z forów. Nie ma jeszcze wycinków filmu ani zdjęć przy krokach, dlatego status to „częściowe”.",
+      "src": []
+    }
+  ],
+  "steps": [
+    {
+      "phase": "1. Przygotowanie",
+      "t": "Ustal, którą uszczelkę wymieniasz",
+      "view": "outer",
+      "focus": [
+        "outer.rubber"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "tis-cavity-front",
+        "tis-cavity-outer"
+      ],
+      "b": "W szczelinie okna są dwie uszczelki: od zewnątrz listwa, od wnętrza uszczelka ściągana do góry.",
+      "see": "Gumowe listwy wzdłuż szyby.",
+      "how": [
+        "Zewnętrzna listwa: patrz krok 2.",
+        "Wewnętrzna uszczelka: krok 3 (wymaga zdjęcia boczka).",
+        "Uszkodzone, twarde lub spłaszczone uszczelki zwiększają tarcie szyby i niszczą podnośnik (karta „Podnośnik szyby, przód”)."
+      ],
+      "mistakes": [
+        "Pominięcie uszczelek przy wymianie podnośnika."
+      ],
+      "check": "Wiesz, którą uszczelkę wymieniasz.",
+      "link": "okno-podnosnik-przod"
+    },
+    {
+      "phase": "2. Zewnętrzna listwa",
+      "t": "Wypchnij listwę narzędziem 00 9 324 i załóż nową",
+      "view": "outer",
+      "focus": [
+        "outer.rubber"
+      ],
+      "min": 20,
+      "conf": "med",
+      "src": [
+        "tis-cavity-outer"
+      ],
+      "b": "Zewnętrzną listwę zdejmujesz specjalnym narzędziem BMW, zaczynając od słupka B. Starą listwę możesz zostawić, jeśli jest prosta.",
+      "see": "Listwa pod szybą od zewnątrz.",
+      "how": [
+        "Zapoznaj się ze sposobem używania narzędzia 00 9 324.",
+        "Podważ listwę narzędziem, zaczynając od słupka B.",
+        "Jeśli używasz starej listwy, sprawdź, czy nie jest wygięta.",
+        "Nową założ tak, aby z tyłu była równo z krawędzią drzwi (TIS)."
+      ],
+      "mistakes": [
+        "Użycie wygiętej listwy.",
+        "Siłowanie się wkrętakiem zamiast narzędziem: rysuje lakier."
+      ],
+      "check": "Listwa równa z krawędzią drzwi."
+    },
+    {
+      "phase": "3. Wewnętrzna uszczelka",
+      "t": "Zdejmij boczek i ściągnij uszczelkę do góry",
+      "view": "inner",
+      "focus": [
+        "inner.foam"
+      ],
+      "min": 50,
+      "conf": "med",
+      "src": [
+        "tis-cavity-front",
+        "pelican-panel"
+      ],
+      "b": "Do wewnętrznej uszczelki dojdziesz po zdjęciu boczka; uszczelkę ściągasz do góry.",
+      "see": "Uszczelka pod szybą od środka.",
+      "how": [
+        "Zdejmij boczek wg karty „Tapicerka drzwi przednich”.",
+        "Ściągnij uszczelkę (1) do góry (TIS)."
+      ],
+      "mistakes": [
+        "Szarpanie boczka bez odpięcia wtyczek."
+      ],
+      "check": "Stara uszczelka zdjęta.",
+      "link": "tapicerka-przod"
+    },
+    {
+      "phase": "3. Wewnętrzna uszczelka",
+      "t": "Wymień klipsy i załóż nową uszczelkę",
+      "view": "inner",
+      "focus": [
+        "inner.foam"
+      ],
+      "min": 15,
+      "conf": "med",
+      "src": [
+        "tis-cavity-front"
+      ],
+      "b": "Uszkodzone klipsy wymień. Nową uszczelkę posmaruj środkiem zastępującym terpentynę, zanim ją założysz.",
+      "see": "Klipsy uszczelki w drzwiach.",
+      "how": [
+        "Jeśli któryś klips jest uszkodzony, wymień go.",
+        "Posmaruj uszczelkę środkiem zastępującym terpentynę (TIS: z BMW Parts Service).",
+        "Wciśnij uszczelkę na miejsce; źródło nie opisuje reszty kroków.",
+        "Założenie boczka: odwrotnie do zdejmowania."
+      ],
+      "check": "Uszczelka przylega, boczek założony."
+    }
+  ],
+  "after": [
+    "Szyba chodzi swobodnie w uszczelkach",
+    "Listwa zewnętrzna równa z krawędzią drzwi",
+    "Boczek założony, przycisk szyby działa"
+  ],
+  "unknown": [
+    "Numery uszczelek i listwy: brak w źródłach.",
+    "Zamiennik narzędzia 00 9 324: brak w źródłach.",
+    "Szczegóły wciskania wewnętrznej uszczelki po posmarowaniu: wyciąg TIS ich nie podaje.",
+    "Tylne drzwi mają osobne wyciągi TIS (nie opracowane tutaj)."
+  ],
+  "related": [
+    "okno-podnosnik-przod",
+    "tapicerka-przod"
+  ]
+}

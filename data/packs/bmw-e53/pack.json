@@ -145,6 +145,96 @@
       "title": "M Tech Guy: BMW E53 X5 Front Window Regulator DIY (YouTube, 18:59)",
       "url": "https://www.youtube.com/watch?v=HqPpcqpPvAc",
       "kind": "wideo"
+    },
+    "tis-rear-reg": {
+      "title": "BMW TIS (wyciąg): E53 3.0d, wymiana podnośnika szyby w tylnych drzwiach",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_3.0d_m57_offrd/2_repair_instructions/51__body_equipment_(offrd)/37__electrical_power_windows_body/2_ra__removing_and_installing_complete_power_window_regulator_from_rear_left_and_right/",
+      "kind": "instrukcja fabryczna"
+    },
+    "tis-rear-motor": {
+      "title": "BMW TIS (wyciąg): E53 3.0d, silnik płaski podnośnika, tył",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_3.0d_m57_offrd/2_repair_instructions/67__electrical_drives/62__drive_window_regulator/2_ra__removing_and_installing_replacing_flat_motor_for_rear_left_or_right_power_window/",
+      "kind": "instrukcja fabryczna"
+    },
+    "tis-front-motor": {
+      "title": "BMW TIS (wyciąg): E53 3.0d, silnik płaski podnośnika, przód",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_3.0d_m57_offrd/2_repair_instructions/67__electrical_drives/62__drive_window_regulator/1_ra__removing_and_installing_replacing_flat_motor_for_front_left_or_right_power_windo/",
+      "kind": "instrukcja fabryczna"
+    },
+    "tis-front-reg": {
+      "title": "BMW TIS (wyciąg): E53 3.0d, podnośnik szyby w przednich drzwiach",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_3.0d_m57_offrd/2_repair_instructions/51__body_equipment_(offrd)/33__front_electrically_operated_windows/1_ra__removing_and_installing_power_window_regulator_in_left_or_right_front_door/",
+      "kind": "instrukcja fabryczna"
+    },
+    "tis-rear-glass": {
+      "title": "BMW TIS (wyciąg): E53 4.8is, wymiana szyby tylnych drzwi",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_4.8is_n62-s_offrd/2_repair_instructions/51__body_equipment_(offrd)/34__rear_manually_operated_windows/3_ra__replacing_rear_left_or_right_door_window/",
+      "kind": "instrukcja fabryczna"
+    },
+    "tis-mirror": {
+      "title": "BMW TIS (wyciąg): E53 3.0i, lusterko zewnętrzne w przednich drzwiach",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_3.0i_m54_offrd/2_repair_instructions/51__body_equipment_(offrd)/16__mirrors-covers-ashtrays-shelves-trays/7_ra__removing_and_installing_replacing_mirror_on_left_or_right_front_door/",
+      "kind": "instrukcja fabryczna"
+    },
+    "tis-mirror-glass": {
+      "title": "BMW TIS (wyciąg): E53 3.0d, wymiana szkła lusterka",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_3.0d_m57_offrd/2_repair_instructions/51__body_equipment_(offrd)/16__mirrors-covers-ashtrays-shelves-trays/8_ra__replacing_mirror_glass_for_rear-view_mirror_(on_front_door)/",
+      "kind": "instrukcja fabryczna"
+    },
+    "tis-cavity-front": {
+      "title": "BMW TIS (wyciąg): E53 4.8is, uszczelka szczeliny okna w przednich drzwiach",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_4.8is_n62-s_offrd/2_repair_instructions/51__body_equipment_(offrd)/21__front_door_locks_handles_fittings/13_ra__replacing_window_cavity_seal_on_left_or_right_front_door/",
+      "kind": "instrukcja fabryczna"
+    },
+    "tis-cavity-outer": {
+      "title": "BMW TIS (wyciąg): E53 3.0i, zewnętrzna listwa szczeliny okna w przednich drzwiach",
+      "url": "https://workshop-manuals.com/bmw/x_series_e53/x5_3.0i_m54_offrd/2_repair_instructions/51__body_equipment_(offrd)/21__front_door_locks_handles_fittings/12_ra__removing_and_installing_or_replacing_window_cavity_cover_strip_on_outside_of_lef/",
+      "kind": "instrukcja fabryczna"
+    },
+    "xo-rear-emerg": {
+      "title": "Xoutpost: Emergency window fix, rear regulator failure (2015)",
+      "url": "https://xoutpost.com/x5-e53-forum/100716-emergency-window-fix-rear-regulator-failure-print.html",
+      "kind": "forum"
+    },
+    "xo-glass-clip": {
+      "title": "Xoutpost: Driver's window bolt through glass (klips szyby)",
+      "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/86705-drivers-window-bolt-through-glass.html",
+      "kind": "forum"
+    },
+    "xo-reg-article": {
+      "title": "Xoutpost: Window Regulator Replacement BMW X5 (artykuł, przód i tył)",
+      "url": "https://xoutpost.com/articles/x5/electronics-x5/9463-window-regulator-replacement-bmw-x5.html",
+      "kind": "artykuł"
+    },
+    "fcp-windows": {
+      "title": "FCP Euro: How to repair BMW X5 power windows (E53)",
+      "url": "https://www.fcpeuro.com/blog/how-to-repair-bmw-x5-power-windows-e53",
+      "kind": "artykuł"
+    },
+    "xo-seals": {
+      "title": "Xoutpost: Replace inner front door seals (fepat55)",
+      "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/41253-replace-inner-front-door-seals.html",
+      "kind": "forum"
+    },
+    "xo-mirror-glass": {
+      "title": "Xoutpost: How to replace 2006 side mirror glass",
+      "url": "https://xoutpost.com/x5-e53-forum/115595-how-replace-2006-side-mirror-glass-print.html",
+      "kind": "forum"
+    },
+    "xo-mirror-glass2": {
+      "title": "Xoutpost: Sidemirror removal help (szkło lusterka)",
+      "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/77835-sidemirror-removal-help.html",
+      "kind": "forum"
+    },
+    "xo-mirror-assy": {
+      "title": "Xoutpost: Driver's side mirror replacement",
+      "url": "https://xoutpost.com/x5-e53-forum/12287-drivers-side-mirror-replacement-print.html",
+      "kind": "forum"
+    },
+    "xo-motor-init": {
+      "title": "Xoutpost: Window motor change out, do I need reprogram",
+      "url": "https://xoutpost.com/x5-e53-forum/90902-window-motor-change-out-do-i-need-reprogram-print.html",
+      "kind": "forum"
     }
   },
   "systems": [
@@ -158,10 +248,17 @@
         "klamka-wewn",
         "klamka-zewn-przod",
         "klamka-zewn-tyl",
+        "lusterko-szklo",
+        "lusterko-wymiana",
         "okno-podnosnik-przod",
+        "okno-podnosnik-tyl",
+        "okno-silnik",
+        "okno-szyba",
         "silownik-zamka-przod",
         "tapicerka-przod",
-        "tapicerka-tyl"
+        "tapicerka-tyl",
+        "uszczelka-obwodowa",
+        "uszczelka-szyby"
       ]
     },
     {
@@ -425,6 +522,34 @@
       "icon": "wrench"
     },
     {
+      "id": "lusterko-szklo",
+      "title": "Szkło lusterka",
+      "subtitle": "Wymiana pękniętego szkła w lusterku zewnętrznym",
+      "door": "front",
+      "difficulty": 2,
+      "time": [
+        20,
+        45
+      ],
+      "completeness": "częściowe",
+      "steps": 6,
+      "icon": "wrench"
+    },
+    {
+      "id": "lusterko-wymiana",
+      "title": "Lusterko zewnętrzne: wymiana całości",
+      "subtitle": "Zdjęcie lusterka z przednich drzwi E53",
+      "door": "front",
+      "difficulty": 3,
+      "time": [
+        60,
+        120
+      ],
+      "completeness": "częściowe",
+      "steps": 7,
+      "icon": "wrench"
+    },
+    {
       "id": "okno-podnosnik-przod",
       "title": "Podnośnik szyby, przód",
       "subtitle": "Wymiana mechanizmu opuszczania szyby",
@@ -436,6 +561,48 @@
       ],
       "completeness": "częściowe",
       "steps": 14,
+      "icon": "wrench"
+    },
+    {
+      "id": "okno-podnosnik-tyl",
+      "title": "Podnośnik szyby, tył",
+      "subtitle": "Wymiana mechanizmu opuszczania szyby w drzwiach tylnych",
+      "door": "rear",
+      "difficulty": 3,
+      "time": [
+        90,
+        180
+      ],
+      "completeness": "częściowe",
+      "steps": 11,
+      "icon": "wrench"
+    },
+    {
+      "id": "okno-silnik",
+      "title": "Silnik podnośnika szyby",
+      "subtitle": "Wymiana lub przełożenie płaskiego silnika, przód i tył",
+      "door": "both",
+      "difficulty": 3,
+      "time": [
+        60,
+        150
+      ],
+      "completeness": "częściowe",
+      "steps": 7,
+      "icon": "wrench"
+    },
+    {
+      "id": "okno-szyba",
+      "title": "Szyba w drzwiach: wyjęcie i klips",
+      "subtitle": "Zdjęcie szyby, wymiana klipsa i tulei",
+      "door": "both",
+      "difficulty": 3,
+      "time": [
+        90,
+        180
+      ],
+      "completeness": "częściowe",
+      "steps": 7,
       "icon": "wrench"
     },
     {
@@ -479,6 +646,34 @@
       "completeness": "częściowe",
       "steps": 13,
       "icon": "door"
+    },
+    {
+      "id": "uszczelka-obwodowa",
+      "title": "Uszczelka obwodowa drzwi",
+      "subtitle": "Wymiana uszczelki nadwozia wokół otworu drzwi (przód)",
+      "door": "front",
+      "difficulty": 2,
+      "time": [
+        45,
+        90
+      ],
+      "completeness": "częściowe",
+      "steps": 6,
+      "icon": "wrench"
+    },
+    {
+      "id": "uszczelka-szyby",
+      "title": "Uszczelki szyby w drzwiach (listwy przyszybowe)",
+      "subtitle": "Wewnętrzna uszczelka i zewnętrzna listwa szczeliny okna, przód",
+      "door": "front",
+      "difficulty": 2,
+      "time": [
+        30,
+        75
+      ],
+      "completeness": "częściowe",
+      "steps": 4,
+      "icon": "wrench"
     }
   ]
 }

@@ -1,0 +1,431 @@
+{
+  "id": "okno-podnosnik-tyl",
+  "title": "Podnośnik szyby, tył",
+  "subtitle": "Wymiana mechanizmu opuszczania szyby w drzwiach tylnych",
+  "door": "rear",
+  "completeness": "częściowe",
+  "difficulty": 3,
+  "time": [
+    90,
+    180
+  ],
+  "summary": "Podnośnik szyby w tylnych drzwiach E53 to prowadnica z linkami i płaskim silnikiem. Gdy pęka klips łączący szybę z suwakiem albo zrywa się linka, szyba zjeżdża, stuka lub się zacina. Fabryczna instrukcja każe opuścić szybę na dół, odłączyć wtyczkę silnika, odkręcić nakrętki i wysunąć podnośnik z drzwi, bez wyjmowania szyby. Silnik przekładasz na nowy podnośnik. Karta łączy wyciąg z instrukcji BMW z relacjami z forum Xoutpost; momentów dokręcania źródła nie podają.",
+  "extras": [],
+  "tools": [
+    {
+      "name": "Klucz nasadowy 10 mm",
+      "note": "nakrętki podnośnika (wg wyciągu TIS jest to wartość z rozmiaru z forów; sprawdź na miejscu)",
+      "need": "must"
+    },
+    {
+      "name": "Klucz nasadowy 8 mm",
+      "note": "śruba klipsa szyby przez otwór w podnośniku",
+      "need": "should"
+    },
+    {
+      "name": "Torx T20",
+      "note": "śruby boczka tylnych drzwi (karta „Tapicerka drzwi tylnych”)",
+      "need": "must"
+    },
+    {
+      "name": "Plastikowe łopatki do tapicerki",
+      "note": "boczek i klipsy",
+      "need": "must"
+    },
+    {
+      "name": "Śrubokręty płaski i krzyżakowy",
+      "note": "wtyczki i roleta przeciwsłoneczna",
+      "need": "must"
+    },
+    {
+      "name": "Opaska zaciskowa 30 cm i szczypce",
+      "note": "tylko do doraźnego unieruchomienia szyby (krok 3)",
+      "need": "opt"
+    },
+    {
+      "name": "Zapasowe spinki boczka",
+      "note": "autorzy zalecają mieć zapas",
+      "need": "should"
+    },
+    {
+      "name": "Taśma malarska",
+      "note": "podparcie szyby w górze, gdyby miała zjechać",
+      "need": "should"
+    }
+  ],
+  "parts": [
+    {
+      "name": "Podnośnik szyby, tył (lewy lub prawy)",
+      "conf": "low",
+      "note": "Numer nie jest podany w naszych źródłach: dobierz po VIN (np. w katalogu części). Sprawdź, czy kupujesz wersję z silnikiem czy bez, bo silnik można przełożyć.",
+      "src": [
+        "tis-rear-reg",
+        "xo-reg-article"
+      ]
+    },
+    {
+      "name": "Klips szyby",
+      "oe": "51338254781",
+      "conf": "high",
+      "note": "Ten sam numer podają FCP Euro i wątek Xoutpost o klipsie; wg TIS uchwyt (klips) wymienia się za każdym razem, gdy wyjmujesz szybę.",
+      "src": [
+        "fcp-windows",
+        "xo-glass-clip",
+        "tis-rear-glass"
+      ]
+    },
+    {
+      "name": "Tuleja (bush) klipsa szyby",
+      "oe": "51338242760",
+      "conf": "med",
+      "note": "Numer z jednego wątku Xoutpost (RealOEM); sprawdź po VIN.",
+      "src": [
+        "xo-glass-clip"
+      ]
+    },
+    {
+      "name": "Folia przeciwwilgociowa lub pasta uszczelniająca",
+      "conf": "low",
+      "note": "Wątek Xoutpost podaje taśmę uszczelniającą 3M Window-Weld 3/8\" i zapas spinek boczka (9 szt.); żadnych numerów BMW.",
+      "src": [
+        "xo-rear-emerg"
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "lvl": "warn",
+      "t": "Nie wyjmuj szyby, gdy wymieniasz tylko podnośnik",
+      "b": "Instrukcja fabryczna mówi wprost: przy wymianie samego podnośnika szyba zostaje w drzwiach. Opuść ją na dół i odstaw na dno drzwi. Przy wyjmowaniu podnośnika uważaj, aby nie uszkodzić dolnego ogranicznika.",
+      "src": [
+        "tis-rear-reg",
+        "tis-rear-glass"
+      ]
+    },
+    {
+      "lvl": "warn",
+      "t": "Kruche elementy",
+      "b": "Plastikowa obudowa diody w tylnej klamce jest delikatna; roleta przeciwsłoneczna, jeśli jest, wymaga zdjęcia przed boczkiem. Zanotuj prowadzenie wiązki przed zdjęciem boczka.",
+      "src": [
+        "xo-reg-article"
+      ]
+    },
+    {
+      "lvl": "info",
+      "t": "Karta bez filmów i zdjęć",
+      "b": "Tekst oparty na instrukcjach fabrycznych (wyciągi TIS) i relacjach z forów. Nie ma jeszcze wycinków filmu ani zdjęć przy krokach, dlatego status to „częściowe”.",
+      "src": []
+    }
+  ],
+  "steps": [
+    {
+      "phase": "1. Diagnoza i przygotowanie",
+      "t": "Ustal, czy to klips, linka, silnik czy przełącznik",
+      "view": "card",
+      "focus": [
+        "card.switch"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "xo-rear-emerg",
+        "xo-glass-clip",
+        "fcp-windows"
+      ],
+      "b": "Zanim kupisz część, sprawdź objaw. Najczęstsza usterka to pęknięty klips łączący szybę z suwakiem; kolejna to linka.",
+      "see": "Przycisk szyby w drzwiach i druga ręka na szybie przy zamykaniu.",
+      "how": [
+        "Stuk lub „kerchunk” przy zamykaniu szyby oznacza zwykle uszkodzony klips (relacja J.Belknap z Xoutpost).",
+        "Szyba zjeżdża na dół lub zacina się w drzwiach: ten sam objaw opisuje wątek o pękającym klipsie (po ok. 10 cyklach góra-dół).",
+        "Silnik pracuje, a szyba stoi: zepsuta linka lub klips. Silnik milczy: sprawdź najpierw przełącznik i bezpiecznik (brak szczegółów w źródłach).",
+        "Pęknięty klips to tani element: FCP Euro opisuje klipsy i linkę jako dwa najczęstsze punkty awarii."
+      ],
+      "mistakes": [
+        "Kupowanie całego podnośnika, gdy wystarczy klips."
+      ],
+      "check": "Wiesz, czy wymieniasz sam klips, czy cały podnośnik.",
+      "link": "okno-szyba"
+    },
+    {
+      "phase": "1. Diagnoza i przygotowanie",
+      "t": "Awaryjnie unieruchom szybę opaską zaciskową (tymczasowo)",
+      "view": "inner",
+      "focus": [
+        "inner.regulator"
+      ],
+      "min": 15,
+      "conf": "low",
+      "src": [
+        "xo-rear-emerg"
+      ],
+      "b": "Jeśli szyba ma zostać w górze, a części jeszcze nie ma, opisany jest doraźny sposób. To rozwiązanie na kilka dni, nie naprawa.",
+      "see": "Szyba podniesiona ręką i zaciśnięta opaską pod klipsem podnośnika.",
+      "how": [
+        "Zdejmij boczek i podnieś brzeg folii przeciwwilgociowej (wątek J.Belknap).",
+        "Podnieś szybę ręką.",
+        "Przeprowadź jedną lub dwie opaski zaciskowe 30 cm pod klipsem podnośnika i mocno zaciągnij szczypcami.",
+        "Foliię dociśnij roleczką, a otwory po klipsach zaklej taśmą do czasu naprawy."
+      ],
+      "mistakes": [
+        "Zostawienie auta z otwartymi drzwiami lub bez szyby na deszczu lub na noc bez zabezpieczenia (ostrzeżenie autora wątku)."
+      ],
+      "check": "Szyba stoi w górze i nie opada."
+    },
+    {
+      "phase": "1. Diagnoza i przygotowanie",
+      "t": "Kup części i przygotuj narzędzia",
+      "view": "inner",
+      "focus": [
+        "inner.regulator"
+      ],
+      "min": 15,
+      "conf": "med",
+      "src": [
+        "xo-glass-clip",
+        "fcp-windows",
+        "xo-rear-emerg"
+      ],
+      "b": "Wymieniasz podnośnik z silnikiem. Do tego nowy klips i tuleja, a także spinki do boczka.",
+      "see": "Podnośnik z płaskim silnikiem i dwa małe plastiki.",
+      "how": [
+        "Kup podnośnik pasujący do lewej lub prawej strony; numeru nie podajemy, dobierz po VIN.",
+        "Dokup klips 51338254781 i tuleję 51338242760 (wątek Xoutpost); wg TIS uchwyt wymienia się każdorazowo.",
+        "Przygotuj zapas spinek boczka i, jeśli folia się podrze, taśmę uszczelniającą."
+      ],
+      "mistakes": [
+        "Zakup podnośnika bez sprawdzenia strony i wersji."
+      ],
+      "check": "Masz podnośnik, klips, tuleję i narzędzia."
+    },
+    {
+      "phase": "1. Diagnoza i przygotowanie",
+      "t": "Opuść szybę na dół i odłącz akumulator",
+      "view": "card",
+      "focus": [
+        "card.switch"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "tis-rear-reg",
+        "tis-rear-glass"
+      ],
+      "b": "Instrukcja fabryczna wymaga, aby szyba była w dolnym położeniu i nie leżała na ogranicznikach. Akumulator odłączasz przed rozłączaniem wtyczek.",
+      "see": "Szyba na dole, drzwi otwarte.",
+      "how": [
+        "Przyciskiem opuść szybę prawie na dół, ale nie dociskaj jej do końca (wg wyciągu TIS silnika szyba nie może być w skrajnym położeniu).",
+        "Odłącz klemę minusową akumulatora (wg TIS przy wyjmowaniu szyby; to dobra praktyka także tutaj)."
+      ],
+      "mistakes": [
+        "Zostawienie szyby w górze: utrudnia dostęp do klipsa."
+      ],
+      "check": "Szyba stoi nisko, akumulator odłączony."
+    },
+    {
+      "phase": "2. Dostęp do wnętrza drzwi",
+      "t": "Zdejmij boczek tylnych drzwi",
+      "view": "card",
+      "focus": [
+        "card.trim"
+      ],
+      "min": 40,
+      "conf": "med",
+      "src": [
+        "pelican-rear-card",
+        "xo-reg-article"
+      ],
+      "b": "Boczek zdejmujesz wg karty „Tapicerka drzwi tylnych”. Jeśli masz roletę przeciwsłoneczną, wyjmij ją najpierw.",
+      "see": "Boczek z klamką i przełącznikiem szyby.",
+      "how": [
+        "Otwórz kartę „Tapicerka drzwi tylnych” i wykonaj kroki zdejmowania boczka.",
+        "Przed zdjęciem zanotuj lub sfotografuj, jak biegnie wiązka (zalecenie autora artykułu Xoutpost).",
+        "Odepnij wtyczki i cięgno klamki; ostrożnie z plastikową obudową diody w klamce."
+      ],
+      "mistakes": [
+        "Szarpanie boczka bez odpięcia wtyczek.",
+        "Złamanie obudowy diody klamki."
+      ],
+      "check": "Boczek leży osobno, wtyczki odpięte.",
+      "link": "tapicerka-tyl"
+    },
+    {
+      "phase": "2. Dostęp do wnętrza drzwi",
+      "t": "Odsłoń wnętrze drzwi: folia i wygłuszenie",
+      "view": "inner",
+      "focus": [
+        "inner.foam"
+      ],
+      "min": 20,
+      "conf": "med",
+      "src": [
+        "tis-rear-motor",
+        "xo-rear-emerg",
+        "xo-reg-article"
+      ],
+      "b": "Za boczkiem jest folia przeciwwilgociowa i wygłuszenie. Instrukcja fabryczna wymaga zdjęcia wygłuszenia w tylnych drzwiach.",
+      "see": "Czarna folia klejona do blachy.",
+      "how": [
+        "Odklejaj folię powoli, małymi odcinkami: trzyma ją lepka masa (artykuł Xoutpost).",
+        "Nie rwij jej: autorzy wątków piszą, że wyjęta ostrożnie nadaje się do ponownego użycia, ale podarta wymaga nowej lub taśmy uszczelniającej.",
+        "Zdejmij wygłuszenie (TIS silnika)."
+      ],
+      "mistakes": [
+        "Podarcie folii, która zabezpiecza kabinę przed wodą."
+      ],
+      "check": "Widzisz podnośnik, silnik i okno dostępu do klipsa."
+    },
+    {
+      "phase": "3. Wyjmowanie starego podnośnika",
+      "t": "Odepnij szybę od suwaka (klips)",
+      "view": "inner",
+      "focus": [
+        "inner.regulator"
+      ],
+      "min": 25,
+      "conf": "med",
+      "src": [
+        "xo-glass-clip",
+        "xo-reg-article",
+        "tis-rear-reg"
+      ],
+      "b": "Szyba jest przykręcona do suwaka śrubą przez klips. Wg fabrycznego opisu podnośnika szyba może zostać na dole; forumowy opis pokazuje, jak ją odpiąć i podeprzeć w górze, gdy to konieczne.",
+      "see": "Suwak podnośnika z klipsem i otworem na śrubę.",
+      "how": [
+        "Ustaw szybę tak, aby śruba była widoczna w otworze dostępu (wątek Xoutpost: ok. 4 cm pod mechanizmem).",
+        "Odkręć śrubę kluczem nasadowym 8 mm; klucz płaski zrywa łeb (relacja squeasel).",
+        "Wysuń szybę z klipsa i tulei, odłóż klips; jeśli się rozsypie, wymień go na nowy.",
+        "Podnieś szybę ręką i unieruchom taśmą malarską; pod taśmę podłóż papier, aby nie zostawić śladów kleju (artykuł Xoutpost)."
+      ],
+      "mistakes": [
+        "Dociskanie szyby do dolnego ogranicznika.",
+        "Siłowe szarpanie szyby: może pęknąć."
+      ],
+      "check": "Szyba jest wolna od suwaka i bezpiecznie podparta.",
+      "warn": "Szyba jest ciężka: nie opieraj jej na plastikowych klipsach, podeprzyj taśmą lub poproś drugą osobę."
+    },
+    {
+      "phase": "3. Wyjmowanie starego podnośnika",
+      "t": "Odłącz wtyczkę silnika, odkręć nakrętki i wysuń podnośnik",
+      "view": "inner",
+      "focus": [
+        "inner.regulator"
+      ],
+      "min": 25,
+      "conf": "high",
+      "src": [
+        "tis-rear-reg"
+      ],
+      "b": "Fabryczna kolejność: wtyczka silnika, nakrętki, podważenie podnośnika i wyprowadzenie go z drzwi.",
+      "see": "Podnośnik na nakrętkach z płaskim silnikiem.",
+      "how": [
+        "Odłącz wtyczkę z silnika podnośnika.",
+        "Odkręć nakrętki mocujące podnośnik.",
+        "Podważ podnośnik i wyprowadź go z tylnych drzwi (TIS: lever out and feed out).",
+        "Uważaj na dolny ogranicznik: nie wolno go uszkodzić (TIS)."
+      ],
+      "mistakes": [
+        "Zgięcie lub urwanie dolnego ogranicznika."
+      ],
+      "check": "Podnośnik leży poza drzwiami."
+    },
+    {
+      "phase": "3. Wyjmowanie starego podnośnika",
+      "t": "Przełóż silnik na nowy podnośnik",
+      "view": "inner",
+      "focus": [
+        "inner.regulator"
+      ],
+      "min": 15,
+      "conf": "high",
+      "src": [
+        "tis-rear-reg",
+        "tis-rear-motor",
+        "xo-reg-article"
+      ],
+      "b": "Silnik jest osobną częścią: kilka śrub i obrót płaskiego silnika wystarczą, aby go zdjąć. Przekładasz go na nowy podnośnik.",
+      "see": "Płaski silnik na dwóch lub trzech śrubach.",
+      "how": [
+        "Odkręć śruby silnika i obróć go w kierunku strzałki aż do zdjęcia (TIS: turn the flat motor until it can be removed).",
+        "Zamontuj silnik na nowym podnośniku w odwrotnej kolejności.",
+        "Szyba nie może być przy tym w skrajnym położeniu (TIS silnika)."
+      ],
+      "mistakes": [
+        "Przełożenie silnika z szybą dociśniętą do dolnego ogranicznika."
+      ],
+      "check": "Silnik siedzi na nowym podnośniku."
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Włóż nowy podnośnik, klips i szybę",
+      "view": "inner",
+      "focus": [
+        "inner.regulator"
+      ],
+      "min": 30,
+      "conf": "med",
+      "src": [
+        "tis-rear-reg",
+        "tis-rear-glass",
+        "xo-glass-clip"
+      ],
+      "b": "Montaż odwrotnie do demontażu. Uchwyt (klips) szyby wymieniasz na nowy; wg TIS po montażu szyby nie trzeba jej regulować.",
+      "see": "Podnośnik na nakrętkach, szyba w nowym klipsie.",
+      "how": [
+        "Wsuń podnośnik w drzwi i przykręć nakrętki.",
+        "Podłącz wtyczkę silnika.",
+        "Załóż szybę w nowy klips i tuleję (tuleja od strony zewnętrznej kołnierzem na zewnątrz, wg wątku Xoutpost) i dokręć śrubę.",
+        "Momenty dokręcania nie są podane w źródłach: dokręć pewnie, bez przeciągania."
+      ],
+      "mistakes": [
+        "Zły kierunek tulei.",
+        "Przeciągnięcie śruby klipsa."
+      ],
+      "check": "Szyba siedzi w klipsie i nie ma luzu."
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Test działania i złożenie drzwi",
+      "view": "card",
+      "focus": [
+        "card.switch"
+      ],
+      "min": 30,
+      "conf": "med",
+      "src": [
+        "xo-glass-clip",
+        "xo-motor-init",
+        "xo-rear-emerg"
+      ],
+      "b": "Przed założeniem boczka sprawdź działanie szyby. Funkcje „auto” mogą ruszyć dopiero po uruchomieniu silnika (relacja z Xoutpost).",
+      "see": "Szyba chodzi góra-dół.",
+      "how": [
+        "Podłącz akumulator, kilka razy podnieś i opuść szybę.",
+        "Obserwuj, czy szyba chodzi płynnie i wchodzi w uszczelkę.",
+        "Zaklej folię (nowa lub dociśnięta roleczką, ewentualnie taśmą uszczelniającą), załóż wygłuszenie i boczek.",
+        "Na forum (Xoutpost) jedni piszą, że E53 nie wymaga inicjalizacji szyby po wymianie, inni opisują „normalizację” skrajnych położeń przy pierwszym pełnym ruchu: jeśli „auto” nie działa, przejedź szybą raz pełnym zakresem."
+      ],
+      "mistakes": [
+        "Zakładanie boczka, zanim sprawdzisz szybę."
+      ],
+      "check": "Szyba działa; boczek założony."
+    }
+  ],
+  "after": [
+    "Szyba unosi się i opada płynnie",
+    "Szyba nie stuka przy zamykaniu",
+    "Folia przeciwwilgociowa jest cała i przylega",
+    "Boczek i wtyczki na miejscu, światło i klamka działają"
+  ],
+  "unknown": [
+    "Momenty dokręcania śrub i nakrętek: instrukcje fabryczne odsyłają do rozdziału z momentami i nie podają wartości na stronie, więc ich tu nie ma.",
+    "Numer podnośnika tylnych drzwi (lewy i prawy): brak w źródłach, dobierz po VIN.",
+    "Rozmiar nakrętek podnośnika: źródła fabryczne go nie podają.",
+    "Czy szyba po montażu wymaga inicjalizacji: źródła forum są sprzeczne.",
+    "Sprzeczność: TIS pozwala zostawić szybę na dole, a artykuł FCP Euro wspomina o wyjęciu podnośnika przy szybie podpartej u góry."
+  ],
+  "related": [
+    "tapicerka-tyl",
+    "okno-szyba",
+    "okno-silnik"
+  ]
+}

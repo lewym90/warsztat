@@ -1,378 +1,379 @@
 {
- "id": "klamka-zewn-tyl",
- "title": "Klamka zewnętrzna: drzwi tylne",
- "subtitle": "Wymiana klamki i mechanizmu zamka (opracowanie częściowe)",
- "door": "rear",
- "completeness": "częściowe",
- "difficulty": 3,
- "time": [
-  90,
-  180
- ],
- "summary": "Klamka zewnętrzna tylnych drzwi E53 jest na jednej nakrętce od wewnątrz i wpięta w dwa elementy zamka, a pod nią jest mechanizm z linką. Karta opiera się na fragmentach instrukcji fabrycznej (3.0d M57 oraz 4.4i M62); nie ma zdjęć, filmu ani momentów dokręcenia.",
- "extras": [
-  {
-   "t": "Awaryjnie: drzwi nie otwierają się wcale",
-   "b": "Na forum opisano sposób otwarcia drzwi, gdy tylny mechanizm nie działa: przestawić blokadę dziecięcą (mały przełącznik na krawędzi drzwi) cienkim przedmiotem, np. karta plastikowa lub drut. Wtedy drzwi otwierają się od zewnątrz, ale nie od środka. Potem zablokuj, odblokuj i otwórz, a następnie przestaw blokadę z powrotem. Inna wskazówka: trzymaj klamkę wewnętrzną w pozycji otwarcia i w tym czasie zablokuj lub odblokuj centralnie.",
-   "src": [
-    "xo-rear-childlock",
-    "xo-actuator"
-   ]
-  }
- ],
- "tools": [
-  {
-   "name": "Torx T20",
-   "note": "boczek",
-   "need": "must"
-  },
-  {
-   "name": "Plastikowe łopatki do tapicerki",
-   "note": "",
-   "need": "must"
-  },
-  {
-   "name": "Klucz nasadowy (8 mm?)",
-   "note": "nakrętka klamki: rozmiar dla tylnych drzwi niepotwierdzony, jak w przednich",
-   "need": "should"
-  },
-  {
-   "name": "Taśma malarska",
-   "note": "ochrona lakieru",
-   "need": "should"
-  }
- ],
- "parts": [
-  {
-   "name": "Mechanizm klamki zewnętrznej, tył",
-   "oe": null,
-   "conf": "low",
-   "note": "Numeru OE dla tylnych drzwi nie potwierdzono (w źródłach tylko przód: 51218243615). W ofertach sklepów mechanizm ma być wspólny dla lewej i prawej strony: sprawdź po VIN.",
-   "src": [
-    "ads-prices",
-    "autodoc-topran"
-   ]
-  }
- ],
- "warnings": [
-  {
-   "lvl": "info",
-   "t": "Karta robocza",
-   "b": "Kroki poniżej to skrót z instrukcji fabrycznej. Rozbierając, rób zdjęcia i uzupełniaj szczegóły, a my dopiszemy je do karty.",
-   "src": [
-    "tis-rear-outer-200",
-    "tis-rear-outer-170"
-   ]
-  }
- ],
- "steps": [
-  {
-   "phase": "1. Przygotowanie",
-   "t": "Zrozum, co wymieniasz",
-   "view": "outer",
-   "focus": [
-    "outer.handle"
-   ],
-   "min": 10,
-   "conf": "med",
-   "src": [
-    "tis-rear-outer-200",
-    "tis-rear-outer-170"
-   ],
-   "b": "Klamka zewnętrzna tylnych drzwi jest przykręcona od wewnątrz jedną nakrętką i wpięta w dwa elementy zamka: tylny i przedni. Pod klamką jest mechanizm zamka z linką.",
-   "see": "Zewnętrzna klamka tylnych drzwi i jej osłona.",
-   "how": [
-    "Obejrzyj klamkę: czy jest pęknięta, luźna lub nie otwiera drzwi.",
-    "Jeśli drzwi nie otwierają się z zewnątrz, a zamek działa, sprawdź klamkę i linkę (kolejne kroki).",
-    "Do pracy potrzebujesz dostępu do wnętrza drzwi: najpierw zdejmiesz boczek."
-   ],
-   "mistakes": [
-    "Wymiana mechanizmu, gdy winna jest tylko klamka."
-   ],
-   "check": "Wiesz, czy zdejmujesz klamkę, czy też mechanizm zamka."
-  },
-  {
-   "phase": "2. Dostęp do klamki",
-   "t": "Zdejmij boczek tylnych drzwi",
-   "view": "card",
-   "focus": [
-    "card.trim"
-   ],
-   "min": 40,
-   "conf": "high",
-   "src": [
-    "pelican-rear-card",
-    "tis-rear-outer-200"
-   ],
-   "b": "Pierwszy etap fabryczny to zdjęcie boczka. Pełną procedurę ze zdjęciami masz w karcie „Tapicerka drzwi tylnych”.",
-   "see": "Boczek tylnych drzwi.",
-   "how": [
-    "Otwórz kartę „Tapicerka drzwi tylnych” i zdejmij boczek zgodnie z nią.",
-    "Odłóż boczek tak, aby nie naciągał przewodów."
-   ],
-   "mistakes": [
-    "Zdejmowanie boczka bez odpięcia wtyczek."
-   ],
-   "check": "Boczek jest zdjęty i leży osobno.",
-   "link": "tapicerka-tyl"
-  },
-  {
-   "phase": "2. Dostęp do klamki",
-   "t": "Zdejmij izolację akustyczną",
-   "view": "inner",
-   "focus": [
-    "inner.foam"
-   ],
-   "min": 10,
-   "conf": "high",
-   "src": [
-    "tis-rear-outer-200"
-   ],
-   "b": "Instrukcja fabryczna każe zdjąć izolację (folia i pianka) z drzwi przed dalszą pracą.",
-   "see": "Czarna folia z masą klejącą na wnętrzu drzwi.",
-   "how": [
-    "Odklejaj izolację powoli, od brzegu.",
-    "Staraj się jej nie porwać: po złożeniu ma chronić przed wodą."
-   ],
-   "mistakes": [
-    "Podarcie folii."
-   ],
-   "check": "Wnętrze drzwi jest odsłonięte."
-  },
-  {
-   "phase": "2. Dostęp do klamki",
-   "t": "Zdejmij osłonę klamki",
-   "view": "outer",
-   "focus": [
-    "outer.handle"
-   ],
-   "min": 10,
-   "conf": "med",
-   "src": [
-    "tis-rear-outer-170"
-   ],
-   "b": "Instrukcja fabryczna zaczyna od zdjęcia osłony klamki zewnętrznej. Osłona zasłania nakrętkę.",
-   "see": "Mała pokrywka (osłona śruby) przy klamce od strony drzwi.",
-   "how": [
-    "Podważ osłonę delikatnie plastikową łopatką.",
-    "Przy montażu użyj starszej ramki osłony, aby nie uszkodzić lakieru (uwaga z instrukcji fabrycznej)."
-   ],
-   "mistakes": [
-    "Metalowe narzędzie bez ochrony: rysy na lakierze."
-   ],
-   "check": "Osłona jest zdjęta, widać nakrętkę.",
-   "warn": true
-  },
-  {
-   "phase": "3. Zdejmowanie klamki i mechanizmu",
-   "t": "Poluzuj nakrętkę klamki, ale jej nie wykręcaj",
-   "view": "inner",
-   "focus": [
-    "inner.handle_nut"
-   ],
-   "min": 10,
-   "conf": "med",
-   "src": [
-    "tis-rear-outer-170"
-   ],
-   "b": "Nakrętka trzyma klamkę. Instrukcja każe ją tylko poluzować, a nie wyjmować.",
-   "see": "Nakrętka w dolnej części klamki od strony wnętrza drzwi.",
-   "how": [
-    "Poluzuj nakrętkę kilkoma obrotami.",
-    "Nie wykręcaj jej do końca."
-   ],
-   "mistakes": [
-    "Całkowite wykręcenie nakrętki: klamka wypadnie i trudno ją potem założyć."
-   ],
-   "check": "Nakrętka jest poluzowana, ale nadal na gwincie."
-  },
-  {
-   "phase": "3. Zdejmowanie klamki i mechanizmu",
-   "t": "Przytrzymaj klamkę wysuniętą i zdejmij ją z siłownika",
-   "view": "outer",
-   "focus": [
-    "outer.handle"
-   ],
-   "min": 10,
-   "conf": "med",
-   "src": [
-    "tis-rear-outer-170"
-   ],
-   "b": "Klamkę wyciągasz maksymalnie na zewnątrz i do góry i przytrzymujesz śrubokrętem, aby nie wróciła, a potem zdejmujesz z elementów zamka.",
-   "see": "Klamka wysunięta do góry i na zewnątrz.",
-   "how": [
-    "Pociągnij klamkę jak najdalej na zewnątrz i do góry.",
-    "Zablokuj ją w tej pozycji śrubokrętem przez cały czas zdejmowania.",
-    "Zdejmij ją z tylnego elementu zamka.",
-    "Zdejmij ją z przedniego elementu zamka: klamka musi być w najniższym położeniu."
-   ],
-   "mistakes": [
-    "Puszczenie klamki w trakcie zdejmowania: uszkodzisz zaczepy."
-   ],
-   "check": "Klamka jest zdjęta z drzwi."
-  },
-  {
-   "phase": "3. Zdejmowanie klamki i mechanizmu",
-   "t": "Zdejmij uszczelki klamki",
-   "view": "inner",
-   "focus": [
-    "inner.carrier"
-   ],
-   "min": 10,
-   "conf": "med",
-   "src": [
-    "tis-rear-outer-200"
-   ],
-   "b": "Wokół klamki są dwie uszczelki, które zasłaniają dalszy mechanizm.",
-   "see": "Dwie gumowe uszczelki wokół klamki.",
-   "how": [
-    "Zdejmij obie uszczelki klamki zewnętrznej.",
-    "Odłóż je: obejrzyj i wymień, jeśli są sparciałe."
-   ],
-   "mistakes": [
-    "Uszkodzenie uszczelek."
-   ],
-   "check": "Uszczelki są zdjęte."
-  },
-  {
-   "phase": "3. Zdejmowanie klamki i mechanizmu",
-   "t": "Odepnij kulę linki i zdejmij linkę z zamka",
-   "view": "inner",
-   "focus": [
-    "inner.ball",
-    "inner.bowden"
-   ],
-   "min": 10,
-   "conf": "med",
-   "src": [
-    "tis-rear-outer-200"
-   ],
-   "b": "Linka od klamki jest wpięta w zamek kulą. Zdejmujesz ją z uchwytu na zamku.",
-   "see": "Kula głowicy linki i uchwyt linki na zamku.",
-   "how": [
-    "Odepnij kulę (głowicę).",
-    "Zdejmij linkę Bowdena z uchwytu na zamku."
-   ],
-   "mistakes": [
-    "Szarpanie linki: pęka osłona."
-   ],
-   "check": "Linka jest odpięta od zamka."
-  },
-  {
-   "phase": "3. Zdejmowanie klamki i mechanizmu",
-   "t": "Poluzuj śrubę mechanizmu i wyjmij go",
-   "view": "inner",
-   "focus": [
-    "inner.actuator"
-   ],
-   "min": 15,
-   "conf": "med",
-   "src": [
-    "tis-rear-outer-200"
-   ],
-   "b": "Mechanizm (siłownik zamka) jest na śrubie, którą tylko poluzowujesz. Potem wysuwasz go do przodu i wyjmujesz do wnętrza drzwi.",
-   "see": "Śruba mechanizmu na krawędzi drzwi.",
-   "how": [
-    "Poluzuj śrubę, nie wykręcaj jej do końca.",
-    "Unieś mechanizm i wysuń go do przodu.",
-    "Wyjmij go do wnętrza drzwi."
-   ],
-   "mistakes": [
-    "Całkowite wykręcenie śruby: instrukcja każe ją tylko poluzować."
-   ],
-   "check": "Mechanizm jest w ręce."
-  },
-  {
-   "phase": "4. Montaż i test",
-   "t": "Włóż nowy mechanizm i sprawdź jego położenie",
-   "view": "inner",
-   "focus": [
-    "inner.actuator"
-   ],
-   "min": 15,
-   "conf": "med",
-   "src": [
-    "tis-rear-outer-200"
-   ],
-   "b": "Montaż jest odwrotny. Dwa warunki z instrukcji: prowadnica ma leżeć na zewnętrznej metalowej krawędzi, a mechanizm przylegać równo do prowadnicy.",
-   "see": "Mechanizm przy krawędzi drzwi.",
-   "how": [
-    "Ustaw prowadnicę na zewnętrznej metalowej krawędzi.",
-    "Sprawdź, czy mechanizm przylega równo do prowadnicy.",
-    "Dokręć śrubę. Moment nie jest podany w źródle."
-   ],
-   "mistakes": [
-    "Mechanizm krzywo na prowadnicy."
-   ],
-   "check": "Mechanizm leży równo i śruba jest dokręcona."
-  },
-  {
-   "phase": "4. Montaż i test",
-   "t": "Załóż linkę, uszczelki i klamkę",
-   "view": "outer",
-   "focus": [
-    "outer.handle"
-   ],
-   "min": 15,
-   "conf": "med",
-   "src": [
-    "tis-rear-outer-200",
-    "tis-rear-outer-170"
-   ],
-   "b": "Wpinasz linkę, zakładasz uszczelki i klamkę, a nakrętkę dokręcasz momentem z instrukcji (wartości w źródle brak).",
-   "see": "Klamka na drzwiach, linka w mechanizmie.",
-   "how": [
-    "Wpnij linkę i kulę.",
-    "Załóż uszczelki.",
-    "Osadź klamkę tak, aby jej powierzchnia przylegała do mechanizmu bez luzu.",
-    "Dokręć nakrętkę: instrukcja odsyła do tabeli momentów (wartości nie mamy).",
-    "Załóż osłonę klamki."
-   ],
-   "mistakes": [
-    "Luz między klamką a mechanizmem."
-   ],
-   "check": "Klamka siedzi bez luzu."
-  },
-  {
-   "phase": "4. Montaż i test",
-   "t": "Test i złożenie",
-   "view": "card",
-   "focus": [
-    "card.top_clips"
-   ],
-   "min": 40,
-   "conf": "med",
-   "src": [
-    "tis-rear-outer-200"
-   ],
-   "b": "Najpierw sprawdź działanie, potem zakładaj izolację i boczek.",
-   "see": "Drzwi z odsłoniętym wnętrzem.",
-   "how": [
-    "Pociągnij klamkę zewnętrzną: drzwi mają się otworzyć.",
-    "Sprawdź też klamkę wewnętrzną i zamek.",
-    "Przyklej izolację i załóż boczek (karta „Tapicerka drzwi tylnych”)."
-   ],
-   "mistakes": [
-    "Zakładanie boczka bez testu."
-   ],
-   "check": "Klamka zewnętrzna otwiera drzwi, boczek jest założony.",
-   "link": "tapicerka-tyl"
-  }
- ],
- "after": [
-  "Klamka zewnętrzna otwiera tylne drzwi",
-  "Klamka wewnętrzna i zamek działają",
-  "Boczek siedzi, folia jest cała"
- ],
- "unknown": [
-  "Zdjęcia i film tej operacji dla tylnych drzwi: nie znaleziono.",
-  "Moment dokręcenia nakrętki klamki i śruby mechanizmu: instrukcja odsyła do tabeli, której nie mamy.",
-  "Numer OE mechanizmu i klamki tylnych drzwi.",
-  "Rozmiar nakrętki klamki.",
-  "Instrukcja fabryczna 3.0d ma drugą stronę, której nie widzieliśmy (strona 1 z 2)."
- ],
- "related": [
-  "tapicerka-tyl",
-  "klamka-wewn"
- ]
+  "id": "klamka-zewn-tyl",
+  "title": "Klamka zewnętrzna: drzwi tylne",
+  "subtitle": "Wymiana klamki i mechanizmu zamka (opracowanie częściowe)",
+  "door": "rear",
+  "completeness": "częściowe",
+  "difficulty": 3,
+  "time": [
+    90,
+    180
+  ],
+  "summary": "Klamka zewnętrzna tylnych drzwi E53 jest na jednej nakrętce od wewnątrz i wpięta w dwa elementy zamka, a pod nią jest mechanizm z linką. Karta opiera się na fragmentach instrukcji fabrycznej (3.0d M57 oraz 4.4i M62); nie ma zdjęć, filmu ani momentów dokręcenia.",
+  "extras": [
+    {
+      "t": "Awaryjnie: drzwi nie otwierają się wcale",
+      "b": "Na forum opisano sposób otwarcia drzwi, gdy tylny mechanizm nie działa: przestawić blokadę dziecięcą (mały przełącznik na krawędzi drzwi) cienkim przedmiotem, np. karta plastikowa lub drut. Wtedy drzwi otwierają się od zewnątrz, ale nie od środka. Potem zablokuj, odblokuj i otwórz, a następnie przestaw blokadę z powrotem. Inna wskazówka: trzymaj klamkę wewnętrzną w pozycji otwarcia i w tym czasie zablokuj lub odblokuj centralnie.",
+      "src": [
+        "xo-rear-childlock",
+        "xo-actuator"
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "name": "Torx T20",
+      "note": "boczek",
+      "need": "must"
+    },
+    {
+      "name": "Plastikowe łopatki do tapicerki",
+      "note": "",
+      "need": "must"
+    },
+    {
+      "name": "Klucz nasadowy (8 mm?)",
+      "note": "nakrętka klamki: rozmiar dla tylnych drzwi niepotwierdzony, jak w przednich",
+      "need": "should"
+    },
+    {
+      "name": "Taśma malarska",
+      "note": "ochrona lakieru",
+      "need": "should"
+    }
+  ],
+  "parts": [
+    {
+      "name": "Mechanizm klamki zewnętrznej, tył",
+      "oe": null,
+      "conf": "low",
+      "note": "Numeru OE dla tylnych drzwi nie potwierdzono (w źródłach tylko przód: 51218243615). W ofertach sklepów mechanizm ma być wspólny dla lewej i prawej strony: sprawdź po VIN.",
+      "src": [
+        "ads-prices",
+        "autodoc-topran"
+      ]
+    }
+  ],
+  "warnings": [
+    {
+      "lvl": "info",
+      "t": "Karta robocza",
+      "b": "Kroki poniżej to skrót z instrukcji fabrycznej. Rozbierając, rób zdjęcia i uzupełniaj szczegóły, a my dopiszemy je do karty.",
+      "src": [
+        "tis-rear-outer-200",
+        "tis-rear-outer-170"
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "phase": "1. Przygotowanie",
+      "t": "Zrozum, co wymieniasz",
+      "view": "outer",
+      "focus": [
+        "outer.handle"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "tis-rear-outer-200",
+        "tis-rear-outer-170"
+      ],
+      "b": "Klamka zewnętrzna tylnych drzwi jest przykręcona od wewnątrz jedną nakrętką i wpięta w dwa elementy zamka: tylny i przedni. Pod klamką jest mechanizm zamka z linką.",
+      "see": "Zewnętrzna klamka tylnych drzwi i jej osłona.",
+      "how": [
+        "Obejrzyj klamkę: czy jest pęknięta, luźna lub nie otwiera drzwi.",
+        "Jeśli drzwi nie otwierają się z zewnątrz, a zamek działa, sprawdź klamkę i linkę (kolejne kroki).",
+        "Do pracy potrzebujesz dostępu do wnętrza drzwi: najpierw zdejmiesz boczek."
+      ],
+      "mistakes": [
+        "Wymiana mechanizmu, gdy winna jest tylko klamka."
+      ],
+      "check": "Wiesz, czy zdejmujesz klamkę, czy też mechanizm zamka."
+    },
+    {
+      "phase": "2. Dostęp do klamki",
+      "t": "Zdejmij boczek tylnych drzwi",
+      "view": "card",
+      "focus": [
+        "card.trim"
+      ],
+      "min": 40,
+      "conf": "high",
+      "src": [
+        "pelican-rear-card",
+        "tis-rear-outer-200"
+      ],
+      "b": "Pierwszy etap fabryczny to zdjęcie boczka. Pełną procedurę ze zdjęciami masz w karcie „Tapicerka drzwi tylnych”.",
+      "see": "Boczek tylnych drzwi.",
+      "how": [
+        "Otwórz kartę „Tapicerka drzwi tylnych” i zdejmij boczek zgodnie z nią.",
+        "Odłóż boczek tak, aby nie naciągał przewodów."
+      ],
+      "mistakes": [
+        "Zdejmowanie boczka bez odpięcia wtyczek."
+      ],
+      "check": "Boczek jest zdjęty i leży osobno.",
+      "link": "tapicerka-tyl"
+    },
+    {
+      "phase": "2. Dostęp do klamki",
+      "t": "Zdejmij izolację akustyczną",
+      "view": "inner",
+      "focus": [
+        "inner.foam"
+      ],
+      "min": 10,
+      "conf": "high",
+      "src": [
+        "tis-rear-outer-200"
+      ],
+      "b": "Instrukcja fabryczna każe zdjąć izolację (folia i pianka) z drzwi przed dalszą pracą.",
+      "see": "Czarna folia z masą klejącą na wnętrzu drzwi.",
+      "how": [
+        "Odklejaj izolację powoli, od brzegu.",
+        "Staraj się jej nie porwać: po złożeniu ma chronić przed wodą."
+      ],
+      "mistakes": [
+        "Podarcie folii."
+      ],
+      "check": "Wnętrze drzwi jest odsłonięte."
+    },
+    {
+      "phase": "2. Dostęp do klamki",
+      "t": "Zdejmij osłonę klamki",
+      "view": "outer",
+      "focus": [
+        "outer.handle"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "tis-rear-outer-170"
+      ],
+      "b": "Instrukcja fabryczna zaczyna od zdjęcia osłony klamki zewnętrznej. Osłona zasłania nakrętkę.",
+      "see": "Mała pokrywka (osłona śruby) przy klamce od strony drzwi.",
+      "how": [
+        "Podważ osłonę delikatnie plastikową łopatką.",
+        "Przy montażu użyj starszej ramki osłony, aby nie uszkodzić lakieru (uwaga z instrukcji fabrycznej)."
+      ],
+      "mistakes": [
+        "Metalowe narzędzie bez ochrony: rysy na lakierze."
+      ],
+      "check": "Osłona jest zdjęta, widać nakrętkę.",
+      "warn": true
+    },
+    {
+      "phase": "3. Zdejmowanie klamki i mechanizmu",
+      "t": "Poluzuj nakrętkę klamki, ale jej nie wykręcaj",
+      "view": "inner",
+      "focus": [
+        "inner.handle_nut"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "tis-rear-outer-170"
+      ],
+      "b": "Nakrętka trzyma klamkę. Instrukcja każe ją tylko poluzować, a nie wyjmować.",
+      "see": "Nakrętka w dolnej części klamki od strony wnętrza drzwi.",
+      "how": [
+        "Poluzuj nakrętkę kilkoma obrotami.",
+        "Nie wykręcaj jej do końca."
+      ],
+      "mistakes": [
+        "Całkowite wykręcenie nakrętki: klamka wypadnie i trudno ją potem założyć."
+      ],
+      "check": "Nakrętka jest poluzowana, ale nadal na gwincie."
+    },
+    {
+      "phase": "3. Zdejmowanie klamki i mechanizmu",
+      "t": "Przytrzymaj klamkę wysuniętą i zdejmij ją z siłownika",
+      "view": "outer",
+      "focus": [
+        "outer.handle"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "tis-rear-outer-170"
+      ],
+      "b": "Klamkę wyciągasz maksymalnie na zewnątrz i do góry i przytrzymujesz śrubokrętem, aby nie wróciła, a potem zdejmujesz z elementów zamka.",
+      "see": "Klamka wysunięta do góry i na zewnątrz.",
+      "how": [
+        "Pociągnij klamkę jak najdalej na zewnątrz i do góry.",
+        "Zablokuj ją w tej pozycji śrubokrętem przez cały czas zdejmowania.",
+        "Zdejmij ją z tylnego elementu zamka.",
+        "Zdejmij ją z przedniego elementu zamka: klamka musi być w najniższym położeniu."
+      ],
+      "mistakes": [
+        "Puszczenie klamki w trakcie zdejmowania: uszkodzisz zaczepy."
+      ],
+      "check": "Klamka jest zdjęta z drzwi."
+    },
+    {
+      "phase": "3. Zdejmowanie klamki i mechanizmu",
+      "t": "Zdejmij uszczelki klamki",
+      "view": "inner",
+      "focus": [
+        "inner.carrier"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "tis-rear-outer-200"
+      ],
+      "b": "Wokół klamki są dwie uszczelki, które zasłaniają dalszy mechanizm.",
+      "see": "Dwie gumowe uszczelki wokół klamki.",
+      "how": [
+        "Zdejmij obie uszczelki klamki zewnętrznej.",
+        "Odłóż je: obejrzyj i wymień, jeśli są sparciałe."
+      ],
+      "mistakes": [
+        "Uszkodzenie uszczelek."
+      ],
+      "check": "Uszczelki są zdjęte."
+    },
+    {
+      "phase": "3. Zdejmowanie klamki i mechanizmu",
+      "t": "Odepnij kulę linki i zdejmij linkę z zamka",
+      "view": "inner",
+      "focus": [
+        "inner.ball",
+        "inner.bowden"
+      ],
+      "min": 10,
+      "conf": "med",
+      "src": [
+        "tis-rear-outer-200"
+      ],
+      "b": "Linka od klamki jest wpięta w zamek kulą. Zdejmujesz ją z uchwytu na zamku.",
+      "see": "Kula głowicy linki i uchwyt linki na zamku.",
+      "how": [
+        "Odepnij kulę (głowicę).",
+        "Zdejmij linkę Bowdena z uchwytu na zamku."
+      ],
+      "mistakes": [
+        "Szarpanie linki: pęka osłona."
+      ],
+      "check": "Linka jest odpięta od zamka."
+    },
+    {
+      "phase": "3. Zdejmowanie klamki i mechanizmu",
+      "t": "Poluzuj śrubę mechanizmu i wyjmij go",
+      "view": "inner",
+      "focus": [
+        "inner.actuator"
+      ],
+      "min": 15,
+      "conf": "med",
+      "src": [
+        "tis-rear-outer-200"
+      ],
+      "b": "Mechanizm (siłownik zamka) jest na śrubie, którą tylko poluzowujesz. Potem wysuwasz go do przodu i wyjmujesz do wnętrza drzwi.",
+      "see": "Śruba mechanizmu na krawędzi drzwi.",
+      "how": [
+        "Poluzuj śrubę, nie wykręcaj jej do końca.",
+        "Unieś mechanizm i wysuń go do przodu.",
+        "Wyjmij go do wnętrza drzwi."
+      ],
+      "mistakes": [
+        "Całkowite wykręcenie śruby: instrukcja każe ją tylko poluzować."
+      ],
+      "check": "Mechanizm jest w ręce."
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Włóż nowy mechanizm i sprawdź jego położenie",
+      "view": "inner",
+      "focus": [
+        "inner.actuator"
+      ],
+      "min": 15,
+      "conf": "med",
+      "src": [
+        "tis-rear-outer-200"
+      ],
+      "b": "Montaż jest odwrotny. Dwa warunki z instrukcji: prowadnica ma leżeć na zewnętrznej metalowej krawędzi, a mechanizm przylegać równo do prowadnicy.",
+      "see": "Mechanizm przy krawędzi drzwi.",
+      "how": [
+        "Ustaw prowadnicę na zewnętrznej metalowej krawędzi.",
+        "Sprawdź, czy mechanizm przylega równo do prowadnicy.",
+        "Dokręć śrubę. Moment nie jest podany w źródle."
+      ],
+      "mistakes": [
+        "Mechanizm krzywo na prowadnicy."
+      ],
+      "check": "Mechanizm leży równo i śruba jest dokręcona."
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Załóż linkę, uszczelki i klamkę",
+      "view": "outer",
+      "focus": [
+        "outer.handle"
+      ],
+      "min": 15,
+      "conf": "med",
+      "src": [
+        "tis-rear-outer-200",
+        "tis-rear-outer-170"
+      ],
+      "b": "Wpinasz linkę, zakładasz uszczelki i klamkę, a nakrętkę dokręcasz momentem z instrukcji (wartości w źródle brak).",
+      "see": "Klamka na drzwiach, linka w mechanizmie.",
+      "how": [
+        "Wpnij linkę i kulę.",
+        "Załóż uszczelki.",
+        "Osadź klamkę tak, aby jej powierzchnia przylegała do mechanizmu bez luzu.",
+        "Dokręć nakrętkę: instrukcja odsyła do tabeli momentów (wartości nie mamy).",
+        "Załóż osłonę klamki."
+      ],
+      "mistakes": [
+        "Luz między klamką a mechanizmem."
+      ],
+      "check": "Klamka siedzi bez luzu."
+    },
+    {
+      "phase": "4. Montaż i test",
+      "t": "Test i złożenie",
+      "view": "card",
+      "focus": [
+        "card.top_clips"
+      ],
+      "min": 40,
+      "conf": "med",
+      "src": [
+        "tis-rear-outer-200"
+      ],
+      "b": "Najpierw sprawdź działanie, potem zakładaj izolację i boczek.",
+      "see": "Drzwi z odsłoniętym wnętrzem.",
+      "how": [
+        "Pociągnij klamkę zewnętrzną: drzwi mają się otworzyć.",
+        "Sprawdź też klamkę wewnętrzną i zamek.",
+        "Przyklej izolację i załóż boczek (karta „Tapicerka drzwi tylnych”)."
+      ],
+      "mistakes": [
+        "Zakładanie boczka bez testu."
+      ],
+      "check": "Klamka zewnętrzna otwiera drzwi, boczek jest założony.",
+      "link": "tapicerka-tyl"
+    }
+  ],
+  "after": [
+    "Klamka zewnętrzna otwiera tylne drzwi",
+    "Klamka wewnętrzna i zamek działają",
+    "Boczek siedzi, folia jest cała"
+  ],
+  "unknown": [
+    "Zdjęcia i film tej operacji dla tylnych drzwi: nie znaleziono.",
+    "Moment dokręcenia nakrętki klamki i śruby mechanizmu: instrukcja odsyła do tabeli, której nie mamy.",
+    "Numer OE mechanizmu i klamki tylnych drzwi.",
+    "Rozmiar nakrętki klamki.",
+    "Instrukcja fabryczna 3.0d ma drugą stronę, której nie widzieliśmy (strona 1 z 2)."
+  ],
+  "related": [
+    "tapicerka-tyl",
+    "klamka-wewn",
+    "okno-podnosnik-tyl"
+  ]
 }
