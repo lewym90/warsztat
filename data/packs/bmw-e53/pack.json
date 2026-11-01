@@ -417,11 +417,11 @@
       "door": "rear",
       "difficulty": 3,
       "time": [
-        60,
-        150
+        90,
+        180
       ],
-      "completeness": "szkic",
-      "steps": 7,
+      "completeness": "częściowe",
+      "steps": 12,
       "icon": "wrench"
     },
     {
