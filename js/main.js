@@ -625,94 +625,225 @@ async function repairScreen(carId, rid) {
   const related = (rep.related || []).map(id => `<a class="chip accent" href="#/car/${carId}/r/${id}">${icon('book', 13)} ${esc(relTitle(id))}</a>`).join('');
   const shopping = () => [`Lista: ${rep.title} (${carName(car)})`, '', 'CZĘŚCI:', ...(rep.parts || []).map(p => `- ${p.name}${p.oe ? ' [' + p.oe + ']' : ' [numer do potwierdzenia]'}`), '', 'NARZĘDZIA:', ...rep.tools.map(t => `- ${t.name}${t.note ? ' (' + t.note + ')' : ''}`)].join('\n');
 
+  // ---------- talia kart ----------
+  const films = [];
+  rep.steps.forEach(s => (s.media || []).forEach(m => { if (m.type === 'film' && !films.find(f => f.id === m.id)) films.push(m); }));
+  const cards = [];
+  const nSteps = rep.steps.length;
+  const compl = COMPLETE[rep.completeness] || COMPLETE['szkic'];
+  const doorTxt = rep.door === 'rear' ? 'Drzwi tylne' : rep.door === 'both' ? 'Drzwi przód i tył' : 'Drzwi przednie';
+  const noteHtml = (w, cls) => `<div class="dk-note ${w.lvl || cls}"><b>${esc(w.t)}</b><span>${esc(w.b)}</span></div>`;
+
+  cards.push({ label: 'Podsumowanie', html: `
+    <div class="dk-meta"><span class="dk-pill ${compl[0]}">${compl[1]}</span><span class="dk-pill">${doorTxt}</span></div>
+    <h1 class="dk-h1">${esc(rep.title)}</h1>
+    <p class="dk-sub">${esc(rep.subtitle)}</p>
+    <div class="dk-stats"><div><b>${dots(rep.difficulty)}</b><small>Trudność</small></div><div><b>${fmtTime(rep.time)}</b><small>Czas</small></div><div><b>${nSteps}</b><small>Kroków</small></div></div>
+    <p class="dk-lead">${esc(rep.summary)}</p>
+    <p class="dk-hint">Przesuń palcem w prawo, aby przejść dalej →</p>` });
+
+  if ((rep.warnings || []).length || (rep.extras || []).length) cards.push({ label: 'Ostrzeżenia', html: `
+    <div class="dk-meta"><span class="dk-pill danger">Przeczytaj przed startem</span></div>
+    <h2 class="dk-h2">Ostrzeżenia</h2>
+    ${(rep.warnings || []).map(w => noteHtml(w)).join('')}${(rep.extras || []).map(w => noteHtml(w, 'info')).join('')}` });
+
+  cards.push({ label: 'Narzędzia', html: `
+    <div class="dk-meta"><span class="dk-pill">Przygotowanie</span><span class="dk-pill" id="toolcount"></span></div>
+    <h2 class="dk-h2">Narzędzia do odhaczenia</h2>
+    <div class="dk-checks" id="tools">${rep.tools.map((t, i) => `<button class="dk-check ${prog.tools[i] ? 'done' : ''}" data-tool="${i}"><span class="cbox">${icon('check', 16)}</span><span class="cname"><b>${esc(t.name)}</b>${t.note ? `<small>${esc(t.note)}</small>` : ''}</span><span class="need ${t.need}">${needLbl[t.need] || ''}</span></button>`).join('')}</div>` });
+
+  if ((rep.parts || []).length) cards.push({ label: 'Części', html: `
+    <div class="dk-meta"><span class="dk-pill">Przygotowanie</span></div>
+    <h2 class="dk-h2">Części do kupienia</h2>
+    <div class="dk-parts">${rep.parts.map(p => { const c = CONF[p.conf] || CONF.low; return `<div class="dk-part"><div class="ph"><b>${esc(p.name)}</b><span class="conf ${c[0]}"><i></i>${p.conf === 'high' ? 'Potwierdzone' : p.conf === 'med' ? 'Jedno źródło' : 'Do sprawdzenia'}</span></div>
+      ${p.oe ? `<div class="oe"><code>${esc(p.oe.replace(/(\d{2})(\d{2})(\d)(\d{3})(\d{3})/, '$1 $2 $3 $4 $5'))}</code><button class="btn small" data-copy="${esc(p.oe)}">${icon('copy', 15)} Kopiuj</button></div>` : '<div class="oe"><small>Numer do potwierdzenia po VIN</small></div>'}
+      <p>${esc(p.note || '')}${p.price ? ` <em>${esc(p.price)}</em>` : ''}</p>${p.alt ? `<p class="alts">${p.alt.map(a => `${esc(a.brand)} ${esc(a.no)}`).join(' · ')}</p>` : ''}</div>`; }).join('')}</div>
+    <button class="btn block" id="shop">${icon('copy', 18)} Kopiuj listę części i narzędzi</button>` });
+
+  if (films.length) cards.push({ label: 'Filmy', html: `
+    <div class="dk-meta"><span class="dk-pill">Przygotowanie</span></div>
+    <h2 class="dk-h2">Obejrzyj przed pracą</h2>
+    <p class="dk-lead">Filmy dotyczą tego samego modelu. Offline nie zagrają: pobierz je wcześniej w aplikacji YouTube.</p>
+    <div class="dk-films">${films.map((f, k) => `<a class="dk-film" href="https://www.youtube.com/watch?v=${esc(f.id)}" target="_blank" rel="noopener"><span class="fthumb"><img loading="lazy" referrerpolicy="no-referrer" src="https://i.ytimg.com/vi/${esc(f.id)}/hqdefault.jpg" alt=""><span class="flen">${esc(f.len || '')}</span></span><span class="ftxt"><b>Film naprawy ${k + 1}</b><small>${esc(f.cap)}</small><em>${esc(f.credit)}</em></span></a>`).join('')}</div>` });
+
+  const stepBase = cards.length;
+  rep.steps.forEach((s, i) => {
+    const c = CONF[s.conf] || CONF.low;
+    const photos = (s.media || []).filter(m => m.type === 'photo');
+    const clips = (s.media || []).filter(m => m.type === 'video');
+    const links = (s.media || []).filter(m => m.type === 'link');
+    const ph = photos.length ? `<button class="dk-photo" data-gal="${i}" aria-label="Powiększ zdjęcie"><img decoding="async" referrerpolicy="no-referrer" src="${esc(photos[0].url)}" alt="${esc(photos[0].cap)}"><span class="dk-zoom">${icon('eye', 14)} ${photos.length > 1 ? `1 z ${photos.length} · ` : ''}dotknij, aby powiększyć</span></button><p class="dk-cap">${esc(photos[0].cap)} <em>${esc(photos[0].credit)}</em></p>` : '';
+    const extra = [...clips.map((m, k) => `<button class="dk-chip" data-clip='${esc(JSON.stringify({ id: m.id, t: m.t, e: m.e, cap: m.cap }))}'>${icon('chevron', 14)} Film od ${fmtT(m.t)}${m.e ? ' do ' + fmtT(m.e) : ''}</button>`), ...links.map(m => `<a class="dk-chip" href="${esc(m.url)}" target="_blank" rel="noopener">${icon('link', 14)} ${esc(m.label || 'Link')}</a>`)].join('');
+    const metaA = `<div class="dk-meta"><span class="dk-pill gold">${esc(s.phase || 'Krok')}</span><span class="dk-pill">Krok ${i + 1} z ${nSteps}</span><span class="dk-pill">~${s.min} min</span><span class="dk-pill conf-${c[0]}">${s.conf === 'high' ? 'Pewne' : s.conf === 'med' ? 'Jedno źródło' : 'Do sprawdzenia'}</span></div>`;
+    const metaB = tag => `<div class="dk-meta"><span class="dk-pill gold">${esc(s.phase || 'Krok')}</span><span class="dk-pill">Krok ${i + 1} z ${nSteps}</span><span class="dk-pill">${tag}</span></div>`;
+    const dangerH = s.danger ? `<div class="dk-note danger"><b>Poduszka powietrzna</b><span>${typeof s.danger === 'string' ? esc(s.danger) : 'Nie odłączaj wtyczki bez odłączenia akumulatora i odczekania co najmniej 30 minut.'}</span></div>` : '';
+    const warnH = s.warn ? `<div class="dk-note warn"><b>Uwaga</b><span>${typeof s.warn === 'string' ? esc(s.warn) : 'Zabezpiecz lakier taśmą malarską.'}</span></div>` : '';
+    const lenOf = a => (a || []).reduce((n, x) => n + String(x).length + 25, 0);
+    // podział listy czynności na ekrany według budżetu znaków (zdjęcie zajmuje miejsce)
+    let budget = (ph ? 400 : 760) - (s.danger ? 230 : 0) - (s.warn ? 160 : 0) - (extra ? 50 : 0) - (String(s.t).length > 38 ? 40 : 0);
+    const chunks = []; let curc = [], used = 0, bud = Math.max(budget, 200);
+    (s.how || []).forEach(h => { const l = String(h).length + 25; if (curc.length && used + l > bud) { chunks.push(curc); curc = []; used = 0; bud = 820; } curc.push(h); used += l; });
+    if (curc.length) chunks.push(curc);
+    let num = 0; const group = [];
+    if (!chunks.length) chunks.push(null);
+    chunks.forEach((ch, k) => {
+      const first = k === 0, tagA = chunks.length > 1 ? `Zrób ${k + 1}/${chunks.length}` : 'Zrób';
+      const lis = ch ? `<ol class="dk-how" start="${num + 1}" style="counter-reset:h ${num}">${ch.map(h => `<li>${esc(h)}</li>`).join('')}</ol>` : `<p class="dk-lead">${esc(s.b)}</p>`;
+      num += ch ? ch.length : 0;
+      group.push({ step: i, tag: tagA, first, label: s.t, html: `
+        ${first ? metaA : metaB(tagA)}
+        <h2 class="${first ? 'dk-h2' : 'dk-h3'}">${esc(s.t)}</h2>
+        ${first ? dangerH + warnH + ph + (extra ? `<div class="dk-extra">${extra}</div>` : '') : ''}
+        ${lis}
+        <p class="dk-next">Dalej →</p>` });
+    });
+    const bigB = String(s.b || '').length + String(s.see || '').length + lenOf(s.mistakes) + String(s.check || '').length + String(s.tip || '').length;
+    const bTail = `${s.link ? `<a class="btn small" href="#/car/${carId}/r/${s.link}">${icon('book', 16)} Otwórz kartę: ${esc(relTitle(s.link))}</a>` : ''}<div class="dk-srcs">${srcChips(s.src)}</div>`;
+    const ctx = `<p class="dk-lead">${esc(s.b)}</p>${s.see ? `<p class="dk-see">${icon('eye', 16)}<span><b>Co zobaczysz:</b> ${esc(s.see)}</span></p>` : ''}${s.tools ? `<div class="dk-tl">${s.tools.map(t => `<span class="dk-pill">${icon('wrench', 12)} ${esc(t)}</span>`).join('')}</div>` : ''}`;
+    const risk = `${s.mistakes ? `<div class="dk-note mist"><b>Typowe błędy</b><ul>${s.mistakes.map(m => `<li>${esc(m)}</li>`).join('')}</ul></div>` : ''}${s.check ? `<div class="dk-note check"><b>Sprawdź, zanim przesuniesz dalej</b><span>${esc(s.check)}</span></div>` : ''}${s.tip ? `<div class="dk-note tip"><b>Wskazówka</b><span>${esc(s.tip)}</span></div>` : ''}`;
+    if (bigB > 760) {
+      group.push({ step: i, tag: 'Kontekst', label: s.t, html: `${metaB('Kontekst')}<h2 class="dk-h3">${esc(s.t)}</h2>${ctx}` });
+      group.push({ step: i, tag: 'Uwaga', label: s.t, html: `${metaB('Uwaga i kontrola')}<h2 class="dk-h3">${esc(s.t)}</h2>${risk}${bTail}` });
+    } else group.push({ step: i, tag: 'Uwaga', label: s.t, html: `${metaB('Uwaga i kontrola')}<h2 class="dk-h3">${esc(s.t)}</h2>${ctx}${risk}${bTail}` });
+    group.forEach((g, k) => { g.last = k === group.length - 1; cards.push(g); });
+  });
+
+  cards.push({ label: 'Po montażu', html: `
+    <div class="dk-meta"><span class="dk-pill">Koniec</span></div>
+    <h2 class="dk-h2">Po montażu: sprawdź</h2>
+    <div class="dk-checks" id="after">${(rep.after || []).map((t, i) => `<button class="dk-check ${prog.after[i] ? 'done' : ''}" data-after="${i}"><span class="cbox">${icon('check', 16)}</span><span class="cname"><b>${esc(t)}</b></span></button>`).join('')}</div>
+    ${(rep.unknown || []).length ? `<div class="dk-note mist"><b>Czego nie wiemy (brak w źródłach)</b><ul>${rep.unknown.map(u => `<li>${esc(u)}</li>`).join('')}</ul></div>` : ''}
+    ${related ? `<div class="chips">${related}</div>` : ''}` });
+
+  cards.push({ label: 'Źródła', html: `
+    <div class="dk-meta"><span class="dk-pill">Źródła (${order.length})</span></div>
+    <h2 class="dk-h2">Skąd to wiemy</h2>
+    <div class="srclist">${srcList}</div>
+    <p class="dk-foot">Opracowanie własnymi słowami na podstawie publicznych źródeł. Przy poduszkach powietrznych, hamulcach i zawieszeniu zachowaj szczególną ostrożność.</p>` });
+
+  const total = cards.length;
+  const stepLast = []; cards.forEach((c, k) => { if (c.step != null && c.last) stepLast[c.step] = k; });
+  let pos = Math.max(0, Math.min(prog.pos ?? 0, total - 1));
+  const sheetItems = cards.map((c, k) => (c.step != null && !c.first) ? '' : `<button class="dk-si" data-go="${k}"><span class="n">${c.step != null ? c.step + 1 : '•'}</span><span>${esc(c.label)}</span></button>`).join('');
+
   return {
     tab: null,
     html: `
-      ${topbar({ back: `#/car/${carId}/zone/doors?door=${rep.door === 'rear' ? 'rear' : 'front'}`, title: rep.title, sub: `${pack.title}${car.engine ? ' · ' + car.engine : ''}` })}
-      <div class="wrap">
-        <div class="rhero">
-          <div class="chips"><span class="chip ${comp[0]}">${comp[1]}</span><span class="chip">${rep.door === 'rear' ? 'Drzwi tylne' : rep.door === 'both' ? 'Drzwi przód i tył' : 'Drzwi przednie'}</span></div>
-          <h1>${esc(rep.title)}</h1><p class="sub">${esc(rep.subtitle)}</p>
-          <div class="stats"><div class="stat"><span class="v">${dots(rep.difficulty)}</span><span class="l">Trudność</span></div><div class="stat"><span class="v">${fmtTime(rep.time)}</span><span class="l">Czas</span></div><div class="stat"><span class="v">${rep.tools.filter(t => t.need === 'must').length}</span><span class="l">Narzędzia</span></div></div>
-          <p class="summary">${esc(rep.summary)}</p>
-        </div>
-        ${offlineCardHtml(rep.title)}
-        ${notes}${extras}
-        <div class="section-h">${icon('wrench', 16)} Narzędzia <span class="count" id="toolcount"></span></div>
-        <div class="card checklist" id="tools">${tools}</div>
-        ${parts ? `<div class="section-h">${icon('book', 16)} Części</div><div style="display:grid;gap:10px">${parts}</div>` : ''}
-        <button class="btn block" id="shop">${icon('copy', 18)} Kopiuj listę części i narzędzi</button>
-        <div class="section-h">${icon('list', 16)} Krok po kroku <span class="count" id="stepcount"></span></div>
-        <div class="player">
-          <div class="pdiag"><div class="inner">
-            <div>${(setDoorPhoto(((DOOR_PHOTOS[pack.id] || {}).left || {})[rep.door === 'rear' ? 'rear' : 'front']), doorSVG({ view: rep.steps[0].view, rings: 4 }))}</div>
-            <div class="stepinfo"><small id="pi-n"></small><b id="pi-t"></b><span class="viewtag" id="pi-v"></span><div class="pbar"><i id="pbar"></i></div></div>
-          </div></div>
-          <div class="steps" id="steps">${steps}</div>
-        </div>
-        <div class="section-h">${icon('shield', 16)} Po montażu: sprawdź</div>
-        <div class="card checklist" id="after">${after}</div>
-        ${(rep.unknown || []).length ? `<div class="unknown"><b>${icon('alert', 16)} Czego nie wiemy (brak w źródłach)</b><ul>${rep.unknown.map(u => `<li>${esc(u)}</li>`).join('')}</ul></div>` : ''}
-        ${related ? `<div class="section-h">${icon('link', 16)} Powiązane karty</div><div class="chips">${related}</div>` : ''}
-        <div class="section-h">${icon('book', 16)} Źródła <span class="count">${order.length}</span></div>
-        <div class="srclist">${srcList}</div>
-        <p class="foot">Opracowanie własnymi słowami na podstawie publicznych źródeł. Przy poduszkach powietrznych, hamulcach i zawieszeniu zachowaj szczególną ostrożność. Wartości oznaczone jako niepotwierdzone sprawdź przed użyciem.</p>
-        <button class="btn ghost block" id="reset">Zacznij tę kartę od nowa</button>
+      <div class="dk" id="dk">
+        <header class="dk-top">
+          <a class="dk-ib" href="#/car/${carId}/zone/doors?door=${rep.door === 'rear' ? 'rear' : 'front'}" aria-label="Wróć do listy">${icon('back', 22)}</a>
+          <div class="dk-t"><b>${esc(rep.title)}</b><small>${esc(pack.title)}${car.engine ? ' · ' + esc(car.engine) : ''}</small></div>
+          <button class="dk-ib" id="dk-menu" aria-label="Spis kart">${icon('list', 22)}</button>
+        </header>
+        <div class="dk-loc" id="dk-loc" hidden>${(setDoorPhoto(((DOOR_PHOTOS[pack.id] || {}).left || {})[rep.door === 'rear' ? 'rear' : 'front']), doorSVG({ view: rep.steps[0].view, rings: 4 }))}</div>
+        <div class="dk-track" id="dk-track">${cards.map((c, k) => `<section class="dk-card${c.step != null ? ' is-step' : ''}" data-k="${k}" aria-label="Karta ${k + 1} z ${total}"><div class="dk-in">${c.html}</div></section>`).join('')}</div>
+        <footer class="dk-bar">
+          <button class="dk-nav" id="dk-prev" aria-label="Poprzednia karta">${icon('back', 26)}</button>
+          <button class="dk-mid" id="dk-mid"><span id="dk-count"></span><i class="dk-prog"><u id="dk-fill"></u></i></button>
+          <button class="dk-nav go" id="dk-next" aria-label="Następna karta">${icon('chevron', 26)}</button>
+        </footer>
+        <div class="dk-sheet" id="dk-sheet" hidden><div class="dk-sheet-in">
+          <div class="dk-sh-h"><b>Spis kart</b><button class="dk-ib" id="dk-close" aria-label="Zamknij">${icon('x', 22)}</button></div>
+          <div class="dk-sl">${sheetItems}</div>
+          ${offlineCardHtml(rep.title)}
+          <button class="btn ghost block" id="reset">Zacznij tę kartę od nowa</button>
+        </div></div>
       </div>`,
     bind(el) {
-      bindMedia($('#steps', el));
-      bindOffline(el, pack.id, [rid, ...(rep.related || [])]);
-      const svg = $('.door-art', el); const rings = $$('.ring', svg);
-      const stepEls = $$('.step', el);
-      const total = rep.steps.length;
-      let cur = Math.min(prog.cur ?? firstUndone(), total - 1);
-      function firstUndone() { const i = rep.steps.findIndex((_, k) => !prog.steps[k]); return i < 0 ? 0 : i; }
+      document.body.classList.add('in-deck'); (el.closest('.screen') || el).classList.add('has-dk');
+      const track = $('#dk-track', el), cardEls = $$('.dk-card', el);
+      const svg = $('.door-art', el), rings = $$('.ring', svg);
       rings.forEach(r => { r.style.transition = 'none'; });
-      const paintCounts = () => {
-        const d = Object.values(prog.steps).filter(Boolean).length;
-        $('#stepcount', el).textContent = `${d} / ${total}`;
-        $('#pbar', el).style.width = (d / total * 100) + '%';
-        const tl = Object.values(prog.tools).filter(Boolean).length;
-        $('#toolcount', el).textContent = `${tl} / ${rep.tools.length} gotowe`;
+      const loc = $('#dk-loc', el);
+      const sync = () => {
+        rep.steps.forEach((_, i) => { prog.steps[i] = stepLast[i] < pos; });
+        prog.pos = pos; prog.cur = cards[pos].step != null ? cards[pos].step : (pos < stepBase ? 0 : rep.steps.length - 1); S.saveProg();
       };
-      function activate(i, scroll) {
-        cur = i; prog.cur = i; S.saveProg();
-        const s = rep.steps[i];
-        stepEls.forEach((e, k) => e.classList.toggle('active', k === i));
-        svg.dataset.view = s.view;
-        const pts = (s.focus || []).filter(a => viewOf(a) === s.view).map(a => anchorOf(a)).filter(Boolean);
-        rings.forEach((r, k) => {
-          const p = pts[k];
-          if (p) { r.style.transform = `translate(${p[0]}px, ${p[1]}px)`; r.style.opacity = 1; }
-          else r.style.opacity = 0;
-        });
-        requestAnimationFrame(() => rings.forEach(r => { r.style.transition = ''; }));
-        $('#pi-n', el).textContent = `Krok ${i + 1} z ${total}`;
-        $('#pi-t', el).textContent = s.t;
-        $('#pi-v', el).innerHTML = `${icon('eye', 12)} ${VIEW_LABELS[s.view]}`;
-        paintCounts();
-        if (scroll) setTimeout(() => stepEls[i].scrollIntoView({ behavior: 'smooth', block: 'start' }), 60);
-      }
-      $$('[data-open]', el).forEach(b => b.onclick = () => activate(+b.dataset.open, true));
-      $$('[data-prev]', el).forEach(b => b.onclick = () => activate(+b.dataset.prev - 1, true));
-      $$('[data-done]', el).forEach(b => b.onclick = () => {
-        const i = +b.dataset.done;
-        prog.steps[i] = true; S.saveProg();
-        const e = stepEls[i]; e.classList.add('done'); $('.num', e).innerHTML = icon('check', 18);
-        if (i < total - 1) activate(i + 1, true);
-        else { paintCounts(); toast('Karta ukończona. Sprawdź listę po montażu.'); $('#after', el).scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-      });
-      $$('[data-tool]', el).forEach(b => b.onclick = () => { const i = b.dataset.tool; prog.tools[i] = !prog.tools[i]; S.saveProg(); b.classList.toggle('done', !!prog.tools[i]); paintCounts(); });
+      const paint = () => {
+        { const c0 = cards[pos]; $('#dk-count', el).textContent = c0.step != null ? `Krok ${c0.step + 1} z ${nSteps} · ${c0.tag}` : c0.label; }
+        $('#dk-fill', el).style.width = ((pos + 1) / total * 100) + '%';
+        $('#dk-prev', el).disabled = pos === 0; $('#dk-next', el).disabled = pos === total - 1;
+        const c = cards[pos];
+        if (c.step != null) {
+          const s = rep.steps[c.step];
+          svg.dataset.view = s.view;
+          const pts = (s.focus || []).filter(a => viewOf(a) === s.view).map(a => anchorOf(a)).filter(Boolean);
+          rings.forEach((r, k) => { const p = pts[k]; if (p) { r.style.transform = `translate(${p[0]}px, ${p[1]}px)`; r.style.opacity = 1; } else r.style.opacity = 0; });
+          requestAnimationFrame(() => rings.forEach(r => { r.style.transition = ''; }));
+          loc.hidden = false;
+        } else loc.hidden = true;
+        const tc = $('#toolcount', el); if (tc) tc.textContent = `${Object.values(prog.tools).filter(Boolean).length} / ${rep.tools.length} gotowe`;
+      };
+      const goTo = (k, smooth = true) => { k = Math.max(0, Math.min(total - 1, k)); track.scrollTo({ left: k * track.clientWidth, behavior: smooth ? 'smooth' : 'auto' }); };
+      let st;
+      track.addEventListener('scroll', () => {
+        clearTimeout(st);
+        st = setTimeout(() => {
+          const k = Math.round(track.scrollLeft / Math.max(1, track.clientWidth));
+          if (k !== pos) { pos = Math.max(0, Math.min(total - 1, k)); sync(); paint(); cardEls[pos].scrollTop = 0; }
+        }, 70);
+      }, { passive: true });
+      $('#dk-prev', el).onclick = () => goTo(pos - 1);
+      $('#dk-next', el).onclick = () => goTo(pos + 1);
+      const onKey = e => { if (!document.getElementById('dk')) { document.removeEventListener('keydown', onKey); return; } if (e.key === 'ArrowRight') goTo(pos + 1); if (e.key === 'ArrowLeft') goTo(pos - 1); };
+      document.addEventListener('keydown', onKey);
+      const sheet = $('#dk-sheet', el);
+      const openSheet = () => { sheet.hidden = false; }, closeSheet = () => { sheet.hidden = true; };
+      $('#dk-menu', el).onclick = openSheet; $('#dk-mid', el).onclick = openSheet; $('#dk-close', el).onclick = closeSheet;
+      sheet.addEventListener('click', e => { if (e.target === sheet) closeSheet(); });
+      $$('[data-go]', el).forEach(b => b.onclick = () => { closeSheet(); goTo(+b.dataset.go, false); pos = +b.dataset.go; sync(); paint(); });
+      bindOffline(el, pack.id, [rid, ...(rep.related || [])]);
+      $$('[data-tool]', el).forEach(b => b.onclick = () => { const i = b.dataset.tool; prog.tools[i] = !prog.tools[i]; S.saveProg(); b.classList.toggle('done', !!prog.tools[i]); paint(); });
       $$('[data-after]', el).forEach(b => b.onclick = () => { const i = b.dataset.after; prog.after[i] = !prog.after[i]; S.saveProg(); b.classList.toggle('done', !!prog.after[i]); });
       $$('[data-copy]', el).forEach(b => b.onclick = () => copy(b.dataset.copy, 'Numer skopiowany'));
-      $('#shop', el).onclick = () => copy(shopping(), 'Lista skopiowana');
+      const shop = $('#shop', el); if (shop) shop.onclick = () => copy(shopping(), 'Lista skopiowana');
       $('#reset', el).onclick = () => { if (confirm('Wyczyścić postęp tej karty?')) { S.resetProg(carId, rid); render(); } };
-      const pd = $('.pdiag .inner', el);
-      const setH = () => document.documentElement.style.setProperty('--pdiag-h', pd.offsetHeight + 'px');
-      setH(); if (window.ResizeObserver) new ResizeObserver(setH).observe(pd);
-      activate(cur, false);
+      // zdjęcia: galeria
+      el.addEventListener('click', e => {
+        const g = e.target.closest('[data-gal]');
+        if (g) { const s = rep.steps[+g.dataset.gal]; openGallery((s.media || []).filter(m => m.type === 'photo'), 0); return; }
+        const cl = e.target.closest('[data-clip]');
+        if (cl) openClip(JSON.parse(cl.dataset.clip));
+      });
+      el.addEventListener('error', e => {
+        const img = e.target;
+        if (img && img.tagName === 'IMG' && img.closest('.dk-photo')) { const b = img.closest('.dk-photo'); img.remove(); b.classList.add('broken'); b.insertAdjacentHTML('afterbegin', `<span class="mbroken"><b>Zdjęcie niedostępne (offline lub źródło blokuje)</b><small>Dotknij, aby spróbować powiększyć</small></span>`); }
+      }, true);
+      const fit = () => {
+        cardEls.forEach(c => {
+          const inn = $('.dk-in', c); inn.style.fontSize = ''; const ph = $('.dk-photo', c); if (ph) ph.style.height = '';
+          let fs = parseFloat(getComputedStyle(inn).fontSize);
+          for (let n = 0; n < 6 && c.scrollHeight > c.clientHeight + 1 && fs > 14; n++) { fs -= 0.5; inn.style.fontSize = fs + 'px'; }
+          if (c.scrollHeight > c.clientHeight + 1 && ph) { let h = ph.offsetHeight; while (c.scrollHeight > c.clientHeight + 1 && h > 80) { h -= 12; ph.style.height = h + 'px'; } }
+        });
+      };
+      requestAnimationFrame(() => { fit(); goTo(pos, false); paint(); sync(); });
+      window.addEventListener('resize', () => { fit(); goTo(pos, false); });
+      window.addEventListener('hashchange', () => document.body.classList.remove('in-deck'), { once: true });
     }
   };
+}
+
+function openGallery(photos, i) {
+  if (!photos.length) return;
+  const lb = document.createElement('div');
+  lb.className = 'lightbox gal';
+  let k = i;
+  const paint = () => {
+    const x = photos[k];
+    lb.innerHTML = `<div class="lb-in"><img referrerpolicy="no-referrer" src="${esc(x.url)}" alt="${esc(x.cap)}"><div class="lb-cap"><p>${esc(x.cap)}</p><small>Źródło: ${esc(x.credit)}${photos.length > 1 ? ` · ${k + 1} z ${photos.length}` : ''}</small><div class="lb-act">${photos.length > 1 ? `<button class="btn small" data-p>◀</button><button class="btn small" data-n>▶</button>` : ''}<a class="btn small" href="${esc(x.page || x.url)}" target="_blank" rel="noopener">${icon('link', 16)} Źródło</a><button class="btn small primary" data-x>Zamknij</button></div></div></div>`;
+  };
+  const close = () => { lb.remove(); document.removeEventListener('keydown', key); };
+  const key = e => { if (e.key === 'Escape') close(); if (e.key === 'ArrowRight') { k = (k + 1) % photos.length; paint(); } if (e.key === 'ArrowLeft') { k = (k + photos.length - 1) % photos.length; paint(); } };
+  lb.addEventListener('click', e => { if (e.target === lb || e.target.closest('[data-x]')) close(); else if (e.target.closest('[data-n]')) { k = (k + 1) % photos.length; paint(); } else if (e.target.closest('[data-p]')) { k = (k + photos.length - 1) % photos.length; paint(); } });
+  document.addEventListener('keydown', key); paint(); document.body.appendChild(lb);
+}
+function openClip({ id, t, e, cap }) {
+  const lb = document.createElement('div'); lb.className = 'lightbox';
+  const src = `https://www.youtube-nocookie.com/embed/${esc(id)}?start=${t}${e ? '&end=' + e : ''}&rel=0&playsinline=1&autoplay=1&modestbranding=1`;
+  lb.innerHTML = `<div class="lb-in"><div class="mframe">${navigator.onLine ? `<iframe src="${src}" title="Film instruktażowy" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>` : '<p style="padding:20px;color:#fff">Brak internetu. Ten film zagra tylko online (lub pobierz go w aplikacji YouTube).</p>'}</div><div class="lb-cap"><p>${esc(cap || '')}</p><div class="lb-act"><a class="btn small" href="https://www.youtube.com/watch?v=${esc(id)}&t=${t}s" target="_blank" rel="noopener">${icon('link', 16)} Otwórz w YouTube</a><button class="btn small primary" data-x>Zamknij</button></div></div></div>`;
+  lb.addEventListener('click', ev => { if (ev.target === lb || ev.target.closest('[data-x]')) lb.remove(); });
+  document.body.appendChild(lb);
 }
 
 /* ---------- DODAJ AUTO ---------- */
