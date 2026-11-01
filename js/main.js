@@ -5,6 +5,7 @@ import { carSVG, ZONES, PHOTOS } from './art-car.js';
 import { SPINS, spinHtml, mountSpin } from './spin.js';
 import { doorSVG, ANCHORS, VIEW_LABELS, viewOf, DOOR_PHOTOS, setDoorPhoto, anchorOf } from './art-door.js';
 import { CATALOG, FUELS } from './catalog.js';
+import { offlineMeta, offlineExpire, offlineLeft, fmtLeft, saveOffline } from './offline.js';
 
 const APP_VERSION = '0.1.0';
 const $ = (s, r = document) => r.querySelector(s);
@@ -429,6 +430,7 @@ async function zoneScreen(carId, zoneId, q) {
       <div class="door-side">
         <p class="zblurb">${esc(zone.blurb)}</p>
         <div class="chips" style="margin:0 0 12px"><span class="chip">${all.length} napraw</span><span class="chip ${nReady ? 'ok' : ''}">${nReady ? 'Gotowe: ' + nReady : 'Brak gotowych'}</span>${nDraft ? `<span class="chip">Wstępne wersje: ${nDraft}</span>` : ''}</div>
+        ${offlineCardHtml(zone.label)}
         <label class="zsearch">${icon('search', 18)}<input id="zq" type="search" placeholder="Szukaj w: ${esc(zone.label)}" autocomplete="off"></label>
         <div id="zlist"></div>
         <p class="foot">Pozycje „Wkrótce” są w planie. Opracowania powstają po jednym, w pełnej jakości, ze zdjęciami i filmami przy każdym kroku. Dotknij pozycji, aby zamówić następną.</p>
@@ -456,6 +458,7 @@ async function zoneScreen(carId, zoneId, q) {
         $('#zlist', el).innerHTML = out || `<div class="note info">${icon('info', 22)}<div><b>Nic nie pasuje</b><p>Spróbuj innego słowa.</p></div></div>`;
         $$('[data-req]', el).forEach(b => b.onclick = () => openRequest(car, `${zone.label}: ${b.dataset.req}`));
       };
+      bindOffline(el, pack.id, all.filter(i => i.id).map(i => i.id));
       $('#zq', el).addEventListener('input', e => { term = e.target.value.trim(); paintList(); });
       paintList();
       if (!isDoors) return;
@@ -493,7 +496,7 @@ function mediaHtml(list) {
   if (!list || !list.length) return '';
   const films = list.filter(x => x.type === 'film');
   list = list.filter(x => x.type !== 'film');
-  const filmHtml = films.length ? `<div class="films">${films.map((f, k) => `<a class="film" href="https://www.youtube.com/watch?v=${esc(f.id)}" target="_blank" rel="noopener"><span class="fthumb"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://i.ytimg.com/vi/${esc(f.id)}/hqdefault.jpg" alt=""><span class="mpl">${icon('chevron', 26)}</span>${f.len ? `<span class="flen">${esc(f.len)}</span>` : ''}</span><span class="ftxt"><b>Film naprawy ${k + 1}</b><small>${esc(f.cap)}</small><em>${esc(f.credit)}</em></span></a>`).join('')}</div>` : '';
+  const filmHtml = films.length ? `<div class="films">${films.map((f, k) => `<a class="film" href="https://www.youtube.com/watch?v=${esc(f.id)}" target="_blank" rel="noopener"><span class="fthumb"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="https://i.ytimg.com/vi/${esc(f.id)}/hqdefault.jpg" alt=""><span class="mpl">${icon('chevron', 26)}</span>${f.len ? `<span class="flen">${esc(f.len)}</span>` : ''}</span><span class="ftxt"><b>Film naprawy ${k + 1}</b><small>${esc(f.cap)}</small><em>${esc(f.credit)}</em><i class="offnote">Bez internetu nie zagra: pobierz w aplikacji YouTube</i></span></a>`).join('')}</div>` : '';
   const items = list.map(x => {
     if (x.type === 'photo') return `<figure class="mfig"><button class="mph" data-lb="${esc(x.url)}" data-cap="${esc(x.cap)}" data-credit="${esc(x.credit)}" data-page="${esc(x.page || x.url)}" aria-label="Powiększ zdjęcie"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="${esc(x.url)}" alt="${esc(x.cap)}"><span class="mbadge">${icon('eye', 13)} Zdjęcie</span></button><figcaption>${esc(x.cap)} <em>${esc(x.credit)}</em></figcaption></figure>`;
     if (x.type === 'video') return `<div class="mvid" data-yt="${esc(x.id)}" data-t="${x.t}" data-e="${x.e || ''}"><button class="mplay" aria-label="Odtwórz film od ${fmtT(x.t)}"><span class="mpl">${icon('chevron', 26)}</span><span><b>Film od ${fmtT(x.t)}${x.e ? ' do ' + fmtT(x.e) : ''}</b><small>${esc(x.cap)} · ${esc(x.credit)}</small></span></button></div>`;
@@ -528,6 +531,38 @@ function bindMedia(root) {
     if (img && img.tagName === 'IMG' && img.closest('.mph')) { const b = img.closest('.mph'); b.classList.add('broken'); img.remove(); b.insertAdjacentHTML('afterbegin', `<span class="mbroken">${icon('eye', 20)}<b>Podgląd niedostępny (offline lub źródło blokuje)</b><small>Dotknij, aby otworzyć</small></span>`); }
   }, true);
 }
+
+/* ---------- offline na dziś ---------- */
+function offlineCardHtml(label) {
+  const m = offlineMeta();
+  return `<div class="card pad offcard" data-off><div class="offhead">${icon('download', 18)}<b>Offline na dziś</b></div>
+    <p class="offp" data-offtxt>${m ? `Zapisane na urządzeniu. Wygasa za ${fmtLeft(offlineLeft(m))}.` : `Zapisuje zdjęcia, grafiki i karty (${esc(label)}) na 24 godziny, żeby działały bez zasięgu. Zrób to z Wi-Fi, zanim zejdziesz do garażu.`}</p>
+    <div class="row2"><button class="btn primary" data-offsave>${icon('download', 18)} Zapisz offline</button><button class="btn" data-offdel ${m ? '' : 'hidden'}>Usuń teraz</button></div>
+    <div data-offfilms></div></div>`;
+}
+function paintOfflineFilms(el) {
+  const m = offlineMeta(); const box = $('[data-offfilms]', el); if (!box) return;
+  box.innerHTML = m && m.films && m.films.length ? `<div class="offfilms"><b>Filmy do pobrania w aplikacji YouTube (Premium) przed zejściem:</b>${m.films.map(f => `<a href="https://www.youtube.com/watch?v=${esc(f.id)}" target="_blank" rel="noopener">${icon('link', 14)} ${esc(f.from)}: film ${esc(f.len || '')}</a>`).join('')}<small>YouTube nie pozwala zapisać filmu w tej aplikacji. Pobieranie jest w aplikacji YouTube z Premium (przycisk „Pobierz”).</small></div>` : '';
+}
+function bindOffline(el, packId, ids) {
+  const card = $('[data-off]', el); if (!card) return;
+  const txt = $('[data-offtxt]', card), sv = $('[data-offsave]', card), dl = $('[data-offdel]', card);
+  paintOfflineFilms(card);
+  sv.onclick = async () => {
+    sv.disabled = true;
+    try {
+      const meta = await saveOffline(packId, ids, (d, t) => { txt.textContent = `Zapisuję… ${d}/${t}`; });
+      txt.textContent = `Zapisane. Wygasa za ${fmtLeft(offlineLeft(meta))}.${meta.fail ? ` Nie udało się zapisać ${meta.fail} zdjęć z obcych stron (będą widoczne tylko online).` : ''}`;
+      dl.hidden = false; paintOfflineFilms(card);
+    } catch (e) { txt.textContent = 'Nie udało się zapisać (brak miejsca lub sieci). Spróbuj ponownie z Wi-Fi.'; }
+    sv.disabled = false;
+  };
+  dl.onclick = async () => { await offlineExpire(true); txt.textContent = 'Usunięto. Aplikacja działa tylko online.'; dl.hidden = true; paintOfflineFilms(card); };
+}
+offlineExpire();
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') offlineExpire(); });
+const setOnl = () => document.body.classList.toggle('is-offline', !navigator.onLine);
+window.addEventListener('online', setOnl); window.addEventListener('offline', setOnl); setOnl();
 
 async function repairScreen(carId, rid) {
   const car = S.car(carId);
@@ -601,6 +636,7 @@ async function repairScreen(carId, rid) {
           <div class="stats"><div class="stat"><span class="v">${dots(rep.difficulty)}</span><span class="l">Trudność</span></div><div class="stat"><span class="v">${fmtTime(rep.time)}</span><span class="l">Czas</span></div><div class="stat"><span class="v">${rep.tools.filter(t => t.need === 'must').length}</span><span class="l">Narzędzia</span></div></div>
           <p class="summary">${esc(rep.summary)}</p>
         </div>
+        ${offlineCardHtml(rep.title)}
         ${notes}${extras}
         <div class="section-h">${icon('wrench', 16)} Narzędzia <span class="count" id="toolcount"></span></div>
         <div class="card checklist" id="tools">${tools}</div>
@@ -625,6 +661,7 @@ async function repairScreen(carId, rid) {
       </div>`,
     bind(el) {
       bindMedia($('#steps', el));
+      bindOffline(el, pack.id, [rid, ...(rep.related || [])]);
       const svg = $('.door-art', el); const rings = $$('.ring', svg);
       const stepEls = $$('.step', el);
       const total = rep.steps.length;
@@ -776,6 +813,7 @@ async function moreScreen() {
         <div><span>Wersja</span><b>${APP_VERSION}</b></div>
         <div><span>Paczki wiedzy</span><b>BMW X5 (E53) · prototyp</b></div>
         <div><span>Działanie offline</span><b id="offl">sprawdzam…</b></div>
+        <div><span>Offline na dziś</span><b id="offl2">…</b></div>
       </div></div>
       <p class="foot">Warsztat to prywatne narzędzie. Instrukcje są opracowaniami własnymi na podstawie publicznych źródeł, nie oficjalnymi podręcznikami producentów. Prace przy układach bezpieczeństwa (poduszki, hamulce, zawieszenie) wykonuj ostrożnie, a w razie wątpliwości zleć warsztatowi.</p>
     </div>`,
@@ -790,6 +828,7 @@ async function moreScreen() {
         try { S.importAll(await f.text()); toast('Kopia wczytana'); location.hash = '#/'; render(); } catch (err) { toast(err.message); }
       };
       const hr = $('#hard-refresh', el); if (hr) hr.onclick = hardRefresh;
+      const m = offlineMeta(); $('#offl2', el).textContent = m ? `zapisane do ${new Date(m.ts + 86400000).toLocaleString('pl-PL', { dateStyle: 'short', timeStyle: 'short' })}` : 'nic nie zapisano';
       const off = $('#offl', el);
       off.textContent = 'serviceWorker' in navigator && navigator.serviceWorker.controller ? 'aktywne' : 'włączy się po pierwszym odświeżeniu';
     }

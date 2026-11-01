@@ -651,3 +651,13 @@ body.no-tabs #toast { bottom: calc(var(--sab) + 28px); }
 
 .car-main { display: grid; gap: 12px; align-content: start; min-width: 0; }
 .car-main .zonepanel { margin: 0; }
+
+/* offline na dziś */
+.offcard { display: grid; gap: 10px; margin-bottom: 12px; }
+.offhead { display: flex; align-items: center; gap: 8px; color: var(--accent); }
+.offp { margin: 0; color: var(--muted); font-size: 14px; }
+.offfilms { display: grid; gap: 6px; font-size: 13.5px; }
+.offfilms a { color: var(--accent); text-decoration: none; }
+.offfilms small { color: var(--muted); }
+.offnote { display: none; font-style: normal; color: var(--accent); font-size: 12px; }
+.is-offline .offnote { display: block; }
