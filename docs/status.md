@@ -8,7 +8,7 @@ Prywatna aplikacja PWA do napraw samochodów rodziny. Adres: https://lewym90.git
 - **Offline na dziś:** zapis zdjęć i grafik na 24 h, automatyczne usunięcie; filmy YouTube nie są zapisywane (lista do pobrania w aplikacji YouTube).
 - **Funkcje robocze (2026-11-01):** blokada wygaszania ekranu, wielkość liter, motyw jasny/ciemny/auto, minutnik w krokach, „Wznów ostatnią naprawę”, postęp na liście napraw, zdjęcia i notatki w krokach (ze zdjęciami z demontażu w krokach montażu), karta bezpieczeństwa, plan „Dzisiaj robię” z jedną listą zakupów i zapisem offline, wyszukiwarka globalna, książka serwisowa z propozycją wpisu po naprawie, kopie (plik ze zdjęciami, migawka dobowa, przypomnienie tygodniowe), synchronizacja QR/plik, podpowiedź „Dodaj do ekranu głównego”. Kod podzielony na moduły (`js/screens/*`), testy w `tests/`.
 - **Granice (uczciwie):** iOS nie dzwoni minutnikiem w tle (dzwonek działa przy aplikacji na ekranie, po powrocie pojawia się komunikat); kopia automatycznie poza urządzeniem jest w PWA niemożliwa, więc: migawka dobowa lokalna plus tygodniowe przypomnienie z zapisem jednym dotknięciem; kody QR przenoszą dane bez zdjęć (zdjęcia przez plik).
-- **Nie zrobione z listy pomysłów:** wyszukiwanie po objawie (pkt 14), czytanie na głos (5), 18, 19, 21–25.
+- **Nie zrobione z listy pomysłów:** moduł diagnostyczny / wyszukiwanie po objawie (pkt 14): ODŁOŻONY do czasu skończenia bazy napraw, ustalenia w `modul-diagnostyczny.md`, czytanie na głos (5), 18, 19, 21–25.
 - **Odświeżanie:** automatyczne (service worker) i przycisk „Odśwież aplikację teraz”.
 - **Narzędzia:** `tools/build.py` (walidacja i generowanie service workera), `tools/smoke.py` (test w przeglądarce, zgodny z nowym interfejsem).
 
