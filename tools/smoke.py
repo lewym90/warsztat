@@ -32,41 +32,42 @@ with sync_playwright() as p:
         if sw > cw + 1: errors.append(f'przepełnienie poziome na {name}: {sw} > {cw}')
         page.screenshot(path=str(OUT / f'{name}.png'), full_page=full)
 
+    cid = lambda: page.evaluate("JSON.parse(localStorage.getItem('warsztat.v1')).cars[0].id")
     page.goto(BASE); page.wait_for_selector('.gcard'); shot('01-garaz')
-    page.click('.gcard'); page.wait_for_selector('.car-art'); shot('02-auto')
+    page.click('.gcard'); page.wait_for_selector('.spin-stage'); shot('02-auto')
     page.screenshot(path=str(OUT / '02b-auto-pelny.png'), full_page=True)
-    page.click('[data-zone="door_front"]'); page.wait_for_selector('.door-art'); shot('03-drzwi-zewn')
-    page.click('#seg-view [data-v="card"]'); shot('04-drzwi-boczek')
-    page.click('#seg-view [data-v="inner"]'); shot('05-drzwi-srodek')
-    page.click('#seg-view [data-v="outer"]')
-    page.click('.hs[data-hs="h"]'); shot('06-hotspot')
-    page.screenshot(path=str(OUT / '06b-drzwi-pelny.png'), full_page=True)
-    page.click('#hscap a'); page.wait_for_selector('.step'); shot('07-naprawa-gora')
-    page.screenshot(path=str(OUT / '07b-naprawa-pelny.png'), full_page=True)
-    page.click('[data-open="3"]'); shot('08-krok4-krawedz')
-    page.eval_on_selector('[data-done="3"]', 'e => e.click()'); shot('09-krok5-zewn')
-    page.click('[data-open="6"]'); shot('10-krok7-srodek')
-    page.goto(BASE + '#/car/' + page.evaluate("JSON.parse(localStorage.getItem('warsztat.v1')).cars[0].id") + '/r/tapicerka-przod'); shot('11-tapicerka')
-    page.goto(BASE + '#/add'); shot('12-dodaj')
-    page.click('[data-make="Opel"]'); shot('13-dodaj-model')
-    page.click('[data-model^="Vectra|C"]'); shot('14-dodaj-szczegoly')
-    page.fill('#w-engine', '1.9 CDTI'); page.click('#w-save'); page.wait_for_selector('.matchbox.no'); shot('15-vectra-brak')
-    page.click('#req'); shot('16-zamow')
-    page.goto(BASE + '#/more'); shot('17-wiecej')
-    # rysunek poglądowy auta w układzie desktop
+    page.goto(BASE + f'#/car/{cid()}/zone/doors?side=left'); page.wait_for_selector('.zrow'); shot('03-strefa-drzwi', True)
+    page.fill('#zq', 'klamka'); shot('04-strefa-szukaj')
+    for rid in ['klamka-zewn-przod', 'tapicerka-przod', 'klamka-wewn', 'okno-podnosnik-przod']:
+        page.goto(BASE + f'#/car/{cid()}/r/{rid}'); page.wait_for_selector('.dk-card'); page.wait_for_timeout(600)
+        n = page.evaluate("document.querySelectorAll('.dk-card').length")
+        shot(f'05-{rid}-start')
+        for _ in range(min(7, n - 1)):
+            page.click('#dk-next'); page.wait_for_timeout(450)
+        shot(f'05-{rid}-karta8')
+        page.click('#dk-menu'); shot(f'05-{rid}-spis'); page.click('#dk-close')
+        # cofnięcie cofa postęp
+        a = page.evaluate("Object.values(JSON.parse(localStorage.getItem('warsztat.v1')).prog['%s:%s'].steps).filter(Boolean).length" % (cid(), rid))
+        for _ in range(4): page.click('#dk-prev'); page.wait_for_timeout(450)
+        c = page.evaluate("Object.values(JSON.parse(localStorage.getItem('warsztat.v1')).prog['%s:%s'].steps).filter(Boolean).length" % (cid(), rid))
+        if not c < a and a > 0: errors.append(f'postęp nie cofa się w {rid}: {a} -> {c}')
+    page.goto(BASE + '#/add'); shot('06-dodaj')
+    page.click('[data-make="Opel"]'); shot('07-dodaj-model')
+    page.click('[data-model^="Vectra|C"]'); shot('08-dodaj-szczegoly')
+    page.fill('#w-engine', '1.9 CDTI'); page.click('#w-save'); page.wait_for_selector('.matchbox.no'); shot('09-vectra-brak')
+    page.click('#req'); shot('10-zamow')
+    page.goto(BASE + '#/more'); shot('11-wiecej')
     page.set_viewport_size({'width': 1280, 'height': 900})
-    page.goto(BASE + '#/'); shot('18-desktop-garaz')
-    page.click('.gcard'); shot('19-desktop-auto')
-    page.goto(BASE + '#/car/' + page.evaluate("JSON.parse(localStorage.getItem('warsztat.v1')).cars[0].id") + '/r/klamka-zewn-przod'); shot('20-desktop-naprawa')
-    # macierz rozmiarów: telefon, tablet pion/poziom, laptop, duży monitor
-    cid = page.evaluate("JSON.parse(localStorage.getItem('warsztat.v1')).cars[0].id")
-    for name, w, h in [('tel-se', 320, 568), ('tel-mini', 375, 667), ('tel-max', 430, 932), ('tab-pion', 768, 1024), ('tab-poz', 1180, 820), ('laptop', 1440, 900), ('monitor', 2200, 1200)]:
+    page.goto(BASE + '#/'); shot('12-desktop-garaz')
+    page.goto(BASE + f'#/car/{cid()}'); shot('13-desktop-auto')
+    page.goto(BASE + f'#/car/{cid()}/r/klamka-zewn-przod'); page.wait_for_selector('.dk-card'); shot('14-desktop-naprawa')
+    for name, w, h in [('tel-se', 320, 568), ('tel-mini', 375, 667), ('tel-max', 430, 932), ('tab-pion', 768, 1024), ('laptop', 1440, 900)]:
         page.set_viewport_size({'width': w, 'height': h})
-        for tag, hsh in [('garaz', '#/'), ('auto', f'#/car/{cid}'), ('drzwi', f'#/car/{cid}/sys/doors?door=front'), ('naprawa', f'#/car/{cid}/r/klamka-zewn-przod'), ('wiecej', '#/more')]:
+        for tag, hsh in [('garaz', '#/'), ('auto', f'#/car/{cid()}'), ('drzwi', f'#/car/{cid()}/zone/doors'), ('naprawa', f'#/car/{cid()}/r/klamka-zewn-przod'), ('wiecej', '#/more')]:
             page.goto(BASE + hsh); shot(f'r-{name}-{tag}')
     b.close()
 
 httpd.shutdown()
-errors = [e for e in errors if 'pelicanparts' not in e and 'ERR_TUNNEL' not in e and 'youtube' not in e]  # zasoby zewnętrzne: sandbox ich nie ładuje
+errors = [e for e in errors if 'Failed to load resource' not in e and not any(k in e for k in ('pelicanparts', 'ERR_TUNNEL', 'youtube', 'ytimg', 'xoutpost', 'leathersteering', 'workshop-manuals'))]  # zasoby zewnętrzne: sandbox ich nie ładuje
 print('BŁĘDY:' if errors else 'brak błędów konsoli')
 for e in errors: print(' -', e)

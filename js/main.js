@@ -731,7 +731,7 @@ async function repairScreen(carId, rid) {
           <div class="dk-t"><b>${esc(rep.title)}</b><small>${esc(pack.title)}${car.engine ? ' · ' + esc(car.engine) : ''}</small></div>
           <button class="dk-ib" id="dk-menu" aria-label="Spis kart">${icon('list', 22)}</button>
         </header>
-        <div class="dk-loc" id="dk-loc" hidden>${(setDoorPhoto(((DOOR_PHOTOS[pack.id] || {}).left || {})[rep.door === 'rear' ? 'rear' : 'front']), doorSVG({ view: rep.steps[0].view, rings: 4 }))}</div>
+        <button class="dk-loc" id="dk-loc" hidden aria-label="Gdzie to jest: powiększ rysunek drzwi">${(setDoorPhoto(((DOOR_PHOTOS[pack.id] || {}).left || {})[rep.door === 'rear' ? 'rear' : 'front']), doorSVG({ view: rep.steps[0].view, rings: 4 }))}<span class="dk-loc-l">Gdzie?</span></button>
         <div class="dk-track" id="dk-track">${cards.map((c, k) => `<section class="dk-card${c.step != null ? ' is-step' : ''}" data-k="${k}" aria-label="Karta ${k + 1} z ${total}"><div class="dk-in">${c.html}</div></section>`).join('')}</div>
         <footer class="dk-bar">
           <button class="dk-nav" id="dk-prev" aria-label="Poprzednia karta">${icon('back', 26)}</button>
@@ -751,6 +751,13 @@ async function repairScreen(carId, rid) {
       const svg = $('.door-art', el), rings = $$('.ring', svg);
       rings.forEach(r => { r.style.transition = 'none'; });
       const loc = $('#dk-loc', el);
+      loc.onclick = () => {
+        const lb = document.createElement('div'); lb.className = 'lightbox';
+        const v = svg.dataset.view;
+        lb.innerHTML = `<div class="lb-in"><div class="dk-bigloc">${svg.outerHTML}</div><div class="lb-cap"><p><b>Gdzie to jest:</b> ${esc(VIEW_LABELS[v] || '')}. Złota celownica wskazuje miejsce na drzwiach.</p><div class="lb-act"><button class="btn small primary" data-x>Zamknij</button></div></div></div>`;
+        lb.addEventListener('click', e => { if (e.target === lb || e.target.closest('[data-x]')) lb.remove(); });
+        document.body.appendChild(lb);
+      };
       const sync = () => {
         rep.steps.forEach((_, i) => { prog.steps[i] = stepLast[i] < pos; });
         prog.pos = pos; prog.cur = cards[pos].step != null ? cards[pos].step : (pos < stepBase ? 0 : rep.steps.length - 1); S.saveProg();
