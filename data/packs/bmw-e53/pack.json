@@ -473,11 +473,11 @@
       "door": "rear",
       "difficulty": 2,
       "time": [
-        45,
-        75
+        60,
+        120
       ],
-      "completeness": "szkic",
-      "steps": 5,
+      "completeness": "częściowe",
+      "steps": 13,
       "icon": "door"
     }
   ]

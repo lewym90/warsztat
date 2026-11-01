@@ -1,42 +1,507 @@
 {
-  "id": "tapicerka-tyl",
-  "title": "Tapicerka drzwi tylnych",
-  "subtitle": "Zdejmowanie boczka tylnych drzwi",
-  "door": "rear",
-  "completeness": "szkic",
-  "difficulty": 2,
-  "time": [45, 75],
-  "summary": "Szkic na podstawie artykułu technicznego i relacji z forum. Konstrukcja jest podobna do przedniej, ale mamy mniej szczegółów: nie potwierdziliśmy liczby i położenia śrub. To karta robocza: uzupełnimy ją po pierwszej rozbiórce.",
-  "tools": [
-    { "name": "Torx T20", "note": "wg artykułu technicznego", "need": "must" },
-    { "name": "Plastikowe łopatki do tapicerki", "note": "", "need": "must" },
-    { "name": "Narzędzie do spinek tapicerki", "note": "ułatwia zdjęcie spinek", "need": "should" },
-    { "name": "Zapasowe spinki", "note": "autorzy zalecają mieć zapas, bo pękają", "need": "must" }
-  ],
-  "parts": [
-    { "name": "Spinki i uszczelki boczka", "oe": null, "conf": "low", "note": "Numerów nie potwierdzono. Czytelnicy artykułu pytali o czarne uszczelki przy boczku (11 szt. na drzwi). Dobierz po VIN.", "src": ["pelican-rear-card"] }
-  ],
-  "warnings": [
-    { "lvl": "warn", "t": "Roleta przeciwsłoneczna", "b": "Jeśli masz roletę w tylnych drzwiach, wyjmij ją najpierw i uważaj, żeby siatka nie zaczepiła. Roleta wsuwa się w metalowy uchwyt na boczku.", "src": ["pelican-rear-card", "xo-rear-childlock"] },
-    { "lvl": "info", "t": "Szkic, nie pełna instrukcja", "b": "Liczba i miejsca śrub w tylnych drzwiach nie zostały potwierdzone. Rozbierając, rób zdjęcia i nie szarp.", "src": ["pelican-rear-card"] }
-  ],
-  "steps": [
-    { "t": "Wyjmij roletę (jeśli jest)", "view": "card", "focus": ["card.pull"], "min": 5, "conf": "med", "src": ["pelican-rear-card", "xo-rear-childlock"],
-      "b": "Najpierw wysuń roletę przeciwsłoneczną. Pilnuj, żeby siatka nie zaczepiła o elementy podczas wyciągania." },
-    { "t": "Odkręć śruby T20", "view": "card", "focus": ["card.screw_handle", "card.screw_map"], "min": 8, "conf": "low", "src": ["pelican-rear-card"],
-      "b": "Artykuł wymienia klucz T20 do śrub boczka. Miejsca śrub w tylnych drzwiach sprawdź wzrokowo, szukaj ich tak jak z przodu: za klamką wewnętrzną, w okolicy uchwytu i pod zaślepkami." },
-    { "t": "Zwolnij spinki i zdejmij boczek", "view": "card", "focus": ["card.clip_a", "card.clip_b", "card.clip_c"], "min": 15, "conf": "low", "src": ["pelican-rear-card", "xo-rear-childlock"],
-      "b": "Podważaj boczek łopatkami dookoła. Jedna relacja z forum mówi, że boczek zwolnił się „zdecydowanym pchnięciem w górę” po wyjęciu rolety. Przy utrudnionym dostępie (np. blokada dziecięca) fotel tylny bywa przeszkodą." },
-    { "t": "Odepnij wtyczki i cięgno klamki", "view": "card", "focus": ["card.handle", "card.led"], "min": 5, "conf": "low", "src": ["pelican-rear-card"],
-      "b": "Zanim odłożysz boczek, odepnij wszystko, co go łączy z drzwiami: wtyczki i cięgno klamki wewnętrznej." },
-    { "t": "Montaż", "view": "card", "focus": ["card.top_clips"], "min": 15, "conf": "med", "src": ["pelican-rear-card"],
-      "b": "Odwrotnie niż demontaż. Jeśli w czasie rozbiórki odpadła roleta, zamontuj ją, wsuwając w metalowy uchwyt boczka." }
-  ],
-  "after": ["Zamek i szyba działają", "Boczek nie grzechocze", "Roleta wysuwa się i chowa"],
-  "unknown": [
-    "Liczba i dokładne położenie śrub T20.",
-    "Czy przełączniki i inne wtyczki w tylnych drzwiach wymagają odpięcia (zależnie od wyposażenia).",
-    "Procedura dla aut po liftingu."
-  ],
-  "related": ["klamka-zewn-tyl", "klamka-wewn"]
+ "id": "tapicerka-tyl",
+ "title": "Tapicerka drzwi tylnych",
+ "subtitle": "Zdejmowanie boczka tylnych drzwi",
+ "door": "rear",
+ "completeness": "częściowe",
+ "difficulty": 2,
+ "time": [
+  60,
+  120
+ ],
+ "summary": "Boczek tylnych drzwi E53 zdejmuje się podobnie jak przedni: cztery śruby T20, listwa, zatrzaski, pręt zamka, cięgno klamki i wtyczki. Różni się roletą przeciwsłoneczną (jeśli jest) i delikatną wtyczką podświetlanej klamki. Karta oparta na artykule Pelican Parts (12 rysunków); nie ma filmu ani momentów dokręcenia, a zdjęcia nie były sprawdzone w przeglądarce.",
+ "tools": [
+  {
+   "name": "Torx T20",
+   "note": "wg artykułu technicznego",
+   "need": "must"
+  },
+  {
+   "name": "Plastikowe łopatki do tapicerki",
+   "note": "",
+   "need": "must"
+  },
+  {
+   "name": "Narzędzie do spinek tapicerki",
+   "note": "ułatwia zdjęcie spinek",
+   "need": "should"
+  },
+  {
+   "name": "Zapasowe spinki",
+   "note": "autorzy zalecają mieć zapas, bo pękają",
+   "need": "must"
+  }
+ ],
+ "parts": [
+  {
+   "name": "Spinki i uszczelki boczka",
+   "oe": null,
+   "conf": "low",
+   "note": "Numerów nie potwierdzono. Czytelnicy artykułu pytali o czarne uszczelki przy boczku (11 szt. na drzwi). Dobierz po VIN.",
+   "src": [
+    "pelican-rear-card"
+   ]
+  }
+ ],
+ "warnings": [
+  {
+   "lvl": "warn",
+   "t": "Roleta przeciwsłoneczna",
+   "b": "Jeśli masz roletę w tylnych drzwiach, wyjmij ją najpierw i uważaj, żeby siatka nie zaczepiła. Roleta wsuwa się w metalowy uchwyt na boczku.",
+   "src": [
+    "pelican-rear-card",
+    "xo-rear-childlock"
+   ]
+  },
+  {
+   "lvl": "info",
+   "t": "Szkic, nie pełna instrukcja",
+   "b": "Liczba i miejsca śrub w tylnych drzwiach nie zostały potwierdzone. Rozbierając, rób zdjęcia i nie szarp.",
+   "src": [
+    "pelican-rear-card"
+   ]
+  }
+ ],
+ "steps": [
+  {
+   "phase": "1. Przygotowanie",
+   "t": "Przygotuj narzędzia i zapasowe spinki",
+   "view": "card",
+   "focus": [
+    "card.trim"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Tylny boczek zdejmuje się podobnie jak przedni, ale ma roletę przeciwsłoneczną i podświetlaną klamkę. Zacznij od przygotowania, bo spinki łamią się często.",
+   "see": "Boczek tylnych drzwi z listwą, uchwytem i (w niektórych autach) roletą w oknie.",
+   "how": [
+    "Weź plastikowe łopatki do tapicerki i narzędzie do spinek.",
+    "Weź Torx T20 i śrubokręt krzyżakowy (śruba rolety).",
+    "Przygotuj magnes: śruba może wpaść w drzwi.",
+    "Kup zapasowe spinki boczka i, jeśli folia jest podarta, folię przeciwwilgociową z uszczelką.",
+    "Odłącz akumulator przed pracą przy instalacji elektrycznej (zalecenie artykułu)."
+   ],
+   "mistakes": [
+    "Praca bez zapasowych spinek: pękną, a boczek będzie dzwonił."
+   ],
+   "check": "Masz narzędzia i zapasowe spinki.",
+   "tip": "Czas według artykułu Pelican Parts: ok. 1 h. Dla pierwszego razu zaplanuj 1,5–2 h."
+  },
+  {
+   "phase": "2. Zdejmowanie boczka",
+   "t": "Wyjmij roletę przeciwsłoneczną (jeśli jest)",
+   "view": "card",
+   "focus": [
+    "card.trim"
+   ],
+   "min": 5,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Jeśli w tylnych drzwiach jest roleta, zdejmujesz ją pierwsza, bo zasłania dostęp.",
+   "see": "Plastikowa roleta w ramie okna z małym zaczepem u góry.",
+   "how": [
+    "Podważ zaczep rolety przez otwór u góry rolety i wyciągnij ją prosto.",
+    "Zdejmij roletę z drzwi prosto do siebie.",
+    "Przy montażu wsuń najpierw dół, potem zatrzaśnij górę."
+   ],
+   "mistakes": [
+    "Szarpanie rolety w bok: pęka zaczep."
+   ],
+   "check": "Roleta leży osobno lub jej nie ma w Twoim aucie.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/images_large/pic01.jpg",
+     "cap": "Podważ zaczep rolety przez otwór u góry i wyciągnij ją prosto.",
+     "credit": "Pelican Parts (tylny boczek, rys. 1)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement.htm"
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/images_large/pic02.jpg",
+     "cap": "Roletę zdejmij prosto z drzwi; zakładaj od dołu, potem górę.",
+     "credit": "Pelican Parts (tylny boczek, rys. 2)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "2. Zdejmowanie boczka",
+   "t": "Odkręć dwie śruby T20",
+   "view": "card",
+   "focus": [
+    "card.screw_trim"
+   ],
+   "min": 5,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Pierwsze dwie śruby Torx T20 trzymają boczek.",
+   "see": "Dwie śruby w okolicy uchwytu i listwy.",
+   "how": [
+    "Odkręć dwie śruby Torx T20 (według rysunku).",
+    "Odłóż je do pudełka."
+   ],
+   "mistakes": [
+    "Pominięcie którejś śruby: boczek nie zejdzie i pęknie."
+   ],
+   "check": "Dwie śruby są odkręcone.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/images_large/pic03.jpg",
+     "cap": "Dwie śruby T20 mocujące boczek.",
+     "credit": "Pelican Parts (tylny boczek, rys. 3)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "2. Zdejmowanie boczka",
+   "t": "Zdejmij listwę ozdobną",
+   "view": "card",
+   "focus": [
+    "card.trim"
+   ],
+   "min": 5,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Listwa jest wpięta na czterech plastikowych zatrzaskach.",
+   "see": "Wąska listwa nad uchwytem.",
+   "how": [
+    "Podważ listwę plastikową łopatką od tyłu w stronę klamki.",
+    "Gdy któryś zatrzask się złamie lub zostanie w listwie, wymień go."
+   ],
+   "mistakes": [
+    "Metalowy śrubokręt: rysy na boczku."
+   ],
+   "check": "Listwa jest zdjęta.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/images_large/pic04.jpg",
+     "cap": "Listwę podważ od tyłu w stronę klamki; ma cztery zatrzaski.",
+     "credit": "Pelican Parts (tylny boczek, rys. 4)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "2. Zdejmowanie boczka",
+   "t": "Odkręć dwie kolejne śruby T20, trzymając magnes",
+   "view": "card",
+   "focus": [
+    "card.screw_handle",
+    "card.screw_map"
+   ],
+   "min": 5,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Pod listwą i przy uchwycie są jeszcze dwie śruby T20. Wewnętrzna łatwo wpada do drzwi.",
+   "see": "Dwie śruby przy uchwycie.",
+   "how": [
+    "Odkręć obie śruby T20.",
+    "Wewnętrznej nie upuść do drzwi: w razie czego użyj magnesu."
+   ],
+   "mistakes": [
+    "Wpadnięcie śruby w drzwi."
+   ],
+   "check": "Cztery śruby T20 są wyjęte i leżą w pudełku.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/images_large/pic05.jpg",
+     "cap": "Dwie śruby T20; wewnętrznej nie wrzuć do wnętrza drzwi, miej magnes.",
+     "credit": "Pelican Parts (tylny boczek, rys. 5)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "2. Zdejmowanie boczka",
+   "t": "Zwolnij dolne zatrzaski i zdejmij górę boczka",
+   "view": "card",
+   "focus": [
+    "card.clip_a",
+    "card.clip_b",
+    "card.clip_c",
+    "card.top_clips"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Boczek jest wpięty zatrzaskami dookoła. Najpierw puszczają dolne, potem góra, na koniec wyjmujesz pręt zamka.",
+   "see": "Szczelina między boczkiem a drzwiami.",
+   "how": [
+    "Włóż plastikową łopatkę między boczek a drzwi i podważ na zewnątrz, aż dolne zatrzaski puszczą.",
+    "Odciągnij górę boczka na zewnątrz.",
+    "Ostrożnie wysuń pręt zamka drzwi."
+   ],
+   "mistakes": [
+    "Zgięcie lub złamanie pręta zamka.",
+    "Ciągnięcie za daleko: przewody są jeszcze wpięte."
+   ],
+   "check": "Boczek jest odchylony od drzwi i trzyma się tylko na przewodach i cięgnie.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/images_large/pic06.jpg",
+     "cap": "Podważ dolne zatrzaski, odciągnij górę i wysuń pręt zamka.",
+     "credit": "Pelican Parts (tylny boczek, rys. 6)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "2. Zdejmowanie boczka",
+   "t": "Zwolnij cięgno klamki wewnętrznej",
+   "view": "card",
+   "focus": [
+    "card.pull"
+   ],
+   "min": 5,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Klamka wewnętrzna jest połączona z drzwiami cięgnem. Zwalniasz je zaczepem.",
+   "see": "Cięgno ze zaczepem przy klamce wewnętrznej.",
+   "how": [
+    "Delikatnie naciśnij zaczep zabezpieczający cięgno i zdejmij je z klamki.",
+    "Przy montażu klamka ma być w pozycji zwolnionej."
+   ],
+   "mistakes": [
+    "Szarpanie klamką przy zakładaniu cięgna."
+   ],
+   "check": "Cięgno jest zdjęte z klamki.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/images_large/pic07.jpg",
+     "cap": "Naciśnij zaczep i zdejmij cięgno klamki wewnętrznej.",
+     "credit": "Pelican Parts (tylny boczek, rys. 7)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "2. Zdejmowanie boczka",
+   "t": "Odepnij wtyczki: głośnik, przełącznik, światło i podświetlana klamka",
+   "view": "card",
+   "focus": [
+    "card.speaker",
+    "card.switch",
+    "card.led"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Boczek ma kilka przewodów. Wtyczka podświetlanej klamki jest bardzo delikatna.",
+   "see": "Wtyczki z tyłu boczka.",
+   "how": [
+    "Wyciągnij prosto wtyczki głośnika, przełącznika szyby i oświetlenia.",
+    "Wtyczkę podświetlanej klamki odepnij, ściskając zaczepy i wyciągając prosto."
+   ],
+   "mistakes": [
+    "Szarpanie wtyczki klamki: łamie się."
+   ],
+   "check": "Wszystkie wtyczki są odpięte, boczek nic nie trzyma.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/images_large/pic08.jpg",
+     "cap": "Wyciągnij prosto wtyczki; klamkę z podświetleniem odepnij, ściskając zaczepy.",
+     "credit": "Pelican Parts (tylny boczek, rys. 8)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "2. Zdejmowanie boczka",
+   "t": "Zdejmij boczek i obejrzyj spinki oraz uszczelki",
+   "view": "card",
+   "focus": [
+    "card.trim"
+   ],
+   "min": 5,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Po zdjęciu boczka sprawdzasz, czy w drzwiach nie zostały spinki.",
+   "see": "Spinki w drzwiach i na boczku, folia na drzwiach.",
+   "how": [
+    "Zdejmij boczek.",
+    "Obejrzyj spinki: wymień pęknięte i brakujące.",
+    "Sprawdź, czy brakujących spinek nie zostało w drzwiach.",
+    "Sprawdź folię: pęknięta lub odklejona wymaga wymiany."
+   ],
+   "mistakes": [
+    "Pominięcie spinki, która została w drzwiach."
+   ],
+   "check": "Boczek leży osobno, spinki są kompletne.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/images_large/pic09.jpg",
+     "cap": "Boczek zdjęty: obejrzyj spinki i uszczelki; brakujące szukaj w drzwiach.",
+     "credit": "Pelican Parts (tylny boczek, rys. 9)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "3. Przed założeniem boczka",
+   "t": "Sprawdź czarny plastikowy zaczep na boczku",
+   "view": "card",
+   "focus": [
+    "card.clip_d"
+   ],
+   "min": 5,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Czarny plastikowy zaczep powinien tkwić na boczku. Gdy go brakuje, szukaj w drzwiach.",
+   "see": "Czarny plastikowy element wsunięty w metalowy wspornik.",
+   "how": [
+    "Sprawdź, czy czarny zaczep jest na boczku.",
+    "Jeśli go nie ma, poszukaj w drzwiach i wsuń w metalowy wspornik."
+   ],
+   "mistakes": [
+    "Montaż bez tego zaczepu: boczek odstaje."
+   ],
+   "check": "Czarny zaczep siedzi na boczku.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/images_large/pic10.jpg",
+     "cap": "Czarny zaczep ma być na boczku; wsuwasz go w metalowy wspornik.",
+     "credit": "Pelican Parts (tylny boczek, rys. 10)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "3. Przed założeniem boczka",
+   "t": "Zdejmij lub załóż roletę na boczek",
+   "view": "card",
+   "focus": [
+    "card.trim"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Roleta jest przykręcona do boczka śrubą krzyżakową. Robisz to tylko, gdy wymieniasz boczek.",
+   "see": "Śruba rolety na boczku.",
+   "how": [
+    "Odkręć śrubę krzyżakową mocującą roletę do boczka.",
+    "Wyjmij roletę prosto, pilnując, żeby siatka się nie zahaczyła.",
+    "Przy montażu dopasuj wszystkie plastikowe zaczepy do otworów w drzwiach, zanim zatrzaśniesz boczek."
+   ],
+   "mistakes": [
+    "Zaczepienie siatki rolety."
+   ],
+   "check": "Roleta jest zdjęta z boczka lub poprawnie założona.",
+   "media": [
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/images_large/pic11.jpg",
+     "cap": "Śruba krzyżakowa mocująca roletę do boczka.",
+     "credit": "Pelican Parts (tylny boczek, rys. 11)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement.htm"
+    },
+    {
+     "type": "photo",
+     "url": "https://cdn4.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/images_large/pic12.jpg",
+     "cap": "Roletę wyjmij prosto; folia ma być cała i szczelna.",
+     "credit": "Pelican Parts (tylny boczek, rys. 12)",
+     "page": "https://www.pelicanparts.com/techarticles/BMW-X5/119-INTERIOR-Rear_Door_Panel_Replacement/119-INTERIOR-Rear_Door_Panel_Replacement.htm"
+    }
+   ]
+  },
+  {
+   "phase": "4. Montaż i test",
+   "t": "Podłącz wtyczki i cięgno",
+   "view": "card",
+   "focus": [
+    "card.speaker",
+    "card.pull"
+   ],
+   "min": 10,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Zanim zatrzaśniesz boczek, podłącz wszystko, co zdjąłeś.",
+   "see": "Wtyczki i cięgno klamki z tyłu boczka.",
+   "how": [
+    "Ustaw klamkę wewnętrzną w pozycji zwolnionej i załóż cięgno.",
+    "Podłącz wtyczki: głośnik, przełącznik, oświetlenie i podświetlaną klamkę."
+   ],
+   "mistakes": [
+    "Wciskanie cięgna na siłę przy klamce w innej pozycji."
+   ],
+   "check": "Cięgno jest na klamce, wtyczki wpięte."
+  },
+  {
+   "phase": "4. Montaż i test",
+   "t": "Załóż boczek, śruby i listwę, sprawdź działanie",
+   "view": "card",
+   "focus": [
+    "card.top_clips"
+   ],
+   "min": 25,
+   "conf": "med",
+   "src": [
+    "pelican-rear-card"
+   ],
+   "b": "Boczek zakładasz w odwrotnej kolejności, a na koniec sprawdzasz wszystkie funkcje.",
+   "see": "Górne zaczepy boczka i otwory w drzwiach.",
+   "how": [
+    "Wsuń pręt zamka, zahacz górę boczka i dociśnij zatrzaski dookoła.",
+    "Wkręć cztery śruby T20 i załóż listwę.",
+    "Wsuń roletę od dołu i zatrzaśnij górę.",
+    "Sprawdź: klamka otwiera drzwi, przełącznik szyby i głośnik działają, podświetlenie klamki świeci.",
+    "Podłącz akumulator."
+   ],
+   "mistakes": [
+    "Niedociśnięte zatrzaski: boczek dzwoni."
+   ],
+   "check": "Boczek siedzi, klamka i przełączniki działają."
+  }
+ ],
+ "unknown": [
+  "Zweryfikowany film E53 dla tylnego boczka: nie znaleziono.",
+  "Zdjęcia z Pelican Parts: adresy wynikają ze schematu nazw plików tego serwisu, nie sprawdzono ich ładowania.",
+  "Czy przełączniki i inne wtyczki w tylnych drzwiach zależą od wyposażenia.",
+  "Procedura dla aut po liftingu.",
+  "Rozmiar śruby rolety (krzyżakowa, rozmiar nie podany)."
+ ],
+ "related": [
+  "klamka-zewn-tyl",
+  "klamka-wewn"
+ ],
+ "after": [
+  "Boczek siedzi równo i nie dzwoni",
+  "Klamka wewnętrzna otwiera drzwi",
+  "Przełącznik szyby, głośnik i podświetlenie klamki działają",
+  "Roleta (jeśli jest) wchodzi i wychodzi bez zahaczania"
+ ]
 }
