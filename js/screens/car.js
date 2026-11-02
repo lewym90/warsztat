@@ -4,6 +4,7 @@ import { icon } from '../icons.js';
 import { getCatalog, getPack, matchPack } from '../data.js';
 import { PHOTOS, ZONES, carSVG } from '../art-car.js';
 import { SPINS, mountSpin, spinHtml } from '../spin.js';
+import { sourceCount } from './sources.js';
 import * as S from '../store.js';
 
 /* ---------- AUTO ---------- */
@@ -62,6 +63,7 @@ async function carScreen(id) {
           <div><span>Silnik</span><b>${esc(car.engine || '—')}${car.kw ? ' · ' + car.kw + ' kW' : ''}</b></div>
           <div><span>VIN</span><b id="vin" data-v="${esc(car.vin)}" data-m="${esc(vinShown)}">${car.vin ? esc(vinShown) : 'nie podano'}</b></div>
         </div></div>
+        ${pack ? `<a class="card resume src-row" href="#/car/${id}/sources"><span class="zi">${icon('link', 20)}</span><span class="zt"><b>Źródła</b><small>${sourceCount(pack)} źródeł, autorzy i wątki</small></span>${icon('chevron', 20)}</a>` : ''}
         <p class="foot">Dane auta (w tym VIN) są zapisane wyłącznie w tym urządzeniu.</p>
         </div>
       </div>`,

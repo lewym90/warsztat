@@ -31,6 +31,8 @@ for p in packs:
     pack = json.loads(pack_path.read_text(encoding='utf-8'))
     srcs = pack['sources']
     index = []
+    source_use = {}
+    media_cred = {}
     for f in sorted((pdir / 'repairs').glob('*.json')):
         r = json.loads(f.read_text(encoding='utf-8'))
         rid = r['id']
@@ -61,9 +63,23 @@ for p in packs:
         for part in r.get('parts', []):
             if part.get('oe') and not re.fullmatch(r'\d{11}', part['oe']): err(f'{rid}: numer OE "{part["oe"]}" nie ma 11 cyfr')
             if not part.get('oe') and part['conf'] == 'high': err(f'{rid}: część bez numeru nie może mieć pewności high')
+        for k in used: source_use.setdefault(k, []).append(rid)
+        for s in r['steps']:
+            for m in s.get('media', []):
+                full = m['credit']; base = re.sub(r'\s*\(.*?\)', '', full).strip() or full
+                e = media_cred.setdefault(base, {'credit': base, 'details': [], 'types': [], 'hosts': [], 'links': [], 'repairs': [], 'count': 0})
+                e['count'] += 1
+                m_host = re.sub(r'^https?://(www\.)?', '', m.get('url', 'youtube.com')).split('/')[0]
+                if full != base and 'rys.' not in full and full[len(base):].strip(' ()') not in e['details']: e['details'].append(full[len(base):].strip(' ()'))
+                if m['type'] not in e['types']: e['types'].append(m['type'])
+                if m_host not in e['hosts']: e['hosts'].append(m_host)
+                if m['type'] == 'link' and m['url'] not in e['links']: e['links'].append(m['url'])
+                if rid not in e['repairs']: e['repairs'].append(rid)
         index.append({'id': rid, 'title': r['title'], 'subtitle': r['subtitle'], 'door': r['door'], 'difficulty': r['difficulty'],
                       'time': r['time'], 'completeness': r['completeness'], 'steps': len(r['steps']), 'icon': icon_for(rid)})
     pack['repairs'] = index
+    pack['sourceUse'] = {k: sorted(v) for k, v in sorted(source_use.items())}
+    pack['mediaCredits'] = sorted(media_cred.values(), key=lambda e: -e['count'])
     ids = {x['id'] for x in index}
     for side, views in pack['doors'].items():
         for view, spots in views.items():

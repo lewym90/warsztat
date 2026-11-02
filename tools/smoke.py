@@ -143,6 +143,15 @@ with sync_playwright() as p:
     page.goto(BASE + '#/'); shot('12-desktop-garaz')
     page.goto(BASE + f'#/car/{cid()}'); shot('13-desktop-auto')
     page.goto(BASE + f'#/car/{cid()}/r/klamka-zewn-przod'); page.wait_for_selector('.dk-card'); shot('14-desktop-naprawa')
+    page.goto(BASE + f'#/car/{cid()}'); page.wait_for_selector('.src-row')
+    check('źródeł' in page.inner_text('.src-row'), 'wiersz Źródła bez liczby')
+    page.click('.src-row'); page.wait_for_selector('.src-card')
+    check(page.locator('.src-card').count() >= 40, 'za mało kart źródeł')
+    check(page.locator('.src-card a[href^="https://"]').count() >= 40, 'karty źródeł bez odnośników')
+    shot('s-zrodla')
+    page.fill('#srcq', 'fepat55'); check(page.locator('.src-card:visible').count() == 1, 'szukanie po autorze nie działa')
+    page.fill('#srcq', 'zzzz'); check(page.locator('.src-card:visible').count() == 0, 'szukanie bez wyniku pokazuje karty')
+    page.fill('#srcq', '')
     import json as _jr, glob as _gl
     for f in sorted(_gl.glob('data/packs/bmw-e53/repairs/*.json')):
         rid = _jr.load(open(f))['id']; nst = len(_jr.load(open(f))['steps'])

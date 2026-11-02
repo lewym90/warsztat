@@ -11,6 +11,7 @@ import './screens/repair.js';
 import './screens/plan.js';
 import './screens/search.js';
 import './screens/book.js';
+import './screens/sources.js';
 import './screens/sync.js';
 import { applyPrefs } from './prefs.js';
 import { initTimer } from './timer.js';

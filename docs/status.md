@@ -12,6 +12,8 @@ Prywatna aplikacja PWA do napraw samochodów rodziny. Adres: https://lewym90.git
 - **Odświeżanie:** automatyczne (service worker) i przycisk „Odśwież aplikację teraz”.
 - **Narzędzia:** `tools/build.py` (walidacja i generowanie service workera), `tools/smoke.py` (test w przeglądarce, zgodny z nowym interfejsem).
 
+- **Źródła (2026-11-02):** na dole ekranu auta wiersz „Źródła” otwiera pełnoekranową listę: pogrupowane źródła (instrukcje BMW, artykuły, fora, filmy, części), nicki autorów cytowanych wypowiedzi tam, gdzie są znane, lista kart, w których źródło użyto, link do oryginału i wyszukiwarka; osobno zdjęcia, filmy i odnośniki z kredytami. Dane liczy `tools/build.py` (`sourceUse`, `mediaCredits` w pack.json). Karty napraw nie powtarzają autorów.
+
 ## Stan napraw (BMW E53)
 | Naprawa | Status | Kroki | Zdjęcia | Klipy | Uwagi |
 |---|---|---|---|---|---|

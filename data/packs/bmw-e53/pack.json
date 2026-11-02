@@ -194,12 +194,18 @@
     "xo-rear-emerg": {
       "title": "Xoutpost: Emergency window fix, rear regulator failure (2015)",
       "url": "https://xoutpost.com/x5-e53-forum/100716-emergency-window-fix-rear-regulator-failure-print.html",
-      "kind": "forum"
+      "kind": "forum",
+      "authors": [
+        "J.Belknap"
+      ]
     },
     "xo-glass-clip": {
       "title": "Xoutpost: Driver's window bolt through glass (klips szyby)",
       "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/86705-drivers-window-bolt-through-glass.html",
-      "kind": "forum"
+      "kind": "forum",
+      "authors": [
+        "squeasel"
+      ]
     },
     "xo-reg-article": {
       "title": "Xoutpost: Window Regulator Replacement BMW X5 (artykuł, przód i tył)",
@@ -214,7 +220,10 @@
     "xo-seals": {
       "title": "Xoutpost: Replace inner front door seals (fepat55)",
       "url": "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/41253-replace-inner-front-door-seals.html",
-      "kind": "forum"
+      "kind": "forum",
+      "authors": [
+        "fepat55"
+      ]
     },
     "xo-mirror-glass": {
       "title": "Xoutpost: How to replace 2006 side mirror glass",
@@ -229,12 +238,21 @@
     "xo-mirror-assy": {
       "title": "Xoutpost: Driver's side mirror replacement",
       "url": "https://xoutpost.com/x5-e53-forum/12287-drivers-side-mirror-replacement-print.html",
-      "kind": "forum"
+      "kind": "forum",
+      "authors": [
+        "IFlyX5"
+      ]
     },
     "xo-motor-init": {
       "title": "Xoutpost: Window motor change out, do I need reprogram",
       "url": "https://xoutpost.com/x5-e53-forum/90902-window-motor-change-out-do-i-need-reprogram-print.html",
-      "kind": "forum"
+      "kind": "forum",
+      "authors": [
+        "killcrap",
+        "Qsilver7",
+        "SlickGT1",
+        "Ricky Bobby"
+      ]
     }
   },
   "systems": [
@@ -674,6 +692,327 @@
       "completeness": "częściowe",
       "steps": 4,
       "icon": "wrench"
+    }
+  ],
+  "sourceUse": {
+    "ads-prices": [
+      "klamka-zewn-przod",
+      "klamka-zewn-tyl"
+    ],
+    "autodoc-topran": [
+      "klamka-zewn-przod",
+      "klamka-zewn-tyl"
+    ],
+    "bw-carrier": [
+      "klamka-zewn-przod"
+    ],
+    "bw-interior": [
+      "klamka-wewn"
+    ],
+    "bz-video": [
+      "klamka-wewn",
+      "klamka-zewn-przod",
+      "tapicerka-przod"
+    ],
+    "fcp-windows": [
+      "okno-podnosnik-przod",
+      "okno-podnosnik-tyl",
+      "okno-szyba"
+    ],
+    "febi-tip": [
+      "klamka-wewn",
+      "klamka-zewn-przod",
+      "tapicerka-przod"
+    ],
+    "ls-cover": [
+      "klamka-wewn"
+    ],
+    "mtech-reg": [
+      "okno-podnosnik-przod"
+    ],
+    "pelican-handle": [
+      "klamka-zewn-przod"
+    ],
+    "pelican-panel": [
+      "klamka-wewn",
+      "klamka-zewn-przod",
+      "lusterko-wymiana",
+      "okno-podnosnik-przod",
+      "okno-silnik",
+      "okno-szyba",
+      "tapicerka-przod",
+      "uszczelka-szyby"
+    ],
+    "pelican-rear-card": [
+      "klamka-zewn-tyl",
+      "okno-podnosnik-tyl",
+      "okno-silnik",
+      "tapicerka-przod",
+      "tapicerka-tyl"
+    ],
+    "pelican-reg": [
+      "okno-podnosnik-przod"
+    ],
+    "tis-cavity-front": [
+      "okno-podnosnik-przod",
+      "uszczelka-szyby"
+    ],
+    "tis-cavity-outer": [
+      "uszczelka-szyby"
+    ],
+    "tis-front-inner": [
+      "klamka-wewn"
+    ],
+    "tis-front-motor": [
+      "okno-podnosnik-przod",
+      "okno-silnik"
+    ],
+    "tis-front-outer": [
+      "klamka-zewn-przod"
+    ],
+    "tis-front-reg": [
+      "okno-podnosnik-przod",
+      "okno-silnik"
+    ],
+    "tis-mirror": [
+      "lusterko-wymiana"
+    ],
+    "tis-mirror-glass": [
+      "lusterko-szklo"
+    ],
+    "tis-rear-glass": [
+      "okno-podnosnik-tyl",
+      "okno-szyba"
+    ],
+    "tis-rear-inner": [
+      "klamka-wewn"
+    ],
+    "tis-rear-motor": [
+      "okno-podnosnik-tyl",
+      "okno-silnik"
+    ],
+    "tis-rear-outer-170": [
+      "klamka-zewn-tyl"
+    ],
+    "tis-rear-outer-200": [
+      "klamka-zewn-tyl"
+    ],
+    "tis-rear-reg": [
+      "okno-podnosnik-tyl",
+      "okno-silnik"
+    ],
+    "xo-actuator": [
+      "klamka-zewn-przod",
+      "klamka-zewn-tyl",
+      "silownik-zamka-przod",
+      "tapicerka-przod"
+    ],
+    "xo-diy-carrier": [
+      "klamka-zewn-przod"
+    ],
+    "xo-glass-clip": [
+      "okno-podnosnik-przod",
+      "okno-podnosnik-tyl",
+      "okno-szyba"
+    ],
+    "xo-handle-falling": [
+      "klamka-zewn-przod"
+    ],
+    "xo-handle-fix": [
+      "klamka-wewn",
+      "klamka-zewn-przod",
+      "tapicerka-przod"
+    ],
+    "xo-handle-redneck": [
+      "klamka-zewn-przod"
+    ],
+    "xo-handle-stuck": [
+      "klamka-zewn-przod"
+    ],
+    "xo-handle-wear": [
+      "klamka-wewn"
+    ],
+    "xo-interior-handle": [
+      "klamka-wewn"
+    ],
+    "xo-mirror-assy": [
+      "lusterko-wymiana"
+    ],
+    "xo-mirror-glass": [
+      "lusterko-szklo",
+      "lusterko-wymiana"
+    ],
+    "xo-mirror-glass2": [
+      "lusterko-szklo",
+      "lusterko-wymiana"
+    ],
+    "xo-motor-init": [
+      "okno-podnosnik-przod",
+      "okno-podnosnik-tyl",
+      "okno-silnik"
+    ],
+    "xo-rear-childlock": [
+      "klamka-zewn-tyl",
+      "tapicerka-tyl"
+    ],
+    "xo-rear-emerg": [
+      "okno-podnosnik-tyl"
+    ],
+    "xo-reg-article": [
+      "lusterko-wymiana",
+      "okno-podnosnik-tyl",
+      "okno-silnik",
+      "okno-szyba"
+    ],
+    "xo-seals": [
+      "uszczelka-obwodowa"
+    ],
+    "ys-handle": [
+      "klamka-zewn-przod"
+    ],
+    "yt-bond": [
+      "klamka-wewn",
+      "klamka-zewn-przod",
+      "tapicerka-przod"
+    ]
+  },
+  "mediaCredits": [
+    {
+      "credit": "Pelican Parts",
+      "details": [
+        "zdejmowanie boczka",
+        "podnośnik szyby"
+      ],
+      "types": [
+        "photo"
+      ],
+      "hosts": [
+        "cdn4.pelicanparts.com"
+      ],
+      "links": [],
+      "repairs": [
+        "klamka-wewn",
+        "klamka-zewn-przod",
+        "okno-podnosnik-przod",
+        "tapicerka-przod",
+        "tapicerka-tyl"
+      ],
+      "count": 65
+    },
+    {
+      "credit": "BIMMER ZEIT",
+      "details": [
+        "YouTube"
+      ],
+      "types": [
+        "film",
+        "video"
+      ],
+      "hosts": [
+        "youtube.com"
+      ],
+      "links": [],
+      "repairs": [
+        "klamka-wewn",
+        "klamka-zewn-przod",
+        "tapicerka-przod"
+      ],
+      "count": 23
+    },
+    {
+      "credit": "BOND Garage",
+      "details": [
+        "YouTube"
+      ],
+      "types": [
+        "film",
+        "video"
+      ],
+      "hosts": [
+        "youtube.com"
+      ],
+      "links": [],
+      "repairs": [
+        "klamka-wewn",
+        "klamka-zewn-przod",
+        "tapicerka-przod"
+      ],
+      "count": 22
+    },
+    {
+      "credit": "Xoutpost",
+      "details": [
+        "autor wątku o wymianie klamki"
+      ],
+      "types": [
+        "photo",
+        "link"
+      ],
+      "hosts": [
+        "xoutpost.com"
+      ],
+      "links": [
+        "https://xoutpost.com/bmw-sav-forums/x5-e53-forum/102023-x5-door-handle-carrier-removal-replacement-diy-4.html"
+      ],
+      "repairs": [
+        "klamka-zewn-przod",
+        "tapicerka-przod"
+      ],
+      "count": 19
+    },
+    {
+      "credit": "duboy, Xoutpost",
+      "details": [
+        "zdjęcia z jego galerii"
+      ],
+      "types": [
+        "photo"
+      ],
+      "hosts": [
+        "stevedu.com"
+      ],
+      "links": [],
+      "repairs": [
+        "silownik-zamka-przod"
+      ],
+      "count": 5
+    },
+    {
+      "credit": "M Tech Guy",
+      "details": [
+        "YouTube"
+      ],
+      "types": [
+        "film",
+        "link"
+      ],
+      "hosts": [
+        "youtube.com"
+      ],
+      "links": [
+        "https://www.youtube.com/watch?v=HqPpcqpPvAc"
+      ],
+      "repairs": [
+        "okno-podnosnik-przod"
+      ],
+      "count": 2
+    },
+    {
+      "credit": "leatherSteering",
+      "details": [],
+      "types": [
+        "link"
+      ],
+      "hosts": [
+        "leathersteering.com"
+      ],
+      "links": [
+        "https://www.leathersteering.com/en/content/18-bmw-x5-e53-interior-door-handle-replacement"
+      ],
+      "repairs": [
+        "klamka-wewn"
+      ],
+      "count": 1
     }
   ]
 }
