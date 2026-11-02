@@ -24,3 +24,6 @@ Do repozytorium nie wrzucaj numerów VIN ani danych osobowych. Auta i postępy s
 ## Wiarygodność
 Każdy krok i część ma poziom pewności (high/med/low) i źródło. Momenty dokręcania i numery części oznaczone jako niepotwierdzone
 sprawdź przed zakupem/montażem.
+
+## Kontynuacja pracy
+Pełny stan projektu, zasady i plan dalszych prac: `KONTYNUACJA.md` (dla nowej sesji Claude zaczyna się od niego, jest też krótki `CLAUDE.md`).
