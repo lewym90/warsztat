@@ -35,7 +35,7 @@ js/spin.js, art-car.js                    widok 360° auta i kropki stref
 js/vendor/                                qrcode, jsqr (nie ruszać, lint je pomija)
 data/packs/bmw-e53/                       pack.json (źródła, indeks napraw), catalog.json (strefy, grupy, pozycje), repairs/*.json (karty napraw)
 img/                                      klatki 360° (img/spin), zdjęcia drzwi (img/doors), ikony
-tests/*.test.mjs                          testy Node (27)
+tests/*.test.mjs                          testy Node (30)
 tools/build.py, smoke.py, lint.sh         walidacja i testy
 docs/                                     dokumentacja (status, standard, architektura, diagnostyka)
 docs/diag/                                szkielet schematu diagnostyki i słownik objawów (jeszcze niepodłączone do aplikacji)
@@ -64,7 +64,7 @@ Właściciel jest wymagający i konkretny. Pisze po polsku. Te zasady powtarzał
 **Adres:** https://lewym90.github.io/warsztat/. Ostatnie commity: `40fc9e5` (ekran Źródła), `4dfda95` (7 nowych kart Drzwi, opisy katalogu, szkielet diagnostyki).
 
 ### 3.0 Szata graficzna WARSZTAT (2026-11-04)
-Projekt właściciela: `docs/projekt-graficzny/` (specyfikacja, projekt ekranów, źródło ikony). Styl Dark Luxury: ciemny motyw domyślny (migracja `prefs.skin`), jasny i auto do wyboru. Paleta w tokenach na początku `css/app.css`, warstwa projektowa na końcu pliku. Ekrany: Start (`js/screens/home.js`, trasa `#/`), Garaż przeniesiony na `#/garage`, Naprawy z zakładkami Naprawy/Części/Katalog i Diagnostyka (`js/screens/repairs.js`), lista zakupów z odhaczaniem w planie (`plan.bought`). Dolna nawigacja: Start, Auto, Naprawy, Plan, Więcej. Auto bieżące: `S.currentCar()`. Przycisk „Zalicz krok” tylko przesuwa talię (postęp nadal = pozycja talii). Grafiki (generowane przez właściciela): `img/ui/` (Start, garaż, studio 360°), `img/zones/` (kafle stref, mapa w `js/zones-art.js`); klatki 360° mają wycięte tło (przezroczyste webp). Kafel Przeglądy to tymczasowo wycinek zdjęcia silnika. Prompty plansz: `docs/projekt-graficzny/PLANSZE.md`. Miniatury części (plansza 8×8) czekają na grafikę właściciela i mają być podpisane jako ilustracje poglądowe. Z makiety świadomie NIE przeniesiono: procentów pewności, numerów części i naprawy filtra paliwa (dane poglądowe bez źródeł).
+Projekt właściciela: `docs/projekt-graficzny/` (specyfikacja, projekt ekranów, źródło ikony). Styl Dark Luxury: ciemny motyw domyślny (migracja `prefs.skin`), jasny i auto do wyboru. Paleta w tokenach na początku `css/app.css`, warstwa projektowa na końcu pliku. Ekrany: Start (`js/screens/home.js`, trasa `#/`), Garaż przeniesiony na `#/garage`, Naprawy z zakładkami Naprawy/Części/Katalog i Diagnostyka (`js/screens/repairs.js`), lista zakupów z odhaczaniem w planie (`plan.bought`). Dolna nawigacja: Start, Auto, Naprawy, Plan, Więcej. Auto bieżące: `S.currentCar()`. Przycisk „Zalicz krok” tylko przesuwa talię (postęp nadal = pozycja talii). Grafiki (generowane przez właściciela): `img/ui/` (Start, garaż, studio 360°), `img/zones/` (kafle stref, mapa w `js/zones-art.js`); klatki 360° mają wycięte tło (przezroczyste webp). Prompty plansz: `docs/projekt-graficzny/PLANSZE.md`. Miniatury części i narzędzi: plansza 8×8 `img/czesci.webp`, przypisanie po nazwie w `js/thumbs.js` (test `tests/thumbs.test.mjs`), zawsze z podpisem „ilustracje poglądowe”. Pola 37–63 planszy czekają na kolejne karty. Z makiety świadomie NIE przeniesiono: procentów pewności, numerów części i naprawy filtra paliwa (dane poglądowe bez źródeł).
 
 ### 3.1 Funkcje aplikacji
 - **Garaż, ekran auta** z obrotowym widokiem 360° i kropkami stref (Drzwi, Maska i przód, Wnętrze, Klapa i tył, Koła/hamulce/zawieszenie, Progi/podwozie/napęd) + „Przeglądy i płyny”.
@@ -94,7 +94,7 @@ Katalog (`catalog.json`): 260 pozycji w 7 strefach. W Drzwiach 14 z 53 pozycji m
 - Cena i numery uszczelki obwodowej (51727025579): z jednej relacji z 2008 r.
 
 ### 3.4 Testy (stan na ostatni commit)
-27 testów Node przechodzi, eslint czysty, `build.py` bez błędów, `smoke.py` bez błędów aplikacji. W `smoke.py` zostają 4 wpisy `requestfailed` zdjęć z `stevedu.com` (piaskownica chmurowa nie ładuje obcych serwerów); to oczekiwane i filtrowane wśród „znanych”.
+30 testów Node przechodzi, eslint czysty, `build.py` bez błędów, `smoke.py` bez błędów aplikacji. W `smoke.py` zostają 4 wpisy `requestfailed` zdjęć z `stevedu.com` (piaskownica chmurowa nie ładuje obcych serwerów); to oczekiwane i filtrowane wśród „znanych”.
 
 ---
 
@@ -144,7 +144,7 @@ Commit i push: `git add -A && git commit -m "…" && git push origin HEAD:main`.
 ### Polecenia kontrolne (po każdej zmianie danych lub kodu)
 ```
 python3 tools/build.py                 # waliduje paczkę, odświeża indeks napraw, sourceUse/mediaCredits, sw.js (FILES i wersja)
-node --test tests/*.test.mjs           # 27 testów (podaj jawny glob)
+node --test tests/*.test.mjs           # 30 testów (podaj jawny glob)
 bash tools/lint.sh                     # eslint 9 w katalogu tymczasowym, ignoruje js/vendor
 python3 tools/smoke.py /tmp/shots      # Playwright (Chromium w piaskownicy), ~4 minuty
 ```
@@ -157,6 +157,7 @@ nieznane źródła w krokach, kotwice `focus` pasujące do `view`, numery OE (11
 Wzorzec jakości: `klamka-zewn-przod.json`. Pola karty: `id, title, subtitle, door (front|rear|both), completeness (pełne|częściowe|szkic), difficulty, time [min,max], summary, extras, tools [{name,note,need: must|should|opt}], parts [{name,oe,conf,note,src}], warnings [{lvl: danger|warn|info,t,b,src}], steps, after, unknown, related`.
 Krok: `phase, t, view (outer|card|inner|edge), focus [kotwice z js/art-door.js], min, conf, src, b, see, how [], mistakes [], check, tip, tools, warn, danger, link, media`. Fazy nazywaj tak, by montaż rozpoznawał `isAssembly` w `js/screens/repair.js` (faza zawiera „montaż/składanie/założ/test”, bez „demontaż/zdejm/wyjm”). Czas oczekiwania zapisuj słowami „odczekaj N minut”, wtedy pojawia się minutnik.
 Źródło w `pack.json → sources`: `{title, url, kind (instrukcja fabryczna|forum|artykuł|wideo|sklep|producent części|ogłoszenia…), authors?: [nicki]}`. Pozycja katalogu (`catalog.json`): `{t, id?, d? (front|rear), n?}`. Pole `n` to krótki opis objawów (wyszukiwany i pokazywany dla „Wkrótce”).
+Nowa część lub narzędzie w karcie: dopisz regułę miniatury w `js/thumbs.js`, jeśli test jej nie znajdzie.
 Pełny opis i proces: `docs/standard-naprawy.md`.
 
 ### Ograniczenia środowiska chmurowego

@@ -4,6 +4,7 @@ import { bindOffline, offlineCardHtml } from '../offline-ui.js';
 import { icon } from '../icons.js';
 import { getPack, getRepair, matchPack } from '../data.js';
 import { aggregatePlan, orderHint, planText } from '../plan.js';
+import { THUMB_NOTE, thumb } from '../thumbs.js';
 import * as S from '../store.js';
 
 /* ---------- DZISIAJ ROBIĘ: wybór kilku napraw → jedna lista zakupów i narzędzi ---------- */
@@ -41,9 +42,10 @@ async function planScreen() {
       ${hint ? `<div class="note info" style="margin-top:12px">${icon('info', 22)}<div><b>Kolejność prac</b><p>${esc(hint)}</p></div></div>` : ''}
       ${repairs.length ? `
       <div class="section-h">${icon('list', 16)} Lista zakupów <span class="count">${agg.parts.filter(p => bought[p.oe || p.name]).length} z ${agg.parts.length}</span></div>
-      <div class="card"><div class="kv">${agg.parts.map(p => `<div class="plpart shop ${bought[p.oe || p.name] ? 'done' : ''}"><button class="cbox" data-buy="${esc(p.oe || p.name)}" role="checkbox" aria-checked="${!!bought[p.oe || p.name]}" aria-label="Kupione: ${esc(p.name)}">${icon('check', 16)}</button><span><b>${esc(p.name)}</b><small>${p.oe ? esc(p.oe.replace(/(\d{2})(\d{2})(\d)(\d{3})(\d{3})/, '$1 $2 $3 $4 $5')) : 'numer do potwierdzenia po VIN'}${p.from.length > 1 ? ' · potrzebne w ' + p.from.length + ' naprawach' : ''}</small></span>${p.oe ? `<button class="btn small" data-copy="${esc(p.oe)}">${icon('copy', 14)}</button>` : ''}</div>`).join('') || '<div class="pad" style="padding:14px;color:var(--muted)">Brak części na liście.</div>'}</div></div>
+      <div class="card"><div class="kv">${agg.parts.map(p => `<div class="plpart shop ${bought[p.oe || p.name] ? 'done' : ''}"><button class="cbox" data-buy="${esc(p.oe || p.name)}" role="checkbox" aria-checked="${!!bought[p.oe || p.name]}" aria-label="Kupione: ${esc(p.name)}">${icon('check', 16)}</button>${thumb(p.name)}<span><b>${esc(p.name)}</b><small>${p.oe ? esc(p.oe.replace(/(\d{2})(\d{2})(\d)(\d{3})(\d{3})/, '$1 $2 $3 $4 $5')) : 'numer do potwierdzenia po VIN'}${p.from.length > 1 ? ' · potrzebne w ' + p.from.length + ' naprawach' : ''}</small></span>${p.oe ? `<button class="btn small" data-copy="${esc(p.oe)}">${icon('copy', 14)}</button>` : ''}</div>`).join('') || '<div class="pad" style="padding:14px;color:var(--muted)">Brak części na liście.</div>'}</div></div>
       <div class="section-h">${icon('wrench', 16)} Narzędzia <span class="count">${agg.tools.length}</span></div>
-      <div class="card"><div class="kv">${agg.tools.map(t => `<div class="plpart"><span><b>${esc(t.name)}</b><small>${esc(t.note || '')}</small></span><span class="need ${t.need}">${needLbl[t.need] || ''}</span></div>`).join('')}</div></div>
+      <div class="card"><div class="kv">${agg.tools.map(t => `<div class="plpart">${thumb(t.name)}<span class="pgrow"><b>${esc(t.name)}</b><small>${esc(t.note || '')}</small></span><span class="need ${t.need}">${needLbl[t.need] || ''}</span></div>`).join('')}</div></div>
+      <p class="foot">${THUMB_NOTE}</p>
       <button class="btn block" id="pl-copy" style="margin-top:12px">${icon('copy', 18)} Kopiuj całą listę</button>
       ${offlineCardHtml('plan na dziś')}
       <button class="btn ghost block" id="pl-clear">Wyczyść plan</button>` : ''}

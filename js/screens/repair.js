@@ -10,6 +10,7 @@ import { openTimerSheet, suggestMinutes } from '../timer.js';
 import { addPhoto, compressImage, deletePhoto, hasDB, listPhotos } from '../photos.js';
 import { openEntrySheet } from '../book-ui.js';
 import { safetyItems } from '../safety.js';
+import { THUMB_NOTE, thumb } from '../thumbs.js';
 import * as S from '../store.js';
 
 let deckSeq = 0; // numer ostatnio zamontowanej talii (stare nasłuchy nie mogą wyłączać zasobów nowej)
@@ -79,14 +80,15 @@ async function repairScreen(carId, rid, q) {
   cards.push({ label: 'Narzędzia', html: `
     <div class="dk-meta"><span class="dk-pill">Przygotowanie</span><span class="dk-pill" id="toolcount"></span></div>
     <h2 class="dk-h2">Narzędzia do odhaczenia</h2>
-    <div class="dk-checks" id="tools">${rep.tools.map((t, i) => `<button class="dk-check ${prog.tools[i] ? 'done' : ''}" data-tool="${i}" role="checkbox" aria-checked="${!!prog.tools[i]}"><span class="cbox">${icon('check', 16)}</span><span class="cname"><b>${esc(t.name)}</b>${t.note ? `<small>${esc(t.note)}</small>` : ''}</span><span class="need ${t.need}">${needLbl[t.need] || ''}</span></button>`).join('')}</div>` });
+    <div class="dk-checks" id="tools">${rep.tools.map((t, i) => `<button class="dk-check ${prog.tools[i] ? 'done' : ''}" data-tool="${i}" role="checkbox" aria-checked="${!!prog.tools[i]}"><span class="cbox">${icon('check', 16)}</span>${thumb(t.name)}<span class="cname"><b>${esc(t.name)}</b>${t.note ? `<small>${esc(t.note)}</small>` : ''}</span><span class="need ${t.need}">${needLbl[t.need] || ''}</span></button>`).join('')}</div>` });
 
   if ((rep.parts || []).length) cards.push({ label: 'Części', html: `
     <div class="dk-meta"><span class="dk-pill">Przygotowanie</span></div>
     <h2 class="dk-h2">Części do kupienia</h2>
-    <div class="dk-parts">${rep.parts.map(p => { const c = CONF[p.conf] || CONF.low; return `<div class="dk-part"><div class="ph"><b>${esc(p.name)}</b><span class="conf ${c[0]}"><i></i>${p.conf === 'high' ? 'Potwierdzone' : p.conf === 'med' ? 'Jedno źródło' : 'Do sprawdzenia'}</span></div>
+    <div class="dk-parts">${rep.parts.map(p => { const c = CONF[p.conf] || CONF.low; return `<div class="dk-part"><div class="ph">${thumb(p.name)}<b>${esc(p.name)}</b><span class="conf ${c[0]}"><i></i>${p.conf === 'high' ? 'Potwierdzone' : p.conf === 'med' ? 'Jedno źródło' : 'Do sprawdzenia'}</span></div>
       ${p.oe ? `<div class="oe"><code>${esc(p.oe.replace(/(\d{2})(\d{2})(\d)(\d{3})(\d{3})/, '$1 $2 $3 $4 $5'))}</code><button class="btn small" data-copy="${esc(p.oe)}">${icon('copy', 15)} Kopiuj</button></div>` : '<div class="oe"><small>Numer do potwierdzenia po VIN</small></div>'}
       <p>${esc(p.note || '')}${p.price ? ` <em>${esc(p.price)}</em>` : ''}</p>${p.alt ? `<p class="alts">${p.alt.map(a => `${esc(a.brand)} ${esc(a.no)}`).join(' · ')}</p>` : ''}</div>`; }).join('')}</div>
+    <p class="dk-foot">${THUMB_NOTE}</p>
     <button class="btn block" id="shop">${icon('copy', 18)} Kopiuj listę części i narzędzi</button>` });
 
   if (films.length) cards.push({ label: 'Filmy', html: `

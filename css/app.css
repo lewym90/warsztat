@@ -1054,3 +1054,11 @@ body.in-deck #timerpill { top: auto; bottom: calc(var(--sab) + 96px); }
 .hs.photo .hs-stage { height: calc(var(--hw) * 1.29 - 196px); }
 .sys.pic:last-child:nth-child(3n+1) { grid-column: 1 / -1; aspect-ratio: 3 / 1; background-position: center 60%; }
 .sys.pic::before { background: linear-gradient(to top, rgba(8,19,33,.96) 26%, rgba(8,19,33,.12) 70%); }
+
+/* miniatury części i narzędzi (plansza 8×8) */
+.th { display: block; flex: none; width: 44px; height: 44px; border-radius: 10px; background: #0a1626 url(../img/czesci.webp) 0 0 / 800% 800% no-repeat; border: 1px solid rgba(148,190,240,.18); }
+.plpart { gap: 12px; } .plpart > span:not(.th):not(.zi):not(.need) { flex: 1; min-width: 0; }
+.dk-part .ph { align-items: center; justify-content: flex-start; gap: 10px; } .dk-part .ph b { flex: 1; min-width: 0; }
+.dk-check .th { width: 40px; height: 40px; }
+.plpart.shop > span.th { flex: none; width: 44px; }
+.plpart.shop > span:not(.th) { flex: 1; min-width: 0; }

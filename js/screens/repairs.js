@@ -3,6 +3,7 @@ import { $$, copy, dots, esc, fmtTime, topbar } from '../ui.js';
 import { icon } from '../icons.js';
 import { getCatalog, getPack, getRepair, matchPack } from '../data.js';
 import { aggregatePlan } from '../plan.js';
+import { THUMB_NOTE, thumb } from '../thumbs.js';
 import * as S from '../store.js';
 
 /* ---------- NAPRAWY: lista kart, części z całej paczki, katalog stref ---------- */
@@ -28,7 +29,7 @@ async function repairsScreen(q) {
     const reps = (await Promise.all(pack.repairs.map(r => getRepair(pack.id, r.id).catch(() => null)))).filter(Boolean);
     const { parts } = aggregatePlan(reps);
     count = `${parts.length} pozycji`;
-    body = `<div class="card"><div class="kv">${parts.map(p => `<div class="plpart"><span class="zi">${icon('part', 18)}</span><span class="pgrow"><b>${esc(p.name)}</b><small>${p.oe ? esc(fmtOe(p.oe)) : 'numer do potwierdzenia po VIN'}${p.from.length > 1 ? ' · w ' + p.from.length + ' naprawach' : ''}</small></span>${p.oe ? `<button class="btn small" data-copy="${esc(p.oe)}" aria-label="Kopiuj numer">${icon('copy', 14)}</button>` : ''}</div>`).join('')}</div></div><p class="foot">Numery bez potwierdzenia sprawdź po VIN przed zakupem. Poziom pewności każdej części jest na karcie naprawy.</p>`;
+    body = `<div class="card"><div class="kv">${parts.map(p => `<div class="plpart">${thumb(p.name) || `<span class="zi">${icon('part', 18)}</span>`}<span class="pgrow"><b>${esc(p.name)}</b><small>${p.oe ? esc(fmtOe(p.oe)) : 'numer do potwierdzenia po VIN'}${p.from.length > 1 ? ' · w ' + p.from.length + ' naprawach' : ''}</small></span>${p.oe ? `<button class="btn small" data-copy="${esc(p.oe)}" aria-label="Kopiuj numer">${icon('copy', 14)}</button>` : ''}</div>`).join('')}</div></div><p class="foot">Numery bez potwierdzenia sprawdź po VIN przed zakupem. Poziom pewności każdej części jest na karcie naprawy. ${THUMB_NOTE}</p>`;
   } else {
     const cat = await getCatalog(pack.id);
     count = `${cat.zones.reduce((n, z) => n + z.groups.reduce((m, g) => m + g.items.length, 0), 0)} pozycji`;
