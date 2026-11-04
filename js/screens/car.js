@@ -5,6 +5,7 @@ import { getCatalog, getPack, matchPack } from '../data.js';
 import { PHOTOS, ZONES, carSVG } from '../art-car.js';
 import { SPINS, mountSpin, spinHtml } from '../spin.js';
 import { sourceCount } from './sources.js';
+import { zoneImg } from '../zones-art.js';
 import * as S from '../store.js';
 
 /* ---------- AUTO ---------- */
@@ -21,8 +22,9 @@ async function carScreen(id) {
   const cnt = z => { const all = z.groups.flatMap(g => g.items); return { n: all.length, r: all.filter(isFull).length, d: all.filter(i => i.id).length }; };
   const zoneTiles = catalog ? catalog.zones.map(z => {
     const c = cnt(z);
-    return `<a class="sys ${c.r ? 'ready' : 'planned'}" href="#/car/${id}/zone/${z.id}">
-      <div class="ico">${icon(z.icon, 22)}</div>
+    const zimg = zoneImg(pack.id, z.id);
+    return `<a class="sys ${zimg ? 'pic' : ''} ${c.r ? 'ready' : 'planned'}" href="#/car/${id}/zone/${z.id}"${zimg ? ` style="background-image:url(${zimg})"` : ''}>
+      ${zimg ? '' : `<div class="ico">${icon(z.icon, 22)}</div>`}
       <div><b>${esc(z.label)}</b><small>${c.n} napraw${c.r ? ` · gotowe: ${c.r}` : c.d ? ` · wstępne: ${c.d}` : ''}</small></div></a>`;
   }).join('') : '';
   const sysTiles = zoneTiles || (pack ? pack.systems : defaultSystems()).map(s => {
@@ -48,7 +50,7 @@ async function carScreen(id) {
         <div class="zonepanel" id="zonepanel" hidden></div>
         </div>
         <div class="car-side">
-        ${pack ? `<div class="chips" style="padding:0 4px"><span class="chip ok">${icon('check', 13)} ${esc(pack.title)} · ${esc(pack.status)}</span><span class="chip">${catalog ? catalog.zones.reduce((a, z) => a + cnt(z).r, 0) + ' z ' + catalog.zones.reduce((a, z) => a + cnt(z).n, 0) + ' napraw gotowych' : ready.length + ' z ' + pack.systems.length + ' układów'}</span></div>` : `
+        ${pack ? `<div class="chips" style="padding:0 4px"><span class="chip ok">${icon('check', 13)} ${esc(pack.title)}</span><span class="chip">${catalog ? catalog.zones.reduce((a, z) => a + cnt(z).r, 0) + ' z ' + catalog.zones.reduce((a, z) => a + cnt(z).n, 0) + ' napraw gotowych' : ready.length + ' z ' + pack.systems.length + ' układów'}</span></div>` : `
         <div class="matchbox no">
           <b>Brak opracowania dla ${esc(car.make)} ${esc(car.model)} ${esc(car.year)}</b>
           <p style="color:var(--muted);font-size:14px">Opracowania powstają na zamówienie: wygenerujesz polecenie dla Claude, który zbierze źródła i dopisze paczkę do aplikacji.</p>

@@ -25,6 +25,7 @@ async function urlsFor(packId, rids) {
   for (let k = 1; k <= 81; k++) urls.add(`img/spin/f${String(k).padStart(2, '0')}.webp`);
   ['e53-front', 'e53-rear', 'e53-front-r', 'e53-rear-r'].forEach(n => urls.add(`img/doors/${n}.webp`));
   urls.add('img/x5-e53.webp');
+  urls.add('img/ui/studio.webp');
   for (const id of rids) {
     const r = await getRepair(packId, id).catch(() => null);
     if (!r) continue;

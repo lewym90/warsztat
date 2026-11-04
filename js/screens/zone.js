@@ -3,12 +3,11 @@ import { $, $$, dots, esc, fmtTime, openRequest, topbar } from '../ui.js';
 import { bindOffline, offlineCardHtml } from '../offline-ui.js';
 import { icon } from '../icons.js';
 import { getCatalog, getPack, matchPack } from '../data.js';
-import { SPINS } from '../spin.js';
+import { zoneImg } from '../zones-art.js';
 import { DOOR_PHOTOS, doorSVG, setDoorPhoto } from '../art-door.js';
 import * as S from '../store.js';
 
 /* ---------- STREFA (np. Drzwi): zdjęcie + pełna lista napraw ---------- */
-const ZONE_HERO = { hood: 76, interior: 8, tail: 40, wheels: 20, under: 16, service: 60 };
 async function zoneScreen(carId, zoneId, q) {
   const car = S.car(carId);
   if (!car) { location.hash = '#/'; return { html: '' }; }
@@ -25,13 +24,12 @@ async function zoneScreen(carId, zoneId, q) {
   const all = zone.groups.flatMap(g => g.items);
   const nReady = all.filter(i => i.id && (pack.repairs.find(x => x.id === i.id) || {}).completeness === 'pełne').length;
   const nDraft = all.filter(i => i.id).length - nReady;
-  const spin = SPINS[pack.id];
-  const heroFrame = ZONE_HERO[zone.id];
+  const heroImg = zoneImg(pack.id, zone.id);
   const hero = isDoors ? `
       <div class="seg" id="seg-side" role="tablist"><span class="thumb"></span><button data-v="left" role="tab">Lewa strona</button><button data-v="right" role="tab">Prawa strona</button></div>
       <div class="seg" id="seg-door" role="tablist"><span class="thumb"></span><button data-v="front" role="tab">Przednie</button><button data-v="rear" role="tab">Tylne</button></div>
       <div class="card doorbox glow"><div class="stage" id="stage"></div><div style="text-align:center"><span class="viewtag" id="viewtag"></span></div><div class="hs-caption" id="hscap"></div></div>`
-    : `<div class="card zhero glow">${spin && heroFrame != null ? `<div class="zhero-img"><img src="${spin.dir}f${String(heroFrame + 1).padStart(2, '0')}.${spin.ext}" alt="${esc(zone.label)}"></div>` : `<div class="zhero-ic">${icon(zone.icon, 44)}</div>`}</div>`;
+    : `<div class="card zhero glow">${heroImg ? `<div class="zhero-img"><img src="${heroImg}" alt="${esc(zone.label)}"></div>` : `<div class="zhero-ic">${icon(zone.icon, 44)}</div>`}</div>`;
   const html = `
     ${topbar({ back: `#/car/${carId}`, title: zone.label, sub: `${pack.title}${car.engine ? ' · ' + car.engine : ''}` })}
     <div class="wrap door-wrap">

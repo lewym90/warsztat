@@ -6,6 +6,7 @@ import { PHOTOS, carSVG } from '../art-car.js';
 import * as S from '../store.js';
 
 /* ---------- GARAŻ ---------- */
+const GARAGE = { 'bmw-e53': 'img/ui/garaz-e53.webp' };
 async function garage() {
   const cars = S.cars();
   const packs = await Promise.all(cars.map(c => matchPack(c).catch(() => null)));
@@ -13,7 +14,7 @@ async function garage() {
     const p = packs[i];
     return `<article class="card gcard" data-id="${c.id}" role="link" tabindex="0">
       <button class="iconbtn fav ${c.fav ? 'on' : ''}" data-fav="${c.id}" aria-label="Ulubione">${icon(c.fav ? 'starFill' : 'star', 20)}</button>
-      <div class="art">${carSVG({ mini: true, photo: PHOTOS[p && p.id] || '' })}</div>
+      <div class="art">${GARAGE[p && p.id] ? `<img class="gphoto" src="${GARAGE[p.id]}" alt="">` : carSVG({ mini: true, photo: PHOTOS[p && p.id] || '' })}</div>
       <div class="info">
         <div><h3>${esc(carName(c))}</h3><div class="sub">${esc(carSub(c))}</div></div>
         <div class="chips">

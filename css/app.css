@@ -1032,3 +1032,25 @@ body.in-deck #timerpill { top: auto; bottom: calc(var(--sab) + 96px); }
 .plpart b, .plpart small { word-break: normal; overflow-wrap: break-word; }
 .hs-car { -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 52%, #000 76%, transparent 100%); mask-image: radial-gradient(ellipse 50% 50% at 50% 52%, #000 76%, transparent 100%); }
 @media (min-width: 640px) { .hs-sky { -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent); } }
+
+/* grafiki: Start, 360°, strefy, garaż */
+.hs { --text: #e8eef5; --muted: #a9b8cb; background: #081321; color: var(--text); }
+.hs-sky { background: url(../img/ui/studio.webp) center top / cover no-repeat; }
+.wordmark, :root[data-theme="light"] .wordmark { background: linear-gradient(180deg, #ffffff 15%, #c6d3e2 52%, #8ea3bb 58%, #eef4fb 92%); -webkit-background-clip: text; background-clip: text; }
+:root[data-theme="light"] .hs-sky { background-image: url(../img/ui/studio.webp); background-size: cover; }
+.hs.photo { --hw: min(100vw, 560px); padding-top: calc(var(--sat) + 26px); }
+.hs.photo .hs-sky, :root[data-theme="light"] .hs.photo .hs-sky { background-position: center top; background-size: var(--hw) auto; background-repeat: no-repeat; background-color: #081321; }
+.hs.photo .hs-stage { aspect-ratio: auto; width: 100%; max-width: 460px; height: calc(var(--hw) * 1.355 - 196px); margin: 0; }
+.hs.photo .hs-name { text-shadow: 0 2px 14px #081321; margin-top: 0; }
+.spin-stage { background: radial-gradient(ellipse 40% 9% at 50% 74%, rgba(0,0,0,.75), transparent 100%), url(../img/ui/studio.webp) center / cover; }
+.spin-img { -webkit-mask-image: none; mask-image: none; filter: brightness(.86) contrast(1.08); }
+.zhero-img { aspect-ratio: 16/9; background: #081321; } .zhero-img img { -webkit-mask-image: none; mask-image: none; }
+.gcard .art { padding: 0; } .gphoto { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; object-position: 50% 58%; }
+.sys.pic { position: relative; overflow: hidden; aspect-ratio: 1; align-content: end; justify-items: start; text-align: left; padding: 10px; color: #fff; background-size: cover; background-position: center; border-color: rgba(148,190,240,.3); isolation: isolate; }
+.sys.pic::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgba(8,19,33,.92) 12%, rgba(8,19,33,.1) 62%); }
+.sys.pic b { font-size: 12.5px; } .sys.pic small { color: #c6d3e2; }
+@media (min-width: 640px) { .hs.photo .hs-sky { -webkit-mask-image: none; mask-image: none; background-color: #081321; } }
+.hs.photo .hs-sky, :root[data-theme="light"] .hs.photo .hs-sky { background-position: center calc(var(--hw) * -.12); }
+.hs.photo .hs-stage { height: calc(var(--hw) * 1.29 - 196px); }
+.sys.pic:last-child:nth-child(3n+1) { grid-column: 1 / -1; aspect-ratio: 3 / 1; background-position: center 60%; }
+.sys.pic::before { background: linear-gradient(to top, rgba(8,19,33,.96) 26%, rgba(8,19,33,.12) 70%); }

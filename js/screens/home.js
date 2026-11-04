@@ -10,8 +10,10 @@ import { bindInstall, installBannerHtml } from '../install.js';
 import * as S from '../store.js';
 
 /* ---------- START ---------- */
+const HERO = { 'bmw-e53': 'img/ui/start-e53.webp' };
 const heroArt = (pack) => {
   const sp = pack && SPINS[pack.id];
+  if (pack && HERO[pack.id]) return '';
   if (sp) return `<img class="hs-car" src="${sp.dir}f${String(sp.start + 1).padStart(2, '0')}.${sp.ext}" alt="">`;
   return `<div class="hs-svg">${carSVG({ mini: true, photo: PHOTOS[pack && pack.id] || '' })}</div>`;
 };
@@ -39,8 +41,8 @@ async function start() {
   return {
     tab: '#/',
     html: `
-    <section class="hs">
-      <div class="hs-sky"></div>
+    <section class="hs ${pack && HERO[pack.id] ? 'photo' : ''}">
+      <div class="hs-sky"${pack && HERO[pack.id] ? ` style="background-image:url(${HERO[pack.id]})"` : ''}></div>
       ${brand}
       <div class="hs-stage">
         ${cars.length > 1 ? `<button class="hs-arrow l" data-swap="-1" aria-label="Poprzednie auto">${icon('back', 18)}</button><button class="hs-arrow r" data-swap="1" aria-label="Następne auto">${icon('chevron', 18)}</button>` : ''}
