@@ -1,14 +1,14 @@
 {
-  "name": "Warsztat: centrum napraw",
+  "name": "WARSZTAT",
   "short_name": "Warsztat",
-  "description": "Instrukcje napraw krok po kroku, części i narzędzia dla Twoich aut.",
+  "description": "Mechanik, który prowadzi Cię za rękę, śruba po śrubie.",
   "lang": "pl",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#08080a",
-  "theme_color": "#08080a",
+  "background_color": "#081321",
+  "theme_color": "#081321",
   "icons": [
     { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
     { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },

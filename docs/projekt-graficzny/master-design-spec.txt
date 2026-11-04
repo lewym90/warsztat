@@ -1,0 +1,126 @@
+WARSZTAT – MASTER DESIGN SPECIFICATION
+
+Nowa generacja aplikacji do samodzielnych napraw samochodów
+
+1. CEL PROJEKTU
+
+Przeprojektować aplikację WARSZTAT w kierunku ekskluzywnego, profesjonalnego systemu automotive, który łączy funkcjonalność instrukcji napraw, diagnostyki, cyfrowej książki serwisowej i osobistego centrum zarządzania samochodem.
+
+Produkt ma wyróżniać się jakością wykonania, prostotą obsługi, wiarygodnością danych i innowacyjnością.
+
+Nie kopiować istniejących aplikacji. Opracować własną identyfikację wizualną, komponenty interfejsu, nawigację i język projektowania.
+
+2. IDENTYFIKACJA WIZUALNA
+
+Nazwa: WARSZTAT.
+
+Hasło: Mechanik, który prowadzi Cię za rękę, śruba po śrubie.
+
+Styl: Automotive Precision / Dark Luxury.
+
+Kolory:
+
+* Midnight Navy: #081321
+* Graphite: #111F30
+* Electric Blue: #168CFF
+* Ice Blue: #54C5FF
+* Silver: #E8EEF5
+* Success: #21C58B
+
+Ostrzeżenia: bursztynowy.
+Niebezpieczeństwo: czerwony.
+
+Logo: metaliczna zębatka połączona z kluczem warsztatowym. Prosty, rozpoznawalny znak, przygotowany również jako osobna ikona aplikacji.
+
+Typografia: nowoczesny, czytelny krój bezszeryfowy. Wyraźna hierarchia nagłówków, opisów i wartości technicznych.
+
+3. GŁÓWNY INTERFEJS
+
+Ekran startowy powinien prezentować:
+
+* Aktualnie wybrany samochód.
+* Duże zdjęcie lub wizualizację auta.
+* Przycisk kontynuowania ostatniej naprawy.
+* Aktualny postęp prac.
+* Szybki dostęp do Auto 360°.
+* Naprawy.
+* Planu dziennego.
+* Książki serwisowej.
+* Wyszukiwarki.
+* Diagnostyki.
+* Źródeł.
+
+Dolna nawigacja: Start, Auto, Naprawy, Plan, Więcej.
+
+4. SYSTEM NAPRAW
+
+Zachować system kart naprawczych i rozbudować go o:
+
+* Trzy poziomy szczegółowości instrukcji.
+* Interaktywne ilustracje.
+* Powiększanie zdjęć.
+* Oznaczenia elementów.
+* Kontrolę wykonania.
+* Automatyczne przypomnienia o czynnościach czasowych.
+* Zapisywanie zdjęć przed i po naprawie.
+* Wykrywanie pominiętych czynności.
+* Możliwość cofania i ponawiania kroków.
+* Wyraźne ostrzeżenia bezpieczeństwa.
+
+5. NOWE MODUŁY
+
+Dodać możliwość rozwoju następujących modułów:
+
+A. Diagnostyka OBD2.
+B. Inteligentny asystent objawów.
+C. Cyfrowy paszport samochodu.
+D. Interaktywne schematy techniczne.
+E. Katalog części z wyszukiwaniem OE i zamienników.
+F. Kalkulator kosztów napraw.
+G. Rozpoznawanie części na zdjęciach.
+H. Rzeczywistość rozszerzona AR.
+I. Rozbudowany system przypomnień.
+J. Wielopoziomowy system kontroli poprawności napraw.
+
+Nowe funkcje wdrażać modułowo, bez destabilizowania istniejącej aplikacji.
+
+6. BEZPIECZEŃSTWO I WIARYGODNOŚĆ
+
+Każda procedura musi mieć:
+
+* Źródło.
+* Poziom pewności.
+* Informację o kompatybilności z pojazdem.
+* Wymagane narzędzia.
+* Ostrzeżenia.
+* Warunki przerwania pracy.
+
+Nie generować niepotwierdzonych wartości technicznych. Nie przedstawiać przypuszczeń jako faktów. Wyraźnie rozróżniać informacje potwierdzone, prawdopodobne i nieznane.
+
+7. ARCHITEKTURA
+
+Zachować PWA, JavaScript ES Modules, statyczne paczki JSON i możliwość działania offline.
+
+Rozbudować:
+
+* IndexedDB.
+* Wersjonowanie danych.
+* Migracje.
+* Walidację schematów.
+* System kopii zapasowych.
+* Synchronizację z kontrolą konfliktów.
+* Testy odtwarzania danych.
+* Optymalizację wyszukiwania.
+* Automatyczne testy regresji.
+
+Nie wprowadzać obowiązkowego konta, reklam ani serwera przechowującego prywatne dane użytkownika.
+
+8. NAJWAŻNIEJSZA ZASADA
+
+WARSZTAT ma być aplikacją, która nie tylko informuje użytkownika, jak naprawić samochód, ale prowadzi go przez cały proces: od rozpoznania problemu, przez przygotowanie części i narzędzi, aż do wykonania naprawy, kontroli i zapisania jej w historii pojazdu.
+
+Priorytetem jest jakość, bezpieczeństwo, wiarygodność, prostota i dopracowanie każdego szczegółu.
+
+Nie przebudowywać działających funkcji bez potrzeby. Każdą zmianę wdrażać z zachowaniem kompatybilności, istniejących danych i testów.
+
+Efekt końcowy ma sprawiać wrażenie produktu premium, stworzonego przez światowej klasy zespół projektantów UX/UI, inżynierów automotive i specjalistów od oprogramowania.

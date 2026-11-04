@@ -33,7 +33,8 @@ with sync_playwright() as p:
         page.screenshot(path=str(OUT / f'{name}.png'), full_page=full)
 
     cid = lambda: page.evaluate("JSON.parse(localStorage.getItem('warsztat.v1')).cars[0].id")
-    page.goto(BASE); page.wait_for_selector('.gcard'); shot('01-garaz')
+    page.goto(BASE); page.wait_for_selector('.hs-cta'); shot('00-start')
+    page.goto(BASE + '#/garage'); page.wait_for_selector('.gcard'); shot('01-garaz')
     page.click('.gcard'); page.wait_for_selector('.spin-stage'); shot('02-auto')
     page.screenshot(path=str(OUT / '02b-auto-pelny.png'), full_page=True)
     page.goto(BASE + f'#/car/{cid()}/zone/doors?side=left'); page.wait_for_selector('.zrow'); shot('03-strefa-drzwi', True)
@@ -94,11 +95,11 @@ with sync_playwright() as p:
     page.click('#timerpill'); page.wait_for_selector('#sheet.open [data-cancel]'); page.click('#sheet [data-cancel]'); page.wait_for_timeout(300)
     check(page.evaluate("document.getElementById('timerpill').hidden"), 'minutnik nie zatrzymany')
     # ustawienia: ciemny motyw i wielkość liter
-    page.click('#dk-aa'); page.click('[data-theme="dark"]'); page.click('[data-fs="1"]'); page.wait_for_timeout(300)
+    page.click('#dk-aa'); page.click('button[data-theme="dark"]'); page.click('[data-fs="1"]'); page.wait_for_timeout(300)
     check(page.evaluate("document.documentElement.dataset.theme") == 'dark', 'motyw ciemny nie zastosowany')
     check(page.evaluate("parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--fscale'))") > 1, 'A+ nie działa')
     shot('24-ustawienia-ciemny'); page.click('#dk-setx'); page.wait_for_timeout(200); shot('25-krok-ciemny')
-    page.click('#dk-aa'); page.click('[data-theme="light"]'); page.click('[data-fs="-1"]'); page.click('#dk-setx')
+    page.click('#dk-aa'); page.click('button[data-theme="dark"]'); page.click('[data-fs="-1"]'); page.click('#dk-setx')
     # plan
     page.click('#dk-menu'); page.click('.dk-si[data-go="0"]'); page.wait_for_timeout(500)
     page.click('#plan-add'); page.goto(BASE + f'#/car/{cid()}/r/tapicerka-przod'); page.wait_for_selector('#plan-add'); page.click('#plan-add')
@@ -114,7 +115,12 @@ with sync_playwright() as p:
         page.goto(BASE + href); page.wait_for_selector('.dk-card'); page.wait_for_timeout(700)
         check(page.evaluate("document.getElementById('dk-count').textContent").startswith('Krok'), 'link ?step= nie otwiera kroku')
     # wznów + postęp na liście
-    page.goto(BASE + '#/'); page.wait_for_selector('.resume'); shot('28-garaz-wznow')
+    page.goto(BASE + '#/'); page.wait_for_selector('.hs-prog'); shot('28-start-wznow')
+    page.goto(BASE + '#/repairs'); page.wait_for_selector('.ritem'); check(page.locator('.ritem').count() == 14, 'lista napraw'); shot('28b-naprawy')
+    page.goto(BASE + '#/repairs?tab=parts'); page.wait_for_selector('.plpart'); shot('28c-czesci')
+    page.goto(BASE + '#/repairs?tab=catalog'); page.wait_for_selector('.srow'); shot('28d-katalog')
+    page.goto(BASE + f'#/car/{cid()}/diag'); page.wait_for_selector('.diag details'); shot('28e-diagnostyka')
+    check(page.locator('#tabs a').count() == 5, 'dolna nawigacja bez 5 pozycji')
     page.goto(BASE + f'#/car/{cid()}/zone/doors?door=front'); page.wait_for_selector('.zprog'); shot('29-lista-postep', True)
     # książka serwisowa
     page.goto(BASE + f'#/book/{cid()}'); page.wait_for_selector('#bk-new'); page.click('#bk-new'); page.fill('#bk-t', 'Wymiana klamki'); page.fill('#bk-km', '251000'); page.fill('#bk-c', '120.50'); shot('30-ksiazka-wpis')

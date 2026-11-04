@@ -1,6 +1,8 @@
 import * as S from './store.js';
 import { render } from './router.js';
 import './offline-ui.js';
+import './screens/home.js';
+import './screens/repairs.js';
 import './screens/garage.js';
 import './screens/add.js';
 import './screens/more.js';

@@ -1,7 +1,7 @@
 import { icon } from './icons.js';
 import * as S from './store.js';
 
-export const APP_VERSION = '0.1.0';
+export const APP_VERSION = '0.2.0';
 export const $ = (s, r = document) => r.querySelector(s);
 export const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 export const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -48,8 +48,9 @@ export function topbar({ back, title, sub, right = '' }) {
     <div class="title"><b>${esc(title)}</b>${sub ? `<small>${esc(sub)}</small>` : ''}</div>${right}</header>`;
 }
 export function setTabs(active) {
-  const tabs = [['#/', 'Garaż', 'car'], ['#/search', 'Szukaj', 'search'], ['#/plan', 'Dzisiaj', 'list'], ['#/more', 'Więcej', 'more']];
-  $('#tabs').innerHTML = tabs.map(([h, l, i]) => `<a href="${h}" class="${active === h ? 'on' : ''}"${active === h ? ' aria-current="page"' : ''}>${icon(i, 22)}<span>${l}</span></a>`).join('');
+  const cur = S.currentCar();
+  const tabs = [['#/', '#/', 'Start', 'home'], ['#/auto', cur ? `#/car/${cur.id}` : '#/garage', 'Auto', 'car'], ['#/repairs', '#/repairs', 'Naprawy', 'wrench'], ['#/plan', '#/plan', 'Plan', 'plan'], ['#/more', '#/more', 'Więcej', 'more']];
+  $('#tabs').innerHTML = tabs.map(([k, h, l, i]) => `<a href="${h}" class="${active === k ? 'on' : ''}"${active === k ? ' aria-current="page"' : ''}>${icon(i, 22)}<span>${l}</span></a>`).join('');
   document.body.classList.toggle('no-tabs', !active);
 }
 

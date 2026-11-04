@@ -1,4 +1,7 @@
-# Warsztat: status (2026-11-01)
+# Warsztat: status (2026-11-04)
+
+Nowa szata graficzna (Dark Luxury), ekrany Start i Naprawy, 5 pozycji dolnej nawigacji: patrz KONTYNUACJA.md, sekcja 3.0.
+
 
 Prywatna aplikacja PWA do napraw samochodów rodziny. Adres: https://lewym90.github.io/warsztat/ (repo lewym90/warsztat, gałąź main, wdrożenie ok. 1–2 min). Pierwsze auto: BMW X5 E53 3.0d 2003 (M57). Interfejs po polsku, jasny motyw (kość słoniowa, złoty akcent).
 

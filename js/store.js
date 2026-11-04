@@ -14,7 +14,7 @@ const SEED = () => ({
   requests: []
 });
 
-export const DEFAULT_PREFS = { theme: 'light', fs: 1, wake: true, installDismissed: 0 };
+export const DEFAULT_PREFS = { theme: 'dark', fs: 1, wake: true, installDismissed: 0, car: '', skin: 0 };
 
 let mem = null;
 const ls = () => { try { return globalThis.localStorage || null; } catch (_) { return null; } };
@@ -34,6 +34,7 @@ export function normalize(m) {
   m.v = 1;
   m.cars = m.cars || []; m.prog = m.prog || {}; m.requests = m.requests || [];
   m.prefs = { ...DEFAULT_PREFS, ...(m.prefs || {}) };
+  if (m.prefs.skin < 2) { m.prefs.theme = 'dark'; m.prefs.skin = 2; } // nowa szata graficzna: ciemny motyw domyślny, jasny do wyboru
   m.book = m.book || [];
   m.plan = m.plan || { ids: [], carId: null, ts: 0 };
   m.last = m.last || null;
@@ -51,6 +52,9 @@ export function setState(m) { mem = normalize(m); write(); return mem; }
 
 export const cars = () => [...mem.cars].sort((a, b) => (b.fav - a.fav) || (b.created - a.created));
 export const car = id => mem.cars.find(c => c.id === id);
+// auto bieżące: ostatnio wybrane, potem to z ostatniej naprawy, potem ulubione
+export const currentCar = () => car(mem.prefs.car) || (mem.last && car(mem.last.carId)) || cars()[0] || null;
+export const setCurrent = id => { if (mem.prefs.car !== id) setPref('car', id); };
 
 export function addCar(c) {
   const item = { id: 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5), created: Date.now(), fav: false, vin: '', nick: '', ...c };
@@ -92,7 +96,8 @@ export function setPref(k, v) { mem.prefs[k] = v; write(); return mem.prefs; }
 
 /* ----- plan dnia ----- */
 export const getPlan = () => mem.plan;
-export function setPlan(ids, carId) { mem.plan = { ids: [...new Set(ids)], carId, ts: Date.now() }; write(); return mem.plan; }
+export function setPlan(ids, carId) { mem.plan = { ids: [...new Set(ids)], carId, ts: Date.now(), bought: ids.length ? (mem.plan.bought || {}) : {} }; write(); return mem.plan; }
+export function toggleBought(key) { const b = { ...(mem.plan.bought || {}) }; if (b[key]) delete b[key]; else b[key] = true; mem.plan = { ...mem.plan, bought: b, ts: Date.now() }; write(); return !!b[key]; }
 export function togglePlan(id, carId) {
   const p = mem.plan; const ids = p.carId && carId && p.carId !== carId ? [] : [...p.ids];
   const i = ids.indexOf(id); if (i >= 0) ids.splice(i, 1); else ids.push(id);

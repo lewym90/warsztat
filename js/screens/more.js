@@ -15,6 +15,8 @@ async function moreScreen() {
     tab: '#/more',
     html: `${topbar({ title: 'Więcej', sub: `Warsztat ${APP_VERSION}` })}
     <div class="wrap">
+      <div class="section-h">${icon('car', 16)} Twoje auta</div>
+      <a class="card resume" href="#/garage"><span class="zi">${icon('car', 20)}</span><span class="zt"><b>Garaż</b><small>Wybierz auto, dodaj kolejne, ustaw ulubione</small></span>${icon('chevron', 20)}</a>
       <div class="section-h">${icon('refresh', 16)} Aktualizacja</div>
       <div class="card pad" style="display:grid;gap:10px">
         <p style="color:var(--muted);font-size:14px;margin:0">Aplikacja sama sprawdza nową wersję co 2 minuty i po powrocie do niej. Jeśli coś wygląda staro, odśwież ją ręcznie. Twoje auta i postęp napraw zostają.</p>
@@ -49,7 +51,7 @@ async function moreScreen() {
       <div class="section-h">${icon('info', 16)} O aplikacji</div>
       <div class="card"><div class="kv">
         <div><span>Wersja</span><b>${APP_VERSION}</b></div>
-        <div><span>Paczki wiedzy</span><b>BMW X5 (E53) · prototyp</b></div>
+        <div><span>Paczki wiedzy</span><b>BMW X5 (E53)</b></div>
         <div><span>Działanie offline</span><b id="offl">sprawdzam…</b></div>
         <div><span>Offline na dziś</span><b id="offl2">…</b></div>
       </div></div>

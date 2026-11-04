@@ -1,4 +1,4 @@
-# KONTYNUACJA: Warsztat (stan na 2026-11-02)
+# KONTYNUACJA: Warsztat (stan na 2026-11-04)
 
 **Ten plik jest instrukcją startową dla Claude na nowym koncie.** Czytaj go w całości przed jakąkolwiek pracą. Opisuje, czym jest projekt, jak pracować z właścicielem, co jest zrobione, co zostało i jak to robić krok po kroku. Szczegóły techniczne są w `docs/` (odsyłacze niżej). Nic w tym pliku nie jest tajne i nie wolno tu zapisywać haseł, kluczy ani tokenów.
 
@@ -28,7 +28,7 @@
 ### Struktura repozytorium
 ```
 index.html, manifest.webmanifest, sw.js   (sw.js ma sekcję FILES generowaną przez build.py)
-css/app.css                               (jeden plik; motyw jasny/ciemny/auto, zmienne CSS)
+css/app.css                               (jeden plik; ciemny motyw domyślny, jasny i auto, zmienne CSS)
 js/                                       moduły; js/screens/* to ekrany (garage, car, zone, repair, plan, search, book, sync, add, sys, more, sources)
 js/art-door.js                            kotwice (focus) na rysunku drzwi
 js/spin.js, art-car.js                    widok 360° auta i kropki stref
@@ -62,6 +62,9 @@ Właściciel jest wymagający i konkretny. Pisze po polsku. Te zasady powtarzał
 ## 3. Stan aplikacji (co jest zrobione)
 
 **Adres:** https://lewym90.github.io/warsztat/. Ostatnie commity: `40fc9e5` (ekran Źródła), `4dfda95` (7 nowych kart Drzwi, opisy katalogu, szkielet diagnostyki).
+
+### 3.0 Szata graficzna WARSZTAT (2026-11-04)
+Projekt właściciela: `docs/projekt-graficzny/` (specyfikacja, projekt ekranów, źródło ikony). Styl Dark Luxury: ciemny motyw domyślny (migracja `prefs.skin`), jasny i auto do wyboru. Paleta w tokenach na początku `css/app.css`, warstwa projektowa na końcu pliku. Ekrany: Start (`js/screens/home.js`, trasa `#/`), Garaż przeniesiony na `#/garage`, Naprawy z zakładkami Naprawy/Części/Katalog i Diagnostyka (`js/screens/repairs.js`), lista zakupów z odhaczaniem w planie (`plan.bought`). Dolna nawigacja: Start, Auto, Naprawy, Plan, Więcej. Auto bieżące: `S.currentCar()`. Przycisk „Zalicz krok” tylko przesuwa talię (postęp nadal = pozycja talii). Hero na Starcie to na razie klatka 360° na tle rysowanym w CSS; czeka na grafiki właściciela. Z makiety świadomie NIE przeniesiono: procentów pewności, numerów części i naprawy filtra paliwa (dane poglądowe bez źródeł).
 
 ### 3.1 Funkcje aplikacji
 - **Garaż, ekran auta** z obrotowym widokiem 360° i kropkami stref (Drzwi, Maska i przód, Wnętrze, Klapa i tył, Koła/hamulce/zawieszenie, Progi/podwozie/napęd) + „Przeglądy i płyny”.

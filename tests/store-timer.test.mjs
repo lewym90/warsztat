@@ -8,7 +8,7 @@ const { backupDue, hasUserData } = await import('../js/backup.js');
 
 test('store: stary zapis dostaje nowe pola', () => {
   const n = S.normalize({ cars: [], prog: {} });
-  assert.deepEqual(n.book, []); assert.equal(n.prefs.theme, 'light'); assert.equal(n.plan.ids.length, 0); assert.equal(n.backup.lastExport, 0);
+  assert.deepEqual(n.book, []); assert.equal(n.prefs.theme, 'dark'); assert.equal(n.plan.ids.length, 0); assert.equal(n.backup.lastExport, 0);
 });
 test('store: notatki zapisują się i kasują pustym tekstem', () => {
   S.init(); const c = S.cars()[0].id;

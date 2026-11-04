@@ -24,7 +24,7 @@ async function searchScreen(q) {
   const sets = await loadIndex();
   const start = (q && q.get && q.get('q')) || '';
   return {
-    tab: '#/search',
+    tab: '#/repairs',
     html: `${topbar({ title: 'Szukaj', sub: 'Kroki, części, numery OE, narzędzia' })}
     <div class="wrap">
       <label class="zsearch big">${icon('search', 18)}<input id="gq" type="search" value="${esc(start)}" placeholder="np. klamka, 51218402540, torx T20" autocomplete="off" enterkeyhint="search" aria-label="Szukaj w poradnikach"></label>

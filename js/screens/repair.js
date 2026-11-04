@@ -120,11 +120,11 @@ async function repairScreen(carId, rid, q) {
     const extra = [mins ? `<button class="dk-chip timer" data-timer="${mins}" data-label="${esc(s.t)}">${icon('clock', 14)} Minutnik ${mins} min</button>` : '',
       ...clips.map(m => `<button class="dk-chip" data-clip='${esc(JSON.stringify({ id: m.id, t: m.t, e: m.e, cap: m.cap }))}'>${icon('chevron', 14)} Film od ${fmtT(m.t)}${m.e ? ' do ' + fmtT(m.e) : ''}</button>`),
       ...links.map(m => `<a class="dk-chip" href="${esc(m.url)}" target="_blank" rel="noopener">${icon('link', 14)} ${esc(m.label || 'Link')}</a>`)].join('');
-    const metaA = `<div class="dk-meta"><span class="dk-pill gold">${esc(s.phase || 'Krok')}</span><span class="dk-pill">Krok ${i + 1} z ${nSteps}</span><span class="dk-pill">~${s.min} min</span><span class="dk-pill conf-${c[0]}">${s.conf === 'high' ? 'Pewne' : s.conf === 'med' ? 'Jedno źródło' : 'Do sprawdzenia'}</span></div>`;
+    const metaA = `<div class="dk-meta"><span class="dk-pill acc">${esc(s.phase || 'Krok')}</span><span class="dk-pill">${icon('clock', 13)} ~${s.min} min</span><span class="dk-pill conf-${c[0]}">${s.conf === 'high' ? 'Pewne' : s.conf === 'med' ? 'Jedno źródło' : 'Do sprawdzenia'}</span></div>`;
     const dangerH = s.danger ? `<div class="dk-note danger"><b>Poduszka powietrzna</b><span>${typeof s.danger === 'string' ? esc(s.danger) : 'Nie odłączaj wtyczki bez odłączenia akumulatora i odczekania co najmniej 30 minut.'}</span></div>` : '';
     const warnH = s.warn ? `<div class="dk-note warn"><b>Uwaga</b><span>${typeof s.warn === 'string' ? esc(s.warn) : 'Zabezpiecz lakier taśmą malarską.'}</span></div>` : '';
     const lis = (s.how || []).length ? `<ol class="dk-how">${s.how.map(h => `<li>${esc(h)}</li>`).join('')}</ol>` : '';
-    const ctx = `<p class="dk-lead">${esc(s.b)}</p>${s.see ? `<p class="dk-see">${icon('eye', 16)}<span><b>Co zobaczysz:</b> ${esc(s.see)}</span></p>` : ''}${s.tools ? `<div class="dk-tl">${s.tools.map(t => `<span class="dk-pill">${icon('wrench', 12)} ${esc(t)}</span>`).join('')}</div>` : ''}`;
+    const ctx = `<p class="dk-lead">${esc(s.b)}</p>${s.see ? `<div class="dk-see"><b>Co zobaczysz</b><span>${esc(s.see)}</span></div>` : ''}${s.tools ? `<div class="dk-tl">${s.tools.map(t => `<span class="dk-pill">${icon('wrench', 12)} ${esc(t)}</span>`).join('')}</div>` : ''}`;
     const risk = `${s.mistakes ? `<div class="dk-note mist"><b>Typowe błędy</b><ul>${s.mistakes.map(m => `<li>${esc(m)}</li>`).join('')}</ul></div>` : ''}${s.check ? `<div class="dk-note check"><b>Sprawdź, zanim przesuniesz dalej</b><span>${esc(s.check)}</span></div>` : ''}${s.tip ? `<div class="dk-note tip"><b>Wskazówka</b><span>${esc(s.tip)}</span></div>` : ''}`;
     const bTail = `${s.link ? `<a class="btn small" href="#/car/${carId}/r/${s.link}">${icon('book', 16)} Otwórz kartę: ${esc(relTitle(s.link))}</a>` : ''}<div class="dk-srcs">${srcChips(s.src)}</div>`;
     cards.push({ step: i, first: true, last: true, label: s.t, html: `
@@ -162,7 +162,7 @@ async function repairScreen(carId, rid, q) {
       <div class="dk" id="dk">
         <header class="dk-top">
           <a class="dk-ib" href="#/car/${carId}/zone/doors?door=${rep.door === 'rear' ? 'rear' : 'front'}" aria-label="Wróć do listy">${icon('back', 22)}</a>
-          <div class="dk-t"><b>${esc(rep.title)}</b><small>${esc(pack.title)}${car.engine ? ' · ' + esc(car.engine) : ''}</small></div>
+          <div class="dk-t"><b>${esc(rep.title)}</b><small id="dk-where">${esc(pack.title)}${car.engine ? ' · ' + esc(car.engine) : ''}</small></div>
           <button class="dk-ib" id="dk-timer" aria-label="Minutnik">${icon('clock', 22)}</button>
           <button class="dk-ib dk-aa" id="dk-aa" aria-label="Wygląd i wielkość liter">Aa</button>
           <button class="dk-ib" id="dk-menu" aria-label="Spis kart">${icon('list', 22)}</button>
@@ -171,9 +171,11 @@ async function repairScreen(carId, rid, q) {
         <div class="dk-track" id="dk-track" role="region" aria-roledescription="karuzela" aria-label="Karty naprawy">${cards.map((c, k) => `<section class="dk-card${c.step != null ? ' is-step' : ''}" data-k="${k}" role="group" aria-roledescription="karta" aria-label="Karta ${k + 1} z ${total}: ${esc(c.label)}"><div class="dk-in">${c.html}</div></section>`).join('')}</div>
         <div class="sr-only" id="dk-live" aria-live="polite"></div>
         <footer class="dk-bar">
-          <button class="dk-nav" id="dk-prev" aria-label="Poprzednia karta">${icon('back', 26)}</button>
           <button class="dk-mid" id="dk-mid" aria-label="Otwórz spis kart"><span id="dk-count"></span><i class="dk-prog"><u id="dk-fill"></u></i></button>
-          <button class="dk-nav go" id="dk-next" aria-label="Następna karta">${icon('chevron', 26)}</button>
+          <div class="dk-btns">
+            <button class="dk-nav" id="dk-prev" aria-label="Poprzednia karta">${icon('back', 24)}</button>
+            <button class="dk-nav go" id="dk-next"><span id="dk-nextl">Dalej</span></button>
+          </div>
         </footer>
         <div class="dk-sheet" id="dk-sheet" hidden role="dialog" aria-modal="true" aria-label="Spis kart"><div class="dk-sheet-in">
           <div class="dk-sh-h"><b>Spis kart</b><button class="dk-ib" id="dk-close" aria-label="Zamknij">${icon('x', 22)}</button></div>
@@ -196,7 +198,7 @@ async function repairScreen(carId, rid, q) {
       loc.onclick = () => {
         const lb = document.createElement('div'); lb.className = 'lightbox';
         const v = svg.dataset.view;
-        lb.innerHTML = `<div class="lb-in"><div class="dk-bigloc">${svg.outerHTML}</div><div class="lb-cap"><p><b>Gdzie to jest:</b> ${esc(VIEW_LABELS[v] || '')}. Złota celownica wskazuje miejsce na drzwiach.</p><div class="lb-act"><button class="btn small primary" data-x>Zamknij</button></div></div></div>`;
+        lb.innerHTML = `<div class="lb-in"><div class="dk-bigloc">${svg.outerHTML}</div><div class="lb-cap"><p><b>Gdzie to jest:</b> ${esc(VIEW_LABELS[v] || '')}. Niebieska celownica wskazuje miejsce na drzwiach.</p><div class="lb-act"><button class="btn small primary" data-x>Zamknij</button></div></div></div>`;
         lb.addEventListener('click', e => { if (e.target === lb || e.target.closest('[data-x]')) lb.remove(); });
         document.body.appendChild(lb);
       };
@@ -213,6 +215,8 @@ async function repairScreen(carId, rid, q) {
         const c0 = cards[pos];
         const label = c0.step != null ? `Krok ${c0.step + 1} z ${nSteps}` : c0.label;
         $('#dk-count', el).textContent = label;
+        $('#dk-where', el).textContent = c0.step != null ? label : `${pack.title}${car.engine ? ' · ' + car.engine : ''}`;
+        $('#dk-nextl', el).textContent = pos === total - 1 ? 'Koniec karty' : c0.step != null ? 'Zalicz krok' : 'Dalej';
         $('#dk-live', el).textContent = `${label}. ${c0.label}`;
         $('#dk-fill', el).style.width = ((pos + 1) / total * 100) + '%';
         $('#dk-prev', el).disabled = pos === 0; $('#dk-next', el).disabled = pos === total - 1;

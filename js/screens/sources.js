@@ -42,10 +42,12 @@ async function sourcesScreen(carId) {
     <div class="wrap src-wrap">
       <p class="src-intro">Zestawienie wszystkiego, z czego korzysta Warsztat dla tego auta: ${n} źródeł z opisem, autorami wypowiedzi i miejscami użycia. Treści i zdjęcia należą do ich autorów i właścicieli stron. Aplikacja je tylko porządkuje i odsyła do oryginałów. Przy kartach napraw nie powtarzamy tych danych.</p>
       <label class="zsearch">${icon('search', 18)}<input id="srcq" type="search" placeholder="Szukaj w źródłach" aria-label="Szukaj w źródłach" autocomplete="off"></label>
-      <div id="srclist">${groups.map(g => `<section class="src-group"><h2>${esc(g.label)} <em>${g.items.length}</em></h2>${g.items.map(card).join('')}</section>`).join('')}${mediaHtml}</div>
+      <div class="card src-sum">${groups.map((g, k) => `<button data-jump="${k}"><span>${esc(g.label)}</span><b>${g.items.length}</b></button>`).join('')}</div>
+      <div id="srclist">${groups.map(g => `<section class="src-group" data-g="${groups.indexOf(g)}"><h2>${esc(g.label)} <em>${g.items.length}</em></h2>${g.items.map(card).join('')}</section>`).join('')}${mediaHtml}</div>
       <p class="foot">Nick autora pokazujemy tam, gdzie karta cytuje konkretną wypowiedź. Brak nicka oznacza, że autora jeszcze nie ustalono.</p>
     </div>`,
     bind(el) {
+      $$('[data-jump]', el).forEach(b => b.onclick = () => { const s = $(`[data-g="${b.dataset.jump}"]`, el); if (s) s.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
       $('#srcq', el).addEventListener('input', e => {
         const q = e.target.value.trim().toLowerCase();
         $$('.src-card[data-q]', el).forEach(c => { c.hidden = !!q && !c.dataset.q.includes(q); });

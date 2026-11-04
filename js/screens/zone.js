@@ -46,7 +46,7 @@ async function zoneScreen(carId, zoneId, q) {
       </div>
     </div>`;
   return {
-    tab: null, html,
+    tab: '#/auto', html,
     bind(el) {
       const norm = t => String(t).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/ł/g, 'l');
       const paintList = () => {

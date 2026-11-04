@@ -9,7 +9,7 @@ export function applyPrefs() {
   r.dataset.theme = p.theme; r.style.setProperty('--fscale', p.fs);
   const m = document.querySelector('meta[name="theme-color"]');
   const dark = p.theme === 'dark' || (p.theme === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches);
-  if (m) m.content = dark ? '#0b0a08' : '#f6f2e9';
+  if (m) m.content = dark ? '#081321' : '#eef3f9';
 }
 export function stepFont(dir) {
   const i = FS_STEPS.findIndex(x => Math.abs(x - S.prefs().fs) < 0.01);

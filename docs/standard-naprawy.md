@@ -40,7 +40,7 @@ Po dodaniu: sprawdzić w przeglądarce, że wszystkie zdjęcia się ładują (Im
 ## 4. Wyświetlanie: talia kart (od 2026-11-01)
 - Ekran naprawy to talia kart przesuwana palcem poziomo (CSS scroll-snap). Kolejność: Podsumowanie, Ostrzeżenia (jeśli są), Narzędzia (odhaczane), Części (z „Kopiuj”), Filmy (jeśli są), kroki, Po montażu, Źródła.
 - **Jeden krok = jedna karta przewijana w pionie.** Nie dzielimy kroku na kilka ekranów (użytkownik odrzucił taki układ). Kolejność w karcie: pasek (faza, krok x z y, czas, pewność), tytuł, ostrzeżenia, zdjęcie (dotknięcie otwiera galerię), klipy, numerowane czynności, opis, „Co zobaczysz”, narzędzia, typowe błędy, kontrola, wskazówka, źródła.
-- **Postęp = pozycja talii.** Krok jest „zrobiony”, gdy użytkownik przesunął się poza jego kartę; cofnięcie karty cofa postęp. Nie ma przycisku „Zrobione”. Postęp: `prog.pos`, `prog.steps[i]` liczone automatycznie.
+- **Postęp = pozycja talii.** Krok jest „zrobiony”, gdy użytkownik przesunął się poza jego kartę; cofnięcie karty cofa postęp. Przycisk „Zalicz krok” tylko przesuwa talię. Postęp: `prog.pos`, `prog.steps[i]` liczone automatycznie.
 - Przycisk „Gdzie?” w rogu pokazuje rysunek drzwi z celownicą (anchory) i powiększa się po dotknięciu.
 - Spis kart (ikona listy lub pasek na dole): skok do dowolnego kroku, zapis offline, wyzerowanie postępu.
 
@@ -69,7 +69,7 @@ Po dodaniu: sprawdzić w przeglądarce, że wszystkie zdjęcia się ładują (Im
 6. Raport do użytkownika po polsku: co zmieniono i czego nie zweryfikowano. Nie pisać „zrobione”, jeśli część zostaje.
 
 ## 7. Uwagi stałe
-- Interfejs po polsku. **Wygląd: jasny motyw** (kość słoniowa, ciemny tekst, złoty akcent `#8a6317`), bo jest czytelniejszy w garażu; zdjęcia auta i widok 360° zostają w ciemnych ramkach.
+- Interfejs po polsku. **Wygląd: Dark Luxury** (Midnight Navy, Electric Blue; od 2026-11-04, `docs/projekt-graficzny/`). Jasny motyw zostaje do wyboru, np. do pracy w jasnym garażu.
 - Poduszka powietrzna: zalecamy odkręcić i zawiesić bez odpinania wtyczki. Odpinanie tylko po odłączeniu akumulatora i odczekaniu co najmniej 30 minut.
 - Kolejne naprawy robimy po jednej, dopracowanej, a nie wiele szkiców.
 

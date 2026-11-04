@@ -12,6 +12,7 @@ const zoneLabels = { doors: 'Drzwi', hood: 'Maska i przód', interior: 'Wnętrze
 async function carScreen(id) {
   const car = S.car(id);
   if (!car) { location.hash = '#/'; return { html: '' }; }
+  S.setCurrent(id);
   const match = await matchPack(car).catch(() => null);
   const pack = match ? await getPack(match.id) : null;
   const catalog = pack ? await getCatalog(pack.id).catch(() => null) : null;
@@ -22,8 +23,7 @@ async function carScreen(id) {
     const c = cnt(z);
     return `<a class="sys ${c.r ? 'ready' : 'planned'}" href="#/car/${id}/zone/${z.id}">
       <div class="ico">${icon(z.icon, 22)}</div>
-      <div><b>${esc(z.label)}</b><small>${c.n} napraw${c.r ? ` · ${c.r} gotowych` : ''}</small></div>
-      <div class="chips"><span class="chip ${c.r ? 'ok' : ''}">${c.r ? 'Gotowe: ' + c.r : 'W planie'}</span></div></a>`;
+      <div><b>${esc(z.label)}</b><small>${c.n} napraw${c.r ? ` · gotowe: ${c.r}` : c.d ? ` · wstępne: ${c.d}` : ''}</small></div></a>`;
   }).join('') : '';
   const sysTiles = zoneTiles || (pack ? pack.systems : defaultSystems()).map(s => {
     const isReady = !!s.ready;
@@ -35,12 +35,13 @@ async function carScreen(id) {
   }).join('');
   const vinShown = car.vin ? `${car.vin.slice(0, 3)}${'•'.repeat(Math.max(car.vin.length - 6, 0))}${car.vin.slice(-3)}` : '';
   return {
-    tab: null,
+    tab: '#/auto',
     html: `
-      ${topbar({ back: '#/', title: carName(car), sub: carSub(car), right: `<button class="iconbtn ${car.fav ? 'on' : ''}" id="fav" aria-label="Ulubione">${icon(car.fav ? 'starFill' : 'star', 20)}</button><button class="iconbtn" id="edit" aria-label="Edytuj">${icon('more', 20)}</button>` })}
+      ${topbar({ back: '#/garage', title: carName(car), sub: carSub(car), right: `<button class="iconbtn ${car.fav ? 'on' : ''}" id="fav" aria-label="Ulubione">${icon(car.fav ? 'starFill' : 'star', 20)}</button><button class="iconbtn" id="edit" aria-label="Edytuj">${icon('more', 20)}</button>` })}
       <div class="wrap car-wrap">
         <div class="car-main">
         <div class="card hero-card glow">
+          ${pack && SPINS[pack.id] ? `<span class="b360">360°${icon('turn', 18)}</span>` : ''}
           ${SPINS[pack && pack.id] ? spinHtml(SPINS[pack.id], zoneLabels) : carSVG({ pins: pack ? ['door_front', 'door_rear'] : [], photo: PHOTOS[pack && pack.id] || '' })}
           <div class="caption" id="cap">${pack ? `${icon('spark', 16)} ${SPINS[pack.id] ? 'Obracaj auto palcem, dotknij kropki' : 'Dotknij drzwi, aby zobaczyć poradniki'}` : `${icon('clock', 16)} Dla tego auta nie ma jeszcze opracowania`}</div>
         </div>
@@ -54,7 +55,7 @@ async function carScreen(id) {
           <button class="btn primary" id="req">${icon('wrench', 18)} Zamów opracowanie</button>
         </div>`}
         <a class="card resume" href="#/book/${id}"><span class="zi">${icon('book', 20)}</span><span class="zt"><b>Książka serwisowa</b><small>${S.bookEntries(id).length ? S.bookEntries(id).length + ' wpisów' + (car.km ? ' · przebieg ' + car.km + ' km' : '') : 'Przebieg, daty, koszty i kupione części'}</small></span>${icon('chevron', 20)}</a>
-        <div class="section-h">${icon('list', 16)} ${catalog ? 'Strefy auta' : 'Układy'}</div>
+        <h2 class="pick-h">${catalog ? 'Wybierz strefę' : 'Układy'}</h2>
         <div class="sys-grid">${sysTiles}</div>
         <div class="section-h">${icon('key', 16)} Dane auta</div>
         <div class="card"><div class="kv">

@@ -9,8 +9,8 @@ const blockOf = sel => { const i = css.indexOf(sel + ' {'); assert.ok(i >= 0, se
 const sets = {
   'jasny': [vars(blockOf(':root')), [['text', 'bg'], ['text', 'surface'], ['muted', 'bg'], ['muted', 'surface'], ['accent', 'bg'], ['accent', 'surface']]],
   'ciemny': [vars(blockOf(':root[data-theme="dark"]')), [['text', 'bg'], ['text', 'surface'], ['muted', 'bg'], ['muted', 'surface'], ['accent', 'bg'], ['accent', 'surface']]],
-  'talia jasna': [vars(blockOf('.dk')), [['ink', 'bg'], ['ink', 'surface'], ['muted', 'bg'], ['muted', 'surface'], ['gold', 'surface'], ['gold', 'bg'], ['on-gold', 'gold'], ['danger', 'dangerbg'], ['warnc', 'warnbg'], ['okc', 'okbg']]],
-  'talia ciemna': [vars(blockOf(':root[data-theme="dark"] .dk')), [['ink', 'bg'], ['ink', 'surface'], ['muted', 'bg'], ['muted', 'surface'], ['gold', 'surface'], ['gold', 'bg'], ['on-gold', 'gold'], ['danger', 'dangerbg'], ['warnc', 'warnbg'], ['okc', 'okbg']]]
+  'talia jasna': [vars(blockOf('.dk')), [['ink', 'bg'], ['ink', 'surface'], ['muted', 'bg'], ['muted', 'surface'], ['acc', 'surface'], ['acc', 'bg'], ['on-acc', 'acc'], ['danger', 'dangerbg'], ['warnc', 'warnbg'], ['okc', 'okbg']]],
+  'talia ciemna': [vars(blockOf(':root[data-theme="dark"] .dk')), [['ink', 'bg'], ['ink', 'surface'], ['muted', 'bg'], ['muted', 'surface'], ['acc', 'surface'], ['acc', 'bg'], ['on-acc', 'acc'], ['danger', 'dangerbg'], ['warnc', 'warnbg'], ['okc', 'okbg']]]
 };
 for (const [name, [v, pairs]] of Object.entries(sets)) {
   test(`kontrast WCAG AA (4.5:1) – ${name}`, () => {
